@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,6 +27,11 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
     /** The unique arn of the channel. */
     private String arn;
     /**
+     * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one
+     * pipeline.
+     */
+    private String channelClass;
+    /**
      * A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types
      * (HLS, for example), there is one destination per packager.
      */
@@ -51,6 +56,8 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
     private String roleArn;
 
     private String state;
+    /** A collection of key-value pairs. */
+    private java.util.Map<String, String> tags;
 
     /**
      * The unique arn of the channel.
@@ -83,6 +90,65 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
 
     public StopChannelResult withArn(String arn) {
         setArn(arn);
+        return this;
+    }
+
+    /**
+     * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one
+     * pipeline.
+     * 
+     * @param channelClass
+     *        The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel
+     *        with one pipeline.
+     * @see ChannelClass
+     */
+
+    public void setChannelClass(String channelClass) {
+        this.channelClass = channelClass;
+    }
+
+    /**
+     * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one
+     * pipeline.
+     * 
+     * @return The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel
+     *         with one pipeline.
+     * @see ChannelClass
+     */
+
+    public String getChannelClass() {
+        return this.channelClass;
+    }
+
+    /**
+     * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one
+     * pipeline.
+     * 
+     * @param channelClass
+     *        The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel
+     *        with one pipeline.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see ChannelClass
+     */
+
+    public StopChannelResult withChannelClass(String channelClass) {
+        setChannelClass(channelClass);
+        return this;
+    }
+
+    /**
+     * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one
+     * pipeline.
+     * 
+     * @param channelClass
+     *        The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel
+     *        with one pipeline.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see ChannelClass
+     */
+
+    public StopChannelResult withChannelClass(ChannelClass channelClass) {
+        this.channelClass = channelClass.toString();
         return this;
     }
 
@@ -561,7 +627,63 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * A collection of key-value pairs.
+     * 
+     * @return A collection of key-value pairs.
+     */
+
+    public java.util.Map<String, String> getTags() {
+        return tags;
+    }
+
+    /**
+     * A collection of key-value pairs.
+     * 
+     * @param tags
+     *        A collection of key-value pairs.
+     */
+
+    public void setTags(java.util.Map<String, String> tags) {
+        this.tags = tags;
+    }
+
+    /**
+     * A collection of key-value pairs.
+     * 
+     * @param tags
+     *        A collection of key-value pairs.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StopChannelResult withTags(java.util.Map<String, String> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    public StopChannelResult addTagsEntry(String key, String value) {
+        if (null == this.tags) {
+            this.tags = new java.util.HashMap<String, String>();
+        }
+        if (this.tags.containsKey(key))
+            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
+        this.tags.put(key, value);
+        return this;
+    }
+
+    /**
+     * Removes all the entries added into Tags.
+     *
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StopChannelResult clearTagsEntries() {
+        this.tags = null;
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -573,6 +695,8 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
         sb.append("{");
         if (getArn() != null)
             sb.append("Arn: ").append(getArn()).append(",");
+        if (getChannelClass() != null)
+            sb.append("ChannelClass: ").append(getChannelClass()).append(",");
         if (getDestinations() != null)
             sb.append("Destinations: ").append(getDestinations()).append(",");
         if (getEgressEndpoints() != null)
@@ -594,7 +718,9 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
         if (getRoleArn() != null)
             sb.append("RoleArn: ").append(getRoleArn()).append(",");
         if (getState() != null)
-            sb.append("State: ").append(getState());
+            sb.append("State: ").append(getState()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -612,6 +738,10 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
         if (other.getArn() == null ^ this.getArn() == null)
             return false;
         if (other.getArn() != null && other.getArn().equals(this.getArn()) == false)
+            return false;
+        if (other.getChannelClass() == null ^ this.getChannelClass() == null)
+            return false;
+        if (other.getChannelClass() != null && other.getChannelClass().equals(this.getChannelClass()) == false)
             return false;
         if (other.getDestinations() == null ^ this.getDestinations() == null)
             return false;
@@ -657,6 +787,10 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
             return false;
         if (other.getState() != null && other.getState().equals(this.getState()) == false)
             return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
+            return false;
         return true;
     }
 
@@ -666,6 +800,7 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getArn() == null) ? 0 : getArn().hashCode());
+        hashCode = prime * hashCode + ((getChannelClass() == null) ? 0 : getChannelClass().hashCode());
         hashCode = prime * hashCode + ((getDestinations() == null) ? 0 : getDestinations().hashCode());
         hashCode = prime * hashCode + ((getEgressEndpoints() == null) ? 0 : getEgressEndpoints().hashCode());
         hashCode = prime * hashCode + ((getEncoderSettings() == null) ? 0 : getEncoderSettings().hashCode());
@@ -677,6 +812,7 @@ public class StopChannelResult extends com.amazonaws.AmazonWebServiceResult<com.
         hashCode = prime * hashCode + ((getPipelinesRunningCount() == null) ? 0 : getPipelinesRunningCount().hashCode());
         hashCode = prime * hashCode + ((getRoleArn() == null) ? 0 : getRoleArn().hashCode());
         hashCode = prime * hashCode + ((getState() == null) ? 0 : getState().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -21,8 +21,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <p>
  * Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.
  * </p>
- * <div class="seeAlso"> <a href="[[AwsDocsUrlPrefix]]/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy
- * an API</a> </div>
+ * <div class="seeAlso"> <a
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class Stage implements Serializable, Cloneable, StructuredPojo {
@@ -109,6 +109,12 @@ public class Stage implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private Boolean tracingEnabled;
+    /**
+     * <p>
+     * The ARN of the WebAcl associated with the <a>Stage</a>.
+     * </p>
+     */
+    private String webAclArn;
     /**
      * <p>
      * The collection of tags. Each tag element is associated with a given resource.
@@ -776,6 +782,46 @@ public class Stage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
+     * The ARN of the WebAcl associated with the <a>Stage</a>.
+     * </p>
+     * 
+     * @param webAclArn
+     *        The ARN of the WebAcl associated with the <a>Stage</a>.
+     */
+
+    public void setWebAclArn(String webAclArn) {
+        this.webAclArn = webAclArn;
+    }
+
+    /**
+     * <p>
+     * The ARN of the WebAcl associated with the <a>Stage</a>.
+     * </p>
+     * 
+     * @return The ARN of the WebAcl associated with the <a>Stage</a>.
+     */
+
+    public String getWebAclArn() {
+        return this.webAclArn;
+    }
+
+    /**
+     * <p>
+     * The ARN of the WebAcl associated with the <a>Stage</a>.
+     * </p>
+     * 
+     * @param webAclArn
+     *        The ARN of the WebAcl associated with the <a>Stage</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Stage withWebAclArn(String webAclArn) {
+        setWebAclArn(webAclArn);
+        return this;
+    }
+
+    /**
+     * <p>
      * The collection of tags. Each tag element is associated with a given resource.
      * </p>
      * 
@@ -916,7 +962,8 @@ public class Stage implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -952,6 +999,8 @@ public class Stage implements Serializable, Cloneable, StructuredPojo {
             sb.append("CanarySettings: ").append(getCanarySettings()).append(",");
         if (getTracingEnabled() != null)
             sb.append("TracingEnabled: ").append(getTracingEnabled()).append(",");
+        if (getWebAclArn() != null)
+            sb.append("WebAclArn: ").append(getWebAclArn()).append(",");
         if (getTags() != null)
             sb.append("Tags: ").append(getTags()).append(",");
         if (getCreatedDate() != null)
@@ -1024,6 +1073,10 @@ public class Stage implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTracingEnabled() != null && other.getTracingEnabled().equals(this.getTracingEnabled()) == false)
             return false;
+        if (other.getWebAclArn() == null ^ this.getWebAclArn() == null)
+            return false;
+        if (other.getWebAclArn() != null && other.getWebAclArn().equals(this.getWebAclArn()) == false)
+            return false;
         if (other.getTags() == null ^ this.getTags() == null)
             return false;
         if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
@@ -1057,6 +1110,7 @@ public class Stage implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getAccessLogSettings() == null) ? 0 : getAccessLogSettings().hashCode());
         hashCode = prime * hashCode + ((getCanarySettings() == null) ? 0 : getCanarySettings().hashCode());
         hashCode = prime * hashCode + ((getTracingEnabled() == null) ? 0 : getTracingEnabled().hashCode());
+        hashCode = prime * hashCode + ((getWebAclArn() == null) ? 0 : getWebAclArn().hashCode());
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         hashCode = prime * hashCode + ((getCreatedDate() == null) ? 0 : getCreatedDate().hashCode());
         hashCode = prime * hashCode + ((getLastUpdatedDate() == null) ? 0 : getLastUpdatedDate().hashCode());

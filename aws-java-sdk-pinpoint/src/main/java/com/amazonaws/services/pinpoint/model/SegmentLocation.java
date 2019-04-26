@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,16 +26,16 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class SegmentLocation implements Serializable, Cloneable, StructuredPojo {
 
-    /** The country filter according to ISO 3166-1 Alpha-2 codes. */
+    /** The country or region, in ISO 3166-1 alpha-2 format. */
     private SetDimension country;
     /** The GPS Point dimension. */
     private GPSPointDimension gPSPoint;
 
     /**
-     * The country filter according to ISO 3166-1 Alpha-2 codes.
+     * The country or region, in ISO 3166-1 alpha-2 format.
      * 
      * @param country
-     *        The country filter according to ISO 3166-1 Alpha-2 codes.
+     *        The country or region, in ISO 3166-1 alpha-2 format.
      */
 
     public void setCountry(SetDimension country) {
@@ -43,9 +43,9 @@ public class SegmentLocation implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The country filter according to ISO 3166-1 Alpha-2 codes.
+     * The country or region, in ISO 3166-1 alpha-2 format.
      * 
-     * @return The country filter according to ISO 3166-1 Alpha-2 codes.
+     * @return The country or region, in ISO 3166-1 alpha-2 format.
      */
 
     public SetDimension getCountry() {
@@ -53,10 +53,10 @@ public class SegmentLocation implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The country filter according to ISO 3166-1 Alpha-2 codes.
+     * The country or region, in ISO 3166-1 alpha-2 format.
      * 
      * @param country
-     *        The country filter according to ISO 3166-1 Alpha-2 codes.
+     *        The country or region, in ISO 3166-1 alpha-2 format.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -100,7 +100,8 @@ public class SegmentLocation implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

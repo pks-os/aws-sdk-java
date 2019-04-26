@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -63,7 +63,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens
+     * Can't end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -167,7 +167,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
      * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -207,7 +207,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
      * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -279,6 +279,34 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      */
     private Boolean deletionProtection;
+    /**
+     * <note>
+     * <p>
+     * HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     * </p>
+     * </note>
+     * <p>
+     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the
+     * HTTP endpoint is disabled.
+     * </p>
+     * <p>
+     * When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora
+     * Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+     * </p>
+     * <p>
+     * For more information about Aurora Serverless, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora
+     * Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p>
+     */
+    private Boolean enableHttpEndpoint;
+    /**
+     * <p>
+     * True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is
+     * false.
+     * </p>
+     */
+    private Boolean copyTagsToSnapshot;
 
     /**
      * <p>
@@ -398,7 +426,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens
+     * Can't end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -425,7 +453,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot end with a hyphen or contain two consecutive hyphens
+     *        Can't end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      *        </ul>
@@ -458,7 +486,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens
+     * Can't end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -484,7 +512,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         </li>
      *         <li>
      *         <p>
-     *         Cannot end with a hyphen or contain two consecutive hyphens
+     *         Can't end with a hyphen or contain two consecutive hyphens
      *         </p>
      *         </li>
      *         </ul>
@@ -517,7 +545,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens
+     * Can't end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -544,7 +572,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot end with a hyphen or contain two consecutive hyphens
+     *        Can't end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      *        </ul>
@@ -1174,7 +1202,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
      * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -1209,7 +1237,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To
      *        see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     *        "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      *        </p>
      *        <p>
@@ -1250,7 +1278,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
      * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -1284,7 +1312,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         <p>
      *         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To
      *         see the time blocks available, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     *         "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      *         > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      *         </p>
      *         <p>
@@ -1325,7 +1353,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
      * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -1360,7 +1388,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To
      *        see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     *        "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      *        </p>
      *        <p>
@@ -1405,7 +1433,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
      * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -1423,7 +1451,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
      *        occurring on a random day of the week. To see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     *        "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      *        </p>
      *        <p>
@@ -1447,7 +1475,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
      * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -1464,7 +1492,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         <p>
      *         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
      *         occurring on a random day of the week. To see the time blocks available, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     *         "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      *         > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      *         </p>
      *         <p>
@@ -1488,7 +1516,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
      * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     * "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * <p>
@@ -1506,7 +1534,7 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
      *        occurring on a random day of the week. To see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
+     *        "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
      *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
      *        </p>
      *        <p>
@@ -1937,7 +1965,244 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <note>
+     * <p>
+     * HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     * </p>
+     * </note>
+     * <p>
+     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the
+     * HTTP endpoint is disabled.
+     * </p>
+     * <p>
+     * When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora
+     * Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+     * </p>
+     * <p>
+     * For more information about Aurora Serverless, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora
+     * Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p>
+     * 
+     * @param enableHttpEndpoint
+     *        <p>
+     *        HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     *        </p>
+     *        </note>
+     *        <p>
+     *        A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By
+     *        default, the HTTP endpoint is disabled.
+     *        </p>
+     *        <p>
+     *        When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the
+     *        Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query
+     *        editor.
+     *        </p>
+     *        <p>
+     *        For more information about Aurora Serverless, see <a
+     *        href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon
+     *        Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     */
+
+    public void setEnableHttpEndpoint(Boolean enableHttpEndpoint) {
+        this.enableHttpEndpoint = enableHttpEndpoint;
+    }
+
+    /**
+     * <note>
+     * <p>
+     * HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     * </p>
+     * </note>
+     * <p>
+     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the
+     * HTTP endpoint is disabled.
+     * </p>
+     * <p>
+     * When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora
+     * Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+     * </p>
+     * <p>
+     * For more information about Aurora Serverless, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora
+     * Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p>
+     * 
+     * @return <p>
+     *         HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     *         </p>
+     *         </note>
+     *         <p>
+     *         A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By
+     *         default, the HTTP endpoint is disabled.
+     *         </p>
+     *         <p>
+     *         When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the
+     *         Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query
+     *         editor.
+     *         </p>
+     *         <p>
+     *         For more information about Aurora Serverless, see <a
+     *         href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon
+     *         Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     */
+
+    public Boolean getEnableHttpEndpoint() {
+        return this.enableHttpEndpoint;
+    }
+
+    /**
+     * <note>
+     * <p>
+     * HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     * </p>
+     * </note>
+     * <p>
+     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the
+     * HTTP endpoint is disabled.
+     * </p>
+     * <p>
+     * When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora
+     * Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+     * </p>
+     * <p>
+     * For more information about Aurora Serverless, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora
+     * Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p>
+     * 
+     * @param enableHttpEndpoint
+     *        <p>
+     *        HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     *        </p>
+     *        </note>
+     *        <p>
+     *        A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By
+     *        default, the HTTP endpoint is disabled.
+     *        </p>
+     *        <p>
+     *        When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the
+     *        Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query
+     *        editor.
+     *        </p>
+     *        <p>
+     *        For more information about Aurora Serverless, see <a
+     *        href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon
+     *        Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBClusterRequest withEnableHttpEndpoint(Boolean enableHttpEndpoint) {
+        setEnableHttpEndpoint(enableHttpEndpoint);
+        return this;
+    }
+
+    /**
+     * <note>
+     * <p>
+     * HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     * </p>
+     * </note>
+     * <p>
+     * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the
+     * HTTP endpoint is disabled.
+     * </p>
+     * <p>
+     * When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora
+     * Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+     * </p>
+     * <p>
+     * For more information about Aurora Serverless, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora
+     * Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     * </p>
+     * 
+     * @return <p>
+     *         HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
+     *         </p>
+     *         </note>
+     *         <p>
+     *         A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By
+     *         default, the HTTP endpoint is disabled.
+     *         </p>
+     *         <p>
+     *         When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the
+     *         Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query
+     *         editor.
+     *         </p>
+     *         <p>
+     *         For more information about Aurora Serverless, see <a
+     *         href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon
+     *         Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+     */
+
+    public Boolean isEnableHttpEndpoint() {
+        return this.enableHttpEndpoint;
+    }
+
+    /**
+     * <p>
+     * True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is
+     * false.
+     * </p>
+     * 
+     * @param copyTagsToSnapshot
+     *        True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default
+     *        is false.
+     */
+
+    public void setCopyTagsToSnapshot(Boolean copyTagsToSnapshot) {
+        this.copyTagsToSnapshot = copyTagsToSnapshot;
+    }
+
+    /**
+     * <p>
+     * True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is
+     * false.
+     * </p>
+     * 
+     * @return True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The
+     *         default is false.
+     */
+
+    public Boolean getCopyTagsToSnapshot() {
+        return this.copyTagsToSnapshot;
+    }
+
+    /**
+     * <p>
+     * True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is
+     * false.
+     * </p>
+     * 
+     * @param copyTagsToSnapshot
+     *        True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default
+     *        is false.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBClusterRequest withCopyTagsToSnapshot(Boolean copyTagsToSnapshot) {
+        setCopyTagsToSnapshot(copyTagsToSnapshot);
+        return this;
+    }
+
+    /**
+     * <p>
+     * True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is
+     * false.
+     * </p>
+     * 
+     * @return True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The
+     *         default is false.
+     */
+
+    public Boolean isCopyTagsToSnapshot() {
+        return this.copyTagsToSnapshot;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1980,7 +2245,11 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
         if (getScalingConfiguration() != null)
             sb.append("ScalingConfiguration: ").append(getScalingConfiguration()).append(",");
         if (getDeletionProtection() != null)
-            sb.append("DeletionProtection: ").append(getDeletionProtection());
+            sb.append("DeletionProtection: ").append(getDeletionProtection()).append(",");
+        if (getEnableHttpEndpoint() != null)
+            sb.append("EnableHttpEndpoint: ").append(getEnableHttpEndpoint()).append(",");
+        if (getCopyTagsToSnapshot() != null)
+            sb.append("CopyTagsToSnapshot: ").append(getCopyTagsToSnapshot());
         sb.append("}");
         return sb.toString();
     }
@@ -2065,6 +2334,14 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
             return false;
         if (other.getDeletionProtection() != null && other.getDeletionProtection().equals(this.getDeletionProtection()) == false)
             return false;
+        if (other.getEnableHttpEndpoint() == null ^ this.getEnableHttpEndpoint() == null)
+            return false;
+        if (other.getEnableHttpEndpoint() != null && other.getEnableHttpEndpoint().equals(this.getEnableHttpEndpoint()) == false)
+            return false;
+        if (other.getCopyTagsToSnapshot() == null ^ this.getCopyTagsToSnapshot() == null)
+            return false;
+        if (other.getCopyTagsToSnapshot() != null && other.getCopyTagsToSnapshot().equals(this.getCopyTagsToSnapshot()) == false)
+            return false;
         return true;
     }
 
@@ -2090,6 +2367,8 @@ public class ModifyDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
         hashCode = prime * hashCode + ((getEngineVersion() == null) ? 0 : getEngineVersion().hashCode());
         hashCode = prime * hashCode + ((getScalingConfiguration() == null) ? 0 : getScalingConfiguration().hashCode());
         hashCode = prime * hashCode + ((getDeletionProtection() == null) ? 0 : getDeletionProtection().hashCode());
+        hashCode = prime * hashCode + ((getEnableHttpEndpoint() == null) ? 0 : getEnableHttpEndpoint().hashCode());
+        hashCode = prime * hashCode + ((getCopyTagsToSnapshot() == null) ? 0 : getCopyTagsToSnapshot().hashCode());
         return hashCode;
     }
 

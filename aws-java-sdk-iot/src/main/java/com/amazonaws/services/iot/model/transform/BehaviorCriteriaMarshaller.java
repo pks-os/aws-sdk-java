@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,6 +33,12 @@ public class BehaviorCriteriaMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("value").build();
     private static final MarshallingInfo<Integer> DURATIONSECONDS_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("durationSeconds").build();
+    private static final MarshallingInfo<Integer> CONSECUTIVEDATAPOINTSTOALARM_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("consecutiveDatapointsToAlarm").build();
+    private static final MarshallingInfo<Integer> CONSECUTIVEDATAPOINTSTOCLEAR_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("consecutiveDatapointsToClear").build();
+    private static final MarshallingInfo<StructuredPojo> STATISTICALTHRESHOLD_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("statisticalThreshold").build();
 
     private static final BehaviorCriteriaMarshaller instance = new BehaviorCriteriaMarshaller();
 
@@ -53,6 +59,9 @@ public class BehaviorCriteriaMarshaller {
             protocolMarshaller.marshall(behaviorCriteria.getComparisonOperator(), COMPARISONOPERATOR_BINDING);
             protocolMarshaller.marshall(behaviorCriteria.getValue(), VALUE_BINDING);
             protocolMarshaller.marshall(behaviorCriteria.getDurationSeconds(), DURATIONSECONDS_BINDING);
+            protocolMarshaller.marshall(behaviorCriteria.getConsecutiveDatapointsToAlarm(), CONSECUTIVEDATAPOINTSTOALARM_BINDING);
+            protocolMarshaller.marshall(behaviorCriteria.getConsecutiveDatapointsToClear(), CONSECUTIVEDATAPOINTSTOCLEAR_BINDING);
+            protocolMarshaller.marshall(behaviorCriteria.getStatisticalThreshold(), STATISTICALTHRESHOLD_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

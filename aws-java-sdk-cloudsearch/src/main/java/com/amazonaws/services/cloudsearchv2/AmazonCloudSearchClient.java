@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.cloudsearchv2.AmazonCloudSearchClientBuilder;
 
@@ -76,6 +77,8 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
+
+    private final AdvancedConfig advancedConfig;
 
     /**
      * List of exception unmarshallers for all modeled exceptions
@@ -166,6 +169,7 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
     public AmazonCloudSearchClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -231,6 +235,7 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -249,9 +254,7 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
      *        Object providing client parameters.
      */
     AmazonCloudSearchClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -267,6 +270,7 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
     AmazonCloudSearchClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -333,11 +337,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BuildSuggesters");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<BuildSuggestersResult> responseHandler = new StaxResponseHandler<BuildSuggestersResult>(
                     new BuildSuggestersResultStaxUnmarshaller());
@@ -395,11 +398,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateDomain");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateDomainResult> responseHandler = new StaxResponseHandler<CreateDomainResult>(new CreateDomainResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -461,11 +463,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DefineAnalysisScheme");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DefineAnalysisSchemeResult> responseHandler = new StaxResponseHandler<DefineAnalysisSchemeResult>(
                     new DefineAnalysisSchemeResultStaxUnmarshaller());
@@ -528,11 +529,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DefineExpression");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DefineExpressionResult> responseHandler = new StaxResponseHandler<DefineExpressionResult>(
                     new DefineExpressionResultStaxUnmarshaller());
@@ -598,11 +598,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DefineIndexField");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DefineIndexFieldResult> responseHandler = new StaxResponseHandler<DefineIndexFieldResult>(
                     new DefineIndexFieldResultStaxUnmarshaller());
@@ -666,11 +665,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DefineSuggester");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DefineSuggesterResult> responseHandler = new StaxResponseHandler<DefineSuggesterResult>(
                     new DefineSuggesterResultStaxUnmarshaller());
@@ -730,11 +728,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteAnalysisScheme");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteAnalysisSchemeResult> responseHandler = new StaxResponseHandler<DeleteAnalysisSchemeResult>(
                     new DeleteAnalysisSchemeResultStaxUnmarshaller());
@@ -791,11 +788,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteDomain");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteDomainResult> responseHandler = new StaxResponseHandler<DeleteDomainResult>(new DeleteDomainResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -854,11 +850,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteExpression");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteExpressionResult> responseHandler = new StaxResponseHandler<DeleteExpressionResult>(
                     new DeleteExpressionResultStaxUnmarshaller());
@@ -918,11 +913,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteIndexField");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteIndexFieldResult> responseHandler = new StaxResponseHandler<DeleteIndexFieldResult>(
                     new DeleteIndexFieldResultStaxUnmarshaller());
@@ -982,11 +976,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteSuggester");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteSuggesterResult> responseHandler = new StaxResponseHandler<DeleteSuggesterResult>(
                     new DeleteSuggesterResultStaxUnmarshaller());
@@ -1049,11 +1042,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAnalysisSchemes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeAnalysisSchemesResult> responseHandler = new StaxResponseHandler<DescribeAnalysisSchemesResult>(
                     new DescribeAnalysisSchemesResultStaxUnmarshaller());
@@ -1120,11 +1112,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAvailabilityOptions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeAvailabilityOptionsResult> responseHandler = new StaxResponseHandler<DescribeAvailabilityOptionsResult>(
                     new DescribeAvailabilityOptionsResultStaxUnmarshaller());
@@ -1184,11 +1175,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeDomains");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeDomainsResult> responseHandler = new StaxResponseHandler<DescribeDomainsResult>(
                     new DescribeDomainsResultStaxUnmarshaller());
@@ -1256,11 +1246,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeExpressions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeExpressionsResult> responseHandler = new StaxResponseHandler<DescribeExpressionsResult>(
                     new DescribeExpressionsResultStaxUnmarshaller());
@@ -1323,11 +1312,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeIndexFields");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeIndexFieldsResult> responseHandler = new StaxResponseHandler<DescribeIndexFieldsResult>(
                     new DescribeIndexFieldsResultStaxUnmarshaller());
@@ -1386,11 +1374,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingParameters");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeScalingParametersResult> responseHandler = new StaxResponseHandler<DescribeScalingParametersResult>(
                     new DescribeScalingParametersResultStaxUnmarshaller());
@@ -1451,11 +1438,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeServiceAccessPolicies");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeServiceAccessPoliciesResult> responseHandler = new StaxResponseHandler<DescribeServiceAccessPoliciesResult>(
                     new DescribeServiceAccessPoliciesResultStaxUnmarshaller());
@@ -1518,11 +1504,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeSuggesters");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeSuggestersResult> responseHandler = new StaxResponseHandler<DescribeSuggestersResult>(
                     new DescribeSuggestersResultStaxUnmarshaller());
@@ -1579,11 +1564,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "IndexDocuments");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<IndexDocumentsResult> responseHandler = new StaxResponseHandler<IndexDocumentsResult>(
                     new IndexDocumentsResultStaxUnmarshaller());
@@ -1632,11 +1616,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDomainNames");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListDomainNamesResult> responseHandler = new StaxResponseHandler<ListDomainNamesResult>(
                     new ListDomainNamesResultStaxUnmarshaller());
@@ -1708,11 +1691,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateAvailabilityOptions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateAvailabilityOptionsResult> responseHandler = new StaxResponseHandler<UpdateAvailabilityOptionsResult>(
                     new UpdateAvailabilityOptionsResultStaxUnmarshaller());
@@ -1777,11 +1759,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateScalingParameters");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateScalingParametersResult> responseHandler = new StaxResponseHandler<UpdateScalingParametersResult>(
                     new UpdateScalingParametersResultStaxUnmarshaller());
@@ -1843,11 +1824,10 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudSearch");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateServiceAccessPolicies");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateServiceAccessPoliciesResult> responseHandler = new StaxResponseHandler<UpdateServiceAccessPoliciesResult>(
                     new UpdateServiceAccessPoliciesResultStaxUnmarshaller());
@@ -1885,18 +1865,18 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -1906,7 +1886,7 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -1914,11 +1894,13 @@ public class AmazonCloudSearchClient extends AmazonWebServiceClient implements A
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

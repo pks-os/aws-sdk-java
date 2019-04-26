@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -112,6 +112,16 @@ public class DBClusterStaxUnmarshaller implements Unmarshaller<DBCluster, StaxUn
 
                 if (context.testExpression("ReaderEndpoint", targetDepth)) {
                     dBCluster.setReaderEndpoint(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("CustomEndpoints", targetDepth)) {
+                    dBCluster.withCustomEndpoints(new ArrayList<String>());
+                    continue;
+                }
+
+                if (context.testExpression("CustomEndpoints/member", targetDepth)) {
+                    dBCluster.withCustomEndpoints(StringStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
 
@@ -292,6 +302,16 @@ public class DBClusterStaxUnmarshaller implements Unmarshaller<DBCluster, StaxUn
 
                 if (context.testExpression("DeletionProtection", targetDepth)) {
                     dBCluster.setDeletionProtection(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("HttpEndpointEnabled", targetDepth)) {
+                    dBCluster.setHttpEndpointEnabled(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("CopyTagsToSnapshot", targetDepth)) {
+                    dBCluster.setCopyTagsToSnapshot(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
             } else if (xmlEvent.isEndElement()) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Contains the parameters for a fleet.
+ * Describes the parameters for a fleet.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/Fleet" target="_top">AWS API
@@ -42,13 +42,13 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
     private String name;
     /**
      * <p>
-     * The fleet name for display.
+     * The fleet name to display.
      * </p>
      */
     private String displayName;
     /**
      * <p>
-     * The description for display.
+     * The description to display.
      * </p>
      */
     private String description;
@@ -100,7 +100,7 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
     private ComputeCapacityStatus computeCapacityStatus;
     /**
      * <p>
-     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      * </p>
      */
     private Integer maxUserDurationInSeconds;
@@ -108,7 +108,7 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      * disconnected reconnects within this time interval, the user is connected to their previous session. Specify a
-     * value between 60 and 57600.
+     * value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      * </p>
      */
     private Integer disconnectTimeoutInSeconds;
@@ -144,7 +144,8 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
     private Boolean enableDefaultInternetAccess;
     /**
      * <p>
-     * The information needed to join a Microsoft Active Directory domain.
+     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
+     * domain.
      * </p>
      */
     private DomainJoinInfo domainJoinInfo;
@@ -231,11 +232,11 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The fleet name for display.
+     * The fleet name to display.
      * </p>
      * 
      * @param displayName
-     *        The fleet name for display.
+     *        The fleet name to display.
      */
 
     public void setDisplayName(String displayName) {
@@ -244,10 +245,10 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The fleet name for display.
+     * The fleet name to display.
      * </p>
      * 
-     * @return The fleet name for display.
+     * @return The fleet name to display.
      */
 
     public String getDisplayName() {
@@ -256,11 +257,11 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The fleet name for display.
+     * The fleet name to display.
      * </p>
      * 
      * @param displayName
-     *        The fleet name for display.
+     *        The fleet name to display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -271,11 +272,11 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The description for display.
+     * The description to display.
      * </p>
      * 
      * @param description
-     *        The description for display.
+     *        The description to display.
      */
 
     public void setDescription(String description) {
@@ -284,10 +285,10 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The description for display.
+     * The description to display.
      * </p>
      * 
-     * @return The description for display.
+     * @return The description to display.
      */
 
     public String getDescription() {
@@ -296,11 +297,11 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The description for display.
+     * The description to display.
      * </p>
      * 
      * @param description
-     *        The description for display.
+     *        The description to display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -704,11 +705,11 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      * </p>
      * 
      * @param maxUserDurationInSeconds
-     *        The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     *        The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      */
 
     public void setMaxUserDurationInSeconds(Integer maxUserDurationInSeconds) {
@@ -717,10 +718,10 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      * </p>
      * 
-     * @return The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     * @return The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      */
 
     public Integer getMaxUserDurationInSeconds() {
@@ -729,11 +730,11 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     * The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      * </p>
      * 
      * @param maxUserDurationInSeconds
-     *        The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+     *        The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -746,13 +747,13 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      * disconnected reconnects within this time interval, the user is connected to their previous session. Specify a
-     * value between 60 and 57600.
+     * value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      * </p>
      * 
      * @param disconnectTimeoutInSeconds
      *        The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      *        disconnected reconnects within this time interval, the user is connected to their previous session.
-     *        Specify a value between 60 and 57600.
+     *        Specify a value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      */
 
     public void setDisconnectTimeoutInSeconds(Integer disconnectTimeoutInSeconds) {
@@ -763,12 +764,12 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      * disconnected reconnects within this time interval, the user is connected to their previous session. Specify a
-     * value between 60 and 57600.
+     * value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      * </p>
      * 
      * @return The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      *         disconnected reconnects within this time interval, the user is connected to their previous session.
-     *         Specify a value between 60 and 57600.
+     *         Specify a value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      */
 
     public Integer getDisconnectTimeoutInSeconds() {
@@ -779,13 +780,13 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      * disconnected reconnects within this time interval, the user is connected to their previous session. Specify a
-     * value between 60 and 57600.
+     * value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      * </p>
      * 
      * @param disconnectTimeoutInSeconds
      *        The time after disconnection when a session is considered to have ended, in seconds. If a user who was
      *        disconnected reconnects within this time interval, the user is connected to their previous session.
-     *        Specify a value between 60 and 57600.
+     *        Specify a value between 60 and 360000. By default, this value is 900 seconds (15 minutes).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1071,11 +1072,13 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The information needed to join a Microsoft Active Directory domain.
+     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
+     * domain.
      * </p>
      * 
      * @param domainJoinInfo
-     *        The information needed to join a Microsoft Active Directory domain.
+     *        The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
+     *        Directory domain.
      */
 
     public void setDomainJoinInfo(DomainJoinInfo domainJoinInfo) {
@@ -1084,10 +1087,12 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The information needed to join a Microsoft Active Directory domain.
+     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
+     * domain.
      * </p>
      * 
-     * @return The information needed to join a Microsoft Active Directory domain.
+     * @return The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
+     *         Directory domain.
      */
 
     public DomainJoinInfo getDomainJoinInfo() {
@@ -1096,11 +1101,13 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The information needed to join a Microsoft Active Directory domain.
+     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
+     * domain.
      * </p>
      * 
      * @param domainJoinInfo
-     *        The information needed to join a Microsoft Active Directory domain.
+     *        The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
+     *        Directory domain.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1110,7 +1117,8 @@ public class Fleet implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

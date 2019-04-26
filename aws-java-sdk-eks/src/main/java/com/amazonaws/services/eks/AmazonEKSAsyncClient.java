@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -170,6 +170,39 @@ public class AmazonEKSAsyncClient extends AmazonEKSClient implements AmazonEKSAs
     }
 
     @Override
+    public java.util.concurrent.Future<DescribeUpdateResult> describeUpdateAsync(DescribeUpdateRequest request) {
+
+        return describeUpdateAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeUpdateResult> describeUpdateAsync(final DescribeUpdateRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DescribeUpdateRequest, DescribeUpdateResult> asyncHandler) {
+        final DescribeUpdateRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DescribeUpdateResult>() {
+            @Override
+            public DescribeUpdateResult call() throws Exception {
+                DescribeUpdateResult result = null;
+
+                try {
+                    result = executeDescribeUpdate(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<ListClustersResult> listClustersAsync(ListClustersRequest request) {
 
         return listClustersAsync(request, null);
@@ -187,6 +220,105 @@ public class AmazonEKSAsyncClient extends AmazonEKSClient implements AmazonEKSAs
 
                 try {
                     result = executeListClusters(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListUpdatesResult> listUpdatesAsync(ListUpdatesRequest request) {
+
+        return listUpdatesAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListUpdatesResult> listUpdatesAsync(final ListUpdatesRequest request,
+            final com.amazonaws.handlers.AsyncHandler<ListUpdatesRequest, ListUpdatesResult> asyncHandler) {
+        final ListUpdatesRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<ListUpdatesResult>() {
+            @Override
+            public ListUpdatesResult call() throws Exception {
+                ListUpdatesResult result = null;
+
+                try {
+                    result = executeListUpdates(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<UpdateClusterConfigResult> updateClusterConfigAsync(UpdateClusterConfigRequest request) {
+
+        return updateClusterConfigAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<UpdateClusterConfigResult> updateClusterConfigAsync(final UpdateClusterConfigRequest request,
+            final com.amazonaws.handlers.AsyncHandler<UpdateClusterConfigRequest, UpdateClusterConfigResult> asyncHandler) {
+        final UpdateClusterConfigRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<UpdateClusterConfigResult>() {
+            @Override
+            public UpdateClusterConfigResult call() throws Exception {
+                UpdateClusterConfigResult result = null;
+
+                try {
+                    result = executeUpdateClusterConfig(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<UpdateClusterVersionResult> updateClusterVersionAsync(UpdateClusterVersionRequest request) {
+
+        return updateClusterVersionAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<UpdateClusterVersionResult> updateClusterVersionAsync(final UpdateClusterVersionRequest request,
+            final com.amazonaws.handlers.AsyncHandler<UpdateClusterVersionRequest, UpdateClusterVersionResult> asyncHandler) {
+        final UpdateClusterVersionRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<UpdateClusterVersionResult>() {
+            @Override
+            public UpdateClusterVersionResult call() throws Exception {
+                UpdateClusterVersionResult result = null;
+
+                try {
+                    result = executeUpdateClusterVersion(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

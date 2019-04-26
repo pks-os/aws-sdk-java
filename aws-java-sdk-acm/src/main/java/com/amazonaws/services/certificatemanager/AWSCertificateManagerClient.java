@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;
 import com.amazonaws.services.certificatemanager.waiters.AWSCertificateManagerWaiters;
@@ -56,7 +57,7 @@ import com.amazonaws.services.certificatemanager.model.transform.*;
  * </p>
  * <p>
  * You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information
- * about using ACM, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/"> <i>AWS Certificate Manager User
+ * about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/"> <i>AWS Certificate Manager User
  * Guide</i> </a>.
  * </p>
  */
@@ -77,6 +78,8 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
 
+    private final AdvancedConfig advancedConfig;
+
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
                     .withProtocolVersion("1.1")
@@ -94,6 +97,9 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("ResourceNotFoundException").withModeledClass(
                                     com.amazonaws.services.certificatemanager.model.ResourceNotFoundException.class))
+                    .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("InvalidArgsException").withModeledClass(
+                                    com.amazonaws.services.certificatemanager.model.InvalidArgsException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidArnException").withModeledClass(
                                     com.amazonaws.services.certificatemanager.model.InvalidArnException.class))
@@ -194,6 +200,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     public AWSCertificateManagerClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -258,6 +265,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -276,9 +284,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      *        Object providing client parameters.
      */
     AWSCertificateManagerClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -294,6 +300,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     AWSCertificateManagerClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -320,7 +327,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * relationship among those certificates. Similarly, you can apply the same tag to multiple resources if you want to
      * specify a relationship among those resources. For example, you can add the same tag to an ACM certificate and an
      * Elastic Load Balancing load balancer to indicate that they are both used by the same website. For more
-     * information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging ACM
+     * information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging ACM
      * certificates</a>.
      * </p>
      * <p>
@@ -368,11 +375,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AddTagsToCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<AddTagsToCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new AddTagsToCertificateResultJsonUnmarshaller());
@@ -437,11 +443,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteCertificateResultJsonUnmarshaller());
@@ -495,11 +500,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DescribeCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DescribeCertificateResultJsonUnmarshaller());
@@ -562,11 +566,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ExportCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ExportCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ExportCertificateResultJsonUnmarshaller());
@@ -625,11 +628,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<GetCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new GetCertificateResultJsonUnmarshaller());
@@ -646,16 +648,16 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     /**
      * <p>
      * Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with ACM. Note
-     * that <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated services</a> allow
+     * that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated services</a> allow
      * only certificate types and keys they support to be associated with their resources. Further, their support
      * differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the
      * documentation for each service. For more information about importing certificates into ACM, see <a
-     * href="http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
      * <i>AWS Certificate Manager User Guide</i>.
      * </p>
      * <note>
      * <p>
-     * ACM does not provide <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed
+     * ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed
      * renewal</a> for certificates that you import.
      * </p>
      * </note>
@@ -727,7 +729,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * </ul>
      * <p>
      * This operation returns the <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>
      * of the imported certificate.
      * </p>
      * 
@@ -766,11 +768,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ImportCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ImportCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ImportCertificateResultJsonUnmarshaller());
@@ -792,6 +793,8 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * 
      * @param listCertificatesRequest
      * @return Result of the ListCertificates operation returned by the service.
+     * @throws InvalidArgsException
+     *         One or more of of request parameters specified is not valid.
      * @sample AWSCertificateManager.ListCertificates
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates" target="_top">AWS API
      *      Documentation</a>
@@ -820,11 +823,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListCertificates");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListCertificatesResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListCertificatesResultJsonUnmarshaller());
@@ -880,11 +882,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTagsForCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListTagsForCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -949,15 +950,76 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemoveTagsFromCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
 
-            URI cachedEndpoint = null;
-
             HttpResponseHandler<AmazonWebServiceResponse<RemoveTagsFromCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new RemoveTagsFromCertificateResultJsonUnmarshaller());
+            response = invoke(request, responseHandler, executionContext);
+
+            return response.getAwsResponse();
+
+        } finally {
+
+            endClientExecution(awsRequestMetrics, request, response);
+        }
+    }
+
+    /**
+     * <p>
+     * Renews an eligable ACM certificate. At this time, only exported private certificates can be renewed with this
+     * operation. In order to renew your ACM PCA certificates with ACM, you must first <a
+     * href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM service principal
+     * permission to do so</a>. For more information, see <a
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a> in the
+     * ACM User Guide.
+     * </p>
+     * 
+     * @param renewCertificateRequest
+     * @return Result of the RenewCertificate operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified certificate cannot be found in the caller's account or the caller's account cannot be
+     *         found.
+     * @throws InvalidArnException
+     *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+     * @sample AWSCertificateManager.RenewCertificate
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RenewCertificate" target="_top">AWS API
+     *      Documentation</a>
+     */
+    @Override
+    public RenewCertificateResult renewCertificate(RenewCertificateRequest request) {
+        request = beforeClientExecution(request);
+        return executeRenewCertificate(request);
+    }
+
+    @SdkInternalApi
+    final RenewCertificateResult executeRenewCertificate(RenewCertificateRequest renewCertificateRequest) {
+
+        ExecutionContext executionContext = createExecutionContext(renewCertificateRequest);
+        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
+        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
+        Request<RenewCertificateRequest> request = null;
+        Response<RenewCertificateResult> response = null;
+
+        try {
+            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
+            try {
+                request = new RenewCertificateRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(renewCertificateRequest));
+                // Binds the request metrics to the current request.
+                request.setAWSRequestMetrics(awsRequestMetrics);
+                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
+                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
+                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RenewCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
+            } finally {
+                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
+            }
+
+            HttpResponseHandler<AmazonWebServiceResponse<RenewCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
+                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new RenewCertificateResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -977,10 +1039,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * <p>
      * If you are requesting a private certificate, domain validation is not required. If you are requesting a public
      * certificate, each domain name that you specify must be validated to verify that you own or control the domain.
-     * You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS validation</a>
-     * or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email validation</a>. We
-     * recommend that you use DNS validation. ACM issues public certificates after receiving approval from the domain
-     * owner.
+     * You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
+     * validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+     * validation</a>. We recommend that you use DNS validation. ACM issues public certificates after receiving approval
+     * from the domain owner.
      * </p>
      * 
      * @param requestCertificateRequest
@@ -1019,11 +1081,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RequestCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<RequestCertificateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new RequestCertificateResultJsonUnmarshaller());
@@ -1046,7 +1107,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * request that the mail be resent within 72 hours of requesting the ACM certificate. If more than 72 hours have
      * elapsed since your original request or since your last attempt to resend validation mail, you must request a new
      * certificate. For more information about setting up your contact email addresses, see <a
-     * href="http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure Email for your Domain</a>.
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure Email for your Domain</a>.
      * </p>
      * 
      * @param resendValidationEmailRequest
@@ -1088,11 +1149,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ResendValidationEmail");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ResendValidationEmailResult>> responseHandler = protocolFactory
                     .createResponseHandler(new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1111,8 +1171,8 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * <p>
      * Updates a certificate. Currently, you can use this function to specify whether to opt in to or out of recording
      * your certificate in a certificate transparency log. For more information, see <a
-     * href="http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting
-     * Out of Certificate Transparency Logging</a>.
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
+     * Opting Out of Certificate Transparency Logging</a>.
      * </p>
      * 
      * @param updateCertificateOptionsRequest
@@ -1155,11 +1215,10 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateCertificateOptions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<UpdateCertificateOptionsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1198,18 +1257,18 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -1219,7 +1278,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -1227,11 +1286,13 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

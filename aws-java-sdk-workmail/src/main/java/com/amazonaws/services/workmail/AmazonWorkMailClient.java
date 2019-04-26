@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.workmail.AmazonWorkMailClientBuilder;
 
@@ -52,11 +53,11 @@ import com.amazonaws.services.workmail.model.transform.*;
  * <p>
  * Amazon WorkMail is a secure, managed business email and calendaring service with support for existing desktop and
  * mobile email clients. You can access your email, contacts, and calendars using Microsoft Outlook, your browser, or
- * their native iOS and Android email applications. You can integrate Amazon WorkMail with your existing corporate
- * directory and control both the keys that encrypt your data and the location in which your data is stored.
+ * other native iOS and Android email applications. You can integrate WorkMail with your existing corporate directory
+ * and control both the keys that encrypt your data and the location in which your data is stored.
  * </p>
  * <p>
- * The Amazon WorkMail API is designed for the following scenarios:
+ * The WorkMail API is designed for the following scenarios:
  * </p>
  * <ul>
  * <li>
@@ -87,13 +88,13 @@ import com.amazonaws.services.workmail.model.transform.*;
  * </li>
  * </ul>
  * <p>
- * All Amazon WorkMail API actions are Amazon-authenticated and certificate-signed. They not only require the use of the
- * AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission
- * policies. By creating a role and allowing an IAM user to access the Amazon WorkMail site, the IAM user gains full
- * administrative visibility into the entire Amazon WorkMail organization (or as set in the IAM policy). This includes,
- * but is not limited to, the ability to create, update, and delete users, groups, and resources. This allows developers
- * to perform the scenarios listed above, as well as give users the ability to grant access on a selective basis using
- * the IAM model.
+ * All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only require the use of the AWS
+ * SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles to help facilitate
+ * access, trust, and permission policies. By creating a role and allowing an IAM user to access the WorkMail site, the
+ * IAM user gains full administrative visibility into the entire WorkMail organization (or as set in the IAM policy).
+ * This includes, but is not limited to, the ability to create, update, and delete users, groups, and resources. This
+ * allows developers to perform the scenarios listed above, as well as give users the ability to grant access on a
+ * selective basis using the IAM model.
  * </p>
  */
 @ThreadSafe
@@ -110,6 +111,8 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
+
+    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -181,9 +184,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *        Object providing client parameters.
      */
     AmazonWorkMailClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -199,6 +200,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
     AmazonWorkMailClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -215,23 +217,23 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Adds a member to the resource's set of delegates.
+     * Adds a member (user or group) to the resource's set of delegates.
      * </p>
      * 
      * @param associateDelegateToResourceRequest
      * @return Result of the AssociateDelegateToResource operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.AssociateDelegateToResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateDelegateToResource"
      *      target="_top">AWS API Documentation</a>
@@ -261,11 +263,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AssociateDelegateToResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<AssociateDelegateToResourceResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -282,27 +283,27 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Adds a member to the group's set.
+     * Adds a member (user or group) to the group's set.
      * </p>
      * 
      * @param associateMemberToGroupRequest
      * @return Result of the AssociateMemberToGroup operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.AssociateMemberToGroup
@@ -333,11 +334,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AssociateMemberToGroup");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<AssociateMemberToGroupResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -354,7 +354,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Adds an alias to the set of a given member of Amazon WorkMail.
+     * Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
      * </p>
      * 
      * @param createAliasRequest
@@ -363,10 +363,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         The email address that you're trying to assign is already created for a different user, group, or
      *         resource.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws MailDomainNotFoundException
@@ -378,7 +378,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.CreateAlias
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateAlias" target="_top">AWS API
      *      Documentation</a>
@@ -407,11 +407,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateAlias");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<CreateAliasResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new CreateAliasResultJsonUnmarshaller());
@@ -427,26 +426,26 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Creates a group that can be used in Amazon WorkMail by calling the RegisterToWorkMail operation.
+     * Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.
      * </p>
      * 
      * @param createGroupRequest
      * @return Result of the CreateGroup operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws NameAvailabilityException
-     *         The entity (user, group, or user) name isn't unique in Amazon WorkMail.
+     *         The user, group, or resource name isn't unique in Amazon WorkMail.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws ReservedNameException
-     *         This entity name is not allowed in Amazon WorkMail.
+     *         This user, group, or resource name is not allowed in Amazon WorkMail.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.CreateGroup
@@ -477,11 +476,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateGroup");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<CreateGroupResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new CreateGroupResultJsonUnmarshaller());
@@ -497,26 +495,26 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Creates a new Amazon WorkMail resource. The available types are equipment and room.
+     * Creates a new Amazon WorkMail resource.
      * </p>
      * 
      * @param createResourceRequest
      * @return Result of the CreateResource operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws NameAvailabilityException
-     *         The entity (user, group, or user) name isn't unique in Amazon WorkMail.
+     *         The user, group, or resource name isn't unique in Amazon WorkMail.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws ReservedNameException
-     *         This entity name is not allowed in Amazon WorkMail.
+     *         This user, group, or resource name is not allowed in Amazon WorkMail.
      * @sample AmazonWorkMail.CreateResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateResource" target="_top">AWS API
      *      Documentation</a>
@@ -545,11 +543,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<CreateResourceResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new CreateResourceResultJsonUnmarshaller());
@@ -565,29 +562,29 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Creates a user who can be used in Amazon WorkMail by calling the RegisterToWorkMail operation.
+     * Creates a user who can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.
      * </p>
      * 
      * @param createUserRequest
      * @return Result of the CreateUser operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws InvalidPasswordException
      *         The supplied password doesn't match the minimum security constraints, such as length or use of special
      *         characters.
      * @throws NameAvailabilityException
-     *         The entity (user, group, or user) name isn't unique in Amazon WorkMail.
+     *         The user, group, or resource name isn't unique in Amazon WorkMail.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws ReservedNameException
-     *         This entity name is not allowed in Amazon WorkMail.
+     *         This user, group, or resource name is not allowed in Amazon WorkMail.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.CreateUser
@@ -618,11 +615,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateUser");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<CreateUserResult>> responseHandler = protocolFactory.createResponseHandler(new JsonOperationMetadata()
                     .withPayloadJson(true).withHasStreamingSuccessResponse(false), new CreateUserResultJsonUnmarshaller());
@@ -638,23 +634,23 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Remove the alias from a set of aliases for a given user.
+     * Remove one or more specified aliases from a set of aliases for a given user.
      * </p>
      * 
      * @param deleteAliasRequest
      * @return Result of the DeleteAlias operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DeleteAlias
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteAlias" target="_top">AWS API
      *      Documentation</a>
@@ -683,11 +679,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteAlias");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteAliasResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteAliasResultJsonUnmarshaller());
@@ -709,19 +704,19 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param deleteGroupRequest
      * @return Result of the DeleteGroup operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.DeleteGroup
@@ -752,11 +747,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteGroup");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteGroupResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteGroupResultJsonUnmarshaller());
@@ -772,23 +766,23 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Deletes permissions granted to a user or group.
+     * Deletes permissions granted to a member (user or group).
      * </p>
      * 
      * @param deleteMailboxPermissionsRequest
      * @return Result of the DeleteMailboxPermissions operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DeleteMailboxPermissions
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteMailboxPermissions"
      *      target="_top">AWS API Documentation</a>
@@ -818,11 +812,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteMailboxPermissions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteMailboxPermissionsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -845,15 +838,15 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param deleteResourceRequest
      * @return Result of the DeleteResource operation returned by the service.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DeleteResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteResource" target="_top">AWS API
      *      Documentation</a>
@@ -882,11 +875,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteResourceResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteResourceResultJsonUnmarshaller());
@@ -902,26 +894,30 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Deletes a user from Amazon WorkMail and all subsequent systems. The action can't be undone. The mailbox is kept
-     * as-is for a minimum of 30 days, without any means to restore it.
+     * Deletes a user from Amazon WorkMail and all subsequent systems. Before you can delete a user, the user state must
+     * be <code>DISABLED</code>. Use the <a>DescribeUser</a> action to confirm the user state.
+     * </p>
+     * <p>
+     * Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for 30 days before they are
+     * permanently removed.
      * </p>
      * 
      * @param deleteUserRequest
      * @return Result of the DeleteUser operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.DeleteUser
@@ -952,11 +948,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteUser");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteUserResult>> responseHandler = protocolFactory.createResponseHandler(new JsonOperationMetadata()
                     .withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteUserResultJsonUnmarshaller());
@@ -973,24 +968,24 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
     /**
      * <p>
      * Mark a user, group, or resource as no longer used in Amazon WorkMail. This action disassociates the mailbox and
-     * schedules it for clean-up. Amazon WorkMail keeps mailboxes for 30 days before they are permanently removed. The
+     * schedules it for clean-up. WorkMail keeps mailboxes for 30 days before they are permanently removed. The
      * functionality in the console is <i>Disable</i>.
      * </p>
      * 
      * @param deregisterFromWorkMailRequest
      * @return Result of the DeregisterFromWorkMail operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DeregisterFromWorkMail
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeregisterFromWorkMail"
      *      target="_top">AWS API Documentation</a>
@@ -1019,11 +1014,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterFromWorkMail");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeregisterFromWorkMailResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1046,14 +1040,14 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param describeGroupRequest
      * @return Result of the DescribeGroup operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DescribeGroup
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DescribeGroup" target="_top">AWS API
      *      Documentation</a>
@@ -1082,11 +1076,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeGroup");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DescribeGroupResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DescribeGroupResultJsonUnmarshaller());
@@ -1139,11 +1132,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeOrganization");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DescribeOrganizationResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DescribeOrganizationResultJsonUnmarshaller());
@@ -1165,14 +1157,14 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param describeResourceRequest
      * @return Result of the DescribeResource operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DescribeResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DescribeResource" target="_top">AWS API
      *      Documentation</a>
@@ -1201,11 +1193,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DescribeResourceResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DescribeResourceResultJsonUnmarshaller());
@@ -1227,14 +1218,14 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param describeUserRequest
      * @return Result of the DescribeUser operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DescribeUser
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DescribeUser" target="_top">AWS API
      *      Documentation</a>
@@ -1263,11 +1254,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeUser");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DescribeUserResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DescribeUserResultJsonUnmarshaller());
@@ -1289,17 +1279,17 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param disassociateDelegateFromResourceRequest
      * @return Result of the DisassociateDelegateFromResource operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.DisassociateDelegateFromResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DisassociateDelegateFromResource"
      *      target="_top">AWS API Documentation</a>
@@ -1330,11 +1320,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DisassociateDelegateFromResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DisassociateDelegateFromResourceResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1357,21 +1346,21 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param disassociateMemberFromGroupRequest
      * @return Result of the DisassociateMemberFromGroup operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.DisassociateMemberFromGroup
@@ -1403,11 +1392,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DisassociateMemberFromGroup");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DisassociateMemberFromGroupResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1430,17 +1418,17 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param listAliasesRequest
      * @return Result of the ListAliases operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListAliases
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListAliases" target="_top">AWS API
      *      Documentation</a>
@@ -1469,11 +1457,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListAliases");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListAliasesResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListAliasesResultJsonUnmarshaller());
@@ -1489,23 +1476,23 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Returns an overview of the members of a group.
+     * Returns an overview of the members of a group. Users and groups can be members of a group.
      * </p>
      * 
      * @param listGroupMembersRequest
      * @return Result of the ListGroupMembers operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListGroupMembers
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListGroupMembers" target="_top">AWS API
      *      Documentation</a>
@@ -1534,11 +1521,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListGroupMembers");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListGroupMembersResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListGroupMembersResultJsonUnmarshaller());
@@ -1560,14 +1546,14 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param listGroupsRequest
      * @return Result of the ListGroups operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListGroups
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListGroups" target="_top">AWS API
      *      Documentation</a>
@@ -1596,11 +1582,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListGroups");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListGroupsResult>> responseHandler = protocolFactory.createResponseHandler(new JsonOperationMetadata()
                     .withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListGroupsResultJsonUnmarshaller());
@@ -1616,20 +1601,20 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Lists the mailbox permissions associated with a mailbox.
+     * Lists the mailbox permissions associated with a user, group, or resource mailbox.
      * </p>
      * 
      * @param listMailboxPermissionsRequest
      * @return Result of the ListMailboxPermissions operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListMailboxPermissions
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListMailboxPermissions"
      *      target="_top">AWS API Documentation</a>
@@ -1658,11 +1643,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListMailboxPermissions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListMailboxPermissionsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1714,11 +1698,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListOrganizations");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListOrganizationsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListOrganizationsResultJsonUnmarshaller());
@@ -1741,17 +1724,17 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param listResourceDelegatesRequest
      * @return Result of the ListResourceDelegates operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListResourceDelegates
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListResourceDelegates" target="_top">AWS
      *      API Documentation</a>
@@ -1780,11 +1763,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListResourceDelegates");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListResourceDelegatesResult>> responseHandler = protocolFactory
                     .createResponseHandler(new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1812,7 +1794,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListResources
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListResources" target="_top">AWS API
      *      Documentation</a>
@@ -1841,11 +1823,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListResources");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListResourcesResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListResourcesResultJsonUnmarshaller());
@@ -1872,7 +1853,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.ListUsers
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListUsers" target="_top">AWS API
      *      Documentation</a>
@@ -1901,11 +1882,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListUsers");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListUsersResult>> responseHandler = protocolFactory.createResponseHandler(new JsonOperationMetadata()
                     .withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListUsersResultJsonUnmarshaller());
@@ -1921,23 +1901,23 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Sets permissions for a user or group. This replaces any pre-existing permissions set for the entity.
+     * Sets permissions for a user, group, or resource. This replaces any pre-existing permissions.
      * </p>
      * 
      * @param putMailboxPermissionsRequest
      * @return Result of the PutMailboxPermissions operation returned by the service.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.PutMailboxPermissions
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/PutMailboxPermissions" target="_top">AWS
      *      API Documentation</a>
@@ -1966,11 +1946,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutMailboxPermissions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<PutMailboxPermissionsResult>> responseHandler = protocolFactory
                     .createResponseHandler(new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -1987,28 +1966,31 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Registers an existing and disabled user, group, or resource/entity for Amazon WorkMail use by associating a
-     * mailbox and calendaring capabilities. It performs no change if the entity is enabled and fails if the entity is
-     * deleted. This operation results in the accumulation of costs. For more information, see <a
-     * href="http://aws.amazon.com/workmail/pricing">Pricing</a>. The equivalent console functionality for this
-     * operation is <i>Enable</i>. Users can either be created by calling the CreateUser API or they can be synchronized
-     * from your directory. For more information, see DeregisterFromWorkMail.
+     * Registers an existing and disabled user, group, or resource for Amazon WorkMail use by associating a mailbox and
+     * calendaring capabilities. It performs no change if the user, group, or resource is enabled and fails if the user,
+     * group, or resource is deleted. This operation results in the accumulation of costs. For more information, see <a
+     * href="https://aws.amazon.com//workmail/pricing">Pricing</a>. The equivalent console functionality for this
+     * operation is <i>Enable</i>.
+     * </p>
+     * <p>
+     * Users can either be created by calling the <a>CreateUser</a> API operation or they can be synchronized from your
+     * directory. For more information, see <a>DeregisterFromWorkMail</a>.
      * </p>
      * 
      * @param registerToWorkMailRequest
      * @return Result of the RegisterToWorkMail operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EmailAddressInUseException
      *         The email address that you're trying to assign is already created for a different user, group, or
      *         resource.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws EntityAlreadyRegisteredException
      *         The user, group, or resource that you're trying to register is already registered.
      * @throws InvalidParameterException
@@ -2022,7 +2004,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.RegisterToWorkMail
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/RegisterToWorkMail" target="_top">AWS
      *      API Documentation</a>
@@ -2051,11 +2033,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterToWorkMail");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<RegisterToWorkMailResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new RegisterToWorkMailResultJsonUnmarshaller());
@@ -2077,14 +2058,14 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @param resetPasswordRequest
      * @return Result of the ResetPassword operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws InvalidPasswordException
@@ -2094,7 +2075,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.ResetPassword
@@ -2125,11 +2106,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ResetPassword");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ResetPasswordResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ResetPasswordResultJsonUnmarshaller());
@@ -2145,24 +2125,25 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Updates the primary email for an entity. The current email is moved into the list of aliases (or swapped between
-     * an existing alias and the current primary email) and the email provided in the input is promoted as the primary.
+     * Updates the primary email for a user, group, or resource. The current email is moved into the list of aliases (or
+     * swapped between an existing alias and the current primary email), and the email provided in the input is promoted
+     * as the primary.
      * </p>
      * 
      * @param updatePrimaryEmailAddressRequest
      * @return Result of the UpdatePrimaryEmailAddress operation returned by the service.
      * @throws DirectoryServiceAuthenticationFailedException
-     *         The Directory Service doesn't recognize the credentials supplied by the Amazon WorkMail service.
+     *         The directory service doesn't recognize the credentials supplied by WorkMail.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EmailAddressInUseException
      *         The email address that you're trying to assign is already created for a different user, group, or
      *         resource.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidParameterException
      *         One or more of the input parameters don't match the service's restrictions.
      * @throws MailDomainNotFoundException
@@ -2176,7 +2157,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @throws UnsupportedOperationException
      *         You can't perform a write operation against a read-only directory.
      * @sample AmazonWorkMail.UpdatePrimaryEmailAddress
@@ -2208,11 +2189,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdatePrimaryEmailAddress");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<UpdatePrimaryEmailAddressResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -2229,22 +2209,23 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
 
     /**
      * <p>
-     * Updates data for the resource. It must be preceded by a describe call in order to have the latest information.
-     * The dataset in the request should be the one expected when performing another describe call.
+     * Updates data for the resource. To have the latest information, it must be preceded by a <a>DescribeResource</a>
+     * call. The dataset in the request should be the one expected when performing another <code>DescribeResource</code>
+     * call.
      * </p>
      * 
      * @param updateResourceRequest
      * @return Result of the UpdateResource operation returned by the service.
      * @throws DirectoryUnavailableException
-     *         The directory that you are trying to perform operations on isn't available.
+     *         The directory on which you are trying to perform operations isn't available.
      * @throws EntityNotFoundException
-     *         The identifier supplied for the entity is valid, but it does not exist in your organization.
+     *         The identifier supplied for the user, group, or resource does not exist in your organization.
      * @throws EntityStateException
-     *         You are performing an operation on an entity that isn't in the expected state, such as trying to update a
-     *         deleted user.
+     *         You are performing an operation on a user, group, or resource that isn't in the expected state, such as
+     *         trying to delete an active user.
      * @throws InvalidConfigurationException
      *         The configuration for a resource isn't valid. A resource must either be able to auto-respond to requests
-     *         or have at least one delegate associated that can do it on its behalf.
+     *         or have at least one delegate associated that can do so on its behalf.
      * @throws EmailAddressInUseException
      *         The email address that you're trying to assign is already created for a different user, group, or
      *         resource.
@@ -2254,12 +2235,12 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * @throws MailDomainStateException
      *         After a domain has been added to the organization, it must be verified. The domain is not yet verified.
      * @throws NameAvailabilityException
-     *         The entity (user, group, or user) name isn't unique in Amazon WorkMail.
+     *         The user, group, or resource name isn't unique in Amazon WorkMail.
      * @throws OrganizationNotFoundException
      *         An operation received a valid organization identifier that either doesn't belong or exist in the system.
      * @throws OrganizationStateException
      *         The organization must have a valid state (Active or Synchronizing) to perform certain operations on the
-     *         organization or its entities.
+     *         organization or its members.
      * @sample AmazonWorkMail.UpdateResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateResource" target="_top">AWS API
      *      Documentation</a>
@@ -2288,11 +2269,10 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "WorkMail");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<UpdateResourceResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new UpdateResourceResultJsonUnmarshaller());
@@ -2330,18 +2310,18 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -2351,7 +2331,7 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -2359,11 +2339,13 @@ public class AmazonWorkMailClient extends AmazonWebServiceClient implements Amaz
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

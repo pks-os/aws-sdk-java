@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -109,6 +109,26 @@ public class StringUtils {
      */
     public static String fromDate(Date value) {
         return DateUtils.formatISO8601Date(value);
+    }
+
+    public static String fromDate(Date date, String timestampFormat) {
+        if ("unixTimestamp".equalsIgnoreCase(timestampFormat)) {
+            return DateUtils.formatServiceSpecificDate(date);
+        }
+
+        if ("iso8601".equalsIgnoreCase(timestampFormat)) {
+            return DateUtils.formatISO8601Date(date);
+        }
+
+        if ("rfc822".equalsIgnoreCase(timestampFormat)) {
+            return DateUtils.formatRFC822Date(date);
+        }
+
+        if ("unixTimestampInMillis".equalsIgnoreCase(timestampFormat)) {
+            return DateUtils.formatUnixTimestampInMills(date);
+        }
+
+        throw new IllegalArgumentException("unsupported timestamp format");
     }
 
     /**

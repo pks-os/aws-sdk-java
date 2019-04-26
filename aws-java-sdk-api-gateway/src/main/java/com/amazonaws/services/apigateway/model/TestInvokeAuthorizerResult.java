@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -57,8 +57,8 @@ public class TestInvokeAuthorizerResult extends com.amazonaws.AmazonWebServiceRe
     private java.util.Map<String, java.util.List<String>> authorization;
     /**
      * <p>
-     * The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes, returned from
-     * the Cognito Your User Pool configured for the API.
+     * The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with
+     * any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
      * </p>
      */
     private java.util.Map<String, String> claims;
@@ -312,12 +312,13 @@ public class TestInvokeAuthorizerResult extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes, returned from
-     * the Cognito Your User Pool configured for the API.
+     * The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with
+     * any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
      * </p>
      * 
-     * @return The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes,
-     *         returned from the Cognito Your User Pool configured for the API.
+     * @return The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity
+     *         claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for
+     *         the API.
      */
 
     public java.util.Map<String, String> getClaims() {
@@ -326,13 +327,14 @@ public class TestInvokeAuthorizerResult extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes, returned from
-     * the Cognito Your User Pool configured for the API.
+     * The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with
+     * any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
      * </p>
      * 
      * @param claims
-     *        The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes, returned
-     *        from the Cognito Your User Pool configured for the API.
+     *        The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity
+     *        claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for
+     *        the API.
      */
 
     public void setClaims(java.util.Map<String, String> claims) {
@@ -341,13 +343,14 @@ public class TestInvokeAuthorizerResult extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes, returned from
-     * the Cognito Your User Pool configured for the API.
+     * The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with
+     * any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
      * </p>
      * 
      * @param claims
-     *        The <a href="[[OpenIdClaimsUrl]]">open identity claims</a>, with any supported custom attributes, returned
-     *        from the Cognito Your User Pool configured for the API.
+     *        The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity
+     *        claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for
+     *        the API.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -378,7 +381,8 @@ public class TestInvokeAuthorizerResult extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

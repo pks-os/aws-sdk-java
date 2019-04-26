@@ -15,6 +15,7 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
@@ -101,6 +102,7 @@
       "documentation" : "<p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.</p> <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call <a>DeactivatePipeline</a>.</p> <p>To activate a finished pipeline, modify the end date for the pipeline and then activate it.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "PipelineNotFoundException",
         "documentation" : "<p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>",
@@ -119,6 +121,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ActivatePipelineRequest",
@@ -147,6 +150,7 @@
       "documentation" : "<p>Adds or modifies tags for the specified pipeline.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -165,6 +169,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "AddTagsRequest",
@@ -193,6 +198,7 @@
       "documentation" : "<p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -203,6 +209,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreatePipelineRequest",
@@ -231,6 +238,7 @@
       "documentation" : "<p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code> state until the deactivation process completes.</p> <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "PipelineNotFoundException",
         "documentation" : "<p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>",
@@ -249,6 +257,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeactivatePipelineRequest",
@@ -277,6 +286,7 @@
       "documentation" : "<p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p> <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. Components that are paused by <a>SetStatus</a> can be resumed.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "PipelineNotFoundException",
         "documentation" : "<p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>",
@@ -291,6 +301,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeletePipelineRequest",
@@ -319,6 +330,7 @@
       "documentation" : "<p>Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -337,6 +349,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeObjectsRequest",
@@ -365,6 +378,7 @@
       "documentation" : "<p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p> <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "PipelineNotFoundException",
         "documentation" : "<p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>",
@@ -383,6 +397,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribePipelinesRequest",
@@ -411,6 +426,7 @@
       "documentation" : "<p>Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -433,6 +449,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "EvaluateExpressionRequest",
@@ -461,6 +478,7 @@
       "documentation" : "<p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -479,6 +497,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetPipelineDefinitionRequest",
@@ -507,6 +526,7 @@
       "documentation" : "<p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -517,6 +537,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListPipelinesRequest",
@@ -545,6 +566,7 @@
       "documentation" : "<p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner.</p> <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue, <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -559,6 +581,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "PollForTaskRequest",
@@ -587,6 +610,7 @@
       "documentation" : "<p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p> <p> <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline. </p> <ol> <li>An object is missing a name or identifier field.</li> <li>A string or reference field is empty.</li> <li>The number of objects in the pipeline exceeds the maximum allowed objects.</li> <li>The pipeline is in a FINISHED state.</li> </ol> <p> Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -605,6 +629,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "PutPipelineDefinitionRequest",
@@ -633,6 +658,7 @@
       "documentation" : "<p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "PipelineNotFoundException",
         "documentation" : "<p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>",
@@ -651,6 +677,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "QueryObjectsRequest",
@@ -679,6 +706,7 @@
       "documentation" : "<p>Removes existing tags from the specified pipeline.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -697,6 +725,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "RemoveTagsRequest",
@@ -725,6 +754,7 @@
       "documentation" : "<p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p> <p>If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code> every 60 seconds.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -747,6 +777,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ReportTaskProgressRequest",
@@ -775,6 +806,7 @@
       "documentation" : "<p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -785,6 +817,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ReportTaskRunnerHeartbeatRequest",
@@ -813,6 +846,7 @@
       "documentation" : "<p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "PipelineNotFoundException",
         "documentation" : "<p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>",
@@ -831,6 +865,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "SetStatusRequest",
@@ -859,6 +894,7 @@
       "documentation" : "<p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -881,6 +917,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "SetTaskStatusRequest",
@@ -909,6 +946,7 @@
       "documentation" : "<p>Validates the specified pipeline definition to ensure that it is well formed and can be run without error.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalServiceErrorException",
         "documentation" : "<p>An internal service error occurred.</p>",
@@ -927,6 +965,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ValidatePipelineDefinitionRequest",
@@ -1011,6 +1050,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -1113,6 +1153,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -1156,6 +1197,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterValues",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of parameter values to pass to the pipeline at activation.</p>\n@param parameterValues A list of parameter values to pass to the pipeline at activation.*/",
         "setterMethodName" : "setParameterValues",
         "setterModel" : {
@@ -1221,6 +1263,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "StartTimestamp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>\n@param startTimestamp The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.*/",
         "setterMethodName" : "setStartTimestamp",
         "setterModel" : {
@@ -1325,6 +1368,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -1368,6 +1412,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterValues",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of parameter values to pass to the pipeline at activation.</p>\n@param parameterValues A list of parameter values to pass to the pipeline at activation.*/",
           "setterMethodName" : "setParameterValues",
           "setterModel" : {
@@ -1434,6 +1479,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -1500,6 +1546,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "StartTimestamp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>\n@param startTimestamp The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.*/",
           "setterMethodName" : "setStartTimestamp",
           "setterModel" : {
@@ -1649,6 +1696,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -1751,6 +1799,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -1794,6 +1843,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Tags",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The tags to add, as key/value pairs.</p>\n@param tags The tags to add, as key/value pairs.*/",
         "setterMethodName" : "setTags",
         "setterModel" : {
@@ -1861,6 +1911,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -1964,6 +2015,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -2007,6 +2059,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Tags",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The tags to add, as key/value pairs.</p>\n@param tags The tags to add, as key/value pairs.*/",
           "setterMethodName" : "setTags",
           "setterModel" : {
@@ -2156,6 +2209,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>\n@param name The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -2221,6 +2275,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UniqueId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.</p>\n@param uniqueId A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.*/",
         "setterMethodName" : "setUniqueId",
         "setterModel" : {
@@ -2286,6 +2341,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The description for the pipeline.</p>\n@param description The description for the pipeline.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -2388,6 +2444,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -2431,6 +2488,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Tags",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param tags A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
         "setterMethodName" : "setTags",
         "setterModel" : {
@@ -2498,6 +2556,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The description for the pipeline.</p>\n@param description The description for the pipeline.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -2564,6 +2623,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>\n@param name The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -2667,6 +2727,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -2710,6 +2771,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Tags",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param tags A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
           "setterMethodName" : "setTags",
           "setterModel" : {
@@ -2776,6 +2838,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UniqueId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.</p>\n@param uniqueId A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.*/",
           "setterMethodName" : "setUniqueId",
           "setterModel" : {
@@ -2878,6 +2941,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.</p>\n@param pipelineId The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -2945,6 +3009,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.</p>\n@param pipelineId The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -3057,6 +3122,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -3122,6 +3188,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "CancelActive",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish.</p>\n@param cancelActive Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish.*/",
         "setterMethodName" : "setCancelActive",
         "setterModel" : {
@@ -3189,6 +3256,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "CancelActive",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish.</p>\n@param cancelActive Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish.*/",
           "setterMethodName" : "setCancelActive",
           "setterModel" : {
@@ -3255,6 +3323,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -3404,6 +3473,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -3471,6 +3541,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -3620,6 +3691,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline that contains the object definitions.</p>\n@param pipelineId The ID of the pipeline that contains the object definitions.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -3722,6 +3794,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -3765,6 +3838,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ObjectIds",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>\n@param objectIds The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.*/",
         "setterMethodName" : "setObjectIds",
         "setterModel" : {
@@ -3830,6 +3904,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "EvaluateExpressions",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>\n@param evaluateExpressions Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.*/",
         "setterMethodName" : "setEvaluateExpressions",
         "setterModel" : {
@@ -3895,6 +3970,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results.</p>\n@param marker The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results.*/",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -3962,6 +4038,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "EvaluateExpressions",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>\n@param evaluateExpressions Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.*/",
           "setterMethodName" : "setEvaluateExpressions",
           "setterModel" : {
@@ -4028,6 +4105,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results.</p>\n@param marker The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results.*/",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -4131,6 +4209,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -4174,6 +4253,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ObjectIds",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>\n@param objectIds The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.*/",
           "setterMethodName" : "setObjectIds",
           "setterModel" : {
@@ -4240,6 +4320,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline that contains the object definitions.</p>\n@param pipelineId The ID of the pipeline that contains the object definitions.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -4379,6 +4460,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -4422,6 +4504,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>An array of object definitions.</p>\n@param pipelineObjects An array of object definitions.*/",
         "setterMethodName" : "setPipelineObjects",
         "setterModel" : {
@@ -4487,6 +4570,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> again with this marker value. If the value is null, there are no more results.</p>\n@param marker The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> again with this marker value. If the value is null, there are no more results.*/",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -4552,6 +4636,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "HasMoreResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether there are more results to return.</p>\n@param hasMoreResults Indicates whether there are more results to return.*/",
         "setterMethodName" : "setHasMoreResults",
         "setterModel" : {
@@ -4619,6 +4704,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "HasMoreResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether there are more results to return.</p>\n@param hasMoreResults Indicates whether there are more results to return.*/",
           "setterMethodName" : "setHasMoreResults",
           "setterModel" : {
@@ -4685,6 +4771,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> again with this marker value. If the value is null, there are no more results.</p>\n@param marker The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> again with this marker value. If the value is null, there are no more results.*/",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -4788,6 +4875,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -4831,6 +4919,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>An array of object definitions.</p>\n@param pipelineObjects An array of object definitions.*/",
           "setterMethodName" : "setPipelineObjects",
           "setterModel" : {
@@ -4980,6 +5069,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5023,6 +5113,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineIds",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</p>\n@param pipelineIds The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.*/",
         "setterMethodName" : "setPipelineIds",
         "setterModel" : {
@@ -5127,6 +5218,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -5170,6 +5262,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineIds",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</p>\n@param pipelineIds The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.*/",
           "setterMethodName" : "setPipelineIds",
           "setterModel" : {
@@ -5309,6 +5402,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5352,6 +5446,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineDescriptionList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>An array of descriptions for the specified pipelines.</p>\n@param pipelineDescriptionList An array of descriptions for the specified pipelines.*/",
         "setterMethodName" : "setPipelineDescriptionList",
         "setterModel" : {
@@ -5456,6 +5551,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -5499,6 +5595,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineDescriptionList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>An array of descriptions for the specified pipelines.</p>\n@param pipelineDescriptionList An array of descriptions for the specified pipelines.*/",
           "setterMethodName" : "setPipelineDescriptionList",
           "setterModel" : {
@@ -5611,6 +5708,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -5676,6 +5774,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ObjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the object.</p>\n@param objectId The ID of the object.*/",
         "setterMethodName" : "setObjectId",
         "setterModel" : {
@@ -5741,6 +5840,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Expression",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The expression to evaluate.</p>\n@param expression The expression to evaluate.*/",
         "setterMethodName" : "setExpression",
         "setterModel" : {
@@ -5808,6 +5908,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Expression",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The expression to evaluate.</p>\n@param expression The expression to evaluate.*/",
           "setterMethodName" : "setExpression",
           "setterModel" : {
@@ -5874,6 +5975,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ObjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the object.</p>\n@param objectId The ID of the object.*/",
           "setterMethodName" : "setObjectId",
           "setterModel" : {
@@ -5940,6 +6042,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -6042,6 +6145,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EvaluatedExpression",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The evaluated expression.</p>\n@param evaluatedExpression The evaluated expression.*/",
         "setterMethodName" : "setEvaluatedExpression",
         "setterModel" : {
@@ -6109,6 +6213,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EvaluatedExpression",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The evaluated expression.</p>\n@param evaluatedExpression The evaluated expression.*/",
           "setterMethodName" : "setEvaluatedExpression",
           "setterModel" : {
@@ -6214,6 +6319,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Key",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The field identifier.</p>\n@param key The field identifier.*/",
         "setterMethodName" : "setKey",
         "setterModel" : {
@@ -6279,6 +6385,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StringValue",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The field value, expressed as a String.</p>\n@param stringValue The field value, expressed as a String.*/",
         "setterMethodName" : "setStringValue",
         "setterModel" : {
@@ -6344,6 +6451,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "RefValue",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The field value, expressed as the identifier of another object.</p>\n@param refValue The field value, expressed as the identifier of another object.*/",
         "setterMethodName" : "setRefValue",
         "setterModel" : {
@@ -6411,6 +6519,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Key",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The field identifier.</p>\n@param key The field identifier.*/",
           "setterMethodName" : "setKey",
           "setterModel" : {
@@ -6477,6 +6586,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "RefValue",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The field value, expressed as the identifier of another object.</p>\n@param refValue The field value, expressed as the identifier of another object.*/",
           "setterMethodName" : "setRefValue",
           "setterModel" : {
@@ -6543,6 +6653,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StringValue",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The field value, expressed as a String.</p>\n@param stringValue The field value, expressed as a String.*/",
           "setterMethodName" : "setStringValue",
           "setterModel" : {
@@ -6655,6 +6766,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -6720,6 +6832,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Version",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated.</p>\n@param version The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated.*/",
         "setterMethodName" : "setVersion",
         "setterModel" : {
@@ -6787,6 +6900,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -6853,6 +6967,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Version",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated.</p>\n@param version The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated.*/",
           "setterMethodName" : "setVersion",
           "setterModel" : {
@@ -6992,6 +7107,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7035,6 +7151,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The objects defined in the pipeline.</p>\n@param pipelineObjects The objects defined in the pipeline.*/",
         "setterMethodName" : "setPipelineObjects",
         "setterModel" : {
@@ -7137,6 +7254,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7180,6 +7298,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The parameter objects used in the pipeline definition.</p>\n@param parameterObjects The parameter objects used in the pipeline definition.*/",
         "setterMethodName" : "setParameterObjects",
         "setterModel" : {
@@ -7282,6 +7401,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7325,6 +7445,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterValues",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The parameter values used in the pipeline definition.</p>\n@param parameterValues The parameter values used in the pipeline definition.*/",
         "setterMethodName" : "setParameterValues",
         "setterModel" : {
@@ -7429,6 +7550,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -7472,6 +7594,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The parameter objects used in the pipeline definition.</p>\n@param parameterObjects The parameter objects used in the pipeline definition.*/",
           "setterMethodName" : "setParameterObjects",
           "setterModel" : {
@@ -7575,6 +7698,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -7618,6 +7742,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterValues",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The parameter values used in the pipeline definition.</p>\n@param parameterValues The parameter values used in the pipeline definition.*/",
           "setterMethodName" : "setParameterValues",
           "setterModel" : {
@@ -7721,6 +7846,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -7764,6 +7890,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The objects defined in the pipeline.</p>\n@param pipelineObjects The objects defined in the pipeline.*/",
           "setterMethodName" : "setPipelineObjects",
           "setterModel" : {
@@ -7869,6 +7996,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Document",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.</p>\n@param document A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.*/",
         "setterMethodName" : "setDocument",
         "setterModel" : {
@@ -7934,6 +8062,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Signature",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.</p>\n@param signature A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.*/",
         "setterMethodName" : "setSignature",
         "setterModel" : {
@@ -8001,6 +8130,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Document",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.</p>\n@param document A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.*/",
           "setterMethodName" : "setDocument",
           "setterModel" : {
@@ -8067,6 +8197,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Signature",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.</p>\n@param signature A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.*/",
           "setterMethodName" : "setSignature",
           "setterModel" : {
@@ -8253,6 +8384,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results.</p>\n@param marker The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results.*/",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -8320,6 +8452,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results.</p>\n@param marker The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results.*/",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -8459,6 +8592,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -8502,6 +8636,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineIdList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>\n@param pipelineIdList The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.*/",
         "setterMethodName" : "setPipelineIdList",
         "setterModel" : {
@@ -8567,6 +8702,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> again with this marker value. If the value is null, there are no more results.</p>\n@param marker The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> again with this marker value. If the value is null, there are no more results.*/",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -8632,6 +8768,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "HasMoreResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether there are more results that can be obtained by a subsequent call.</p>\n@param hasMoreResults Indicates whether there are more results that can be obtained by a subsequent call.*/",
         "setterMethodName" : "setHasMoreResults",
         "setterModel" : {
@@ -8699,6 +8836,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "HasMoreResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether there are more results that can be obtained by a subsequent call.</p>\n@param hasMoreResults Indicates whether there are more results that can be obtained by a subsequent call.*/",
           "setterMethodName" : "setHasMoreResults",
           "setterModel" : {
@@ -8765,6 +8903,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> again with this marker value. If the value is null, there are no more results.</p>\n@param marker The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> again with this marker value. If the value is null, there are no more results.*/",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -8868,6 +9007,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -8911,6 +9051,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineIdList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>\n@param pipelineIdList The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.*/",
           "setterMethodName" : "setPipelineIdList",
           "setterModel" : {
@@ -9016,6 +9157,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Type",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. </p> <p> The comparison operators EQ and REF_EQ act on the following fields: </p> <ul> <li>name</li> <li>@sphere</li> <li>parent</li> <li>@componentParent</li> <li>@instanceParent</li> <li>@status</li> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p> The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields: </p> <ul> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>\n@param type The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. </p> <p> The comparison operators EQ and REF_EQ act on the following fields: </p> <ul> <li>name</li> <li>@sphere</li> <li>parent</li> <li>@componentParent</li> <li>@instanceParent</li> <li>@status</li> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p> The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields: </p> <ul> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".\n@see OperatorType*/",
         "setterMethodName" : "setType",
         "setterModel" : {
@@ -9118,6 +9260,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9161,6 +9304,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Values",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The value that the actual field value will be compared with.</p>\n@param values The value that the actual field value will be compared with.*/",
         "setterMethodName" : "setValues",
         "setterModel" : {
@@ -9228,6 +9372,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Type",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. </p> <p> The comparison operators EQ and REF_EQ act on the following fields: </p> <ul> <li>name</li> <li>@sphere</li> <li>parent</li> <li>@componentParent</li> <li>@instanceParent</li> <li>@status</li> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p> The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields: </p> <ul> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>\n@param type The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. </p> <p> The comparison operators EQ and REF_EQ act on the following fields: </p> <ul> <li>name</li> <li>@sphere</li> <li>parent</li> <li>@componentParent</li> <li>@instanceParent</li> <li>@status</li> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p> The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields: </p> <ul> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".\n@see OperatorType*/",
           "setterMethodName" : "setType",
           "setterModel" : {
@@ -9331,6 +9476,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -9374,6 +9520,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Values",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The value that the actual field value will be compared with.</p>\n@param values The value that the actual field value will be compared with.*/",
           "setterMethodName" : "setValues",
           "setterModel" : {
@@ -9534,6 +9681,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Key",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The field identifier.</p>\n@param key The field identifier.*/",
         "setterMethodName" : "setKey",
         "setterModel" : {
@@ -9599,6 +9747,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StringValue",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The field value, expressed as a String.</p>\n@param stringValue The field value, expressed as a String.*/",
         "setterMethodName" : "setStringValue",
         "setterModel" : {
@@ -9666,6 +9815,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Key",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The field identifier.</p>\n@param key The field identifier.*/",
           "setterMethodName" : "setKey",
           "setterModel" : {
@@ -9732,6 +9882,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StringValue",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The field value, expressed as a String.</p>\n@param stringValue The field value, expressed as a String.*/",
           "setterMethodName" : "setStringValue",
           "setterModel" : {
@@ -9837,6 +9988,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the parameter object. </p>\n@param id The ID of the parameter object.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -9939,6 +10091,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9982,6 +10135,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Attributes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The attributes of the parameter object.</p>\n@param attributes The attributes of the parameter object.*/",
         "setterMethodName" : "setAttributes",
         "setterModel" : {
@@ -10086,6 +10240,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -10129,6 +10284,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Attributes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The attributes of the parameter object.</p>\n@param attributes The attributes of the parameter object.*/",
           "setterMethodName" : "setAttributes",
           "setterModel" : {
@@ -10195,6 +10351,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the parameter object. </p>\n@param id The ID of the parameter object.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -10300,6 +10457,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the parameter value.</p>\n@param id The ID of the parameter value.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -10365,6 +10523,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StringValue",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The field value, expressed as a String.</p>\n@param stringValue The field value, expressed as a String.*/",
         "setterMethodName" : "setStringValue",
         "setterModel" : {
@@ -10432,6 +10591,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the parameter value.</p>\n@param id The ID of the parameter value.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -10498,6 +10658,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StringValue",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The field value, expressed as a String.</p>\n@param stringValue The field value, expressed as a String.*/",
           "setterMethodName" : "setStringValue",
           "setterModel" : {
@@ -10640,6 +10801,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>\n@param pipelineId The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -10705,6 +10867,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the pipeline.</p>\n@param name The name of the pipeline.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -10807,6 +10970,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -10850,6 +11014,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Fields",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>\n@param fields A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.*/",
         "setterMethodName" : "setFields",
         "setterModel" : {
@@ -10915,6 +11080,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Description of the pipeline.</p>\n@param description Description of the pipeline.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -11017,6 +11183,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -11060,6 +11227,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Tags",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param tags A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
         "setterMethodName" : "setTags",
         "setterModel" : {
@@ -11127,6 +11295,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Description of the pipeline.</p>\n@param description Description of the pipeline.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -11230,6 +11399,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -11273,6 +11443,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Fields",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>\n@param fields A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.*/",
           "setterMethodName" : "setFields",
           "setterModel" : {
@@ -11339,6 +11510,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the pipeline.</p>\n@param name The name of the pipeline.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -11405,6 +11577,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>\n@param pipelineId The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -11508,6 +11681,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -11551,6 +11725,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Tags",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param tags A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
           "setterMethodName" : "setTags",
           "setterModel" : {
@@ -11656,6 +11831,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>\n@param id The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -11721,6 +11897,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the pipeline.</p>\n@param name The name of the pipeline.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -11788,6 +11965,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>\n@param id The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -11854,6 +12032,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the pipeline.</p>\n@param name The name of the pipeline.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -11996,6 +12175,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the object.</p>\n@param id The ID of the object.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -12061,6 +12241,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the object.</p>\n@param name The name of the object.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -12163,6 +12344,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -12206,6 +12388,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Fields",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Key-value pairs that define the properties of the object.</p>\n@param fields Key-value pairs that define the properties of the object.*/",
         "setterMethodName" : "setFields",
         "setterModel" : {
@@ -12310,6 +12493,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -12353,6 +12537,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Fields",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Key-value pairs that define the properties of the object.</p>\n@param fields Key-value pairs that define the properties of the object.*/",
           "setterMethodName" : "setFields",
           "setterModel" : {
@@ -12419,6 +12604,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the object.</p>\n@param id The ID of the object.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -12485,6 +12671,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the object.</p>\n@param name The name of the object.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -12597,6 +12784,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "WorkerGroup",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>\n@param workerGroup The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.*/",
         "setterMethodName" : "setWorkerGroup",
         "setterModel" : {
@@ -12662,6 +12850,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Hostname",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The public DNS name of the calling task runner.</p>\n@param hostname The public DNS name of the calling task runner.*/",
         "setterMethodName" : "setHostname",
         "setterModel" : {
@@ -12727,6 +12916,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "InstanceIdentity",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>\n@param instanceIdentity Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.*/",
         "setterMethodName" : "setInstanceIdentity",
         "setterModel" : {
@@ -12794,6 +12984,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Hostname",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The public DNS name of the calling task runner.</p>\n@param hostname The public DNS name of the calling task runner.*/",
           "setterMethodName" : "setHostname",
           "setterModel" : {
@@ -12860,6 +13051,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "InstanceIdentity",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>\n@param instanceIdentity Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.*/",
           "setterMethodName" : "setInstanceIdentity",
           "setterModel" : {
@@ -12926,6 +13118,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "WorkerGroup",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>\n@param workerGroup The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.*/",
           "setterMethodName" : "setWorkerGroup",
           "setterModel" : {
@@ -13028,6 +13221,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "TaskObject",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>.</p>\n@param taskObject The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>.*/",
         "setterMethodName" : "setTaskObject",
         "setterModel" : {
@@ -13095,6 +13289,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "TaskObject",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>.</p>\n@param taskObject The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>.*/",
           "setterMethodName" : "setTaskObject",
           "setterModel" : {
@@ -13207,6 +13402,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -13309,6 +13505,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13352,6 +13549,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>\n@param pipelineObjects The objects that define the pipeline. These objects overwrite the existing pipeline definition.*/",
         "setterMethodName" : "setPipelineObjects",
         "setterModel" : {
@@ -13454,6 +13652,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13497,6 +13696,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The parameter objects used with the pipeline.</p>\n@param parameterObjects The parameter objects used with the pipeline.*/",
         "setterMethodName" : "setParameterObjects",
         "setterModel" : {
@@ -13599,6 +13799,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13642,6 +13843,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterValues",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The parameter values used with the pipeline.</p>\n@param parameterValues The parameter values used with the pipeline.*/",
         "setterMethodName" : "setParameterValues",
         "setterModel" : {
@@ -13746,6 +13948,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -13789,6 +13992,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The parameter objects used with the pipeline.</p>\n@param parameterObjects The parameter objects used with the pipeline.*/",
           "setterMethodName" : "setParameterObjects",
           "setterModel" : {
@@ -13892,6 +14096,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -13935,6 +14140,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterValues",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The parameter values used with the pipeline.</p>\n@param parameterValues The parameter values used with the pipeline.*/",
           "setterMethodName" : "setParameterValues",
           "setterModel" : {
@@ -14001,6 +14207,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -14104,6 +14311,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -14147,6 +14355,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>\n@param pipelineObjects The objects that define the pipeline. These objects overwrite the existing pipeline definition.*/",
           "setterMethodName" : "setPipelineObjects",
           "setterModel" : {
@@ -14286,6 +14495,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -14329,6 +14539,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ValidationErrors",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.</p>\n@param validationErrors The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.*/",
         "setterMethodName" : "setValidationErrors",
         "setterModel" : {
@@ -14431,6 +14642,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -14474,6 +14686,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ValidationWarnings",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>.</p>\n@param validationWarnings The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>.*/",
         "setterMethodName" : "setValidationWarnings",
         "setterModel" : {
@@ -14539,6 +14752,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "Errored",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.</p>\n@param errored Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.*/",
         "setterMethodName" : "setErrored",
         "setterModel" : {
@@ -14606,6 +14820,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "Errored",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.</p>\n@param errored Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.*/",
           "setterMethodName" : "setErrored",
           "setterModel" : {
@@ -14709,6 +14924,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -14752,6 +14968,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ValidationErrors",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.</p>\n@param validationErrors The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.*/",
           "setterMethodName" : "setValidationErrors",
           "setterModel" : {
@@ -14855,6 +15072,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -14898,6 +15116,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ValidationWarnings",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>.</p>\n@param validationWarnings The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>.*/",
           "setterMethodName" : "setValidationWarnings",
           "setterModel" : {
@@ -15040,6 +15259,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -15083,6 +15303,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Selectors",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>List of selectors that define the query. An object must satisfy all of the selectors to match the query.</p>\n@param selectors List of selectors that define the query. An object must satisfy all of the selectors to match the query.*/",
         "setterMethodName" : "setSelectors",
         "setterModel" : {
@@ -15187,6 +15408,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -15230,6 +15452,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Selectors",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>List of selectors that define the query. An object must satisfy all of the selectors to match the query.</p>\n@param selectors List of selectors that define the query. An object must satisfy all of the selectors to match the query.*/",
           "setterMethodName" : "setSelectors",
           "setterModel" : {
@@ -15342,6 +15565,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -15407,6 +15631,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Query",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.</p>\n@param query The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.*/",
         "setterMethodName" : "setQuery",
         "setterModel" : {
@@ -15472,6 +15697,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Sphere",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>\n@param sphere Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.*/",
         "setterMethodName" : "setSphere",
         "setterModel" : {
@@ -15537,6 +15763,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results.</p>\n@param marker The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results.*/",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -15602,6 +15829,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "Limit",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>\n@param limit The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100.*/",
         "setterMethodName" : "setLimit",
         "setterModel" : {
@@ -15669,6 +15897,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "Limit",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>\n@param limit The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100.*/",
           "setterMethodName" : "setLimit",
           "setterModel" : {
@@ -15735,6 +15964,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results.</p>\n@param marker The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results.*/",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -15801,6 +16031,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -15867,6 +16098,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Query",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.</p>\n@param query The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.*/",
           "setterMethodName" : "setQuery",
           "setterModel" : {
@@ -15933,6 +16165,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Sphere",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>\n@param sphere Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.*/",
           "setterMethodName" : "setSphere",
           "setterModel" : {
@@ -16072,6 +16305,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -16115,6 +16349,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Ids",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifiers that match the query selectors.</p>\n@param ids The identifiers that match the query selectors.*/",
         "setterMethodName" : "setIds",
         "setterModel" : {
@@ -16180,6 +16415,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results.</p>\n@param marker The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results.*/",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -16245,6 +16481,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "HasMoreResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether there are more results that can be obtained by a subsequent call.</p>\n@param hasMoreResults Indicates whether there are more results that can be obtained by a subsequent call.*/",
         "setterMethodName" : "setHasMoreResults",
         "setterModel" : {
@@ -16312,6 +16549,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "HasMoreResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether there are more results that can be obtained by a subsequent call.</p>\n@param hasMoreResults Indicates whether there are more results that can be obtained by a subsequent call.*/",
           "setterMethodName" : "setHasMoreResults",
           "setterModel" : {
@@ -16415,6 +16653,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -16458,6 +16697,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Ids",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifiers that match the query selectors.</p>\n@param ids The identifiers that match the query selectors.*/",
           "setterMethodName" : "setIds",
           "setterModel" : {
@@ -16524,6 +16764,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results.</p>\n@param marker The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results.*/",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -16636,6 +16877,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -16738,6 +16980,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -16781,6 +17024,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "TagKeys",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The keys of the tags to remove.</p>\n@param tagKeys The keys of the tags to remove.*/",
         "setterMethodName" : "setTagKeys",
         "setterModel" : {
@@ -16848,6 +17092,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -16951,6 +17196,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -16994,6 +17240,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "TagKeys",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The keys of the tags to remove.</p>\n@param tagKeys The keys of the tags to remove.*/",
           "setterMethodName" : "setTagKeys",
           "setterModel" : {
@@ -17143,6 +17390,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>\n@param taskId The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.*/",
         "setterMethodName" : "setTaskId",
         "setterModel" : {
@@ -17245,6 +17493,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -17288,6 +17537,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Fields",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Key-value pairs that define the properties of the ReportTaskProgressInput object.</p>\n@param fields Key-value pairs that define the properties of the ReportTaskProgressInput object.*/",
         "setterMethodName" : "setFields",
         "setterModel" : {
@@ -17392,6 +17642,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -17435,6 +17686,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Fields",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Key-value pairs that define the properties of the ReportTaskProgressInput object.</p>\n@param fields Key-value pairs that define the properties of the ReportTaskProgressInput object.*/",
           "setterMethodName" : "setFields",
           "setterModel" : {
@@ -17501,6 +17753,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>\n@param taskId The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.*/",
           "setterMethodName" : "setTaskId",
           "setterModel" : {
@@ -17603,6 +17856,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "Canceled",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.</p>\n@param canceled If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.*/",
         "setterMethodName" : "setCanceled",
         "setterModel" : {
@@ -17670,6 +17924,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "Canceled",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.</p>\n@param canceled If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.*/",
           "setterMethodName" : "setCanceled",
           "setterModel" : {
@@ -17782,6 +18037,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskrunnerId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>\n@param taskrunnerId The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.*/",
         "setterMethodName" : "setTaskrunnerId",
         "setterModel" : {
@@ -17847,6 +18103,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "WorkerGroup",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>\n@param workerGroup The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.*/",
         "setterMethodName" : "setWorkerGroup",
         "setterModel" : {
@@ -17912,6 +18169,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Hostname",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The public DNS name of the task runner.</p>\n@param hostname The public DNS name of the task runner.*/",
         "setterMethodName" : "setHostname",
         "setterModel" : {
@@ -17979,6 +18237,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Hostname",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The public DNS name of the task runner.</p>\n@param hostname The public DNS name of the task runner.*/",
           "setterMethodName" : "setHostname",
           "setterModel" : {
@@ -18045,6 +18304,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskrunnerId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>\n@param taskrunnerId The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.*/",
           "setterMethodName" : "setTaskrunnerId",
           "setterModel" : {
@@ -18111,6 +18371,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "WorkerGroup",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>\n@param workerGroup The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.*/",
           "setterMethodName" : "setWorkerGroup",
           "setterModel" : {
@@ -18213,6 +18474,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "Terminate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether the calling task runner should terminate.</p>\n@param terminate Indicates whether the calling task runner should terminate.*/",
         "setterMethodName" : "setTerminate",
         "setterModel" : {
@@ -18280,6 +18542,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "Terminate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether the calling task runner should terminate.</p>\n@param terminate Indicates whether the calling task runner should terminate.*/",
           "setterMethodName" : "setTerminate",
           "setterModel" : {
@@ -18385,6 +18648,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "FieldName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.</p>\n@param fieldName The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.*/",
         "setterMethodName" : "setFieldName",
         "setterModel" : {
@@ -18450,6 +18714,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Operator",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param operator */",
         "setterMethodName" : "setOperator",
         "setterModel" : {
@@ -18517,6 +18782,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "FieldName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.</p>\n@param fieldName The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.*/",
           "setterMethodName" : "setFieldName",
           "setterModel" : {
@@ -18583,6 +18849,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Operator",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param operator */",
           "setterMethodName" : "setOperator",
           "setterModel" : {
@@ -18695,6 +18962,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline that contains the objects.</p>\n@param pipelineId The ID of the pipeline that contains the objects.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -18797,6 +19065,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -18840,6 +19109,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ObjectIds",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>\n@param objectIds The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.*/",
         "setterMethodName" : "setObjectIds",
         "setterModel" : {
@@ -18905,6 +19175,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>\n@param status The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -19009,6 +19280,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -19052,6 +19324,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ObjectIds",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>\n@param objectIds The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.*/",
           "setterMethodName" : "setObjectIds",
           "setterModel" : {
@@ -19118,6 +19391,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline that contains the objects.</p>\n@param pipelineId The ID of the pipeline that contains the objects.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -19184,6 +19458,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>\n@param status The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -19333,6 +19608,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>\n@param taskId The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.*/",
         "setterMethodName" : "setTaskId",
         "setterModel" : {
@@ -19398,6 +19674,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskStatus",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>\n@param taskStatus If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.\n@see TaskStatus*/",
         "setterMethodName" : "setTaskStatus",
         "setterModel" : {
@@ -19463,6 +19740,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>\n@param errorId If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.*/",
         "setterMethodName" : "setErrorId",
         "setterModel" : {
@@ -19528,6 +19806,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>\n@param errorMessage If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.*/",
         "setterMethodName" : "setErrorMessage",
         "setterModel" : {
@@ -19593,6 +19872,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorStackTrace",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>\n@param errorStackTrace If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.*/",
         "setterMethodName" : "setErrorStackTrace",
         "setterModel" : {
@@ -19660,6 +19940,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>\n@param errorId If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.*/",
           "setterMethodName" : "setErrorId",
           "setterModel" : {
@@ -19726,6 +20007,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>\n@param errorMessage If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.*/",
           "setterMethodName" : "setErrorMessage",
           "setterModel" : {
@@ -19792,6 +20074,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorStackTrace",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>\n@param errorStackTrace If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.*/",
           "setterMethodName" : "setErrorStackTrace",
           "setterModel" : {
@@ -19858,6 +20141,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>\n@param taskId The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.*/",
           "setterMethodName" : "setTaskId",
           "setterModel" : {
@@ -19924,6 +20208,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskStatus",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>\n@param taskStatus If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.\n@see TaskStatus*/",
           "setterMethodName" : "setTaskStatus",
           "setterModel" : {
@@ -20066,6 +20351,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Key",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param key The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
         "setterMethodName" : "setKey",
         "setterModel" : {
@@ -20131,6 +20417,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Value",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param value The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
         "setterMethodName" : "setValue",
         "setterModel" : {
@@ -20198,6 +20485,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Key",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param key The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
           "setterMethodName" : "setKey",
           "setterModel" : {
@@ -20264,6 +20552,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Value",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n@param value The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.*/",
           "setterMethodName" : "setValue",
           "setterModel" : {
@@ -20406,6 +20695,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>\n@param taskId An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.*/",
         "setterMethodName" : "setTaskId",
         "setterModel" : {
@@ -20471,6 +20761,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline that provided the task.</p>\n@param pipelineId The ID of the pipeline that provided the task.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -20536,6 +20827,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "AttemptId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.</p>\n@param attemptId The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.*/",
         "setterMethodName" : "setAttemptId",
         "setterModel" : {
@@ -20644,6 +20936,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Value",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param value */",
             "setterMethodName" : "setValue",
             "setterModel" : {
@@ -20681,6 +20974,7 @@
         "marshallingTargetClass" : "Map",
         "marshallingType" : "MAP",
         "name" : "Objects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Connection information for the location where the task runner will publish the output of the task.</p>\n@param objects Connection information for the location where the task runner will publish the output of the task.*/",
         "setterMethodName" : "setObjects",
         "setterModel" : {
@@ -20748,6 +21042,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "AttemptId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.</p>\n@param attemptId The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.*/",
           "setterMethodName" : "setAttemptId",
           "setterModel" : {
@@ -20857,6 +21152,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Value",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param value */",
               "setterMethodName" : "setValue",
               "setterModel" : {
@@ -20894,6 +21190,7 @@
           "marshallingTargetClass" : "Map",
           "marshallingType" : "MAP",
           "name" : "Objects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Connection information for the location where the task runner will publish the output of the task.</p>\n@param objects Connection information for the location where the task runner will publish the output of the task.*/",
           "setterMethodName" : "setObjects",
           "setterModel" : {
@@ -20960,6 +21257,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline that provided the task.</p>\n@param pipelineId The ID of the pipeline that provided the task.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -21026,6 +21324,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>\n@param taskId An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.*/",
           "setterMethodName" : "setTaskId",
           "setterModel" : {
@@ -21187,6 +21486,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PipelineId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
         "setterMethodName" : "setPipelineId",
         "setterModel" : {
@@ -21289,6 +21589,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -21332,6 +21633,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PipelineObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The objects that define the pipeline changes to validate against the pipeline.</p>\n@param pipelineObjects The objects that define the pipeline changes to validate against the pipeline.*/",
         "setterMethodName" : "setPipelineObjects",
         "setterModel" : {
@@ -21434,6 +21736,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -21477,6 +21780,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterObjects",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The parameter objects used with the pipeline.</p>\n@param parameterObjects The parameter objects used with the pipeline.*/",
         "setterMethodName" : "setParameterObjects",
         "setterModel" : {
@@ -21579,6 +21883,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -21622,6 +21927,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ParameterValues",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The parameter values used with the pipeline.</p>\n@param parameterValues The parameter values used with the pipeline.*/",
         "setterMethodName" : "setParameterValues",
         "setterModel" : {
@@ -21726,6 +22032,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -21769,6 +22076,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The parameter objects used with the pipeline.</p>\n@param parameterObjects The parameter objects used with the pipeline.*/",
           "setterMethodName" : "setParameterObjects",
           "setterModel" : {
@@ -21872,6 +22180,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -21915,6 +22224,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ParameterValues",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The parameter values used with the pipeline.</p>\n@param parameterValues The parameter values used with the pipeline.*/",
           "setterMethodName" : "setParameterValues",
           "setterModel" : {
@@ -21981,6 +22291,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PipelineId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the pipeline.</p>\n@param pipelineId The ID of the pipeline.*/",
           "setterMethodName" : "setPipelineId",
           "setterModel" : {
@@ -22084,6 +22395,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -22127,6 +22439,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PipelineObjects",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The objects that define the pipeline changes to validate against the pipeline.</p>\n@param pipelineObjects The objects that define the pipeline changes to validate against the pipeline.*/",
           "setterMethodName" : "setPipelineObjects",
           "setterModel" : {
@@ -22266,6 +22579,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -22309,6 +22623,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ValidationErrors",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Any validation errors that were found.</p>\n@param validationErrors Any validation errors that were found.*/",
         "setterMethodName" : "setValidationErrors",
         "setterModel" : {
@@ -22411,6 +22726,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -22454,6 +22770,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ValidationWarnings",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Any validation warnings that were found.</p>\n@param validationWarnings Any validation warnings that were found.*/",
         "setterMethodName" : "setValidationWarnings",
         "setterModel" : {
@@ -22519,6 +22836,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "Errored",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Indicates whether there were validation errors.</p>\n@param errored Indicates whether there were validation errors.*/",
         "setterMethodName" : "setErrored",
         "setterModel" : {
@@ -22586,6 +22904,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "Errored",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Indicates whether there were validation errors.</p>\n@param errored Indicates whether there were validation errors.*/",
           "setterMethodName" : "setErrored",
           "setterModel" : {
@@ -22689,6 +23008,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -22732,6 +23052,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ValidationErrors",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Any validation errors that were found.</p>\n@param validationErrors Any validation errors that were found.*/",
           "setterMethodName" : "setValidationErrors",
           "setterModel" : {
@@ -22835,6 +23156,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -22878,6 +23200,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ValidationWarnings",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Any validation warnings that were found.</p>\n@param validationWarnings Any validation warnings that were found.*/",
           "setterMethodName" : "setValidationWarnings",
           "setterModel" : {
@@ -22983,6 +23306,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifier of the object that contains the validation error.</p>\n@param id The identifier of the object that contains the validation error.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -23085,6 +23409,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -23128,6 +23453,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Errors",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A description of the validation error.</p>\n@param errors A description of the validation error.*/",
         "setterMethodName" : "setErrors",
         "setterModel" : {
@@ -23232,6 +23558,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -23275,6 +23602,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Errors",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A description of the validation error.</p>\n@param errors A description of the validation error.*/",
           "setterMethodName" : "setErrors",
           "setterModel" : {
@@ -23341,6 +23669,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifier of the object that contains the validation error.</p>\n@param id The identifier of the object that contains the validation error.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -23446,6 +23775,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifier of the object that contains the validation warning.</p>\n@param id The identifier of the object that contains the validation warning.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -23548,6 +23878,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -23591,6 +23922,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Warnings",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A description of the validation warning.</p>\n@param warnings A description of the validation warning.*/",
         "setterMethodName" : "setWarnings",
         "setterModel" : {
@@ -23658,6 +23990,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifier of the object that contains the validation warning.</p>\n@param id The identifier of the object that contains the validation warning.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -23761,6 +24094,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -23804,6 +24138,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Warnings",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A description of the validation warning.</p>\n@param warnings A description of the validation warning.*/",
           "setterMethodName" : "setWarnings",
           "setterModel" : {
@@ -23854,13 +24189,12 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : { },
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "DataPipelineException",

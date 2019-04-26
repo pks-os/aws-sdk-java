@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -54,6 +54,12 @@ public class S3LogsConfig implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String location;
+    /**
+     * <p>
+     * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     * </p>
+     */
+    private Boolean encryptionDisabled;
 
     /**
      * <p>
@@ -259,7 +265,62 @@ public class S3LogsConfig implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     * </p>
+     * 
+     * @param encryptionDisabled
+     *        Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     */
+
+    public void setEncryptionDisabled(Boolean encryptionDisabled) {
+        this.encryptionDisabled = encryptionDisabled;
+    }
+
+    /**
+     * <p>
+     * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     * </p>
+     * 
+     * @return Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are
+     *         encrypted.
+     */
+
+    public Boolean getEncryptionDisabled() {
+        return this.encryptionDisabled;
+    }
+
+    /**
+     * <p>
+     * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     * </p>
+     * 
+     * @param encryptionDisabled
+     *        Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public S3LogsConfig withEncryptionDisabled(Boolean encryptionDisabled) {
+        setEncryptionDisabled(encryptionDisabled);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+     * </p>
+     * 
+     * @return Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are
+     *         encrypted.
+     */
+
+    public Boolean isEncryptionDisabled() {
+        return this.encryptionDisabled;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -272,7 +333,9 @@ public class S3LogsConfig implements Serializable, Cloneable, StructuredPojo {
         if (getStatus() != null)
             sb.append("Status: ").append(getStatus()).append(",");
         if (getLocation() != null)
-            sb.append("Location: ").append(getLocation());
+            sb.append("Location: ").append(getLocation()).append(",");
+        if (getEncryptionDisabled() != null)
+            sb.append("EncryptionDisabled: ").append(getEncryptionDisabled());
         sb.append("}");
         return sb.toString();
     }
@@ -295,6 +358,10 @@ public class S3LogsConfig implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getLocation() != null && other.getLocation().equals(this.getLocation()) == false)
             return false;
+        if (other.getEncryptionDisabled() == null ^ this.getEncryptionDisabled() == null)
+            return false;
+        if (other.getEncryptionDisabled() != null && other.getEncryptionDisabled().equals(this.getEncryptionDisabled()) == false)
+            return false;
         return true;
     }
 
@@ -305,6 +372,7 @@ public class S3LogsConfig implements Serializable, Cloneable, StructuredPojo {
 
         hashCode = prime * hashCode + ((getStatus() == null) ? 0 : getStatus().hashCode());
         hashCode = prime * hashCode + ((getLocation() == null) ? 0 : getLocation().hashCode());
+        hashCode = prime * hashCode + ((getEncryptionDisabled() == null) ? 0 : getEncryptionDisabled().hashCode());
         return hashCode;
     }
 

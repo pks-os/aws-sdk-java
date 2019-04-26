@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,9 +40,9 @@ public class StepExecutionMarshaller {
     private static final MarshallingInfo<Integer> MAXATTEMPTS_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("MaxAttempts").build();
     private static final MarshallingInfo<java.util.Date> EXECUTIONSTARTTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ExecutionStartTime").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ExecutionStartTime").timestampFormat("unixTimestamp").build();
     private static final MarshallingInfo<java.util.Date> EXECUTIONENDTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ExecutionEndTime").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ExecutionEndTime").timestampFormat("unixTimestamp").build();
     private static final MarshallingInfo<String> STEPSTATUS_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("StepStatus").build();
     private static final MarshallingInfo<String> RESPONSECODE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
@@ -69,6 +69,10 @@ public class StepExecutionMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("IsCritical").build();
     private static final MarshallingInfo<List> VALIDNEXTSTEPS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ValidNextSteps").build();
+    private static final MarshallingInfo<List> TARGETS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
+            .marshallLocationName("Targets").build();
+    private static final MarshallingInfo<StructuredPojo> TARGETLOCATION_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("TargetLocation").build();
 
     private static final StepExecutionMarshaller instance = new StepExecutionMarshaller();
 
@@ -106,6 +110,8 @@ public class StepExecutionMarshaller {
             protocolMarshaller.marshall(stepExecution.getNextStep(), NEXTSTEP_BINDING);
             protocolMarshaller.marshall(stepExecution.getIsCritical(), ISCRITICAL_BINDING);
             protocolMarshaller.marshall(stepExecution.getValidNextSteps(), VALIDNEXTSTEPS_BINDING);
+            protocolMarshaller.marshall(stepExecution.getTargets(), TARGETS_BINDING);
+            protocolMarshaller.marshall(stepExecution.getTargetLocation(), TARGETLOCATION_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

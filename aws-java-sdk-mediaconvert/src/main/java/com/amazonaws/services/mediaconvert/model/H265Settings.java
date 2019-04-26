@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,17 +26,25 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class H265Settings implements Serializable, Cloneable, StructuredPojo {
 
+    /** Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality. */
     private String adaptiveQuantization;
-
+    /**
+     * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer
+     * Function (EOTF).
+     */
     private String alternateTransferFunctionSei;
     /**
      * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      */
     private Integer bitrate;
-
+    /** H.265 Level. */
     private String codecLevel;
-
+    /**
+     * Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     * [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC
+     * 4:2:2 License.
+     */
     private String codecProfile;
     /**
      * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
@@ -45,17 +53,26 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
      * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
      */
     private String dynamicSubGop;
-
+    /** Adjust quantization within each frame to reduce flicker or 'pop' on I-frames. */
     private String flickerAdaptiveQuantization;
-
+    /**
+     * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to
+     * keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion,
+     * choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal
+     * approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your
+     * transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the
+     * service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the
+     * frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the
+     * settings FramerateNumerator and FramerateDenominator.
+     */
     private String framerateControl;
-
+    /** When set to INTERPOLATE, produces smoother motion during frame rate conversion. */
     private String framerateConversionAlgorithm;
-    /** Framerate denominator. */
+    /** Frame rate denominator. */
     private Integer framerateDenominator;
-    /** Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps. */
+    /** Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps. */
     private Integer framerateNumerator;
-
+    /** If enable, use reference B frames for GOP structures that have B frames > 1. */
     private String gopBReference;
     /**
      * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining
@@ -65,13 +82,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     private Integer gopClosedCadence;
     /** GOP Length (keyframe interval) in frames or seconds. Must be greater than zero. */
     private Double gopSize;
-
+    /**
+     * Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP
+     * Size into a frame count at run time.
+     */
     private String gopSizeUnits;
     /** Percentage of the buffer that should initially be filled (HRD buffer model). */
     private Integer hrdBufferInitialFillPercentage;
     /** Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000. */
     private Integer hrdBufferSize;
-
+    /**
+     * Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and
+     * Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity
+     * (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD)
+     * use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is
+     * interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The
+     * output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive,
+     * the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the
+     * Follow options you chose.
+     */
     private String interlaceMode;
     /**
      * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
@@ -93,13 +122,19 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
      * encoding.
      */
     private Integer numberReferenceFrames;
-
+    /**
+     * Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using
+     * the console, do this by choosing Follow source for Pixel aspect ratio.
+     */
     private String parControl;
     /** Pixel Aspect Ratio denominator. */
     private Integer parDenominator;
     /** Pixel Aspect Ratio numerator. */
     private Integer parNumerator;
-
+    /**
+     * Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality
+     * singlepass, or high-quality multipass video encoding.
+     */
     private String qualityTuningLevel;
     /**
      * Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control
@@ -107,36 +142,70 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
      * control mode.
      */
     private H265QvbrSettings qvbrSettings;
-
+    /**
+     * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     * quality-defined variable bitrate (QVBR).
+     */
     private String rateControlMode;
-
+    /**
+     * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on
+     * content
+     */
     private String sampleAdaptiveOffsetFilterMode;
-
+    /** Scene change detection (inserts I-frames on scene changes). */
     private String sceneChangeDetect;
     /**
      * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive
      * pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
      */
     private Integer slices;
-
+    /**
+     * Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     * correspondingly.
+     */
     private String slowPal;
-
+    /** Adjust quantization within each frame based on spatial variation of content complexity. */
     private String spatialAdaptiveQuantization;
-
+    /**
+     * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field
+     * works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams >
+     * Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive,
+     * Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces
+     * 23.976; the player converts this output to 29.97i.
+     */
     private String telecine;
-
+    /** Adjust quantization within each frame based on temporal variation of content complexity. */
     private String temporalAdaptiveQuantization;
-
+    /**
+     * Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     * structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames
+     * can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame
+     * rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a
+     * decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer)
+     * for a half frame rate output.
+     */
     private String temporalIds;
-
+    /** Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures. */
     private String tiles;
-
+    /** Inserts timecode for each frame as 4 bytes of an unregistered SEI message. */
     private String unregisteredSeiTimecode;
-
+    /**
+     * Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you include
+     * writeMp4PackagingType in your JSON job specification for other outputs, your video might not work properly with
+     * downstream systems and video players. If the location of parameter set NAL units don't matter in your workflow,
+     * ignore this setting. The service defaults to marking your output as HEV1. Choose HVC1 to mark your output as HVC1.
+     * This makes your output compliant with this specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd
+     * Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the
+     * samples directly. Keep the default HEV1 to mark your output as HEV1. For these outputs, the service writes
+     * parameter set NAL units directly into the samples.
+     */
     private String writeMp4PackagingType;
 
     /**
+     * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+     * 
      * @param adaptiveQuantization
+     *        Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
      * @see H265AdaptiveQuantization
      */
 
@@ -145,7 +214,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+     * 
+     * @return Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
      * @see H265AdaptiveQuantization
      */
 
@@ -154,7 +225,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+     * 
      * @param adaptiveQuantization
+     *        Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265AdaptiveQuantization
      */
@@ -165,7 +239,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+     * 
      * @param adaptiveQuantization
+     *        Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265AdaptiveQuantization
      */
@@ -176,7 +253,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer
+     * Function (EOTF).
+     * 
      * @param alternateTransferFunctionSei
+     *        Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical
+     *        Transfer Function (EOTF).
      * @see H265AlternateTransferFunctionSei
      */
 
@@ -185,7 +267,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer
+     * Function (EOTF).
+     * 
+     * @return Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical
+     *         Transfer Function (EOTF).
      * @see H265AlternateTransferFunctionSei
      */
 
@@ -194,7 +280,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer
+     * Function (EOTF).
+     * 
      * @param alternateTransferFunctionSei
+     *        Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical
+     *        Transfer Function (EOTF).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265AlternateTransferFunctionSei
      */
@@ -205,7 +296,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer
+     * Function (EOTF).
+     * 
      * @param alternateTransferFunctionSei
+     *        Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical
+     *        Transfer Function (EOTF).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265AlternateTransferFunctionSei
      */
@@ -256,7 +352,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * H.265 Level.
+     * 
      * @param codecLevel
+     *        H.265 Level.
      * @see H265CodecLevel
      */
 
@@ -265,7 +364,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * H.265 Level.
+     * 
+     * @return H.265 Level.
      * @see H265CodecLevel
      */
 
@@ -274,7 +375,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * H.265 Level.
+     * 
      * @param codecLevel
+     *        H.265 Level.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265CodecLevel
      */
@@ -285,7 +389,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * H.265 Level.
+     * 
      * @param codecLevel
+     *        H.265 Level.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265CodecLevel
      */
@@ -296,7 +403,14 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     * [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC
+     * 4:2:2 License.
+     * 
      * @param codecProfile
+     *        Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     *        [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the
+     *        HEVC 4:2:2 License.
      * @see H265CodecProfile
      */
 
@@ -305,7 +419,13 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     * [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC
+     * 4:2:2 License.
+     * 
+     * @return Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile]
+     *         / [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with
+     *         the HEVC 4:2:2 License.
      * @see H265CodecProfile
      */
 
@@ -314,7 +434,14 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     * [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC
+     * 4:2:2 License.
+     * 
      * @param codecProfile
+     *        Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     *        [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the
+     *        HEVC 4:2:2 License.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265CodecProfile
      */
@@ -325,7 +452,14 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     * [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC
+     * 4:2:2 License.
+     * 
      * @param codecProfile
+     *        Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] /
+     *        [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the
+     *        HEVC 4:2:2 License.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265CodecProfile
      */
@@ -411,7 +545,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+     * 
      * @param flickerAdaptiveQuantization
+     *        Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
      * @see H265FlickerAdaptiveQuantization
      */
 
@@ -420,7 +557,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+     * 
+     * @return Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
      * @see H265FlickerAdaptiveQuantization
      */
 
@@ -429,7 +568,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+     * 
      * @param flickerAdaptiveQuantization
+     *        Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265FlickerAdaptiveQuantization
      */
@@ -440,7 +582,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+     * 
      * @param flickerAdaptiveQuantization
+     *        Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265FlickerAdaptiveQuantization
      */
@@ -451,7 +596,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to
+     * keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion,
+     * choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal
+     * approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your
+     * transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the
+     * service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the
+     * frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the
+     * settings FramerateNumerator and FramerateDenominator.
+     * 
      * @param framerateControl
+     *        If you are using the console, use the Framerate setting to specify the frame rate for this output. If you
+     *        want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate
+     *        conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the
+     *        dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a
+     *        fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use
+     *        FramerateControl to specify which value the service uses for the frame rate for this output. Choose
+     *        INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if
+     *        you want the service to use the frame rate you specify in the settings FramerateNumerator and
+     *        FramerateDenominator.
      * @see H265FramerateControl
      */
 
@@ -460,7 +623,24 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to
+     * keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion,
+     * choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal
+     * approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your
+     * transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the
+     * service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the
+     * frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the
+     * settings FramerateNumerator and FramerateDenominator.
+     * 
+     * @return If you are using the console, use the Framerate setting to specify the frame rate for this output. If you
+     *         want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate
+     *         conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the
+     *         dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a
+     *         fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use
+     *         FramerateControl to specify which value the service uses for the frame rate for this output. Choose
+     *         INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if
+     *         you want the service to use the frame rate you specify in the settings FramerateNumerator and
+     *         FramerateDenominator.
      * @see H265FramerateControl
      */
 
@@ -469,7 +649,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to
+     * keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion,
+     * choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal
+     * approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your
+     * transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the
+     * service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the
+     * frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the
+     * settings FramerateNumerator and FramerateDenominator.
+     * 
      * @param framerateControl
+     *        If you are using the console, use the Framerate setting to specify the frame rate for this output. If you
+     *        want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate
+     *        conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the
+     *        dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a
+     *        fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use
+     *        FramerateControl to specify which value the service uses for the frame rate for this output. Choose
+     *        INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if
+     *        you want the service to use the frame rate you specify in the settings FramerateNumerator and
+     *        FramerateDenominator.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265FramerateControl
      */
@@ -480,7 +678,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to
+     * keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion,
+     * choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal
+     * approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your
+     * transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the
+     * service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the
+     * frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the
+     * settings FramerateNumerator and FramerateDenominator.
+     * 
      * @param framerateControl
+     *        If you are using the console, use the Framerate setting to specify the frame rate for this output. If you
+     *        want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate
+     *        conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the
+     *        dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a
+     *        fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use
+     *        FramerateControl to specify which value the service uses for the frame rate for this output. Choose
+     *        INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if
+     *        you want the service to use the frame rate you specify in the settings FramerateNumerator and
+     *        FramerateDenominator.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265FramerateControl
      */
@@ -491,7 +707,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * When set to INTERPOLATE, produces smoother motion during frame rate conversion.
+     * 
      * @param framerateConversionAlgorithm
+     *        When set to INTERPOLATE, produces smoother motion during frame rate conversion.
      * @see H265FramerateConversionAlgorithm
      */
 
@@ -500,7 +719,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * When set to INTERPOLATE, produces smoother motion during frame rate conversion.
+     * 
+     * @return When set to INTERPOLATE, produces smoother motion during frame rate conversion.
      * @see H265FramerateConversionAlgorithm
      */
 
@@ -509,7 +730,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * When set to INTERPOLATE, produces smoother motion during frame rate conversion.
+     * 
      * @param framerateConversionAlgorithm
+     *        When set to INTERPOLATE, produces smoother motion during frame rate conversion.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265FramerateConversionAlgorithm
      */
@@ -520,7 +744,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * When set to INTERPOLATE, produces smoother motion during frame rate conversion.
+     * 
      * @param framerateConversionAlgorithm
+     *        When set to INTERPOLATE, produces smoother motion during frame rate conversion.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265FramerateConversionAlgorithm
      */
@@ -531,10 +758,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate denominator.
+     * Frame rate denominator.
      * 
      * @param framerateDenominator
-     *        Framerate denominator.
+     *        Frame rate denominator.
      */
 
     public void setFramerateDenominator(Integer framerateDenominator) {
@@ -542,9 +769,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate denominator.
+     * Frame rate denominator.
      * 
-     * @return Framerate denominator.
+     * @return Frame rate denominator.
      */
 
     public Integer getFramerateDenominator() {
@@ -552,10 +779,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate denominator.
+     * Frame rate denominator.
      * 
      * @param framerateDenominator
-     *        Framerate denominator.
+     *        Frame rate denominator.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -565,10 +792,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
      * @param framerateNumerator
-     *        Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     *        Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      */
 
     public void setFramerateNumerator(Integer framerateNumerator) {
@@ -576,9 +803,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
-     * @return Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * @return Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      */
 
     public Integer getFramerateNumerator() {
@@ -586,10 +813,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
      * @param framerateNumerator
-     *        Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     *        Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -599,7 +826,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * If enable, use reference B frames for GOP structures that have B frames > 1.
+     * 
      * @param gopBReference
+     *        If enable, use reference B frames for GOP structures that have B frames > 1.
      * @see H265GopBReference
      */
 
@@ -608,7 +838,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * If enable, use reference B frames for GOP structures that have B frames > 1.
+     * 
+     * @return If enable, use reference B frames for GOP structures that have B frames > 1.
      * @see H265GopBReference
      */
 
@@ -617,7 +849,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * If enable, use reference B frames for GOP structures that have B frames > 1.
+     * 
      * @param gopBReference
+     *        If enable, use reference B frames for GOP structures that have B frames > 1.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265GopBReference
      */
@@ -628,7 +863,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * If enable, use reference B frames for GOP structures that have B frames > 1.
+     * 
      * @param gopBReference
+     *        If enable, use reference B frames for GOP structures that have B frames > 1.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265GopBReference
      */
@@ -719,7 +957,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP
+     * Size into a frame count at run time.
+     * 
      * @param gopSizeUnits
+     *        Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert
+     *        the GOP Size into a frame count at run time.
      * @see H265GopSizeUnits
      */
 
@@ -728,7 +971,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP
+     * Size into a frame count at run time.
+     * 
+     * @return Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert
+     *         the GOP Size into a frame count at run time.
      * @see H265GopSizeUnits
      */
 
@@ -737,7 +984,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP
+     * Size into a frame count at run time.
+     * 
      * @param gopSizeUnits
+     *        Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert
+     *        the GOP Size into a frame count at run time.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265GopSizeUnits
      */
@@ -748,7 +1000,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP
+     * Size into a frame count at run time.
+     * 
      * @param gopSizeUnits
+     *        Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert
+     *        the GOP Size into a frame count at run time.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265GopSizeUnits
      */
@@ -827,7 +1084,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and
+     * Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity
+     * (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD)
+     * use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is
+     * interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The
+     * output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive,
+     * the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the
+     * Follow options you chose.
+     * 
      * @param interlaceMode
+     *        Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First
+     *        (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having
+     *        the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow,
+     *        Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior
+     *        depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same
+     *        polarity as the source (it will follow the source). The output could therefore be a mix of
+     *        "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced
+     *        with "top field first" or "bottom field first" polarity, depending on which of the Follow options you
+     *        chose.
      * @see H265InterlaceMode
      */
 
@@ -836,7 +1111,24 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and
+     * Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity
+     * (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD)
+     * use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is
+     * interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The
+     * output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive,
+     * the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the
+     * Follow options you chose.
+     * 
+     * @return Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First
+     *         (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having
+     *         the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow,
+     *         Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior
+     *         depends on the input scan type. - If the source is interlaced, the output will be interlaced with the
+     *         same polarity as the source (it will follow the source). The output could therefore be a mix of
+     *         "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced
+     *         with "top field first" or "bottom field first" polarity, depending on which of the Follow options you
+     *         chose.
      * @see H265InterlaceMode
      */
 
@@ -845,7 +1137,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and
+     * Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity
+     * (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD)
+     * use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is
+     * interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The
+     * output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive,
+     * the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the
+     * Follow options you chose.
+     * 
      * @param interlaceMode
+     *        Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First
+     *        (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having
+     *        the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow,
+     *        Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior
+     *        depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same
+     *        polarity as the source (it will follow the source). The output could therefore be a mix of
+     *        "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced
+     *        with "top field first" or "bottom field first" polarity, depending on which of the Follow options you
+     *        chose.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265InterlaceMode
      */
@@ -856,7 +1166,25 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and
+     * Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity
+     * (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD)
+     * use the same field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is
+     * interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The
+     * output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive,
+     * the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the
+     * Follow options you chose.
+     * 
      * @param interlaceMode
+     *        Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First
+     *        (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having
+     *        the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow,
+     *        Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior
+     *        depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same
+     *        polarity as the source (it will follow the source). The output could therefore be a mix of
+     *        "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced
+     *        with "top field first" or "bottom field first" polarity, depending on which of the Follow options you
+     *        chose.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265InterlaceMode
      */
@@ -1039,7 +1367,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using
+     * the console, do this by choosing Follow source for Pixel aspect ratio.
+     * 
      * @param parControl
+     *        Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the
+     *        input. Using the console, do this by choosing Follow source for Pixel aspect ratio.
      * @see H265ParControl
      */
 
@@ -1048,7 +1381,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using
+     * the console, do this by choosing Follow source for Pixel aspect ratio.
+     * 
+     * @return Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the
+     *         input. Using the console, do this by choosing Follow source for Pixel aspect ratio.
      * @see H265ParControl
      */
 
@@ -1057,7 +1394,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using
+     * the console, do this by choosing Follow source for Pixel aspect ratio.
+     * 
      * @param parControl
+     *        Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the
+     *        input. Using the console, do this by choosing Follow source for Pixel aspect ratio.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265ParControl
      */
@@ -1068,7 +1410,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using
+     * the console, do this by choosing Follow source for Pixel aspect ratio.
+     * 
      * @param parControl
+     *        Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the
+     *        input. Using the console, do this by choosing Follow source for Pixel aspect ratio.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265ParControl
      */
@@ -1147,7 +1494,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality
+     * singlepass, or high-quality multipass video encoding.
+     * 
      * @param qualityTuningLevel
+     *        Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass,
+     *        high-quality singlepass, or high-quality multipass video encoding.
      * @see H265QualityTuningLevel
      */
 
@@ -1156,7 +1508,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality
+     * singlepass, or high-quality multipass video encoding.
+     * 
+     * @return Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass,
+     *         high-quality singlepass, or high-quality multipass video encoding.
      * @see H265QualityTuningLevel
      */
 
@@ -1165,7 +1521,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality
+     * singlepass, or high-quality multipass video encoding.
+     * 
      * @param qualityTuningLevel
+     *        Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass,
+     *        high-quality singlepass, or high-quality multipass video encoding.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265QualityTuningLevel
      */
@@ -1176,7 +1537,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality
+     * singlepass, or high-quality multipass video encoding.
+     * 
      * @param qualityTuningLevel
+     *        Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass,
+     *        high-quality singlepass, or high-quality multipass video encoding.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265QualityTuningLevel
      */
@@ -1233,7 +1599,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     * quality-defined variable bitrate (QVBR).
+     * 
      * @param rateControlMode
+     *        Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     *        quality-defined variable bitrate (QVBR).
      * @see H265RateControlMode
      */
 
@@ -1242,7 +1613,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     * quality-defined variable bitrate (QVBR).
+     * 
+     * @return Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     *         quality-defined variable bitrate (QVBR).
      * @see H265RateControlMode
      */
 
@@ -1251,7 +1626,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     * quality-defined variable bitrate (QVBR).
+     * 
      * @param rateControlMode
+     *        Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     *        quality-defined variable bitrate (QVBR).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265RateControlMode
      */
@@ -1262,7 +1642,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     * quality-defined variable bitrate (QVBR).
+     * 
      * @param rateControlMode
+     *        Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or
+     *        quality-defined variable bitrate (QVBR).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265RateControlMode
      */
@@ -1273,7 +1658,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on
+     * content
+     * 
      * @param sampleAdaptiveOffsetFilterMode
+     *        Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength
+     *        based on content
      * @see H265SampleAdaptiveOffsetFilterMode
      */
 
@@ -1282,7 +1672,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on
+     * content
+     * 
+     * @return Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength
+     *         based on content
      * @see H265SampleAdaptiveOffsetFilterMode
      */
 
@@ -1291,7 +1685,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on
+     * content
+     * 
      * @param sampleAdaptiveOffsetFilterMode
+     *        Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength
+     *        based on content
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SampleAdaptiveOffsetFilterMode
      */
@@ -1302,7 +1701,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on
+     * content
+     * 
      * @param sampleAdaptiveOffsetFilterMode
+     *        Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength
+     *        based on content
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SampleAdaptiveOffsetFilterMode
      */
@@ -1313,7 +1717,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Scene change detection (inserts I-frames on scene changes).
+     * 
      * @param sceneChangeDetect
+     *        Scene change detection (inserts I-frames on scene changes).
      * @see H265SceneChangeDetect
      */
 
@@ -1322,7 +1729,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Scene change detection (inserts I-frames on scene changes).
+     * 
+     * @return Scene change detection (inserts I-frames on scene changes).
      * @see H265SceneChangeDetect
      */
 
@@ -1331,7 +1740,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Scene change detection (inserts I-frames on scene changes).
+     * 
      * @param sceneChangeDetect
+     *        Scene change detection (inserts I-frames on scene changes).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SceneChangeDetect
      */
@@ -1342,7 +1754,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Scene change detection (inserts I-frames on scene changes).
+     * 
      * @param sceneChangeDetect
+     *        Scene change detection (inserts I-frames on scene changes).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SceneChangeDetect
      */
@@ -1393,7 +1808,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     * correspondingly.
+     * 
      * @param slowPal
+     *        Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     *        correspondingly.
      * @see H265SlowPal
      */
 
@@ -1402,7 +1822,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     * correspondingly.
+     * 
+     * @return Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     *         correspondingly.
      * @see H265SlowPal
      */
 
@@ -1411,7 +1835,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     * correspondingly.
+     * 
      * @param slowPal
+     *        Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     *        correspondingly.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SlowPal
      */
@@ -1422,7 +1851,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     * correspondingly.
+     * 
      * @param slowPal
+     *        Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up
+     *        correspondingly.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SlowPal
      */
@@ -1433,7 +1867,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame based on spatial variation of content complexity.
+     * 
      * @param spatialAdaptiveQuantization
+     *        Adjust quantization within each frame based on spatial variation of content complexity.
      * @see H265SpatialAdaptiveQuantization
      */
 
@@ -1442,7 +1879,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Adjust quantization within each frame based on spatial variation of content complexity.
+     * 
+     * @return Adjust quantization within each frame based on spatial variation of content complexity.
      * @see H265SpatialAdaptiveQuantization
      */
 
@@ -1451,7 +1890,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame based on spatial variation of content complexity.
+     * 
      * @param spatialAdaptiveQuantization
+     *        Adjust quantization within each frame based on spatial variation of content complexity.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SpatialAdaptiveQuantization
      */
@@ -1462,7 +1904,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame based on spatial variation of content complexity.
+     * 
      * @param spatialAdaptiveQuantization
+     *        Adjust quantization within each frame based on spatial variation of content complexity.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265SpatialAdaptiveQuantization
      */
@@ -1473,7 +1918,18 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field
+     * works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams >
+     * Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive,
+     * Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces
+     * 23.976; the player converts this output to 29.97i.
+     * 
      * @param telecine
+     *        This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This
+     *        field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the
+     *        Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output:
+     *        Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input.
+     *        - Soft: produces 23.976; the player converts this output to 29.97i.
      * @see H265Telecine
      */
 
@@ -1482,7 +1938,17 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field
+     * works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams >
+     * Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive,
+     * Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces
+     * 23.976; the player converts this output to 29.97i.
+     * 
+     * @return This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This
+     *         field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the
+     *         Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output:
+     *         Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976
+     *         input. - Soft: produces 23.976; the player converts this output to 29.97i.
      * @see H265Telecine
      */
 
@@ -1491,7 +1957,18 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field
+     * works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams >
+     * Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive,
+     * Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces
+     * 23.976; the player converts this output to 29.97i.
+     * 
      * @param telecine
+     *        This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This
+     *        field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the
+     *        Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output:
+     *        Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input.
+     *        - Soft: produces 23.976; the player converts this output to 29.97i.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265Telecine
      */
@@ -1502,7 +1979,18 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This field
+     * works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the Streams >
+     * Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output: Progressive,
+     * Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces
+     * 23.976; the player converts this output to 29.97i.
+     * 
      * @param telecine
+     *        This field applies only if the Streams > Advanced > Framerate (framerate) field is set to 29.970. This
+     *        field works with the Streams > Advanced > Preprocessors > Deinterlacer field (deinterlace_mode) and the
+     *        Streams > Advanced > Interlaced Mode field (interlace_mode) to identify the scan type for the output:
+     *        Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input.
+     *        - Soft: produces 23.976; the player converts this output to 29.97i.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265Telecine
      */
@@ -1513,7 +2001,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame based on temporal variation of content complexity.
+     * 
      * @param temporalAdaptiveQuantization
+     *        Adjust quantization within each frame based on temporal variation of content complexity.
      * @see H265TemporalAdaptiveQuantization
      */
 
@@ -1522,7 +2013,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Adjust quantization within each frame based on temporal variation of content complexity.
+     * 
+     * @return Adjust quantization within each frame based on temporal variation of content complexity.
      * @see H265TemporalAdaptiveQuantization
      */
 
@@ -1531,7 +2024,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame based on temporal variation of content complexity.
+     * 
      * @param temporalAdaptiveQuantization
+     *        Adjust quantization within each frame based on temporal variation of content complexity.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265TemporalAdaptiveQuantization
      */
@@ -1542,7 +2038,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Adjust quantization within each frame based on temporal variation of content complexity.
+     * 
      * @param temporalAdaptiveQuantization
+     *        Adjust quantization within each frame based on temporal variation of content complexity.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265TemporalAdaptiveQuantization
      */
@@ -1553,7 +2052,20 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     * structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames
+     * can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame
+     * rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a
+     * decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer)
+     * for a half frame rate output.
+     * 
      * @param temporalIds
+     *        Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     *        structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference
+     *        b-frames can form a third layer. Decoders can optionally decode only the lower temporal layers to generate
+     *        a lower frame rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e.
+     *        IbPbPb display order), a decoder could decode all the frames for full frame rate output or only the I and
+     *        P frames (lowest temporal layer) for a half frame rate output.
      * @see H265TemporalIds
      */
 
@@ -1562,7 +2074,19 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     * structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames
+     * can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame
+     * rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a
+     * decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer)
+     * for a half frame rate output.
+     * 
+     * @return Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on
+     *         GOP structure: I- and P-frames form one layer, reference B-frames can form a second layer and
+     *         non-reference b-frames can form a third layer. Decoders can optionally decode only the lower temporal
+     *         layers to generate a lower frame rate output. For example, given a bitstream with temporal IDs and with
+     *         b-frames = 1 (i.e. IbPbPb display order), a decoder could decode all the frames for full frame rate
+     *         output or only the I and P frames (lowest temporal layer) for a half frame rate output.
      * @see H265TemporalIds
      */
 
@@ -1571,7 +2095,20 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     * structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames
+     * can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame
+     * rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a
+     * decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer)
+     * for a half frame rate output.
+     * 
      * @param temporalIds
+     *        Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     *        structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference
+     *        b-frames can form a third layer. Decoders can optionally decode only the lower temporal layers to generate
+     *        a lower frame rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e.
+     *        IbPbPb display order), a decoder could decode all the frames for full frame rate output or only the I and
+     *        P frames (lowest temporal layer) for a half frame rate output.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265TemporalIds
      */
@@ -1582,7 +2119,20 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     * structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames
+     * can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame
+     * rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a
+     * decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer)
+     * for a half frame rate output.
+     * 
      * @param temporalIds
+     *        Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP
+     *        structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference
+     *        b-frames can form a third layer. Decoders can optionally decode only the lower temporal layers to generate
+     *        a lower frame rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e.
+     *        IbPbPb display order), a decoder could decode all the frames for full frame rate output or only the I and
+     *        P frames (lowest temporal layer) for a half frame rate output.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265TemporalIds
      */
@@ -1593,7 +2143,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
+     * 
      * @param tiles
+     *        Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
      * @see H265Tiles
      */
 
@@ -1602,7 +2155,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
+     * 
+     * @return Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
      * @see H265Tiles
      */
 
@@ -1611,7 +2166,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
+     * 
      * @param tiles
+     *        Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265Tiles
      */
@@ -1622,7 +2180,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
+     * 
      * @param tiles
+     *        Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265Tiles
      */
@@ -1633,7 +2194,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
+     * 
      * @param unregisteredSeiTimecode
+     *        Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
      * @see H265UnregisteredSeiTimecode
      */
 
@@ -1642,7 +2206,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
+     * 
+     * @return Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
      * @see H265UnregisteredSeiTimecode
      */
 
@@ -1651,7 +2217,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
+     * 
      * @param unregisteredSeiTimecode
+     *        Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265UnregisteredSeiTimecode
      */
@@ -1662,7 +2231,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
+     * 
      * @param unregisteredSeiTimecode
+     *        Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265UnregisteredSeiTimecode
      */
@@ -1673,7 +2245,24 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you include
+     * writeMp4PackagingType in your JSON job specification for other outputs, your video might not work properly with
+     * downstream systems and video players. If the location of parameter set NAL units don't matter in your workflow,
+     * ignore this setting. The service defaults to marking your output as HEV1. Choose HVC1 to mark your output as HVC1.
+     * This makes your output compliant with this specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd
+     * Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the
+     * samples directly. Keep the default HEV1 to mark your output as HEV1. For these outputs, the service writes
+     * parameter set NAL units directly into the samples.
+     * 
      * @param writeMp4PackagingType
+     *        Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you
+     *        include writeMp4PackagingType in your JSON job specification for other outputs, your video might not work
+     *        properly with downstream systems and video players. If the location of parameter set NAL units don't
+     *        matter in your workflow, ignore this setting. The service defaults to marking your output as HEV1. Choose
+     *        HVC1 to mark your output as HVC1. This makes your output compliant with this specification: ISO IECJTC1
+     *        SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set
+     *        NAL units in the sample headers but not in the samples directly. Keep the default HEV1 to mark your output
+     *        as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
      * @see H265WriteMp4PackagingType
      */
 
@@ -1682,7 +2271,23 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @return
+     * Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you include
+     * writeMp4PackagingType in your JSON job specification for other outputs, your video might not work properly with
+     * downstream systems and video players. If the location of parameter set NAL units don't matter in your workflow,
+     * ignore this setting. The service defaults to marking your output as HEV1. Choose HVC1 to mark your output as HVC1.
+     * This makes your output compliant with this specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd
+     * Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the
+     * samples directly. Keep the default HEV1 to mark your output as HEV1. For these outputs, the service writes
+     * parameter set NAL units directly into the samples.
+     * 
+     * @return Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you
+     *         include writeMp4PackagingType in your JSON job specification for other outputs, your video might not work
+     *         properly with downstream systems and video players. If the location of parameter set NAL units don't
+     *         matter in your workflow, ignore this setting. The service defaults to marking your output as HEV1. Choose
+     *         HVC1 to mark your output as HVC1. This makes your output compliant with this specification: ISO IECJTC1
+     *         SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set
+     *         NAL units in the sample headers but not in the samples directly. Keep the default HEV1 to mark your
+     *         output as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
      * @see H265WriteMp4PackagingType
      */
 
@@ -1691,7 +2296,24 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you include
+     * writeMp4PackagingType in your JSON job specification for other outputs, your video might not work properly with
+     * downstream systems and video players. If the location of parameter set NAL units don't matter in your workflow,
+     * ignore this setting. The service defaults to marking your output as HEV1. Choose HVC1 to mark your output as HVC1.
+     * This makes your output compliant with this specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd
+     * Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the
+     * samples directly. Keep the default HEV1 to mark your output as HEV1. For these outputs, the service writes
+     * parameter set NAL units directly into the samples.
+     * 
      * @param writeMp4PackagingType
+     *        Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you
+     *        include writeMp4PackagingType in your JSON job specification for other outputs, your video might not work
+     *        properly with downstream systems and video players. If the location of parameter set NAL units don't
+     *        matter in your workflow, ignore this setting. The service defaults to marking your output as HEV1. Choose
+     *        HVC1 to mark your output as HVC1. This makes your output compliant with this specification: ISO IECJTC1
+     *        SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set
+     *        NAL units in the sample headers but not in the samples directly. Keep the default HEV1 to mark your output
+     *        as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265WriteMp4PackagingType
      */
@@ -1702,7 +2324,24 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you include
+     * writeMp4PackagingType in your JSON job specification for other outputs, your video might not work properly with
+     * downstream systems and video players. If the location of parameter set NAL units don't matter in your workflow,
+     * ignore this setting. The service defaults to marking your output as HEV1. Choose HVC1 to mark your output as HVC1.
+     * This makes your output compliant with this specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd
+     * Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the
+     * samples directly. Keep the default HEV1 to mark your output as HEV1. For these outputs, the service writes
+     * parameter set NAL units directly into the samples.
+     * 
      * @param writeMp4PackagingType
+     *        Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you
+     *        include writeMp4PackagingType in your JSON job specification for other outputs, your video might not work
+     *        properly with downstream systems and video players. If the location of parameter set NAL units don't
+     *        matter in your workflow, ignore this setting. The service defaults to marking your output as HEV1. Choose
+     *        HVC1 to mark your output as HVC1. This makes your output compliant with this specification: ISO IECJTC1
+     *        SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set
+     *        NAL units in the sample headers but not in the samples directly. Keep the default HEV1 to mark your output
+     *        as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H265WriteMp4PackagingType
      */
@@ -1713,7 +2352,8 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,15 +34,17 @@ public class EbsBlockDevice implements Serializable, Cloneable {
     private Boolean deleteOnTermination;
     /**
      * <p>
-     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this represents
-     * the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents the baseline
-     * performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more
-     * information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
-     * <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this
+     * represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents
+     * the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For
+     * more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -102,11 +104,10 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * <p>
      * This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
-     * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances
-     * </a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     * RequestSpotInstances</a>.
      * </p>
      */
     private String kmsKeyId;
@@ -165,15 +166,17 @@ public class EbsBlockDevice implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this represents
-     * the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents the baseline
-     * performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more
-     * information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
-     * <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this
+     * represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents
+     * the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For
+     * more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -181,15 +184,18 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * 
      * @param iops
-     *        The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this
-     *        represents the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents
-     *        the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     *        bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting,
-     *        see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
-     *        Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     *        The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes,
+     *        this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this
+     *        represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits
+     *        for bursting. For more information, see <a
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
+     *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
-     *        Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code>
-     *        volumes.
+     *        Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for
+     *        <code>io1</code> volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed
+     *        only on <a
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances"
+     *        >Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      *        </p>
      *        <p>
      *        Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in
@@ -202,30 +208,35 @@ public class EbsBlockDevice implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this represents
-     * the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents the baseline
-     * performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more
-     * information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
-     * <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this
+     * represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents
+     * the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For
+     * more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
      * to create <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.
      * </p>
      * 
-     * @return The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this
-     *         represents the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents
-     *         the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     *         bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting,
-     *         see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     * @return The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes,
+     *         this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes,
+     *         this represents the baseline performance of the volume and the rate at which the volume accumulates I/O
+     *         credits for bursting. For more information, see <a
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
      *         Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *         <p>
-     *         Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code>
-     *         volumes.
+     *         Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for
+     *         <code>io1</code> volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed
+     *         only on <a
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances"
+     *         >Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      *         </p>
      *         <p>
      *         Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in
@@ -239,15 +250,17 @@ public class EbsBlockDevice implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this represents
-     * the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents the baseline
-     * performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more
-     * information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
-     * <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this
+     * represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents
+     * the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For
+     * more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -255,15 +268,18 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * 
      * @param iops
-     *        The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code>, this
-     *        represents the number of IOPS that are provisioned for the volume. For <code>gp2</code>, this represents
-     *        the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     *        bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting,
-     *        see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
-     *        Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     *        The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes,
+     *        this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this
+     *        represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits
+     *        for bursting. For more information, see <a
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
+     *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
-     *        Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code>
-     *        volumes.
+     *        Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for
+     *        <code>io1</code> volumes, in most Regions. The maximum IOPS for <code>io1</code> of 64,000 is guaranteed
+     *        only on <a
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances"
+     *        >Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      *        </p>
      *        <p>
      *        Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in
@@ -535,7 +551,7 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * 
      * @param encrypted
      *        Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that
-     *        support Amazon EBS encryption. </p>
+     *        support Amazon EBS encryption.</p>
      *        <p>
      *        If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only
      *        blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume,
@@ -560,7 +576,7 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * 
      * @return Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that
-     *         support Amazon EBS encryption. </p>
+     *         support Amazon EBS encryption.</p>
      *         <p>
      *         If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because
      *         only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS
@@ -587,7 +603,7 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * 
      * @param encrypted
      *        Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that
-     *        support Amazon EBS encryption. </p>
+     *        support Amazon EBS encryption.</p>
      *        <p>
      *        If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only
      *        blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume,
@@ -614,7 +630,7 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * 
      * @return Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that
-     *         support Amazon EBS encryption. </p>
+     *         support Amazon EBS encryption.</p>
      *         <p>
      *         If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because
      *         only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS
@@ -634,11 +650,10 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * <p>
      * This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
-     * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances
-     * </a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     * RequestSpotInstances</a>.
      * </p>
      * 
      * @param kmsKeyId
@@ -646,10 +661,10 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      *        encrypted.</p>
      *        <p>
      *        This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
      *        href
-     *        ="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
-     *        and <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     *        ="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+     *        and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
      *        RequestSpotInstances</a>.
      */
 
@@ -664,21 +679,20 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * <p>
      * This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
-     * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances
-     * </a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     * RequestSpotInstances</a>.
      * </p>
      * 
      * @return Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is
      *         encrypted.</p>
      *         <p>
      *         This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
      *         href
-     *         ="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
-     *         and <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     *         ="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+     *         and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
      *         RequestSpotInstances</a>.
      */
 
@@ -693,11 +707,10 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      * </p>
      * <p>
      * This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
-     * <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances
-     * </a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     * RequestSpotInstances</a>.
      * </p>
      * 
      * @param kmsKeyId
@@ -705,10 +718,10 @@ public class EbsBlockDevice implements Serializable, Cloneable {
      *        encrypted.</p>
      *        <p>
      *        This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a
      *        href
-     *        ="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
-     *        and <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
+     *        ="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+     *        and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">
      *        RequestSpotInstances</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -719,7 +732,8 @@ public class EbsBlockDevice implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

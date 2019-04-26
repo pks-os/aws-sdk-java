@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,8 +30,10 @@ public class UpdateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     /** The name of the queue that you are modifying. */
     private String name;
     /**
-     * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to
-     * on-demand queues.
+     * The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an
+     * expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the
+     * number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make
+     * these commitments, you can't cancel them.
      */
     private ReservationPlanSettings reservationPlanSettings;
     /**
@@ -110,12 +112,16 @@ public class UpdateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to
-     * on-demand queues.
+     * The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an
+     * expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the
+     * number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make
+     * these commitments, you can't cancel them.
      * 
      * @param reservationPlanSettings
-     *        Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to
-     *        on-demand queues.
+     *        The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to
+     *        replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by
+     *        increasing the number of RTS, you extend the term of your commitment to 12 months from when you add
+     *        capacity. After you make these commitments, you can't cancel them.
      */
 
     public void setReservationPlanSettings(ReservationPlanSettings reservationPlanSettings) {
@@ -123,11 +129,15 @@ public class UpdateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to
-     * on-demand queues.
+     * The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an
+     * expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the
+     * number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make
+     * these commitments, you can't cancel them.
      * 
-     * @return Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable
-     *         to on-demand queues.
+     * @return The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to
+     *         replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue
+     *         by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add
+     *         capacity. After you make these commitments, you can't cancel them.
      */
 
     public ReservationPlanSettings getReservationPlanSettings() {
@@ -135,12 +145,16 @@ public class UpdateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to
-     * on-demand queues.
+     * The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an
+     * expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the
+     * number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make
+     * these commitments, you can't cancel them.
      * 
      * @param reservationPlanSettings
-     *        Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to
-     *        on-demand queues.
+     *        The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to
+     *        replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by
+     *        increasing the number of RTS, you extend the term of your commitment to 12 months from when you add
+     *        capacity. After you make these commitments, you can't cancel them.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -217,7 +231,8 @@ public class UpdateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -21,6 +21,13 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <p>
  * Targets are the resources to be invoked when a rule is triggered. For a complete list of services and resources that
  * can be set as a target, see <a>PutTargets</a>.
+ * </p>
+ * <p>
+ * If you are setting the event bus of another account as the target, and that account granted permission to your
+ * account through an organization instead of directly by the account ID, then you must specify a <code>RoleArn</code>
+ * with proper permissions in the <code>Target</code> structure. For more information, see <a
+ * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html"
+ * >Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User Guide</i>.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/Target" target="_top">AWS API
@@ -88,7 +95,7 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For
      * more information about Amazon ECS tasks, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
      * the <i>Amazon EC2 Container Service Developer Guide</i>.
      * </p>
      */
@@ -96,7 +103,7 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For
-     * more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
+     * more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
      * <i>AWS Batch User Guide</i>.
      * </p>
      */
@@ -480,14 +487,14 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For
      * more information about Amazon ECS tasks, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
      * the <i>Amazon EC2 Container Service Developer Guide</i>.
      * </p>
      * 
      * @param ecsParameters
      *        Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS
      *        task. For more information about Amazon ECS tasks, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions
+     *        href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions
      *        </a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
      */
 
@@ -499,13 +506,13 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For
      * more information about Amazon ECS tasks, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
      * the <i>Amazon EC2 Container Service Developer Guide</i>.
      * </p>
      * 
      * @return Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS
      *         task. For more information about Amazon ECS tasks, see <a
-     *         href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions
+     *         href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions
      *         </a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
      */
 
@@ -517,14 +524,14 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For
      * more information about Amazon ECS tasks, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions </a> in
      * the <i>Amazon EC2 Container Service Developer Guide</i>.
      * </p>
      * 
      * @param ecsParameters
      *        Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS
      *        task. For more information about Amazon ECS tasks, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions
+     *        href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task Definitions
      *        </a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -537,13 +544,13 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For
-     * more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
+     * more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
      * <i>AWS Batch User Guide</i>.
      * </p>
      * 
      * @param batchParameters
      *        If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters.
-     *        For more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a>
+     *        For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a>
      *        in the <i>AWS Batch User Guide</i>.
      */
 
@@ -554,13 +561,13 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For
-     * more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
+     * more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
      * <i>AWS Batch User Guide</i>.
      * </p>
      * 
      * @return If the event target is an AWS Batch job, this contains the job definition, job name, and other
      *         parameters. For more information, see <a
-     *         href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>AWS Batch User
+     *         href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>AWS Batch User
      *         Guide</i>.
      */
 
@@ -571,13 +578,13 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For
-     * more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
+     * more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the
      * <i>AWS Batch User Guide</i>.
      * </p>
      * 
      * @param batchParameters
      *        If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters.
-     *        For more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a>
+     *        For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a>
      *        in the <i>AWS Batch User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -643,7 +650,8 @@ public class Target implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

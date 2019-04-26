@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,7 +26,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class LocalVolumeResourceData implements Serializable, Cloneable, StructuredPojo {
 
-    /** The absolute local path of the resource inside the lambda environment. */
+    /** The absolute local path of the resource inside the Lambda environment. */
     private String destinationPath;
     /** Allows you to configure additional group privileges for the Lambda process. This field is optional. */
     private GroupOwnerSetting groupOwnerSetting;
@@ -37,10 +37,10 @@ public class LocalVolumeResourceData implements Serializable, Cloneable, Structu
     private String sourcePath;
 
     /**
-     * The absolute local path of the resource inside the lambda environment.
+     * The absolute local path of the resource inside the Lambda environment.
      * 
      * @param destinationPath
-     *        The absolute local path of the resource inside the lambda environment.
+     *        The absolute local path of the resource inside the Lambda environment.
      */
 
     public void setDestinationPath(String destinationPath) {
@@ -48,9 +48,9 @@ public class LocalVolumeResourceData implements Serializable, Cloneable, Structu
     }
 
     /**
-     * The absolute local path of the resource inside the lambda environment.
+     * The absolute local path of the resource inside the Lambda environment.
      * 
-     * @return The absolute local path of the resource inside the lambda environment.
+     * @return The absolute local path of the resource inside the Lambda environment.
      */
 
     public String getDestinationPath() {
@@ -58,10 +58,10 @@ public class LocalVolumeResourceData implements Serializable, Cloneable, Structu
     }
 
     /**
-     * The absolute local path of the resource inside the lambda environment.
+     * The absolute local path of the resource inside the Lambda environment.
      * 
      * @param destinationPath
-     *        The absolute local path of the resource inside the lambda environment.
+     *        The absolute local path of the resource inside the Lambda environment.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -145,7 +145,8 @@ public class LocalVolumeResourceData implements Serializable, Cloneable, Structu
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

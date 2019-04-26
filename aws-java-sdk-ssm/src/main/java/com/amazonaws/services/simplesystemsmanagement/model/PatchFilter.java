@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -98,6 +98,11 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <li>
  * <p>
  * <code>WindowsServer2016</code>
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * <code>WindowsServer2019</code>
  * </p>
  * </li>
  * <li>
@@ -577,6 +582,16 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * </li>
  * <li>
  * <p>
+ * <code>RedhatEnterpriseLinux7.5</code>
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * <code>RedhatEnterpriseLinux7.6</code>
+ * </p>
+ * </li>
+ * <li>
+ * <p>
  * <code>*</code>
  * </p>
  * <p>
@@ -846,6 +861,16 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <li>
  * <p>
  * <code>CentOS7.4</code>
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * <code>CentOS7.5</code>
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * <code>CentOS7.6</code>
  * </p>
  * </li>
  * <li>
@@ -1136,7 +1161,8 @@ public class PatchFilter implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

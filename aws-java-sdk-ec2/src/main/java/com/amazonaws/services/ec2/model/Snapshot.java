@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -108,9 +108,9 @@ public class Snapshot implements Serializable, Cloneable {
     private Integer volumeSize;
     /**
      * <p>
-     * Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> | <code>microsoft</code>
-     * ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM
-     * console.
+     * Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     * <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     * user-configured AWS account alias, which is set from the IAM console.
      * </p>
      */
     private String ownerAlias;
@@ -702,15 +702,15 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> | <code>microsoft</code>
-     * ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM
-     * console.
+     * Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     * <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     * user-configured AWS account alias, which is set from the IAM console.
      * </p>
      * 
      * @param ownerAlias
-     *        Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> |
-     *        <code>microsoft</code>) of snapshot owners. Not to be confused with the user-configured AWS account alias,
-     *        which is set from the IAM console.
+     *        Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     *        <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     *        user-configured AWS account alias, which is set from the IAM console.
      */
 
     public void setOwnerAlias(String ownerAlias) {
@@ -719,14 +719,14 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> | <code>microsoft</code>
-     * ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM
-     * console.
+     * Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     * <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     * user-configured AWS account alias, which is set from the IAM console.
      * </p>
      * 
-     * @return Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> |
-     *         <code>microsoft</code>) of snapshot owners. Not to be confused with the user-configured AWS account
-     *         alias, which is set from the IAM console.
+     * @return Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     *         <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     *         user-configured AWS account alias, which is set from the IAM console.
      */
 
     public String getOwnerAlias() {
@@ -735,15 +735,15 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> | <code>microsoft</code>
-     * ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM
-     * console.
+     * Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     * <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     * user-configured AWS account alias, which is set from the IAM console.
      * </p>
      * 
      * @param ownerAlias
-     *        Value from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code> |
-     *        <code>microsoft</code>) of snapshot owners. Not to be confused with the user-configured AWS account alias,
-     *        which is set from the IAM console.
+     *        Value from an Amazon-maintained list (<code>amazon</code> | <code>self</code> | <code>all</code> |
+     *        <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to be confused with the
+     *        user-configured AWS account alias, which is set from the IAM console.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -826,7 +826,8 @@ public class Snapshot implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -140,7 +140,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs.
      * For information on how to format a JSON parameter for the various command line tool environments, see <a
-     * href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
+     * href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
      * Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      * </p>
      * <p>
@@ -810,7 +810,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs.
      * For information on how to format a JSON parameter for the various command line tool environments, see <a
-     * href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
+     * href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
      * Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      * </p>
      * <p>
@@ -840,7 +840,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        For storing multiple values, we recommend that you use a JSON text string argument and specify key/value
      *        pairs. For information on how to format a JSON parameter for the various command line tool environments,
      *        see <a
-     *        href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+     *        href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
      *        JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      *        </p>
      *        <p>
@@ -874,7 +874,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs.
      * For information on how to format a JSON parameter for the various command line tool environments, see <a
-     * href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
+     * href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
      * Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      * </p>
      * <p>
@@ -903,7 +903,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      *         For storing multiple values, we recommend that you use a JSON text string argument and specify key/value
      *         pairs. For information on how to format a JSON parameter for the various command line tool environments,
      *         see <a
-     *         href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+     *         href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
      *         JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      *         </p>
      *         <p>
@@ -937,7 +937,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs.
      * For information on how to format a JSON parameter for the various command line tool environments, see <a
-     * href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
+     * href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
      * Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      * </p>
      * <p>
@@ -967,7 +967,7 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        For storing multiple values, we recommend that you use a JSON text string argument and specify key/value
      *        pairs. For information on how to format a JSON parameter for the various command line tool environments,
      *        see <a
-     *        href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+     *        href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
      *        JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:
      *        </p>
      *        <p>
@@ -990,7 +990,8 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1009,9 +1010,9 @@ public class UpdateSecretRequest extends com.amazonaws.AmazonWebServiceRequest i
         if (getKmsKeyId() != null)
             sb.append("KmsKeyId: ").append(getKmsKeyId()).append(",");
         if (getSecretBinary() != null)
-            sb.append("SecretBinary: ").append(getSecretBinary()).append(",");
+            sb.append("SecretBinary: ").append("***Sensitive Data Redacted***").append(",");
         if (getSecretString() != null)
-            sb.append("SecretString: ").append(getSecretString());
+            sb.append("SecretString: ").append("***Sensitive Data Redacted***");
         sb.append("}");
         return sb.toString();
     }

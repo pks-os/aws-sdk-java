@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * A structure that you can use to allow certain operations in the grant only when the preferred encryption context is
+ * A structure that you can use to allow certain operations in the grant only when the desired encryption context is
  * present. For more information about encryption context, see <a
  * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption Context</a> in the
  * <i>AWS Key Management Service Developer Guide</i>.
@@ -27,7 +27,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <p>
  * Grant constraints apply only to operations that accept encryption context as input. For example, the
  * <code> <a>DescribeKey</a> </code> operation does not accept encryption context as input. A grant that allows the
- * <code>DescribeKey</code> operation does so regardless of the grant constraints. In contrast, the
+ * <code>DescribeKey</code> operation does so regardless of the grant constraints. In constrast, the
  * <code> <a>Encrypt</a> </code> operation accepts encryption context as input. A grant that allows the
  * <code>Encrypt</code> operation does so only when the encryption context of the <code>Encrypt</code> operation
  * satisfies the grant constraints.
@@ -219,7 +219,8 @@ public class GrantConstraints implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

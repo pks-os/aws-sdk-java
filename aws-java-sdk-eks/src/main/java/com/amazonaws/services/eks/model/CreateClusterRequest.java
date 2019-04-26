@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,25 +42,40 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
      * <p>
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to other
      * AWS API operations on your behalf. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
      * the <i> <i>Amazon EKS User Guide</i> </i>.
      * </p>
      */
     private String roleArn;
     /**
      * <p>
-     * The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have specific
-     * requirements to work properly with Kubernetes. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     * The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific requirements to
+     * work properly with Kubernetes. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      * Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may specify up
-     * to 5 security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+     * to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      * </p>
      */
     private VpcConfigRequest resourcesVpcConfig;
     /**
      * <p>
-     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default,
+     * cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane
+     * Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
+     * </p>
+     * <note>
+     * <p>
+     * CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For
+     * more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+     * </p>
+     * </note>
+     */
+    private Logging logging;
+    /**
+     * <p>
+     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      * </p>
      */
     private String clientRequestToken;
@@ -155,14 +170,14 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
      * <p>
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to other
      * AWS API operations on your behalf. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
      * the <i> <i>Amazon EKS User Guide</i> </i>.
      * </p>
      * 
      * @param roleArn
      *        The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to
      *        other AWS API operations on your behalf. For more information, see <a
-     *        href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM
+     *        href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM
      *        Role</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
      */
 
@@ -174,13 +189,13 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
      * <p>
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to other
      * AWS API operations on your behalf. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
      * the <i> <i>Amazon EKS User Guide</i> </i>.
      * </p>
      * 
      * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to
      *         other AWS API operations on your behalf. For more information, see <a
-     *         href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM
+     *         href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM
      *         Role</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
      */
 
@@ -192,14 +207,14 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
      * <p>
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to other
      * AWS API operations on your behalf. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM Role</a> in
      * the <i> <i>Amazon EKS User Guide</i> </i>.
      * </p>
      * 
      * @param roleArn
      *        The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to
      *        other AWS API operations on your behalf. For more information, see <a
-     *        href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM
+     *        href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service IAM
      *        Role</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -211,22 +226,22 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have specific
-     * requirements to work properly with Kubernetes. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     * The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific requirements to
+     * work properly with Kubernetes. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      * Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may specify up
-     * to 5 security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+     * to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      * </p>
      * 
      * @param resourcesVpcConfig
-     *        The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have
-     *        specific requirements to work properly with Kubernetes. For more information, see <a
-     *        href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>
-     *        and <a href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     *        The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific
+     *        requirements to work properly with Kubernetes. For more information, see <a
+     *        href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>
+     *        and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      *        Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may
-     *        specify up to 5 security groups, but we recommend that you use a dedicated security group for your cluster
-     *        control plane.
+     *        specify up to five security groups, but we recommend that you use a dedicated security group for your
+     *        cluster control plane.
      */
 
     public void setResourcesVpcConfig(VpcConfigRequest resourcesVpcConfig) {
@@ -235,20 +250,20 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have specific
-     * requirements to work properly with Kubernetes. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     * The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific requirements to
+     * work properly with Kubernetes. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      * Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may specify up
-     * to 5 security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+     * to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      * </p>
      * 
-     * @return The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have
-     *         specific requirements to work properly with Kubernetes. For more information, see <a
-     *         href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>
-     *         and <a href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     * @return The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific
+     *         requirements to work properly with Kubernetes. For more information, see <a
+     *         href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>
+     *         and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      *         Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may
-     *         specify up to 5 security groups, but we recommend that you use a dedicated security group for your
+     *         specify up to five security groups, but we recommend that you use a dedicated security group for your
      *         cluster control plane.
      */
 
@@ -258,22 +273,22 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have specific
-     * requirements to work properly with Kubernetes. For more information, see <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
-     * href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     * The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific requirements to
+     * work properly with Kubernetes. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a> and <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      * Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may specify up
-     * to 5 security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+     * to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      * </p>
      * 
      * @param resourcesVpcConfig
-     *        The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have
-     *        specific requirements to work properly with Kubernetes. For more information, see <a
-     *        href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>
-     *        and <a href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
+     *        The VPC configuration used by the cluster control plane. Amazon EKS VPC resources have specific
+     *        requirements to work properly with Kubernetes. For more information, see <a
+     *        href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC Considerations</a>
+     *        and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group
      *        Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may
-     *        specify up to 5 security groups, but we recommend that you use a dedicated security group for your cluster
-     *        control plane.
+     *        specify up to five security groups, but we recommend that you use a dedicated security group for your
+     *        cluster control plane.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -284,11 +299,102 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default,
+     * cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane
+     * Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
+     * </p>
+     * <note>
+     * <p>
+     * CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For
+     * more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+     * </p>
+     * </note>
+     * 
+     * @param logging
+     *        Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By
+     *        default, cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     *        href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control
+     *        Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
+     *        <p>
+     *        CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs.
+     *        For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+     *        Pricing</a>.
+     *        </p>
+     */
+
+    public void setLogging(Logging logging) {
+        this.logging = logging;
+    }
+
+    /**
+     * <p>
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default,
+     * cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane
+     * Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
+     * </p>
+     * <note>
+     * <p>
+     * CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For
+     * more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+     * </p>
+     * </note>
+     * 
+     * @return Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By
+     *         default, cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     *         href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster
+     *         Control Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
+     *         <p>
+     *         CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs.
+     *         For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+     *         Pricing</a>.
+     *         </p>
+     */
+
+    public Logging getLogging() {
+        return this.logging;
+    }
+
+    /**
+     * <p>
+     * Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default,
+     * cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane
+     * Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.
+     * </p>
+     * <note>
+     * <p>
+     * CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For
+     * more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+     * </p>
+     * </note>
+     * 
+     * @param logging
+     *        Enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By
+     *        default, cluster control plane logs are not exported to CloudWatch Logs. For more information, see <a
+     *        href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control
+     *        Plane Logs</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p> <note>
+     *        <p>
+     *        CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs.
+     *        For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+     *        Pricing</a>.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateClusterRequest withLogging(Logging logging) {
+        setLogging(logging);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      * </p>
      * 
      * @param clientRequestToken
-     *        Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     *        Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      */
 
     public void setClientRequestToken(String clientRequestToken) {
@@ -297,10 +403,10 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      * </p>
      * 
-     * @return Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     * @return Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      */
 
     public String getClientRequestToken() {
@@ -309,11 +415,11 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      * </p>
      * 
      * @param clientRequestToken
-     *        Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+     *        Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -323,7 +429,8 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -341,6 +448,8 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
             sb.append("RoleArn: ").append(getRoleArn()).append(",");
         if (getResourcesVpcConfig() != null)
             sb.append("ResourcesVpcConfig: ").append(getResourcesVpcConfig()).append(",");
+        if (getLogging() != null)
+            sb.append("Logging: ").append(getLogging()).append(",");
         if (getClientRequestToken() != null)
             sb.append("ClientRequestToken: ").append(getClientRequestToken());
         sb.append("}");
@@ -373,6 +482,10 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
             return false;
         if (other.getResourcesVpcConfig() != null && other.getResourcesVpcConfig().equals(this.getResourcesVpcConfig()) == false)
             return false;
+        if (other.getLogging() == null ^ this.getLogging() == null)
+            return false;
+        if (other.getLogging() != null && other.getLogging().equals(this.getLogging()) == false)
+            return false;
         if (other.getClientRequestToken() == null ^ this.getClientRequestToken() == null)
             return false;
         if (other.getClientRequestToken() != null && other.getClientRequestToken().equals(this.getClientRequestToken()) == false)
@@ -389,6 +502,7 @@ public class CreateClusterRequest extends com.amazonaws.AmazonWebServiceRequest 
         hashCode = prime * hashCode + ((getVersion() == null) ? 0 : getVersion().hashCode());
         hashCode = prime * hashCode + ((getRoleArn() == null) ? 0 : getRoleArn().hashCode());
         hashCode = prime * hashCode + ((getResourcesVpcConfig() == null) ? 0 : getResourcesVpcConfig().hashCode());
+        hashCode = prime * hashCode + ((getLogging() == null) ? 0 : getLogging().hashCode());
         hashCode = prime * hashCode + ((getClientRequestToken() == null) ? 0 : getClientRequestToken().hashCode());
         return hashCode;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,7 +36,7 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
     private String name;
     /**
      * <p>
-     * Description of the connection.
+     * The description of the connection.
      * </p>
      */
     private String description;
@@ -71,7 +71,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>USER_NAME</code> - The name under which to log in to the database.
+     * <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     * <code>USER_NAME</code> is "<code>USERNAME</code>".
      * </p>
      * </li>
      * <li>
@@ -81,7 +82,14 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     * <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     * <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     * encrypted password.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to use.
      * </p>
      * </li>
      * <li>
@@ -116,8 +124,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname matching will
-     * be enforced for the JDBC connection on the client. The default is false.
+     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer (SSL) with
+     * hostname matching will be enforced for the JDBC connection on the client. The default is false.
      * </p>
      * </li>
      * </ul>
@@ -125,26 +133,26 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
     private java.util.Map<String, String> connectionProperties;
     /**
      * <p>
-     * A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this connection
-     * successfully.
+     * A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>,
+     * that are needed to make this connection successfully.
      * </p>
      */
     private PhysicalConnectionRequirements physicalConnectionRequirements;
     /**
      * <p>
-     * The time this connection definition was created.
+     * The time that this connection definition was created.
      * </p>
      */
     private java.util.Date creationTime;
     /**
      * <p>
-     * The last time this connection definition was updated.
+     * The last time that this connection definition was updated.
      * </p>
      */
     private java.util.Date lastUpdatedTime;
     /**
      * <p>
-     * The user, group or role that last updated this connection definition.
+     * The user, group, or role that last updated this connection definition.
      * </p>
      */
     private String lastUpdatedBy;
@@ -191,11 +199,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Description of the connection.
+     * The description of the connection.
      * </p>
      * 
      * @param description
-     *        Description of the connection.
+     *        The description of the connection.
      */
 
     public void setDescription(String description) {
@@ -204,10 +212,10 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Description of the connection.
+     * The description of the connection.
      * </p>
      * 
-     * @return Description of the connection.
+     * @return The description of the connection.
      */
 
     public String getDescription() {
@@ -216,11 +224,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Description of the connection.
+     * The description of the connection.
      * </p>
      * 
      * @param description
-     *        Description of the connection.
+     *        The description of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -377,7 +385,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>USER_NAME</code> - The name under which to log in to the database.
+     * <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     * <code>USER_NAME</code> is "<code>USERNAME</code>".
      * </p>
      * </li>
      * <li>
@@ -387,7 +396,14 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     * <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     * <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     * encrypted password.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to use.
      * </p>
      * </li>
      * <li>
@@ -422,8 +438,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname matching will
-     * be enforced for the JDBC connection on the client. The default is false.
+     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer (SSL) with
+     * hostname matching will be enforced for the JDBC connection on the client. The default is false.
      * </p>
      * </li>
      * </ul>
@@ -444,7 +460,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         <code>USER_NAME</code> - The name under which to log in to the database.
+     *         <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     *         <code>USER_NAME</code> is "<code>USERNAME</code>".
      *         </p>
      *         </li>
      *         <li>
@@ -454,7 +471,15 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     *         <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     *         <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     *         encrypted password.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to
+     *         use.
      *         </p>
      *         </li>
      *         <li>
@@ -489,8 +514,9 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname
-     *         matching will be enforced for the JDBC connection on the client. The default is false.
+     *         <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer
+     *         (SSL) with hostname matching will be enforced for the JDBC connection on the client. The default is
+     *         false.
      *         </p>
      *         </li>
      */
@@ -518,7 +544,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>USER_NAME</code> - The name under which to log in to the database.
+     * <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     * <code>USER_NAME</code> is "<code>USERNAME</code>".
      * </p>
      * </li>
      * <li>
@@ -528,7 +555,14 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     * <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     * <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     * encrypted password.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to use.
      * </p>
      * </li>
      * <li>
@@ -563,8 +597,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname matching will
-     * be enforced for the JDBC connection on the client. The default is false.
+     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer (SSL) with
+     * hostname matching will be enforced for the JDBC connection on the client. The default is false.
      * </p>
      * </li>
      * </ul>
@@ -586,7 +620,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        <code>USER_NAME</code> - The name under which to log in to the database.
+     *        <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     *        <code>USER_NAME</code> is "<code>USERNAME</code>".
      *        </p>
      *        </li>
      *        <li>
@@ -596,7 +631,15 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     *        <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     *        <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     *        encrypted password.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to
+     *        use.
      *        </p>
      *        </li>
      *        <li>
@@ -631,8 +674,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname
-     *        matching will be enforced for the JDBC connection on the client. The default is false.
+     *        <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer
+     *        (SSL) with hostname matching will be enforced for the JDBC connection on the client. The default is false.
      *        </p>
      *        </li>
      */
@@ -660,7 +703,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>USER_NAME</code> - The name under which to log in to the database.
+     * <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     * <code>USER_NAME</code> is "<code>USERNAME</code>".
      * </p>
      * </li>
      * <li>
@@ -670,7 +714,14 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     * <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     * <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     * encrypted password.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to use.
      * </p>
      * </li>
      * <li>
@@ -705,8 +756,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname matching will
-     * be enforced for the JDBC connection on the client. The default is false.
+     * <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer (SSL) with
+     * hostname matching will be enforced for the JDBC connection on the client. The default is false.
      * </p>
      * </li>
      * </ul>
@@ -728,7 +779,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        <code>USER_NAME</code> - The name under which to log in to the database.
+     *        <code>USER_NAME</code> - The name under which to log in to the database. The value string for
+     *        <code>USER_NAME</code> is "<code>USERNAME</code>".
      *        </p>
      *        </li>
      *        <li>
@@ -738,7 +790,15 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.
+     *        <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting
+     *        <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the
+     *        encrypted password.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to
+     *        use.
      *        </p>
      *        </li>
      *        <li>
@@ -773,8 +833,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname
-     *        matching will be enforced for the JDBC connection on the client. The default is false.
+     *        <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer
+     *        (SSL) with hostname matching will be enforced for the JDBC connection on the client. The default is false.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -808,13 +868,13 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this connection
-     * successfully.
+     * A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>,
+     * that are needed to make this connection successfully.
      * </p>
      * 
      * @param physicalConnectionRequirements
-     *        A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this
-     *        connection successfully.
+     *        A map of physical connection requirements, such as virtual private cloud (VPC) and
+     *        <code>SecurityGroup</code>, that are needed to make this connection successfully.
      */
 
     public void setPhysicalConnectionRequirements(PhysicalConnectionRequirements physicalConnectionRequirements) {
@@ -823,12 +883,12 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this connection
-     * successfully.
+     * A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>,
+     * that are needed to make this connection successfully.
      * </p>
      * 
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this
-     *         connection successfully.
+     * @return A map of physical connection requirements, such as virtual private cloud (VPC) and
+     *         <code>SecurityGroup</code>, that are needed to make this connection successfully.
      */
 
     public PhysicalConnectionRequirements getPhysicalConnectionRequirements() {
@@ -837,13 +897,13 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this connection
-     * successfully.
+     * A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>,
+     * that are needed to make this connection successfully.
      * </p>
      * 
      * @param physicalConnectionRequirements
-     *        A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this
-     *        connection successfully.
+     *        A map of physical connection requirements, such as virtual private cloud (VPC) and
+     *        <code>SecurityGroup</code>, that are needed to make this connection successfully.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -854,11 +914,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time this connection definition was created.
+     * The time that this connection definition was created.
      * </p>
      * 
      * @param creationTime
-     *        The time this connection definition was created.
+     *        The time that this connection definition was created.
      */
 
     public void setCreationTime(java.util.Date creationTime) {
@@ -867,10 +927,10 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time this connection definition was created.
+     * The time that this connection definition was created.
      * </p>
      * 
-     * @return The time this connection definition was created.
+     * @return The time that this connection definition was created.
      */
 
     public java.util.Date getCreationTime() {
@@ -879,11 +939,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time this connection definition was created.
+     * The time that this connection definition was created.
      * </p>
      * 
      * @param creationTime
-     *        The time this connection definition was created.
+     *        The time that this connection definition was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -894,11 +954,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The last time this connection definition was updated.
+     * The last time that this connection definition was updated.
      * </p>
      * 
      * @param lastUpdatedTime
-     *        The last time this connection definition was updated.
+     *        The last time that this connection definition was updated.
      */
 
     public void setLastUpdatedTime(java.util.Date lastUpdatedTime) {
@@ -907,10 +967,10 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The last time this connection definition was updated.
+     * The last time that this connection definition was updated.
      * </p>
      * 
-     * @return The last time this connection definition was updated.
+     * @return The last time that this connection definition was updated.
      */
 
     public java.util.Date getLastUpdatedTime() {
@@ -919,11 +979,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The last time this connection definition was updated.
+     * The last time that this connection definition was updated.
      * </p>
      * 
      * @param lastUpdatedTime
-     *        The last time this connection definition was updated.
+     *        The last time that this connection definition was updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -934,11 +994,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The user, group or role that last updated this connection definition.
+     * The user, group, or role that last updated this connection definition.
      * </p>
      * 
      * @param lastUpdatedBy
-     *        The user, group or role that last updated this connection definition.
+     *        The user, group, or role that last updated this connection definition.
      */
 
     public void setLastUpdatedBy(String lastUpdatedBy) {
@@ -947,10 +1007,10 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The user, group or role that last updated this connection definition.
+     * The user, group, or role that last updated this connection definition.
      * </p>
      * 
-     * @return The user, group or role that last updated this connection definition.
+     * @return The user, group, or role that last updated this connection definition.
      */
 
     public String getLastUpdatedBy() {
@@ -959,11 +1019,11 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The user, group or role that last updated this connection definition.
+     * The user, group, or role that last updated this connection definition.
      * </p>
      * 
      * @param lastUpdatedBy
-     *        The user, group or role that last updated this connection definition.
+     *        The user, group, or role that last updated this connection definition.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -973,7 +1033,8 @@ public class Connection implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

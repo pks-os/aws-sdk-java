@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -54,6 +54,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -96,6 +101,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -131,6 +141,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>vpc-id</code> - The ID of the VPC for the route table.
      * </p>
      * </li>
@@ -148,14 +163,14 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
     private com.amazonaws.internal.SdkInternalList<String> routeTableIds;
     /**
      * <p>
-     * The token to retrieve the next page of results.
+     * The token for the next page of results.
      * </p>
      */
     private String nextToken;
     /**
      * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
      * </p>
      */
     private Integer maxResults;
@@ -189,6 +204,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -231,6 +251,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -266,6 +291,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>vpc-id</code> - The ID of the VPC for the route table.
      * </p>
      * </li>
@@ -293,6 +323,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *         <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *         <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *         in the response.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *         </p>
      *         </li>
      *         <li>
@@ -340,6 +375,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *         </li>
      *         <li>
      *         <p>
+     *         <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
      *         <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *         that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *         indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -372,6 +412,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *         <p>
      *         <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
      *         assigned a tag with a specific key, regardless of the tag value.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>transit-gateway-id</code> - The ID of a transit gateway.
      *         </p>
      *         </li>
      *         <li>
@@ -413,6 +458,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      * <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned in the
      * response.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
      * </p>
      * </li>
      * <li>
@@ -459,6 +509,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -494,6 +549,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>vpc-id</code> - The ID of the VPC for the route table.
      * </p>
      * </li>
@@ -522,6 +582,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *        <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *        in the response.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *        </p>
      *        </li>
      *        <li>
@@ -569,6 +634,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
+     *        <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
      *        <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *        that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *        indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -601,6 +671,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <p>
      *        <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
      *        assigned a tag with a specific key, regardless of the tag value.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>transit-gateway-id</code> - The ID of a transit gateway.
      *        </p>
      *        </li>
      *        <li>
@@ -648,6 +723,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -690,6 +770,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -721,6 +806,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * <p>
      * <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned
      * a tag with a specific key, regardless of the tag value.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>transit-gateway-id</code> - The ID of a transit gateway.
      * </p>
      * </li>
      * <li>
@@ -758,6 +848,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *        <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *        in the response.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *        </p>
      *        </li>
      *        <li>
@@ -805,6 +900,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
+     *        <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
      *        <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *        that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *        indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -837,6 +937,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <p>
      *        <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
      *        assigned a tag with a specific key, regardless of the tag value.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>transit-gateway-id</code> - The ID of a transit gateway.
      *        </p>
      *        </li>
      *        <li>
@@ -886,6 +991,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -928,6 +1038,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -963,6 +1078,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
+     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>vpc-id</code> - The ID of the VPC for the route table.
      * </p>
      * </li>
@@ -991,6 +1111,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *        <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *        in the response.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *        </p>
      *        </li>
      *        <li>
@@ -1038,6 +1163,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
+     *        <code>route.transit-gateway-id</code> - The ID of a transit gateway.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
      *        <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *        that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *        indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -1070,6 +1200,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <p>
      *        <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
      *        assigned a tag with a specific key, regardless of the tag value.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>transit-gateway-id</code> - The ID of a transit gateway.
      *        </p>
      *        </li>
      *        <li>
@@ -1180,11 +1315,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
     /**
      * <p>
-     * The token to retrieve the next page of results.
+     * The token for the next page of results.
      * </p>
      * 
      * @param nextToken
-     *        The token to retrieve the next page of results.
+     *        The token for the next page of results.
      */
 
     public void setNextToken(String nextToken) {
@@ -1193,10 +1328,10 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
     /**
      * <p>
-     * The token to retrieve the next page of results.
+     * The token for the next page of results.
      * </p>
      * 
-     * @return The token to retrieve the next page of results.
+     * @return The token for the next page of results.
      */
 
     public String getNextToken() {
@@ -1205,11 +1340,11 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
     /**
      * <p>
-     * The token to retrieve the next page of results.
+     * The token for the next page of results.
      * </p>
      * 
      * @param nextToken
-     *        The token to retrieve the next page of results.
+     *        The token for the next page of results.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1220,13 +1355,13 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
     /**
      * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
      * </p>
      * 
      * @param maxResults
-     *        The maximum number of results to return in a single call. To retrieve the remaining results, make another
-     *        call with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     *        The maximum number of results to return with a single call. To retrieve the remaining results, make
+     *        another call with the returned <code>nextToken</code> value.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -1235,12 +1370,12 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
     /**
      * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
      * </p>
      * 
-     * @return The maximum number of results to return in a single call. To retrieve the remaining results, make another
-     *         call with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     * @return The maximum number of results to return with a single call. To retrieve the remaining results, make
+     *         another call with the returned <code>nextToken</code> value.
      */
 
     public Integer getMaxResults() {
@@ -1249,13 +1384,13 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
     /**
      * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
      * </p>
      * 
      * @param maxResults
-     *        The maximum number of results to return in a single call. To retrieve the remaining results, make another
-     *        call with the returned <b>NextToken</b> value. This value can be between 5 and 100.
+     *        The maximum number of results to return with a single call. To retrieve the remaining results, make
+     *        another call with the returned <code>nextToken</code> value.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1276,7 +1411,8 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

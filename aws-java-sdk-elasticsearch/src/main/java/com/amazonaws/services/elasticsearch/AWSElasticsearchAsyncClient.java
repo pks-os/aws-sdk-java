@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -269,6 +269,41 @@ public class AWSElasticsearchAsyncClient extends AWSElasticsearchClient implemen
 
                 try {
                     result = executeAddTags(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<CancelElasticsearchServiceSoftwareUpdateResult> cancelElasticsearchServiceSoftwareUpdateAsync(
+            CancelElasticsearchServiceSoftwareUpdateRequest request) {
+
+        return cancelElasticsearchServiceSoftwareUpdateAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<CancelElasticsearchServiceSoftwareUpdateResult> cancelElasticsearchServiceSoftwareUpdateAsync(
+            final CancelElasticsearchServiceSoftwareUpdateRequest request,
+            final com.amazonaws.handlers.AsyncHandler<CancelElasticsearchServiceSoftwareUpdateRequest, CancelElasticsearchServiceSoftwareUpdateResult> asyncHandler) {
+        final CancelElasticsearchServiceSoftwareUpdateRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<CancelElasticsearchServiceSoftwareUpdateResult>() {
+            @Override
+            public CancelElasticsearchServiceSoftwareUpdateResult call() throws Exception {
+                CancelElasticsearchServiceSoftwareUpdateResult result = null;
+
+                try {
+                    result = executeCancelElasticsearchServiceSoftwareUpdate(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -877,6 +912,41 @@ public class AWSElasticsearchAsyncClient extends AWSElasticsearchClient implemen
 
                 try {
                     result = executeRemoveTags(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<StartElasticsearchServiceSoftwareUpdateResult> startElasticsearchServiceSoftwareUpdateAsync(
+            StartElasticsearchServiceSoftwareUpdateRequest request) {
+
+        return startElasticsearchServiceSoftwareUpdateAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<StartElasticsearchServiceSoftwareUpdateResult> startElasticsearchServiceSoftwareUpdateAsync(
+            final StartElasticsearchServiceSoftwareUpdateRequest request,
+            final com.amazonaws.handlers.AsyncHandler<StartElasticsearchServiceSoftwareUpdateRequest, StartElasticsearchServiceSoftwareUpdateResult> asyncHandler) {
+        final StartElasticsearchServiceSoftwareUpdateRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<StartElasticsearchServiceSoftwareUpdateResult>() {
+            @Override
+            public StartElasticsearchServiceSoftwareUpdateResult call() throws Exception {
+                StartElasticsearchServiceSoftwareUpdateResult result = null;
+
+                try {
+                    result = executeStartElasticsearchServiceSoftwareUpdate(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

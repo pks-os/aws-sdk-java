@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The SHA-256 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -53,7 +53,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The MD5 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -64,8 +64,8 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
     private String md5sum;
     /**
      * <p>
-     * If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a
-     * buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a
+     * If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a
+     * build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a
      * date and time to your artifact name so that it is always unique.
      * </p>
      */
@@ -128,7 +128,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The SHA-256 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -139,7 +139,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * @param sha256sum
      *        The SHA-256 hash of the build artifact.</p>
      *        <p>
-     *        You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     *        You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      *        </p>
      *        <note>
      *        <p>
@@ -157,7 +157,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The SHA-256 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -167,7 +167,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * 
      * @return The SHA-256 hash of the build artifact.</p>
      *         <p>
-     *         You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     *         You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      *         </p>
      *         <note>
      *         <p>
@@ -185,7 +185,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The SHA-256 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -196,7 +196,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * @param sha256sum
      *        The SHA-256 hash of the build artifact.</p>
      *        <p>
-     *        You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     *        You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      *        </p>
      *        <note>
      *        <p>
@@ -216,7 +216,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The MD5 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -227,7 +227,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * @param md5sum
      *        The MD5 hash of the build artifact.</p>
      *        <p>
-     *        You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     *        You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      *        </p>
      *        <note>
      *        <p>
@@ -245,7 +245,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The MD5 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -255,7 +255,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * 
      * @return The MD5 hash of the build artifact.</p>
      *         <p>
-     *         You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     *         You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      *         </p>
      *         <note>
      *         <p>
@@ -273,7 +273,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * The MD5 hash of the build artifact.
      * </p>
      * <p>
-     * You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     * You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      * </p>
      * <note>
      * <p>
@@ -284,7 +284,7 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
      * @param md5sum
      *        The MD5 hash of the build artifact.</p>
      *        <p>
-     *        You can use this hash along with a checksum tool to confirm both file integrity and authenticity.
+     *        You can use this hash along with a checksum tool to confirm file integrity and authenticity.
      *        </p>
      *        <note>
      *        <p>
@@ -301,14 +301,14 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a
-     * buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a
+     * If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a
+     * build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a
      * date and time to your artifact name so that it is always unique.
      * </p>
      * 
      * @param overrideArtifactName
-     *        If this flag is set, a name specified in the buildspec file overrides the artifact name. The name
-     *        specified in a buildspec file is calculated at build time and uses the Shell Command Language. For
+     *        If this flag is set, a name specified in the build spec file overrides the artifact name. The name
+     *        specified in a build spec file is calculated at build time and uses the Shell Command Language. For
      *        example, you can append a date and time to your artifact name so that it is always unique.
      */
 
@@ -318,13 +318,13 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a
-     * buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a
+     * If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a
+     * build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a
      * date and time to your artifact name so that it is always unique.
      * </p>
      * 
-     * @return If this flag is set, a name specified in the buildspec file overrides the artifact name. The name
-     *         specified in a buildspec file is calculated at build time and uses the Shell Command Language. For
+     * @return If this flag is set, a name specified in the build spec file overrides the artifact name. The name
+     *         specified in a build spec file is calculated at build time and uses the Shell Command Language. For
      *         example, you can append a date and time to your artifact name so that it is always unique.
      */
 
@@ -334,14 +334,14 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a
-     * buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a
+     * If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a
+     * build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a
      * date and time to your artifact name so that it is always unique.
      * </p>
      * 
      * @param overrideArtifactName
-     *        If this flag is set, a name specified in the buildspec file overrides the artifact name. The name
-     *        specified in a buildspec file is calculated at build time and uses the Shell Command Language. For
+     *        If this flag is set, a name specified in the build spec file overrides the artifact name. The name
+     *        specified in a build spec file is calculated at build time and uses the Shell Command Language. For
      *        example, you can append a date and time to your artifact name so that it is always unique.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -353,13 +353,13 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a
-     * buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a
+     * If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a
+     * build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a
      * date and time to your artifact name so that it is always unique.
      * </p>
      * 
-     * @return If this flag is set, a name specified in the buildspec file overrides the artifact name. The name
-     *         specified in a buildspec file is calculated at build time and uses the Shell Command Language. For
+     * @return If this flag is set, a name specified in the build spec file overrides the artifact name. The name
+     *         specified in a build spec file is calculated at build time and uses the Shell Command Language. For
      *         example, you can append a date and time to your artifact name so that it is always unique.
      */
 
@@ -460,7 +460,8 @@ public class BuildArtifacts implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

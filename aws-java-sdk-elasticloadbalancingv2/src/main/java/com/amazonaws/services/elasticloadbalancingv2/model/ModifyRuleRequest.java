@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -101,15 +101,25 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The actions.
      * </p>
      * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
+     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
+     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
+     * Load Balancer.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     * identity provider that is OpenID Connect (OIDC) compliant.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
+     * user pools supported by Amazon Cognito.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
+     * from one URL to another.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
+     * and return a custom HTTP response.
      * </p>
      */
     private java.util.List<Action> actions;
@@ -697,28 +707,48 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The actions.
      * </p>
      * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
+     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
+     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
+     * Load Balancer.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     * identity provider that is OpenID Connect (OIDC) compliant.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
+     * user pools supported by Amazon Cognito.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
+     * from one URL to another.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
+     * and return a custom HTTP response.
      * </p>
      * 
      * @return The actions.</p>
      *         <p>
-     *         If the action type is <code>forward</code>, you can specify a single target group.
+     *         If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
+     *         must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
+     *         TLS for a Network Load Balancer.
      *         </p>
      *         <p>
-     *         If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *         Connect (OIDC) compliant to authenticate users as they access your application.
+     *         [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     *         identity provider that is OpenID Connect (OIDC) compliant.
      *         </p>
      *         <p>
-     *         If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *         as they access your application.
+     *         [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
+     *         the user pools supported by Amazon Cognito.
+     *         </p>
+     *         <p>
+     *         [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
+     *         requests from one URL to another.
+     *         </p>
+     *         <p>
+     *         [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
+     *         requests and return a custom HTTP response.
      */
 
     public java.util.List<Action> getActions() {
@@ -730,29 +760,49 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The actions.
      * </p>
      * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
+     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
+     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
+     * Load Balancer.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     * identity provider that is OpenID Connect (OIDC) compliant.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
+     * user pools supported by Amazon Cognito.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
+     * from one URL to another.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
+     * and return a custom HTTP response.
      * </p>
      * 
      * @param actions
      *        The actions.</p>
      *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
+     *        If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
+     *        must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
+     *        TLS for a Network Load Balancer.
      *        </p>
      *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
+     *        [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     *        identity provider that is OpenID Connect (OIDC) compliant.
      *        </p>
      *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
+     *        the user pools supported by Amazon Cognito.
+     *        </p>
+     *        <p>
+     *        [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
+     *        requests from one URL to another.
+     *        </p>
+     *        <p>
+     *        [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
+     *        requests and return a custom HTTP response.
      */
 
     public void setActions(java.util.Collection<Action> actions) {
@@ -769,15 +819,25 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The actions.
      * </p>
      * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
+     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
+     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
+     * Load Balancer.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     * identity provider that is OpenID Connect (OIDC) compliant.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
+     * user pools supported by Amazon Cognito.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
+     * from one URL to another.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
+     * and return a custom HTTP response.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -788,15 +848,25 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * @param actions
      *        The actions.</p>
      *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
+     *        If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
+     *        must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
+     *        TLS for a Network Load Balancer.
      *        </p>
      *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
+     *        [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     *        identity provider that is OpenID Connect (OIDC) compliant.
      *        </p>
      *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
+     *        the user pools supported by Amazon Cognito.
+     *        </p>
+     *        <p>
+     *        [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
+     *        requests from one URL to another.
+     *        </p>
+     *        <p>
+     *        [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
+     *        requests and return a custom HTTP response.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -815,29 +885,49 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The actions.
      * </p>
      * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
+     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
+     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
+     * Load Balancer.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     * identity provider that is OpenID Connect (OIDC) compliant.
      * </p>
      * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
+     * user pools supported by Amazon Cognito.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
+     * from one URL to another.
+     * </p>
+     * <p>
+     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
+     * and return a custom HTTP response.
      * </p>
      * 
      * @param actions
      *        The actions.</p>
      *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
+     *        If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
+     *        must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
+     *        TLS for a Network Load Balancer.
      *        </p>
      *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
+     *        [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
+     *        identity provider that is OpenID Connect (OIDC) compliant.
      *        </p>
      *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
+     *        the user pools supported by Amazon Cognito.
+     *        </p>
+     *        <p>
+     *        [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
+     *        requests from one URL to another.
+     *        </p>
+     *        <p>
+     *        [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
+     *        requests and return a custom HTTP response.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -847,7 +937,8 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

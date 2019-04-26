@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,6 +42,36 @@ public class OutputDataConfig implements Serializable, Cloneable, StructuredPojo
      * </p>
      */
     private String s3Uri;
+    /**
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an
+     * analysis job. The KmsKeyId can be one of the following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
+     */
+    private String kmsKeyId;
 
     /**
      * <p>
@@ -126,7 +156,189 @@ public class OutputDataConfig implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an
+     * analysis job. The KmsKeyId can be one of the following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param kmsKeyId
+     *        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results
+     *        from an analysis job. The KmsKeyId can be one of the following formats:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        Amazon Resource Name (ARN) of a KMS Key:
+     *        <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     */
+
+    public void setKmsKeyId(String kmsKeyId) {
+        this.kmsKeyId = kmsKeyId;
+    }
+
+    /**
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an
+     * analysis job. The KmsKeyId can be one of the following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @return ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results
+     *         from an analysis job. The KmsKeyId can be one of the following formats:</p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         Amazon Resource Name (ARN) of a KMS Key:
+     *         <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     *         </p>
+     *         </li>
+     */
+
+    public String getKmsKeyId() {
+        return this.kmsKeyId;
+    }
+
+    /**
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an
+     * analysis job. The KmsKeyId can be one of the following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param kmsKeyId
+     *        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results
+     *        from an analysis job. The KmsKeyId can be one of the following formats:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        Amazon Resource Name (ARN) of a KMS Key:
+     *        <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        KMS Key Alias: <code>"alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public OutputDataConfig withKmsKeyId(String kmsKeyId) {
+        setKmsKeyId(kmsKeyId);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -137,7 +349,9 @@ public class OutputDataConfig implements Serializable, Cloneable, StructuredPojo
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getS3Uri() != null)
-            sb.append("S3Uri: ").append(getS3Uri());
+            sb.append("S3Uri: ").append(getS3Uri()).append(",");
+        if (getKmsKeyId() != null)
+            sb.append("KmsKeyId: ").append(getKmsKeyId());
         sb.append("}");
         return sb.toString();
     }
@@ -156,6 +370,10 @@ public class OutputDataConfig implements Serializable, Cloneable, StructuredPojo
             return false;
         if (other.getS3Uri() != null && other.getS3Uri().equals(this.getS3Uri()) == false)
             return false;
+        if (other.getKmsKeyId() == null ^ this.getKmsKeyId() == null)
+            return false;
+        if (other.getKmsKeyId() != null && other.getKmsKeyId().equals(this.getKmsKeyId()) == false)
+            return false;
         return true;
     }
 
@@ -165,6 +383,7 @@ public class OutputDataConfig implements Serializable, Cloneable, StructuredPojo
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getS3Uri() == null) ? 0 : getS3Uri().hashCode());
+        hashCode = prime * hashCode + ((getKmsKeyId() == null) ? 0 : getKmsKeyId().hashCode());
         return hashCode;
     }
 

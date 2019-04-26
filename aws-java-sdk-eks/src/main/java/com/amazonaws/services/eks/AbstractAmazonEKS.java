@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,7 @@ import javax.annotation.Generated;
 
 import com.amazonaws.services.eks.model.*;
 import com.amazonaws.*;
+import com.amazonaws.services.eks.waiters.AmazonEKSWaiters;
 
 /**
  * Abstract implementation of {@code AmazonEKS}. Convenient method forms pass through to the corresponding overload that
@@ -43,7 +44,27 @@ public class AbstractAmazonEKS implements AmazonEKS {
     }
 
     @Override
+    public DescribeUpdateResult describeUpdate(DescribeUpdateRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public ListClustersResult listClusters(ListClustersRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public ListUpdatesResult listUpdates(ListUpdatesRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public UpdateClusterConfigResult updateClusterConfig(UpdateClusterConfigRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public UpdateClusterVersionResult updateClusterVersion(UpdateClusterVersionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -54,6 +75,11 @@ public class AbstractAmazonEKS implements AmazonEKS {
 
     @Override
     public com.amazonaws.ResponseMetadata getCachedResponseMetadata(com.amazonaws.AmazonWebServiceRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public AmazonEKSWaiters waiters() {
         throw new java.lang.UnsupportedOperationException();
     }
 

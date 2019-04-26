@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -81,6 +81,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the VPC.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).
      * </p>
      * </li>
@@ -115,6 +120,19 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> vpcIds;
+    /**
+     * <p>
+     * The token for the next page of results.
+     * </p>
+     */
+    private String nextToken;
+    /**
+     * <p>
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
+     * </p>
+     */
+    private Integer maxResults;
 
     /**
      * <p>
@@ -168,6 +186,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      * <li>
      * <p>
      * <code>isDefault</code> - Indicates whether the VPC is the default VPC.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the VPC.
      * </p>
      * </li>
      * <li>
@@ -245,6 +268,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      *         <li>
      *         <p>
      *         <code>isDefault</code> - Indicates whether the VPC is the default VPC.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>owner-id</code> - The ID of the AWS account that owns the VPC.
      *         </p>
      *         </li>
      *         <li>
@@ -336,6 +364,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the VPC.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).
      * </p>
      * </li>
@@ -410,6 +443,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      *        <li>
      *        <p>
      *        <code>isDefault</code> - Indicates whether the VPC is the default VPC.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>owner-id</code> - The ID of the AWS account that owns the VPC.
      *        </p>
      *        </li>
      *        <li>
@@ -503,6 +541,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the VPC.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).
      * </p>
      * </li>
@@ -582,6 +625,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      *        <li>
      *        <p>
      *        <code>isDefault</code> - Indicates whether the VPC is the default VPC.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>owner-id</code> - The ID of the AWS account that owns the VPC.
      *        </p>
      *        </li>
      *        <li>
@@ -677,6 +725,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
+     * <code>owner-id</code> - The ID of the AWS account that owns the VPC.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).
      * </p>
      * </li>
@@ -751,6 +804,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
      *        <li>
      *        <p>
      *        <code>isDefault</code> - Indicates whether the VPC is the default VPC.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>owner-id</code> - The ID of the AWS account that owns the VPC.
      *        </p>
      *        </li>
      *        <li>
@@ -879,6 +937,92 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
     }
 
     /**
+     * <p>
+     * The token for the next page of results.
+     * </p>
+     * 
+     * @param nextToken
+     *        The token for the next page of results.
+     */
+
+    public void setNextToken(String nextToken) {
+        this.nextToken = nextToken;
+    }
+
+    /**
+     * <p>
+     * The token for the next page of results.
+     * </p>
+     * 
+     * @return The token for the next page of results.
+     */
+
+    public String getNextToken() {
+        return this.nextToken;
+    }
+
+    /**
+     * <p>
+     * The token for the next page of results.
+     * </p>
+     * 
+     * @param nextToken
+     *        The token for the next page of results.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeVpcsRequest withNextToken(String nextToken) {
+        setNextToken(nextToken);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
+     * </p>
+     * 
+     * @param maxResults
+     *        The maximum number of results to return with a single call. To retrieve the remaining results, make
+     *        another call with the returned <code>nextToken</code> value.
+     */
+
+    public void setMaxResults(Integer maxResults) {
+        this.maxResults = maxResults;
+    }
+
+    /**
+     * <p>
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
+     * </p>
+     * 
+     * @return The maximum number of results to return with a single call. To retrieve the remaining results, make
+     *         another call with the returned <code>nextToken</code> value.
+     */
+
+    public Integer getMaxResults() {
+        return this.maxResults;
+    }
+
+    /**
+     * <p>
+     * The maximum number of results to return with a single call. To retrieve the remaining results, make another call
+     * with the returned <code>nextToken</code> value.
+     * </p>
+     * 
+     * @param maxResults
+     *        The maximum number of results to return with a single call. To retrieve the remaining results, make
+     *        another call with the returned <code>nextToken</code> value.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeVpcsRequest withMaxResults(Integer maxResults) {
+        setMaxResults(maxResults);
+        return this;
+    }
+
+    /**
      * This method is intended for internal use only. Returns the marshaled request configured with additional
      * parameters to enable operation dry-run.
      */
@@ -890,7 +1034,8 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -903,7 +1048,11 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
         if (getFilters() != null)
             sb.append("Filters: ").append(getFilters()).append(",");
         if (getVpcIds() != null)
-            sb.append("VpcIds: ").append(getVpcIds());
+            sb.append("VpcIds: ").append(getVpcIds()).append(",");
+        if (getNextToken() != null)
+            sb.append("NextToken: ").append(getNextToken()).append(",");
+        if (getMaxResults() != null)
+            sb.append("MaxResults: ").append(getMaxResults());
         sb.append("}");
         return sb.toString();
     }
@@ -926,6 +1075,14 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
             return false;
         if (other.getVpcIds() != null && other.getVpcIds().equals(this.getVpcIds()) == false)
             return false;
+        if (other.getNextToken() == null ^ this.getNextToken() == null)
+            return false;
+        if (other.getNextToken() != null && other.getNextToken().equals(this.getNextToken()) == false)
+            return false;
+        if (other.getMaxResults() == null ^ this.getMaxResults() == null)
+            return false;
+        if (other.getMaxResults() != null && other.getMaxResults().equals(this.getMaxResults()) == false)
+            return false;
         return true;
     }
 
@@ -936,6 +1093,8 @@ public class DescribeVpcsRequest extends AmazonWebServiceRequest implements Seri
 
         hashCode = prime * hashCode + ((getFilters() == null) ? 0 : getFilters().hashCode());
         hashCode = prime * hashCode + ((getVpcIds() == null) ? 0 : getVpcIds().hashCode());
+        hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
+        hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
         return hashCode;
     }
 

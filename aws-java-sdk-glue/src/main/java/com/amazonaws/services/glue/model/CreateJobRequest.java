@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -95,12 +95,16 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     private Integer maxRetries;
     /**
      * <p>
+     * This parameter is deprecated. Use <code>MaxCapacity</code> instead.
+     * </p>
+     * <p>
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated;
      * the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity
      * and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
      * pricing page</a>.
      * </p>
      */
+    @Deprecated
     private Integer allocatedCapacity;
     /**
      * <p>
@@ -111,16 +115,88 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     private Integer timeout;
     /**
      * <p>
+     * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative
+     * measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+     * information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
+     * </p>
+     * <p>
+     * Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     * </p>
+     * <p>
+     * The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python shell
+     * job, or an Apache Spark ETL job:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625
+     * or 1 DPU. The default is 0.0625 DPU.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100
+     * DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     * </p>
+     * </li>
+     * </ul>
+     */
+    private Double maxCapacity;
+    /**
+     * <p>
      * Specifies configuration properties of a job notification.
      * </p>
      */
     private NotificationProperty notificationProperty;
     /**
      * <p>
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2
+     * executors per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * </ul>
+     */
+    private String workerType;
+    /**
+     * <p>
+     * The number of workers of a defined <code>workerType</code> that are allocated when a job runs.
+     * </p>
+     * <p>
+     * The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     * </p>
+     */
+    private Integer numberOfWorkers;
+    /**
+     * <p>
      * The name of the SecurityConfiguration structure to be used with this job.
      * </p>
      */
     private String securityConfiguration;
+    /**
+     * <p>
+     * The tags to use with this job. You may use tags to limit access to the job. For more information about tags in
+     * AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in
+     * the developer guide.
+     * </p>
+     */
+    private java.util.Map<String, String> tags;
 
     /**
      * <p>
@@ -586,6 +662,9 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
+     * This parameter is deprecated. Use <code>MaxCapacity</code> instead.
+     * </p>
+     * <p>
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated;
      * the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity
      * and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
@@ -593,35 +672,45 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
      * </p>
      * 
      * @param allocatedCapacity
+     *        This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
+     *        <p>
      *        The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be
      *        allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of
      *        compute capacity and 16 GB of memory. For more information, see the <a
      *        href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
      */
-
+    @Deprecated
     public void setAllocatedCapacity(Integer allocatedCapacity) {
         this.allocatedCapacity = allocatedCapacity;
     }
 
     /**
      * <p>
+     * This parameter is deprecated. Use <code>MaxCapacity</code> instead.
+     * </p>
+     * <p>
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated;
      * the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity
      * and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
      * pricing page</a>.
      * </p>
      * 
-     * @return The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be
+     * @return This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
+     *         <p>
+     *         The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be
      *         allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of
      *         compute capacity and 16 GB of memory. For more information, see the <a
      *         href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
      */
-
+    @Deprecated
     public Integer getAllocatedCapacity() {
         return this.allocatedCapacity;
     }
 
     /**
+     * <p>
+     * This parameter is deprecated. Use <code>MaxCapacity</code> instead.
+     * </p>
      * <p>
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated;
      * the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity
@@ -630,13 +719,15 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
      * </p>
      * 
      * @param allocatedCapacity
+     *        This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
+     *        <p>
      *        The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be
      *        allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of
      *        compute capacity and 16 GB of memory. For more information, see the <a
      *        href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
-
+    @Deprecated
     public CreateJobRequest withAllocatedCapacity(Integer allocatedCapacity) {
         setAllocatedCapacity(allocatedCapacity);
         return this;
@@ -690,6 +781,182 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
+     * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative
+     * measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+     * information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
+     * </p>
+     * <p>
+     * Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     * </p>
+     * <p>
+     * The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python shell
+     * job, or an Apache Spark ETL job:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625
+     * or 1 DPU. The default is 0.0625 DPU.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100
+     * DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param maxCapacity
+     *        The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a
+     *        relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For
+     *        more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.</p>
+     *        <p>
+     *        Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     *        </p>
+     *        <p>
+     *        The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python
+     *        shell job, or an Apache Spark ETL job:
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either
+     *        0.0625 or 1 DPU. The default is 0.0625 DPU.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2
+     *        to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     *        </p>
+     *        </li>
+     */
+
+    public void setMaxCapacity(Double maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    /**
+     * <p>
+     * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative
+     * measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+     * information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
+     * </p>
+     * <p>
+     * Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     * </p>
+     * <p>
+     * The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python shell
+     * job, or an Apache Spark ETL job:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625
+     * or 1 DPU. The default is 0.0625 DPU.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100
+     * DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @return The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a
+     *         relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     *         For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+     *         page</a>.</p>
+     *         <p>
+     *         Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     *         </p>
+     *         <p>
+     *         The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python
+     *         shell job, or an Apache Spark ETL job:
+     *         </p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either
+     *         0.0625 or 1 DPU. The default is 0.0625 DPU.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from
+     *         2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     *         </p>
+     *         </li>
+     */
+
+    public Double getMaxCapacity() {
+        return this.maxCapacity;
+    }
+
+    /**
+     * <p>
+     * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative
+     * measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+     * information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
+     * </p>
+     * <p>
+     * Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     * </p>
+     * <p>
+     * The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python shell
+     * job, or an Apache Spark ETL job:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either 0.0625
+     * or 1 DPU. The default is 0.0625 DPU.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100
+     * DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param maxCapacity
+     *        The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a
+     *        relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For
+     *        more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.</p>
+     *        <p>
+     *        Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.
+     *        </p>
+     *        <p>
+     *        The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a python
+     *        shell job, or an Apache Spark ETL job:
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"), you can allocate either
+     *        0.0625 or 1 DPU. The default is 0.0625 DPU.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2
+     *        to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+     *        </p>
+     *        </li>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateJobRequest withMaxCapacity(Double maxCapacity) {
+        setMaxCapacity(maxCapacity);
+        return this;
+    }
+
+    /**
+     * <p>
      * Specifies configuration properties of a job notification.
      * </p>
      * 
@@ -725,6 +992,280 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     public CreateJobRequest withNotificationProperty(NotificationProperty notificationProperty) {
         setNotificationProperty(notificationProperty);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2
+     * executors per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param workerType
+     *        The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or
+     *        G.2X.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk,
+     *        and 2 executors per worker.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     *        executor per worker.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and
+     *        1 executor per worker.
+     *        </p>
+     *        </li>
+     * @see WorkerType
+     */
+
+    public void setWorkerType(String workerType) {
+        this.workerType = workerType;
+    }
+
+    /**
+     * <p>
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2
+     * executors per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @return The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or
+     *         G.2X.</p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk,
+     *         and 2 executors per worker.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and
+     *         1 executor per worker.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and
+     *         1 executor per worker.
+     *         </p>
+     *         </li>
+     * @see WorkerType
+     */
+
+    public String getWorkerType() {
+        return this.workerType;
+    }
+
+    /**
+     * <p>
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2
+     * executors per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param workerType
+     *        The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or
+     *        G.2X.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk,
+     *        and 2 executors per worker.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     *        executor per worker.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and
+     *        1 executor per worker.
+     *        </p>
+     *        </li>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see WorkerType
+     */
+
+    public CreateJobRequest withWorkerType(String workerType) {
+        setWorkerType(workerType);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2
+     * executors per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1
+     * executor per worker.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param workerType
+     *        The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or
+     *        G.2X.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk,
+     *        and 2 executors per worker.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1
+     *        executor per worker.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and
+     *        1 executor per worker.
+     *        </p>
+     *        </li>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see WorkerType
+     */
+
+    public CreateJobRequest withWorkerType(WorkerType workerType) {
+        this.workerType = workerType.toString();
+        return this;
+    }
+
+    /**
+     * <p>
+     * The number of workers of a defined <code>workerType</code> that are allocated when a job runs.
+     * </p>
+     * <p>
+     * The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     * </p>
+     * 
+     * @param numberOfWorkers
+     *        The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+     *        <p>
+     *        The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     */
+
+    public void setNumberOfWorkers(Integer numberOfWorkers) {
+        this.numberOfWorkers = numberOfWorkers;
+    }
+
+    /**
+     * <p>
+     * The number of workers of a defined <code>workerType</code> that are allocated when a job runs.
+     * </p>
+     * <p>
+     * The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     * </p>
+     * 
+     * @return The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+     *         <p>
+     *         The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     */
+
+    public Integer getNumberOfWorkers() {
+        return this.numberOfWorkers;
+    }
+
+    /**
+     * <p>
+     * The number of workers of a defined <code>workerType</code> that are allocated when a job runs.
+     * </p>
+     * <p>
+     * The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     * </p>
+     * 
+     * @param numberOfWorkers
+     *        The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+     *        <p>
+     *        The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateJobRequest withNumberOfWorkers(Integer numberOfWorkers) {
+        setNumberOfWorkers(numberOfWorkers);
         return this;
     }
 
@@ -769,7 +1310,81 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The tags to use with this job. You may use tags to limit access to the job. For more information about tags in
+     * AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in
+     * the developer guide.
+     * </p>
+     * 
+     * @return The tags to use with this job. You may use tags to limit access to the job. For more information about
+     *         tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in
+     *         AWS Glue</a> in the developer guide.
+     */
+
+    public java.util.Map<String, String> getTags() {
+        return tags;
+    }
+
+    /**
+     * <p>
+     * The tags to use with this job. You may use tags to limit access to the job. For more information about tags in
+     * AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in
+     * the developer guide.
+     * </p>
+     * 
+     * @param tags
+     *        The tags to use with this job. You may use tags to limit access to the job. For more information about
+     *        tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in
+     *        AWS Glue</a> in the developer guide.
+     */
+
+    public void setTags(java.util.Map<String, String> tags) {
+        this.tags = tags;
+    }
+
+    /**
+     * <p>
+     * The tags to use with this job. You may use tags to limit access to the job. For more information about tags in
+     * AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in
+     * the developer guide.
+     * </p>
+     * 
+     * @param tags
+     *        The tags to use with this job. You may use tags to limit access to the job. For more information about
+     *        tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in
+     *        AWS Glue</a> in the developer guide.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateJobRequest withTags(java.util.Map<String, String> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    public CreateJobRequest addTagsEntry(String key, String value) {
+        if (null == this.tags) {
+            this.tags = new java.util.HashMap<String, String>();
+        }
+        if (this.tags.containsKey(key))
+            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
+        this.tags.put(key, value);
+        return this;
+    }
+
+    /**
+     * Removes all the entries added into Tags.
+     *
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateJobRequest clearTagsEntries() {
+        this.tags = null;
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -801,10 +1416,18 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
             sb.append("AllocatedCapacity: ").append(getAllocatedCapacity()).append(",");
         if (getTimeout() != null)
             sb.append("Timeout: ").append(getTimeout()).append(",");
+        if (getMaxCapacity() != null)
+            sb.append("MaxCapacity: ").append(getMaxCapacity()).append(",");
         if (getNotificationProperty() != null)
             sb.append("NotificationProperty: ").append(getNotificationProperty()).append(",");
+        if (getWorkerType() != null)
+            sb.append("WorkerType: ").append(getWorkerType()).append(",");
+        if (getNumberOfWorkers() != null)
+            sb.append("NumberOfWorkers: ").append(getNumberOfWorkers()).append(",");
         if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
+            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -863,13 +1486,29 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
             return false;
         if (other.getTimeout() != null && other.getTimeout().equals(this.getTimeout()) == false)
             return false;
+        if (other.getMaxCapacity() == null ^ this.getMaxCapacity() == null)
+            return false;
+        if (other.getMaxCapacity() != null && other.getMaxCapacity().equals(this.getMaxCapacity()) == false)
+            return false;
         if (other.getNotificationProperty() == null ^ this.getNotificationProperty() == null)
             return false;
         if (other.getNotificationProperty() != null && other.getNotificationProperty().equals(this.getNotificationProperty()) == false)
             return false;
+        if (other.getWorkerType() == null ^ this.getWorkerType() == null)
+            return false;
+        if (other.getWorkerType() != null && other.getWorkerType().equals(this.getWorkerType()) == false)
+            return false;
+        if (other.getNumberOfWorkers() == null ^ this.getNumberOfWorkers() == null)
+            return false;
+        if (other.getNumberOfWorkers() != null && other.getNumberOfWorkers().equals(this.getNumberOfWorkers()) == false)
+            return false;
         if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
             return false;
         if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
+            return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
             return false;
         return true;
     }
@@ -890,8 +1529,12 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         hashCode = prime * hashCode + ((getMaxRetries() == null) ? 0 : getMaxRetries().hashCode());
         hashCode = prime * hashCode + ((getAllocatedCapacity() == null) ? 0 : getAllocatedCapacity().hashCode());
         hashCode = prime * hashCode + ((getTimeout() == null) ? 0 : getTimeout().hashCode());
+        hashCode = prime * hashCode + ((getMaxCapacity() == null) ? 0 : getMaxCapacity().hashCode());
         hashCode = prime * hashCode + ((getNotificationProperty() == null) ? 0 : getNotificationProperty().hashCode());
+        hashCode = prime * hashCode + ((getWorkerType() == null) ? 0 : getWorkerType().hashCode());
+        hashCode = prime * hashCode + ((getNumberOfWorkers() == null) ? 0 : getNumberOfWorkers().hashCode());
         hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

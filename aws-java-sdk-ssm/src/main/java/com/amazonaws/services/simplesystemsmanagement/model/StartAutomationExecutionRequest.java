@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -60,7 +60,7 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
     /**
      * <p>
      * The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify
-     * Targets.
+     * targets.
      * </p>
      */
     private String targetParameterName;
@@ -100,6 +100,15 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
      * </p>
      */
     private String maxErrors;
+    /**
+     * <p>
+     * A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this
+     * action to start an Automation in multiple Regions and multiple accounts. For more information, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     * >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User Guide</i>.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<TargetLocation> targetLocations;
 
     /**
      * <p>
@@ -358,12 +367,12 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
     /**
      * <p>
      * The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify
-     * Targets.
+     * targets.
      * </p>
      * 
      * @param targetParameterName
      *        The name of the parameter used as the target resource for the rate-controlled execution. Required if you
-     *        specify Targets.
+     *        specify targets.
      */
 
     public void setTargetParameterName(String targetParameterName) {
@@ -373,11 +382,11 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
     /**
      * <p>
      * The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify
-     * Targets.
+     * targets.
      * </p>
      * 
      * @return The name of the parameter used as the target resource for the rate-controlled execution. Required if you
-     *         specify Targets.
+     *         specify targets.
      */
 
     public String getTargetParameterName() {
@@ -387,12 +396,12 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
     /**
      * <p>
      * The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify
-     * Targets.
+     * targets.
      * </p>
      * 
      * @param targetParameterName
      *        The name of the parameter used as the target resource for the rate-controlled execution. Required if you
-     *        specify Targets.
+     *        specify targets.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -702,7 +711,113 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this
+     * action to start an Automation in multiple Regions and multiple accounts. For more information, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     * >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User Guide</i>.
+     * </p>
+     * 
+     * @return A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use
+     *         this action to start an Automation in multiple Regions and multiple accounts. For more information, see
+     *         <a href=
+     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     *         >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
+     *         Guide</i>.
+     */
+
+    public java.util.List<TargetLocation> getTargetLocations() {
+        if (targetLocations == null) {
+            targetLocations = new com.amazonaws.internal.SdkInternalList<TargetLocation>();
+        }
+        return targetLocations;
+    }
+
+    /**
+     * <p>
+     * A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this
+     * action to start an Automation in multiple Regions and multiple accounts. For more information, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     * >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User Guide</i>.
+     * </p>
+     * 
+     * @param targetLocations
+     *        A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use
+     *        this action to start an Automation in multiple Regions and multiple accounts. For more information, see <a
+     *        href=
+     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     *        >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
+     *        Guide</i>.
+     */
+
+    public void setTargetLocations(java.util.Collection<TargetLocation> targetLocations) {
+        if (targetLocations == null) {
+            this.targetLocations = null;
+            return;
+        }
+
+        this.targetLocations = new com.amazonaws.internal.SdkInternalList<TargetLocation>(targetLocations);
+    }
+
+    /**
+     * <p>
+     * A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this
+     * action to start an Automation in multiple Regions and multiple accounts. For more information, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     * >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User Guide</i>.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setTargetLocations(java.util.Collection)} or {@link #withTargetLocations(java.util.Collection)} if you
+     * want to override the existing values.
+     * </p>
+     * 
+     * @param targetLocations
+     *        A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use
+     *        this action to start an Automation in multiple Regions and multiple accounts. For more information, see <a
+     *        href=
+     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     *        >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
+     *        Guide</i>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StartAutomationExecutionRequest withTargetLocations(TargetLocation... targetLocations) {
+        if (this.targetLocations == null) {
+            setTargetLocations(new com.amazonaws.internal.SdkInternalList<TargetLocation>(targetLocations.length));
+        }
+        for (TargetLocation ele : targetLocations) {
+            this.targetLocations.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this
+     * action to start an Automation in multiple Regions and multiple accounts. For more information, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     * >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User Guide</i>.
+     * </p>
+     * 
+     * @param targetLocations
+     *        A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use
+     *        this action to start an Automation in multiple Regions and multiple accounts. For more information, see <a
+     *        href=
+     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
+     *        >Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
+     *        Guide</i>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StartAutomationExecutionRequest withTargetLocations(java.util.Collection<TargetLocation> targetLocations) {
+        setTargetLocations(targetLocations);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -731,7 +846,9 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
         if (getMaxConcurrency() != null)
             sb.append("MaxConcurrency: ").append(getMaxConcurrency()).append(",");
         if (getMaxErrors() != null)
-            sb.append("MaxErrors: ").append(getMaxErrors());
+            sb.append("MaxErrors: ").append(getMaxErrors()).append(",");
+        if (getTargetLocations() != null)
+            sb.append("TargetLocations: ").append(getTargetLocations());
         sb.append("}");
         return sb.toString();
     }
@@ -786,6 +903,10 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
             return false;
         if (other.getMaxErrors() != null && other.getMaxErrors().equals(this.getMaxErrors()) == false)
             return false;
+        if (other.getTargetLocations() == null ^ this.getTargetLocations() == null)
+            return false;
+        if (other.getTargetLocations() != null && other.getTargetLocations().equals(this.getTargetLocations()) == false)
+            return false;
         return true;
     }
 
@@ -804,6 +925,7 @@ public class StartAutomationExecutionRequest extends com.amazonaws.AmazonWebServ
         hashCode = prime * hashCode + ((getTargetMaps() == null) ? 0 : getTargetMaps().hashCode());
         hashCode = prime * hashCode + ((getMaxConcurrency() == null) ? 0 : getMaxConcurrency().hashCode());
         hashCode = prime * hashCode + ((getMaxErrors() == null) ? 0 : getMaxErrors().hashCode());
+        hashCode = prime * hashCode + ((getTargetLocations() == null) ? 0 : getTargetLocations().hashCode());
         return hashCode;
     }
 

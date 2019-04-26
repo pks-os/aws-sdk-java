@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,7 @@ public class GetDataCatalogEncryptionSettingsRequest extends com.amazonaws.Amazo
 
     /**
      * <p>
-     * The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS account
+     * The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS account
      * ID is used by default.
      * </p>
      */
@@ -35,12 +35,12 @@ public class GetDataCatalogEncryptionSettingsRequest extends com.amazonaws.Amazo
 
     /**
      * <p>
-     * The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS account
+     * The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS account
      * ID is used by default.
      * </p>
      * 
      * @param catalogId
-     *        The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS
+     *        The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS
      *        account ID is used by default.
      */
 
@@ -50,11 +50,11 @@ public class GetDataCatalogEncryptionSettingsRequest extends com.amazonaws.Amazo
 
     /**
      * <p>
-     * The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS account
+     * The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS account
      * ID is used by default.
      * </p>
      * 
-     * @return The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS
+     * @return The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS
      *         account ID is used by default.
      */
 
@@ -64,12 +64,12 @@ public class GetDataCatalogEncryptionSettingsRequest extends com.amazonaws.Amazo
 
     /**
      * <p>
-     * The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS account
+     * The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS account
      * ID is used by default.
      * </p>
      * 
      * @param catalogId
-     *        The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS
+     *        The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS
      *        account ID is used by default.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -80,7 +80,8 @@ public class GetDataCatalogEncryptionSettingsRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

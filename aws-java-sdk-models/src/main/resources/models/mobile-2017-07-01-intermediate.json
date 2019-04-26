@@ -15,6 +15,7 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
@@ -93,6 +94,7 @@
       "documentation" : "<p> Creates an AWS Mobile Hub project. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -123,6 +125,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateProjectRequest",
@@ -151,6 +154,7 @@
       "documentation" : "<p> Delets a project in AWS Mobile Hub. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -173,6 +177,7 @@
         "httpStatusCode" : 404
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteProjectRequest",
@@ -201,6 +206,7 @@
       "documentation" : "<p> Get the bundle details for the requested bundle id. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -227,6 +233,7 @@
         "httpStatusCode" : 404
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeBundleRequest",
@@ -255,6 +262,7 @@
       "documentation" : "<p> Gets details about a project in AWS Mobile Hub. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -281,6 +289,7 @@
         "httpStatusCode" : 404
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeProjectRequest",
@@ -309,6 +318,7 @@
       "documentation" : "<p> Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -335,6 +345,7 @@
         "httpStatusCode" : 404
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ExportBundleRequest",
@@ -363,6 +374,7 @@
       "documentation" : "<p> Exports project configuration to a snapshot which can be downloaded and shared. Note that mobile app push credentials are encrypted in exported projects, so they can only be shared successfully within the same AWS account. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -389,6 +401,7 @@
         "httpStatusCode" : 404
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ExportProjectRequest",
@@ -417,6 +430,7 @@
       "documentation" : "<p> List all available bundles. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -439,6 +453,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListBundlesRequest",
@@ -467,6 +482,7 @@
       "documentation" : "<p> Lists projects in AWS Mobile Hub. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -489,6 +505,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListProjectsRequest",
@@ -517,6 +534,7 @@
       "documentation" : "<p> Update an existing project. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalFailureException",
         "documentation" : "<p> The service has encountered an unexpected error condition which prevents it from servicing the request. </p>",
@@ -551,6 +569,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UpdateProjectRequest",
@@ -702,6 +721,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BundleId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param bundleId */",
         "setterMethodName" : "setBundleId",
         "setterModel" : {
@@ -767,6 +787,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Title",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param title */",
         "setterMethodName" : "setTitle",
         "setterModel" : {
@@ -832,6 +853,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Version",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param version */",
         "setterMethodName" : "setVersion",
         "setterModel" : {
@@ -897,6 +919,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param description */",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -962,6 +985,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IconUrl",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param iconUrl */",
         "setterMethodName" : "setIconUrl",
         "setterModel" : {
@@ -1064,6 +1088,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see Platform*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -1107,6 +1132,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "AvailablePlatforms",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param availablePlatforms \n@see Platform*/",
         "setterMethodName" : "setAvailablePlatforms",
         "setterModel" : {
@@ -1211,6 +1237,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see Platform*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -1254,6 +1281,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "AvailablePlatforms",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param availablePlatforms \n@see Platform*/",
           "setterMethodName" : "setAvailablePlatforms",
           "setterModel" : {
@@ -1320,6 +1348,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BundleId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param bundleId */",
           "setterMethodName" : "setBundleId",
           "setterModel" : {
@@ -1386,6 +1415,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param description */",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -1452,6 +1482,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IconUrl",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param iconUrl */",
           "setterMethodName" : "setIconUrl",
           "setterModel" : {
@@ -1518,6 +1549,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Title",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param title */",
           "setterMethodName" : "setTitle",
           "setterModel" : {
@@ -1584,6 +1616,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Version",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param version */",
           "setterMethodName" : "setVersion",
           "setterModel" : {
@@ -1696,6 +1729,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Name of the project. </p>\n@param name Name of the project.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -1761,6 +1795,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Region",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Default region where project resources should be created. </p>\n@param region Default region where project resources should be created.*/",
         "setterMethodName" : "setRegion",
         "setterModel" : {
@@ -1826,6 +1861,7 @@
         "marshallingTargetClass" : "java.nio.ByteBuffer",
         "marshallingType" : "BYTE_BUFFER",
         "name" : "Contents",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. </p><p>\nThe AWS SDK for Java performs a Base64 encoding on this field before sending this request to the AWS service. Users of the SDK should not perform Base64 encoding on this field.\n</p>\n<p>\nWarning: ByteBuffers returned by the SDK are mutable. Changes to the content or position of the byte buffer will be seen by all objects that have a reference to this object. It is recommended to call ByteBuffer.duplicate() or ByteBuffer.asReadOnlyBuffer() before using or reading from the buffer. This behavior will be changed in a future major version of the SDK.\n</p>\n\n@param contents ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.*/",
         "setterMethodName" : "setContents",
         "setterModel" : {
@@ -1891,6 +1927,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SnapshotId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported. </p>\n@param snapshotId Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.*/",
         "setterMethodName" : "setSnapshotId",
         "setterModel" : {
@@ -1958,6 +1995,7 @@
           "marshallingTargetClass" : "java.nio.ByteBuffer",
           "marshallingType" : "BYTE_BUFFER",
           "name" : "Contents",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. </p><p>\nThe AWS SDK for Java performs a Base64 encoding on this field before sending this request to the AWS service. Users of the SDK should not perform Base64 encoding on this field.\n</p>\n<p>\nWarning: ByteBuffers returned by the SDK are mutable. Changes to the content or position of the byte buffer will be seen by all objects that have a reference to this object. It is recommended to call ByteBuffer.duplicate() or ByteBuffer.asReadOnlyBuffer() before using or reading from the buffer. This behavior will be changed in a future major version of the SDK.\n</p>\n\n@param contents ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.*/",
           "setterMethodName" : "setContents",
           "setterModel" : {
@@ -2024,6 +2062,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Name of the project. </p>\n@param name Name of the project.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -2090,6 +2129,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Region",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Default region where project resources should be created. </p>\n@param region Default region where project resources should be created.*/",
           "setterMethodName" : "setRegion",
           "setterModel" : {
@@ -2156,6 +2196,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SnapshotId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported. </p>\n@param snapshotId Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.*/",
           "setterMethodName" : "setSnapshotId",
           "setterModel" : {
@@ -2258,6 +2299,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Details",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Detailed information about the created AWS Mobile Hub project. </p>\n@param details Detailed information about the created AWS Mobile Hub project.*/",
         "setterMethodName" : "setDetails",
         "setterModel" : {
@@ -2325,6 +2367,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Details",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Detailed information about the created AWS Mobile Hub project. </p>\n@param details Detailed information about the created AWS Mobile Hub project.*/",
           "setterMethodName" : "setDetails",
           "setterModel" : {
@@ -2437,6 +2480,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -2504,6 +2548,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -2643,6 +2688,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -2686,6 +2732,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "DeletedResources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Resources which were deleted. </p>\n@param deletedResources Resources which were deleted.*/",
         "setterMethodName" : "setDeletedResources",
         "setterModel" : {
@@ -2788,6 +2835,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -2831,6 +2879,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "OrphanedResources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Resources which were not deleted, due to a risk of losing potentially important data or files. </p>\n@param orphanedResources Resources which were not deleted, due to a risk of losing potentially important data or files.*/",
         "setterMethodName" : "setOrphanedResources",
         "setterModel" : {
@@ -2935,6 +2984,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -2978,6 +3028,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "DeletedResources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Resources which were deleted. </p>\n@param deletedResources Resources which were deleted.*/",
           "setterMethodName" : "setDeletedResources",
           "setterModel" : {
@@ -3081,6 +3132,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -3124,6 +3176,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "OrphanedResources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Resources which were not deleted, due to a risk of losing potentially important data or files. </p>\n@param orphanedResources Resources which were not deleted, due to a risk of losing potentially important data or files.*/",
           "setterMethodName" : "setOrphanedResources",
           "setterModel" : {
@@ -3236,6 +3289,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BundleId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique bundle identifier. </p>\n@param bundleId Unique bundle identifier.*/",
         "setterMethodName" : "setBundleId",
         "setterModel" : {
@@ -3303,6 +3357,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BundleId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique bundle identifier. </p>\n@param bundleId Unique bundle identifier.*/",
           "setterMethodName" : "setBundleId",
           "setterModel" : {
@@ -3405,6 +3460,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Details",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> The details of the bundle. </p>\n@param details The details of the bundle.*/",
         "setterMethodName" : "setDetails",
         "setterModel" : {
@@ -3472,6 +3528,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Details",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> The details of the bundle. </p>\n@param details The details of the bundle.*/",
           "setterMethodName" : "setDetails",
           "setterModel" : {
@@ -3584,6 +3641,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -3649,6 +3707,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "SyncFromResources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project. </p>\n@param syncFromResources If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.*/",
         "setterMethodName" : "setSyncFromResources",
         "setterModel" : {
@@ -3716,6 +3775,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -3782,6 +3842,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "SyncFromResources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project. </p>\n@param syncFromResources If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.*/",
           "setterMethodName" : "setSyncFromResources",
           "setterModel" : {
@@ -3884,6 +3945,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Details",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param details */",
         "setterMethodName" : "setDetails",
         "setterModel" : {
@@ -3951,6 +4013,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Details",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param details */",
           "setterMethodName" : "setDetails",
           "setterModel" : {
@@ -4063,6 +4126,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BundleId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique bundle identifier. </p>\n@param bundleId Unique bundle identifier.*/",
         "setterMethodName" : "setBundleId",
         "setterModel" : {
@@ -4128,6 +4192,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -4193,6 +4258,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Platform",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Developer desktop or target application platform. </p>\n@param platform Developer desktop or target application platform.\n@see Platform*/",
         "setterMethodName" : "setPlatform",
         "setterModel" : {
@@ -4260,6 +4326,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BundleId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique bundle identifier. </p>\n@param bundleId Unique bundle identifier.*/",
           "setterMethodName" : "setBundleId",
           "setterModel" : {
@@ -4326,6 +4393,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Platform",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Developer desktop or target application platform. </p>\n@param platform Developer desktop or target application platform.\n@see Platform*/",
           "setterMethodName" : "setPlatform",
           "setterModel" : {
@@ -4392,6 +4460,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -4494,6 +4563,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DownloadUrl",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project. </p>\n@param downloadUrl URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.*/",
         "setterMethodName" : "setDownloadUrl",
         "setterModel" : {
@@ -4561,6 +4631,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DownloadUrl",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project. </p>\n@param downloadUrl URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.*/",
           "setterMethodName" : "setDownloadUrl",
           "setterModel" : {
@@ -4673,6 +4744,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -4740,6 +4812,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -4842,6 +4915,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DownloadUrl",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> URL which can be used to download the exported project configuation file(s). </p>\n@param downloadUrl URL which can be used to download the exported project configuation file(s).*/",
         "setterMethodName" : "setDownloadUrl",
         "setterModel" : {
@@ -4907,6 +4981,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ShareUrl",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again. </p>\n@param shareUrl URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.*/",
         "setterMethodName" : "setShareUrl",
         "setterModel" : {
@@ -4972,6 +5047,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SnapshotId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL. </p>\n@param snapshotId Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.*/",
         "setterMethodName" : "setSnapshotId",
         "setterModel" : {
@@ -5039,6 +5115,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DownloadUrl",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> URL which can be used to download the exported project configuation file(s). </p>\n@param downloadUrl URL which can be used to download the exported project configuation file(s).*/",
           "setterMethodName" : "setDownloadUrl",
           "setterModel" : {
@@ -5105,6 +5182,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ShareUrl",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again. </p>\n@param shareUrl URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.*/",
           "setterMethodName" : "setShareUrl",
           "setterModel" : {
@@ -5171,6 +5249,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SnapshotId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL. </p>\n@param snapshotId Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.*/",
           "setterMethodName" : "setSnapshotId",
           "setterModel" : {
@@ -5313,6 +5392,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "RetryAfterSeconds",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param retryAfterSeconds */",
         "setterMethodName" : "setRetryAfterSeconds",
         "setterModel" : {
@@ -5380,6 +5460,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "RetryAfterSeconds",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param retryAfterSeconds */",
           "setterMethodName" : "setRetryAfterSeconds",
           "setterModel" : {
@@ -5489,6 +5570,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Maximum number of records to list in a single response. </p>\n@param maxResults Maximum number of records to list in a single response.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -5554,6 +5636,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles. </p>\n@param nextToken Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -5621,6 +5704,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Maximum number of records to list in a single response. </p>\n@param maxResults Maximum number of records to list in a single response.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -5687,6 +5771,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles. </p>\n@param nextToken Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5826,6 +5911,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5869,6 +5955,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "BundleList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> A list of bundles. </p>\n@param bundleList A list of bundles.*/",
         "setterMethodName" : "setBundleList",
         "setterModel" : {
@@ -5934,6 +6021,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. </p>\n@param nextToken Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -6038,6 +6126,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6081,6 +6170,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "BundleList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> A list of bundles. </p>\n@param bundleList A list of bundles.*/",
           "setterMethodName" : "setBundleList",
           "setterModel" : {
@@ -6147,6 +6237,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. </p>\n@param nextToken Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -6259,6 +6350,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Maximum number of records to list in a single response. </p>\n@param maxResults Maximum number of records to list in a single response.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -6324,6 +6416,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects. </p>\n@param nextToken Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -6391,6 +6484,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Maximum number of records to list in a single response. </p>\n@param maxResults Maximum number of records to list in a single response.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -6457,6 +6551,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects. </p>\n@param nextToken Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -6596,6 +6691,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -6639,6 +6735,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Projects",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param projects */",
         "setterMethodName" : "setProjects",
         "setterModel" : {
@@ -6704,6 +6801,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param nextToken */",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -6771,6 +6869,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param nextToken */",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -6874,6 +6973,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6917,6 +7017,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Projects",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param projects */",
           "setterMethodName" : "setProjects",
           "setterModel" : {
@@ -7120,6 +7221,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param name */",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -7185,6 +7287,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param projectId */",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -7250,6 +7353,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Region",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param region */",
         "setterMethodName" : "setRegion",
         "setterModel" : {
@@ -7315,6 +7419,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "State",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param state \n@see ProjectState*/",
         "setterMethodName" : "setState",
         "setterModel" : {
@@ -7380,6 +7485,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "CreatedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Date the project was created. </p>\n@param createdDate Date the project was created.*/",
         "setterMethodName" : "setCreatedDate",
         "setterModel" : {
@@ -7445,6 +7551,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastUpdatedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Date of the last modification of the project. </p>\n@param lastUpdatedDate Date of the last modification of the project.*/",
         "setterMethodName" : "setLastUpdatedDate",
         "setterModel" : {
@@ -7510,6 +7617,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ConsoleUrl",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Website URL for this project in the AWS Mobile Hub console. </p>\n@param consoleUrl Website URL for this project in the AWS Mobile Hub console.*/",
         "setterMethodName" : "setConsoleUrl",
         "setterModel" : {
@@ -7612,6 +7720,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7655,6 +7764,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param resources */",
         "setterMethodName" : "setResources",
         "setterModel" : {
@@ -7722,6 +7832,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ConsoleUrl",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Website URL for this project in the AWS Mobile Hub console. </p>\n@param consoleUrl Website URL for this project in the AWS Mobile Hub console.*/",
           "setterMethodName" : "setConsoleUrl",
           "setterModel" : {
@@ -7788,6 +7899,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "CreatedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Date the project was created. </p>\n@param createdDate Date the project was created.*/",
           "setterMethodName" : "setCreatedDate",
           "setterModel" : {
@@ -7854,6 +7966,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastUpdatedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Date of the last modification of the project. </p>\n@param lastUpdatedDate Date of the last modification of the project.*/",
           "setterMethodName" : "setLastUpdatedDate",
           "setterModel" : {
@@ -7920,6 +8033,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param name */",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -7986,6 +8100,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param projectId */",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -8052,6 +8167,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Region",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param region */",
           "setterMethodName" : "setRegion",
           "setterModel" : {
@@ -8155,6 +8271,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -8198,6 +8315,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param resources */",
           "setterMethodName" : "setResources",
           "setterModel" : {
@@ -8264,6 +8382,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "State",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param state \n@see ProjectState*/",
           "setterMethodName" : "setState",
           "setterModel" : {
@@ -8418,6 +8537,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Name of the project. </p>\n@param name Name of the project.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -8483,6 +8603,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -8550,6 +8671,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Name of the project. </p>\n@param name Name of the project.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -8616,6 +8738,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -8721,6 +8844,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Type",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param type */",
         "setterMethodName" : "setType",
         "setterModel" : {
@@ -8786,6 +8910,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param name */",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -8851,6 +8976,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Arn",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param arn */",
         "setterMethodName" : "setArn",
         "setterModel" : {
@@ -8916,6 +9042,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Feature",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param feature */",
         "setterMethodName" : "setFeature",
         "setterModel" : {
@@ -9024,6 +9151,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Value",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param value */",
             "setterMethodName" : "setValue",
             "setterModel" : {
@@ -9061,6 +9189,7 @@
         "marshallingTargetClass" : "Map",
         "marshallingType" : "MAP",
         "name" : "Attributes",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param attributes */",
         "setterMethodName" : "setAttributes",
         "setterModel" : {
@@ -9128,6 +9257,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Arn",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param arn */",
           "setterMethodName" : "setArn",
           "setterModel" : {
@@ -9237,6 +9367,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Value",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param value */",
               "setterMethodName" : "setValue",
               "setterModel" : {
@@ -9274,6 +9405,7 @@
           "marshallingTargetClass" : "Map",
           "marshallingType" : "MAP",
           "name" : "Attributes",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param attributes */",
           "setterMethodName" : "setAttributes",
           "setterModel" : {
@@ -9340,6 +9472,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Feature",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param feature */",
           "setterMethodName" : "setFeature",
           "setterModel" : {
@@ -9406,6 +9539,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param name */",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -9472,6 +9606,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Type",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param type */",
           "setterMethodName" : "setType",
           "setterModel" : {
@@ -9577,6 +9712,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "RetryAfterSeconds",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param retryAfterSeconds */",
         "setterMethodName" : "setRetryAfterSeconds",
         "setterModel" : {
@@ -9644,6 +9780,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "RetryAfterSeconds",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param retryAfterSeconds */",
           "setterMethodName" : "setRetryAfterSeconds",
           "setterModel" : {
@@ -9746,6 +9883,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "RetryAfterSeconds",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param retryAfterSeconds */",
         "setterMethodName" : "setRetryAfterSeconds",
         "setterModel" : {
@@ -9813,6 +9951,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "RetryAfterSeconds",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param retryAfterSeconds */",
           "setterMethodName" : "setRetryAfterSeconds",
           "setterModel" : {
@@ -9959,6 +10098,7 @@
         "marshallingTargetClass" : "java.nio.ByteBuffer",
         "marshallingType" : "BYTE_BUFFER",
         "name" : "Contents",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. </p><p>\nThe AWS SDK for Java performs a Base64 encoding on this field before sending this request to the AWS service. Users of the SDK should not perform Base64 encoding on this field.\n</p>\n<p>\nWarning: ByteBuffers returned by the SDK are mutable. Changes to the content or position of the byte buffer will be seen by all objects that have a reference to this object. It is recommended to call ByteBuffer.duplicate() or ByteBuffer.asReadOnlyBuffer() before using or reading from the buffer. This behavior will be changed in a future major version of the SDK.\n</p>\n\n@param contents ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.*/",
         "setterMethodName" : "setContents",
         "setterModel" : {
@@ -10024,6 +10164,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProjectId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
         "setterMethodName" : "setProjectId",
         "setterModel" : {
@@ -10091,6 +10232,7 @@
           "marshallingTargetClass" : "java.nio.ByteBuffer",
           "marshallingType" : "BYTE_BUFFER",
           "name" : "Contents",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. </p><p>\nThe AWS SDK for Java performs a Base64 encoding on this field before sending this request to the AWS service. Users of the SDK should not perform Base64 encoding on this field.\n</p>\n<p>\nWarning: ByteBuffers returned by the SDK are mutable. Changes to the content or position of the byte buffer will be seen by all objects that have a reference to this object. It is recommended to call ByteBuffer.duplicate() or ByteBuffer.asReadOnlyBuffer() before using or reading from the buffer. This behavior will be changed in a future major version of the SDK.\n</p>\n\n@param contents ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation.*/",
           "setterMethodName" : "setContents",
           "setterModel" : {
@@ -10157,6 +10299,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProjectId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Unique project identifier. </p>\n@param projectId Unique project identifier.*/",
           "setterMethodName" : "setProjectId",
           "setterModel" : {
@@ -10259,6 +10402,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Details",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Detailed information about the updated AWS Mobile Hub project. </p>\n@param details Detailed information about the updated AWS Mobile Hub project.*/",
         "setterMethodName" : "setDetails",
         "setterModel" : {
@@ -10326,6 +10470,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Details",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Detailed information about the updated AWS Mobile Hub project. </p>\n@param details Detailed information about the updated AWS Mobile Hub project.*/",
           "setterMethodName" : "setDetails",
           "setterModel" : {
@@ -10376,13 +10521,12 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : { },
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AWSMobileException",

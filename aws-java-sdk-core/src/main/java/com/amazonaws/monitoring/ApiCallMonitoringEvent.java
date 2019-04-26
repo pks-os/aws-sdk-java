@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,6 +24,13 @@ public class ApiCallMonitoringEvent extends ApiMonitoringEvent {
 
     private Integer attemptCount;
     private Long latency;
+    private int apiCallTimeout;
+    private int maxRetriesExceeded;
+    private String finalAwsException;
+    private String finalAwsExceptionMessage;
+    private String finalSdkException;
+    private String finalSdkExceptionMessage;
+    private Integer finalHttpStatusCode;
 
     @Override
     public ApiCallMonitoringEvent withApi(String api) {
@@ -34,6 +41,18 @@ public class ApiCallMonitoringEvent extends ApiMonitoringEvent {
     @Override
     public ApiCallMonitoringEvent withVersion(Integer version) {
         this.version = version;
+        return this;
+    }
+
+    @Override
+    public ApiCallMonitoringEvent withUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+        return this;
+    }
+
+    @Override
+    public ApiCallMonitoringEvent withRegion(String region) {
+        this.region = region;
         return this;
     }
 
@@ -95,6 +114,110 @@ public class ApiCallMonitoringEvent extends ApiMonitoringEvent {
      */
     public ApiCallMonitoringEvent withLatency(Long latency) {
         this.latency = latency;
+        return this;
+    }
+
+    /**
+     * @return a boolean (0/1) value that is 0 unless the Api call failed due to hitting an Api Call time limit.
+     */
+    public int getApiCallTimeout() {
+        return apiCallTimeout;
+    }
+
+    /**
+     * Sets the api call timeout
+     *
+     * @param apiCallTimeout The new apiCallTimeout value.
+     * @return This object for method chaining.
+     */
+    public ApiCallMonitoringEvent withApiCallTimeout(int apiCallTimeout) {
+        this.apiCallTimeout = apiCallTimeout;
+        return this;
+    }
+
+    /**
+     * @return a boolean (0/1) value that is 0 unless the Api call failed and the final attempt returned a retryable error.
+     */
+    public int getMaxRetriesExceeded() {
+        return maxRetriesExceeded;
+    }
+
+    /**
+     * Sets the api call timeout
+     *
+     * @param maxRetriesExceeded The new maxRetriesExceeded value.
+     * @return This object for method chaining.
+     */
+    public ApiCallMonitoringEvent withMaxRetriesExceeded(int maxRetriesExceeded) {
+        this.maxRetriesExceeded = maxRetriesExceeded;
+        return this;
+    }
+
+    /**
+     * The {@link ApiCallAttemptMonitoringEvent#getAwsException()} from the last reported API call attempt. This does
+     * not include any exceptions raised between the completion of last API call attempt and the completion of the API call.
+     * Consequently, this may be null even if an AwsException thrown by the client.
+     */
+    public String getFinalAwsException() {
+        return finalAwsException;
+    }
+
+    public ApiCallMonitoringEvent withFinalAwsException(String finalAwsException) {
+        this.finalAwsException = finalAwsException;
+        return this;
+    }
+
+    /**
+     * The {@link ApiCallAttemptMonitoringEvent#getAwsExceptionMessage()} from the last reported API call attempt. This does
+     * not include any exceptions raised between the completion of last API call attempt and the completion of the API call.
+     * Consequently, this may be null even if an AwsException thrown by the client.
+     */
+    public String getFinalAwsExceptionMessage() {
+        return finalAwsExceptionMessage;
+    }
+
+    public ApiCallMonitoringEvent withFinalAwsExceptionMessage(String finalAwsExceptionMessage) {
+        this.finalAwsExceptionMessage = finalAwsExceptionMessage;
+        return this;
+    }
+
+    /**
+     * The {@link ApiCallAttemptMonitoringEvent#getSdkException()} from the last reported API call attempt. This does
+     * not include any exceptions raised between the completion of last API call attempt and the completion of the API call.
+     * Consequently, this may be null even if an SdkException thrown by the client.
+     */
+    public String getFinalSdkException() {
+        return finalSdkException;
+    }
+
+    public ApiCallMonitoringEvent withFinalSdkException(String finalSdkException) {
+        this.finalSdkException = finalSdkException;
+        return this;
+    }
+
+    /**
+     * The {@link ApiCallAttemptMonitoringEvent#getSdkExceptionMessage()} from the last reported API call attempt. This does
+     * not include any exceptions raised between the completion of last API call attempt and the completion of the API call.
+     * Consequently, this may be null even if an SdkException thrown by the client.
+     */
+    public String getFinalSdkExceptionMessage() {
+        return finalSdkExceptionMessage;
+    }
+
+    public ApiCallMonitoringEvent withFinalSdkExceptionMessage(String finalSdkExceptionMessage) {
+        this.finalSdkExceptionMessage = finalSdkExceptionMessage;
+        return this;
+    }
+
+    /**
+     * The last status code returned by the service. This may be null if the API call or last API call attempt did not succeed.
+     */
+    public Integer getFinalHttpStatusCode() {
+        return finalHttpStatusCode;
+    }
+
+    public ApiCallMonitoringEvent withFinalHttpStatusCode(Integer finalHttpStatusCode) {
+        this.finalHttpStatusCode = finalHttpStatusCode;
         return this;
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -147,6 +147,35 @@ public interface AWSMediaLiveAsync extends AWSMediaLive {
             com.amazonaws.handlers.AsyncHandler<CreateInputSecurityGroupRequest, CreateInputSecurityGroupResult> asyncHandler);
 
     /**
+     * Create tags for a resource
+     * 
+     * @param createTagsRequest
+     *        Placeholder documentation for CreateTagsRequest
+     * @return A Java Future containing the result of the CreateTags operation returned by the service.
+     * @sample AWSMediaLiveAsync.CreateTags
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateTags" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<CreateTagsResult> createTagsAsync(CreateTagsRequest createTagsRequest);
+
+    /**
+     * Create tags for a resource
+     * 
+     * @param createTagsRequest
+     *        Placeholder documentation for CreateTagsRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the CreateTags operation returned by the service.
+     * @sample AWSMediaLiveAsyncHandler.CreateTags
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateTags" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<CreateTagsResult> createTagsAsync(CreateTagsRequest createTagsRequest,
+            com.amazonaws.handlers.AsyncHandler<CreateTagsRequest, CreateTagsResult> asyncHandler);
+
+    /**
      * Starts deletion of channel. The associated outputs are also deleted.
      * 
      * @param deleteChannelRequest
@@ -261,6 +290,35 @@ public interface AWSMediaLiveAsync extends AWSMediaLive {
      */
     java.util.concurrent.Future<DeleteReservationResult> deleteReservationAsync(DeleteReservationRequest deleteReservationRequest,
             com.amazonaws.handlers.AsyncHandler<DeleteReservationRequest, DeleteReservationResult> asyncHandler);
+
+    /**
+     * Removes tags for a resource
+     * 
+     * @param deleteTagsRequest
+     *        Placeholder documentation for DeleteTagsRequest
+     * @return A Java Future containing the result of the DeleteTags operation returned by the service.
+     * @sample AWSMediaLiveAsync.DeleteTags
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteTags" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<DeleteTagsResult> deleteTagsAsync(DeleteTagsRequest deleteTagsRequest);
+
+    /**
+     * Removes tags for a resource
+     * 
+     * @param deleteTagsRequest
+     *        Placeholder documentation for DeleteTagsRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the DeleteTags operation returned by the service.
+     * @sample AWSMediaLiveAsyncHandler.DeleteTags
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteTags" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<DeleteTagsResult> deleteTagsAsync(DeleteTagsRequest deleteTagsRequest,
+            com.amazonaws.handlers.AsyncHandler<DeleteTagsRequest, DeleteTagsResult> asyncHandler);
 
     /**
      * Gets details about a channel
@@ -413,7 +471,7 @@ public interface AWSMediaLiveAsync extends AWSMediaLive {
      * Get a channel schedule
      * 
      * @param describeScheduleRequest
-     *        Request for a describe schedule call.
+     *        Placeholder documentation for DescribeScheduleRequest
      * @return A Java Future containing the result of the DescribeSchedule operation returned by the service.
      * @sample AWSMediaLiveAsync.DescribeSchedule
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeSchedule" target="_top">AWS API
@@ -425,7 +483,7 @@ public interface AWSMediaLiveAsync extends AWSMediaLive {
      * Get a channel schedule
      * 
      * @param describeScheduleRequest
-     *        Request for a describe schedule call.
+     *        Placeholder documentation for DescribeScheduleRequest
      * @param asyncHandler
      *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
      *        implementation of the callback methods in this interface to receive notification of successful or
@@ -582,6 +640,35 @@ public interface AWSMediaLiveAsync extends AWSMediaLive {
      */
     java.util.concurrent.Future<ListReservationsResult> listReservationsAsync(ListReservationsRequest listReservationsRequest,
             com.amazonaws.handlers.AsyncHandler<ListReservationsRequest, ListReservationsResult> asyncHandler);
+
+    /**
+     * Produces list of tags that have been created for a resource
+     * 
+     * @param listTagsForResourceRequest
+     *        Placeholder documentation for ListTagsForResourceRequest
+     * @return A Java Future containing the result of the ListTagsForResource operation returned by the service.
+     * @sample AWSMediaLiveAsync.ListTagsForResource
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListTagsForResource" target="_top">AWS
+     *      API Documentation</a>
+     */
+    java.util.concurrent.Future<ListTagsForResourceResult> listTagsForResourceAsync(ListTagsForResourceRequest listTagsForResourceRequest);
+
+    /**
+     * Produces list of tags that have been created for a resource
+     * 
+     * @param listTagsForResourceRequest
+     *        Placeholder documentation for ListTagsForResourceRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ListTagsForResource operation returned by the service.
+     * @sample AWSMediaLiveAsyncHandler.ListTagsForResource
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListTagsForResource" target="_top">AWS
+     *      API Documentation</a>
+     */
+    java.util.concurrent.Future<ListTagsForResourceResult> listTagsForResourceAsync(ListTagsForResourceRequest listTagsForResourceRequest,
+            com.amazonaws.handlers.AsyncHandler<ListTagsForResourceRequest, ListTagsForResourceResult> asyncHandler);
 
     /**
      * Purchase an offering and create a reservation.
@@ -758,5 +845,34 @@ public interface AWSMediaLiveAsync extends AWSMediaLive {
      */
     java.util.concurrent.Future<UpdateInputSecurityGroupResult> updateInputSecurityGroupAsync(UpdateInputSecurityGroupRequest updateInputSecurityGroupRequest,
             com.amazonaws.handlers.AsyncHandler<UpdateInputSecurityGroupRequest, UpdateInputSecurityGroupResult> asyncHandler);
+
+    /**
+     * Update reservation.
+     * 
+     * @param updateReservationRequest
+     *        Request to update a reservation
+     * @return A Java Future containing the result of the UpdateReservation operation returned by the service.
+     * @sample AWSMediaLiveAsync.UpdateReservation
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateReservation" target="_top">AWS
+     *      API Documentation</a>
+     */
+    java.util.concurrent.Future<UpdateReservationResult> updateReservationAsync(UpdateReservationRequest updateReservationRequest);
+
+    /**
+     * Update reservation.
+     * 
+     * @param updateReservationRequest
+     *        Request to update a reservation
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the UpdateReservation operation returned by the service.
+     * @sample AWSMediaLiveAsyncHandler.UpdateReservation
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateReservation" target="_top">AWS
+     *      API Documentation</a>
+     */
+    java.util.concurrent.Future<UpdateReservationResult> updateReservationAsync(UpdateReservationRequest updateReservationRequest,
+            com.amazonaws.handlers.AsyncHandler<UpdateReservationRequest, UpdateReservationResult> asyncHandler);
 
 }

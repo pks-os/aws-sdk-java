@@ -10,6 +10,7 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
@@ -93,6 +94,7 @@
       "documentation" : "<p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "LexiconNotFoundException",
         "documentation" : "<p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>",
@@ -103,6 +105,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteLexiconRequest",
@@ -131,6 +134,7 @@
       "documentation" : "<p>Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name. </p> <p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you provide the voice ID for the voice you want from the list of voices returned by <code>DescribeVoices</code>.</p> <p>For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the <code>DescribeVoices</code> operation you can provide the user with a list of available voices to select from.</p> <p> You can optionally specify a language code to filter the available voices. For example, if you specify <code>en-US</code>, the operation returns a list of all available US English voices. </p> <p>This operation requires permissions to perform the <code>polly:DescribeVoices</code> action.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidNextTokenException",
         "documentation" : "<p>The NextToken is invalid. Verify that it's spelled correctly, and then try again.</p>",
@@ -141,6 +145,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeVoicesRequest",
@@ -169,6 +174,7 @@
       "documentation" : "<p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "LexiconNotFoundException",
         "documentation" : "<p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>",
@@ -179,6 +185,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetLexiconRequest",
@@ -207,6 +214,7 @@
       "documentation" : "<p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidTaskIdException",
         "documentation" : "<p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>",
@@ -221,6 +229,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetSpeechSynthesisTaskRequest",
@@ -249,6 +258,7 @@
       "documentation" : "<p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidNextTokenException",
         "documentation" : "<p>The NextToken is invalid. Verify that it's spelled correctly, and then try again.</p>",
@@ -259,6 +269,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListLexiconsRequest",
@@ -287,6 +298,7 @@
       "documentation" : "<p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidNextTokenException",
         "documentation" : "<p>The NextToken is invalid. Verify that it's spelled correctly, and then try again.</p>",
@@ -297,6 +309,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListSpeechSynthesisTasksRequest",
@@ -325,6 +338,7 @@
       "documentation" : "<p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidLexiconException",
         "documentation" : "<p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.</p>",
@@ -355,6 +369,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "PutLexiconRequest",
@@ -383,6 +398,7 @@
       "documentation" : "<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "TextLengthExceededException",
         "documentation" : "<p>The value of the \"Text\" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the <code>StartSpeechSynthesisTask</code> API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.</p>",
@@ -429,6 +445,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "StartSpeechSynthesisTaskRequest",
@@ -457,6 +474,7 @@
       "documentation" : "<p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html\">How it Works</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "TextLengthExceededException",
         "documentation" : "<p>The value of the \"Text\" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the <code>StartSpeechSynthesisTask</code> API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.</p>",
@@ -491,6 +509,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : true,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "SynthesizeSpeechRequest",
@@ -575,6 +594,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>The name of the lexicon to delete. Must be an existing lexicon in the region.</p>\n@param name The name of the lexicon to delete. Must be an existing lexicon in the region.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -642,6 +662,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>The name of the lexicon to delete. Must be an existing lexicon in the region.</p>\n@param name The name of the lexicon to delete. Must be an existing lexicon in the region.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -791,6 +812,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned. </p>\n@param languageCode The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.\n@see LanguageCode*/",
         "setterMethodName" : "setLanguageCode",
         "setterModel" : {
@@ -856,6 +878,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "IncludeAdditionalLanguageCodes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>\n@param includeAdditionalLanguageCodes Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.*/",
         "setterMethodName" : "setIncludeAdditionalLanguageCodes",
         "setterModel" : {
@@ -921,6 +944,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>An opaque pagination token returned from the previous <code>DescribeVoices</code> operation. If present, this indicates where to continue the listing.</p>\n@param nextToken An opaque pagination token returned from the previous <code>DescribeVoices</code> operation. If present, this indicates where to continue the listing.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -988,6 +1012,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "IncludeAdditionalLanguageCodes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>\n@param includeAdditionalLanguageCodes Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.*/",
           "setterMethodName" : "setIncludeAdditionalLanguageCodes",
           "setterModel" : {
@@ -1054,6 +1079,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned. </p>\n@param languageCode The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.\n@see LanguageCode*/",
           "setterMethodName" : "setLanguageCode",
           "setterModel" : {
@@ -1120,6 +1146,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>An opaque pagination token returned from the previous <code>DescribeVoices</code> operation. If present, this indicates where to continue the listing.</p>\n@param nextToken An opaque pagination token returned from the previous <code>DescribeVoices</code> operation. If present, this indicates where to continue the listing.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -1259,6 +1286,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -1302,6 +1330,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Voices",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of voices with their properties.</p>\n@param voices A list of voices with their properties.*/",
         "setterMethodName" : "setVoices",
         "setterModel" : {
@@ -1367,6 +1396,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The pagination token to use in the next request to continue the listing of voices. <code>NextToken</code> is returned only if the response is truncated.</p>\n@param nextToken The pagination token to use in the next request to continue the listing of voices. <code>NextToken</code> is returned only if the response is truncated.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -1434,6 +1464,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The pagination token to use in the next request to continue the listing of voices. <code>NextToken</code> is returned only if the response is truncated.</p>\n@param nextToken The pagination token to use in the next request to continue the listing of voices. <code>NextToken</code> is returned only if the response is truncated.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -1537,6 +1568,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -1580,6 +1612,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Voices",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of voices with their properties.</p>\n@param voices A list of voices with their properties.*/",
           "setterMethodName" : "setVoices",
           "setterModel" : {
@@ -1738,6 +1771,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>Name of the lexicon.</p>\n@param name Name of the lexicon.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -1805,6 +1839,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>Name of the lexicon.</p>\n@param name Name of the lexicon.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -1907,6 +1942,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Lexicon",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Lexicon object that provides name and the string content of the lexicon. </p>\n@param lexicon Lexicon object that provides name and the string content of the lexicon.*/",
         "setterMethodName" : "setLexicon",
         "setterModel" : {
@@ -1972,6 +2008,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "LexiconAttributes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>\n@param lexiconAttributes Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.*/",
         "setterMethodName" : "setLexiconAttributes",
         "setterModel" : {
@@ -2039,6 +2076,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Lexicon",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Lexicon object that provides name and the string content of the lexicon. </p>\n@param lexicon Lexicon object that provides name and the string content of the lexicon.*/",
           "setterMethodName" : "setLexicon",
           "setterModel" : {
@@ -2105,6 +2143,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "LexiconAttributes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>\n@param lexiconAttributes Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.*/",
           "setterMethodName" : "setLexiconAttributes",
           "setterModel" : {
@@ -2217,6 +2256,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Polly generated identifier for a speech synthesis task.</p>\n@param taskId The Amazon Polly generated identifier for a speech synthesis task.*/",
         "setterMethodName" : "setTaskId",
         "setterModel" : {
@@ -2284,6 +2324,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Polly generated identifier for a speech synthesis task.</p>\n@param taskId The Amazon Polly generated identifier for a speech synthesis task.*/",
           "setterMethodName" : "setTaskId",
           "setterModel" : {
@@ -2386,6 +2427,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "SynthesisTask",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.</p>\n@param synthesisTask SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.*/",
         "setterMethodName" : "setSynthesisTask",
         "setterModel" : {
@@ -2453,6 +2495,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "SynthesisTask",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.</p>\n@param synthesisTask SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.*/",
           "setterMethodName" : "setSynthesisTask",
           "setterModel" : {
@@ -2808,6 +2851,9 @@
       "deprecated" : false,
       "documentation" : "",
       "enums" : [ {
+        "name" : "Arb",
+        "value" : "arb"
+      }, {
         "name" : "CmnCN",
         "value" : "cmn-CN"
       }, {
@@ -2837,6 +2883,9 @@
       }, {
         "name" : "EsES",
         "value" : "es-ES"
+      }, {
+        "name" : "EsMX",
+        "value" : "es-MX"
       }, {
         "name" : "EsUS",
         "value" : "es-US"
@@ -3012,6 +3061,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Content",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Lexicon content in string format. The content of a lexicon must be in PLS format.</p>\n@param content Lexicon content in string format. The content of a lexicon must be in PLS format.*/",
         "setterMethodName" : "setContent",
         "setterModel" : {
@@ -3077,6 +3127,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>Name of the lexicon.</p>\n@param name Name of the lexicon.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -3144,6 +3195,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Content",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Lexicon content in string format. The content of a lexicon must be in PLS format.</p>\n@param content Lexicon content in string format. The content of a lexicon must be in PLS format.*/",
           "setterMethodName" : "setContent",
           "setterModel" : {
@@ -3210,6 +3262,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>Name of the lexicon.</p>\n@param name Name of the lexicon.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -3315,6 +3368,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Alphabet",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>\n@param alphabet Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.*/",
         "setterMethodName" : "setAlphabet",
         "setterModel" : {
@@ -3380,6 +3434,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.</p>\n@param languageCode Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.\n@see LanguageCode*/",
         "setterMethodName" : "setLanguageCode",
         "setterModel" : {
@@ -3445,6 +3500,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastModified",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Date lexicon was last modified (a timestamp value).</p>\n@param lastModified Date lexicon was last modified (a timestamp value).*/",
         "setterMethodName" : "setLastModified",
         "setterModel" : {
@@ -3510,6 +3566,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LexiconArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Amazon Resource Name (ARN) of the lexicon.</p>\n@param lexiconArn Amazon Resource Name (ARN) of the lexicon.*/",
         "setterMethodName" : "setLexiconArn",
         "setterModel" : {
@@ -3575,6 +3632,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "LexemesCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Number of lexemes in the lexicon.</p>\n@param lexemesCount Number of lexemes in the lexicon.*/",
         "setterMethodName" : "setLexemesCount",
         "setterModel" : {
@@ -3640,6 +3698,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "Size",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Total size of the lexicon, in characters.</p>\n@param size Total size of the lexicon, in characters.*/",
         "setterMethodName" : "setSize",
         "setterModel" : {
@@ -3707,6 +3766,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Alphabet",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>\n@param alphabet Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.*/",
           "setterMethodName" : "setAlphabet",
           "setterModel" : {
@@ -3773,6 +3833,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.</p>\n@param languageCode Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.\n@see LanguageCode*/",
           "setterMethodName" : "setLanguageCode",
           "setterModel" : {
@@ -3839,6 +3900,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastModified",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Date lexicon was last modified (a timestamp value).</p>\n@param lastModified Date lexicon was last modified (a timestamp value).*/",
           "setterMethodName" : "setLastModified",
           "setterModel" : {
@@ -3905,6 +3967,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "LexemesCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Number of lexemes in the lexicon.</p>\n@param lexemesCount Number of lexemes in the lexicon.*/",
           "setterMethodName" : "setLexemesCount",
           "setterModel" : {
@@ -3971,6 +4034,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LexiconArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Amazon Resource Name (ARN) of the lexicon.</p>\n@param lexiconArn Amazon Resource Name (ARN) of the lexicon.*/",
           "setterMethodName" : "setLexiconArn",
           "setterModel" : {
@@ -4037,6 +4101,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "Size",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Total size of the lexicon, in characters.</p>\n@param size Total size of the lexicon, in characters.*/",
           "setterMethodName" : "setSize",
           "setterModel" : {
@@ -4142,6 +4207,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>Name of the lexicon.</p>\n@param name Name of the lexicon.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -4207,6 +4273,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Attributes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Provides lexicon metadata.</p>\n@param attributes Provides lexicon metadata.*/",
         "setterMethodName" : "setAttributes",
         "setterModel" : {
@@ -4274,6 +4341,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Attributes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Provides lexicon metadata.</p>\n@param attributes Provides lexicon metadata.*/",
           "setterMethodName" : "setAttributes",
           "setterModel" : {
@@ -4340,6 +4408,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>Name of the lexicon.</p>\n@param name Name of the lexicon.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -4526,6 +4595,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.</p>\n@param nextToken An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -4593,6 +4663,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.</p>\n@param nextToken An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -4732,6 +4803,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -4775,6 +4847,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Lexicons",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of lexicon names and attributes.</p>\n@param lexicons A list of lexicon names and attributes.*/",
         "setterMethodName" : "setLexicons",
         "setterModel" : {
@@ -4840,6 +4913,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated.</p>\n@param nextToken The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -4944,6 +5018,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -4987,6 +5062,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Lexicons",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of lexicon names and attributes.</p>\n@param lexicons A list of lexicon names and attributes.*/",
           "setterMethodName" : "setLexicons",
           "setterModel" : {
@@ -5053,6 +5129,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated.</p>\n@param nextToken The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5165,6 +5242,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Maximum number of speech synthesis tasks returned in a List operation.</p>\n@param maxResults Maximum number of speech synthesis tasks returned in a List operation.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -5230,6 +5308,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The pagination token to use in the next request to continue the listing of speech synthesis tasks. </p>\n@param nextToken The pagination token to use in the next request to continue the listing of speech synthesis tasks.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -5295,6 +5374,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Status of the speech synthesis tasks returned in a List operation</p>\n@param status Status of the speech synthesis tasks returned in a List operation\n@see TaskStatus*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -5362,6 +5442,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Maximum number of speech synthesis tasks returned in a List operation.</p>\n@param maxResults Maximum number of speech synthesis tasks returned in a List operation.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -5428,6 +5509,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The pagination token to use in the next request to continue the listing of speech synthesis tasks. </p>\n@param nextToken The pagination token to use in the next request to continue the listing of speech synthesis tasks.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5494,6 +5576,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Status of the speech synthesis tasks returned in a List operation</p>\n@param status Status of the speech synthesis tasks returned in a List operation\n@see TaskStatus*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -5596,6 +5679,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.</p>\n@param nextToken An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -5698,6 +5782,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5741,6 +5826,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "SynthesisTasks",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.</p>\n@param synthesisTasks List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.*/",
         "setterMethodName" : "setSynthesisTasks",
         "setterModel" : {
@@ -5808,6 +5894,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.</p>\n@param nextToken An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5911,6 +5998,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -5954,6 +6042,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "SynthesisTasks",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.</p>\n@param synthesisTasks List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.*/",
           "setterMethodName" : "setSynthesisTasks",
           "setterModel" : {
@@ -6229,6 +6318,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long. </p>\n@param name Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -6294,6 +6384,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Content",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Content of the PLS lexicon as string data.</p>\n@param content Content of the PLS lexicon as string data.*/",
         "setterMethodName" : "setContent",
         "setterModel" : {
@@ -6361,6 +6452,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Content",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Content of the PLS lexicon as string data.</p>\n@param content Content of the PLS lexicon as string data.*/",
           "setterMethodName" : "setContent",
           "setterModel" : {
@@ -6427,6 +6519,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long. </p>\n@param name Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -6739,6 +6832,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : true,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -6782,6 +6876,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "LexiconNames",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>\n@param lexiconNames List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.*/",
         "setterMethodName" : "setLexiconNames",
         "setterModel" : {
@@ -6847,6 +6942,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OutputFormat",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>\n@param outputFormat The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.\n@see OutputFormat*/",
         "setterMethodName" : "setOutputFormat",
         "setterModel" : {
@@ -6912,6 +7008,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OutputS3BucketName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Amazon S3 bucket name to which the output file will be saved.</p>\n@param outputS3BucketName Amazon S3 bucket name to which the output file will be saved.*/",
         "setterMethodName" : "setOutputS3BucketName",
         "setterModel" : {
@@ -6977,6 +7074,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OutputS3KeyPrefix",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon S3 key prefix for the output speech file.</p>\n@param outputS3KeyPrefix The Amazon S3 key prefix for the output speech file.*/",
         "setterMethodName" : "setOutputS3KeyPrefix",
         "setterModel" : {
@@ -7042,6 +7140,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SampleRate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n@param sampleRate The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\".*/",
         "setterMethodName" : "setSampleRate",
         "setterModel" : {
@@ -7107,6 +7206,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SnsTopicArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\n@param snsTopicArn ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.*/",
         "setterMethodName" : "setSnsTopicArn",
         "setterModel" : {
@@ -7209,6 +7309,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see SpeechMarkType*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7252,6 +7353,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "SpeechMarkTypes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of speech marks returned for the input text.</p>\n@param speechMarkTypes The type of speech marks returned for the input text.\n@see SpeechMarkType*/",
         "setterMethodName" : "setSpeechMarkTypes",
         "setterModel" : {
@@ -7317,6 +7419,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Text",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. </p>\n@param text The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.*/",
         "setterMethodName" : "setText",
         "setterModel" : {
@@ -7382,6 +7485,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TextType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\n@param textType Specifies whether the input text is plain text or SSML. The default value is plain text.\n@see TextType*/",
         "setterMethodName" : "setTextType",
         "setterModel" : {
@@ -7447,6 +7551,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "VoiceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Voice ID to use for the synthesis. </p>\n@param voiceId Voice ID to use for the synthesis.\n@see VoiceId*/",
         "setterMethodName" : "setVoiceId",
         "setterModel" : {
@@ -7512,6 +7617,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n@param languageCode Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.\n@see LanguageCode*/",
         "setterMethodName" : "setLanguageCode",
         "setterModel" : {
@@ -7579,6 +7685,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n@param languageCode Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.\n@see LanguageCode*/",
           "setterMethodName" : "setLanguageCode",
           "setterModel" : {
@@ -7682,6 +7789,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : true,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -7725,6 +7833,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "LexiconNames",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>\n@param lexiconNames List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.*/",
           "setterMethodName" : "setLexiconNames",
           "setterModel" : {
@@ -7791,6 +7900,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OutputFormat",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>\n@param outputFormat The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.\n@see OutputFormat*/",
           "setterMethodName" : "setOutputFormat",
           "setterModel" : {
@@ -7857,6 +7967,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OutputS3BucketName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Amazon S3 bucket name to which the output file will be saved.</p>\n@param outputS3BucketName Amazon S3 bucket name to which the output file will be saved.*/",
           "setterMethodName" : "setOutputS3BucketName",
           "setterModel" : {
@@ -7923,6 +8034,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OutputS3KeyPrefix",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon S3 key prefix for the output speech file.</p>\n@param outputS3KeyPrefix The Amazon S3 key prefix for the output speech file.*/",
           "setterMethodName" : "setOutputS3KeyPrefix",
           "setterModel" : {
@@ -7989,6 +8101,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SampleRate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n@param sampleRate The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\".*/",
           "setterMethodName" : "setSampleRate",
           "setterModel" : {
@@ -8055,6 +8168,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SnsTopicArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\n@param snsTopicArn ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.*/",
           "setterMethodName" : "setSnsTopicArn",
           "setterModel" : {
@@ -8158,6 +8272,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see SpeechMarkType*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -8201,6 +8316,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "SpeechMarkTypes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of speech marks returned for the input text.</p>\n@param speechMarkTypes The type of speech marks returned for the input text.\n@see SpeechMarkType*/",
           "setterMethodName" : "setSpeechMarkTypes",
           "setterModel" : {
@@ -8267,6 +8383,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Text",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. </p>\n@param text The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.*/",
           "setterMethodName" : "setText",
           "setterModel" : {
@@ -8333,6 +8450,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TextType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\n@param textType Specifies whether the input text is plain text or SSML. The default value is plain text.\n@see TextType*/",
           "setterMethodName" : "setTextType",
           "setterModel" : {
@@ -8399,6 +8517,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "VoiceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Voice ID to use for the synthesis. </p>\n@param voiceId Voice ID to use for the synthesis.\n@see VoiceId*/",
           "setterMethodName" : "setVoiceId",
           "setterModel" : {
@@ -8501,6 +8620,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "SynthesisTask",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>\n@param synthesisTask SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.*/",
         "setterMethodName" : "setSynthesisTask",
         "setterModel" : {
@@ -8568,6 +8688,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "SynthesisTask",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>\n@param synthesisTask SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.*/",
           "setterMethodName" : "setSynthesisTask",
           "setterModel" : {
@@ -8673,6 +8794,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Polly generated identifier for a speech synthesis task.</p>\n@param taskId The Amazon Polly generated identifier for a speech synthesis task.*/",
         "setterMethodName" : "setTaskId",
         "setterModel" : {
@@ -8738,6 +8860,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskStatus",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Current status of the individual speech synthesis task.</p>\n@param taskStatus Current status of the individual speech synthesis task.\n@see TaskStatus*/",
         "setterMethodName" : "setTaskStatus",
         "setterModel" : {
@@ -8803,6 +8926,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TaskStatusReason",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Reason for the current status of a specific speech synthesis task, including errors if the task has failed.</p>\n@param taskStatusReason Reason for the current status of a specific speech synthesis task, including errors if the task has failed.*/",
         "setterMethodName" : "setTaskStatusReason",
         "setterModel" : {
@@ -8868,6 +8992,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OutputUri",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Pathway for the output speech file.</p>\n@param outputUri Pathway for the output speech file.*/",
         "setterMethodName" : "setOutputUri",
         "setterModel" : {
@@ -8933,6 +9058,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "CreationTime",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Timestamp for the time the synthesis task was started.</p>\n@param creationTime Timestamp for the time the synthesis task was started.*/",
         "setterMethodName" : "setCreationTime",
         "setterModel" : {
@@ -8998,6 +9124,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "RequestCharacters",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Number of billable characters synthesized.</p>\n@param requestCharacters Number of billable characters synthesized.*/",
         "setterMethodName" : "setRequestCharacters",
         "setterModel" : {
@@ -9063,6 +9190,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SnsTopicArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\n@param snsTopicArn ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.*/",
         "setterMethodName" : "setSnsTopicArn",
         "setterModel" : {
@@ -9165,6 +9293,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : true,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9208,6 +9337,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "LexiconNames",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>\n@param lexiconNames List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.*/",
         "setterMethodName" : "setLexiconNames",
         "setterModel" : {
@@ -9273,6 +9403,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OutputFormat",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>\n@param outputFormat The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.\n@see OutputFormat*/",
         "setterMethodName" : "setOutputFormat",
         "setterModel" : {
@@ -9338,6 +9469,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SampleRate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n@param sampleRate The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\".*/",
         "setterMethodName" : "setSampleRate",
         "setterModel" : {
@@ -9440,6 +9572,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see SpeechMarkType*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9483,6 +9616,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "SpeechMarkTypes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of speech marks returned for the input text.</p>\n@param speechMarkTypes The type of speech marks returned for the input text.\n@see SpeechMarkType*/",
         "setterMethodName" : "setSpeechMarkTypes",
         "setterModel" : {
@@ -9548,6 +9682,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TextType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\n@param textType Specifies whether the input text is plain text or SSML. The default value is plain text.\n@see TextType*/",
         "setterMethodName" : "setTextType",
         "setterModel" : {
@@ -9613,6 +9748,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "VoiceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Voice ID to use for the synthesis. </p>\n@param voiceId Voice ID to use for the synthesis.\n@see VoiceId*/",
         "setterMethodName" : "setVoiceId",
         "setterModel" : {
@@ -9678,6 +9814,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n@param languageCode Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.\n@see LanguageCode*/",
         "setterMethodName" : "setLanguageCode",
         "setterModel" : {
@@ -9745,6 +9882,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "CreationTime",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Timestamp for the time the synthesis task was started.</p>\n@param creationTime Timestamp for the time the synthesis task was started.*/",
           "setterMethodName" : "setCreationTime",
           "setterModel" : {
@@ -9811,6 +9949,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n@param languageCode Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.\n@see LanguageCode*/",
           "setterMethodName" : "setLanguageCode",
           "setterModel" : {
@@ -9914,6 +10053,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : true,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -9957,6 +10097,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "LexiconNames",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>\n@param lexiconNames List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.*/",
           "setterMethodName" : "setLexiconNames",
           "setterModel" : {
@@ -10023,6 +10164,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OutputFormat",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>\n@param outputFormat The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.\n@see OutputFormat*/",
           "setterMethodName" : "setOutputFormat",
           "setterModel" : {
@@ -10089,6 +10231,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OutputUri",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Pathway for the output speech file.</p>\n@param outputUri Pathway for the output speech file.*/",
           "setterMethodName" : "setOutputUri",
           "setterModel" : {
@@ -10155,6 +10298,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "RequestCharacters",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Number of billable characters synthesized.</p>\n@param requestCharacters Number of billable characters synthesized.*/",
           "setterMethodName" : "setRequestCharacters",
           "setterModel" : {
@@ -10221,6 +10365,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SampleRate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n@param sampleRate The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\".*/",
           "setterMethodName" : "setSampleRate",
           "setterModel" : {
@@ -10287,6 +10432,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SnsTopicArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\n@param snsTopicArn ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.*/",
           "setterMethodName" : "setSnsTopicArn",
           "setterModel" : {
@@ -10390,6 +10536,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see SpeechMarkType*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -10433,6 +10580,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "SpeechMarkTypes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of speech marks returned for the input text.</p>\n@param speechMarkTypes The type of speech marks returned for the input text.\n@see SpeechMarkType*/",
           "setterMethodName" : "setSpeechMarkTypes",
           "setterModel" : {
@@ -10499,6 +10647,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Polly generated identifier for a speech synthesis task.</p>\n@param taskId The Amazon Polly generated identifier for a speech synthesis task.*/",
           "setterMethodName" : "setTaskId",
           "setterModel" : {
@@ -10565,6 +10714,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskStatus",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Current status of the individual speech synthesis task.</p>\n@param taskStatus Current status of the individual speech synthesis task.\n@see TaskStatus*/",
           "setterMethodName" : "setTaskStatus",
           "setterModel" : {
@@ -10631,6 +10781,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TaskStatusReason",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Reason for the current status of a specific speech synthesis task, including errors if the task has failed.</p>\n@param taskStatusReason Reason for the current status of a specific speech synthesis task, including errors if the task has failed.*/",
           "setterMethodName" : "setTaskStatusReason",
           "setterModel" : {
@@ -10697,6 +10848,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TextType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\n@param textType Specifies whether the input text is plain text or SSML. The default value is plain text.\n@see TextType*/",
           "setterMethodName" : "setTextType",
           "setterModel" : {
@@ -10763,6 +10915,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "VoiceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Voice ID to use for the synthesis. </p>\n@param voiceId Voice ID to use for the synthesis.\n@see VoiceId*/",
           "setterMethodName" : "setVoiceId",
           "setterModel" : {
@@ -10949,6 +11102,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : true,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -10992,6 +11146,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "LexiconNames",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html\">PutLexicon</a>.</p>\n@param lexiconNames List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html\">PutLexicon</a>.*/",
         "setterMethodName" : "setLexiconNames",
         "setterModel" : {
@@ -11057,6 +11212,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OutputFormat",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>\n@param outputFormat The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.\n@see OutputFormat*/",
         "setterMethodName" : "setOutputFormat",
         "setterModel" : {
@@ -11122,6 +11278,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SampleRate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> The audio frequency specified in Hz. </p> <p>The valid values for <code>mp3</code> and <code>ogg_vorbis</code> are \"8000\", \"16000\", and \"22050\". The default value is \"22050\". </p> <p> Valid values for <code>pcm</code> are \"8000\" and \"16000\" The default value is \"16000\". </p>\n@param sampleRate The audio frequency specified in Hz. </p> <p>The valid values for <code>mp3</code> and <code>ogg_vorbis</code> are \"8000\", \"16000\", and \"22050\". The default value is \"22050\". </p> <p> Valid values for <code>pcm</code> are \"8000\" and \"16000\" The default value is \"16000\".*/",
         "setterMethodName" : "setSampleRate",
         "setterModel" : {
@@ -11224,6 +11381,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see SpeechMarkType*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -11267,6 +11425,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "SpeechMarkTypes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of speech marks returned for the input text.</p>\n@param speechMarkTypes The type of speech marks returned for the input text.\n@see SpeechMarkType*/",
         "setterMethodName" : "setSpeechMarkTypes",
         "setterModel" : {
@@ -11332,6 +11491,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Text",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>\n@param text Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text.*/",
         "setterMethodName" : "setText",
         "setterModel" : {
@@ -11397,6 +11557,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TextType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>.</p>\n@param textType Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>.\n@see TextType*/",
         "setterMethodName" : "setTextType",
         "setterModel" : {
@@ -11462,6 +11623,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "VoiceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation. </p>\n@param voiceId Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation.\n@see VoiceId*/",
         "setterMethodName" : "setVoiceId",
         "setterModel" : {
@@ -11527,6 +11689,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n@param languageCode Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.\n@see LanguageCode*/",
         "setterMethodName" : "setLanguageCode",
         "setterModel" : {
@@ -11594,6 +11757,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n@param languageCode Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.\n@see LanguageCode*/",
           "setterMethodName" : "setLanguageCode",
           "setterModel" : {
@@ -11697,6 +11861,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : true,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -11740,6 +11905,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "LexiconNames",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html\">PutLexicon</a>.</p>\n@param lexiconNames List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html\">PutLexicon</a>.*/",
           "setterMethodName" : "setLexiconNames",
           "setterModel" : {
@@ -11806,6 +11972,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OutputFormat",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>\n@param outputFormat The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.\n@see OutputFormat*/",
           "setterMethodName" : "setOutputFormat",
           "setterModel" : {
@@ -11872,6 +12039,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SampleRate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> The audio frequency specified in Hz. </p> <p>The valid values for <code>mp3</code> and <code>ogg_vorbis</code> are \"8000\", \"16000\", and \"22050\". The default value is \"22050\". </p> <p> Valid values for <code>pcm</code> are \"8000\" and \"16000\" The default value is \"16000\". </p>\n@param sampleRate The audio frequency specified in Hz. </p> <p>The valid values for <code>mp3</code> and <code>ogg_vorbis</code> are \"8000\", \"16000\", and \"22050\". The default value is \"22050\". </p> <p> Valid values for <code>pcm</code> are \"8000\" and \"16000\" The default value is \"16000\".*/",
           "setterMethodName" : "setSampleRate",
           "setterModel" : {
@@ -11975,6 +12143,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see SpeechMarkType*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -12018,6 +12187,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "SpeechMarkTypes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of speech marks returned for the input text.</p>\n@param speechMarkTypes The type of speech marks returned for the input text.\n@see SpeechMarkType*/",
           "setterMethodName" : "setSpeechMarkTypes",
           "setterModel" : {
@@ -12084,6 +12254,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Text",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>\n@param text Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text.*/",
           "setterMethodName" : "setText",
           "setterModel" : {
@@ -12150,6 +12321,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TextType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>.</p>\n@param textType Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>.\n@see TextType*/",
           "setterMethodName" : "setTextType",
           "setterModel" : {
@@ -12216,6 +12388,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "VoiceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation. </p>\n@param voiceId Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation.\n@see VoiceId*/",
           "setterMethodName" : "setVoiceId",
           "setterModel" : {
@@ -12318,6 +12491,7 @@
         "marshallingTargetClass" : "java.io.InputStream",
         "marshallingType" : "STREAM",
         "name" : "AudioStream",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Stream containing the synthesized speech. </p>\n@param audioStream Stream containing the synthesized speech.*/",
         "setterMethodName" : "setAudioStream",
         "setterModel" : {
@@ -12383,6 +12557,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ContentType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p> Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p> <ul> <li> <p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p> </li> <li> <p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p> </li> <li> <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p> </li> <li> <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/json.</p> </li> </ul> <p> </p>\n@param contentType Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p> <ul> <li> <p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p> </li> <li> <p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p> </li> <li> <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p> </li> <li> <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/json.</p> </li> </ul> <p>*/",
         "setterMethodName" : "setContentType",
         "setterModel" : {
@@ -12448,6 +12623,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "RequestCharacters",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Number of characters synthesized.</p>\n@param requestCharacters Number of characters synthesized.*/",
         "setterMethodName" : "setRequestCharacters",
         "setterModel" : {
@@ -12515,6 +12691,7 @@
           "marshallingTargetClass" : "java.io.InputStream",
           "marshallingType" : "STREAM",
           "name" : "AudioStream",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Stream containing the synthesized speech. </p>\n@param audioStream Stream containing the synthesized speech.*/",
           "setterMethodName" : "setAudioStream",
           "setterModel" : {
@@ -12581,6 +12758,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ContentType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p> Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p> <ul> <li> <p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p> </li> <li> <p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p> </li> <li> <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p> </li> <li> <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/json.</p> </li> </ul> <p> </p>\n@param contentType Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p> <ul> <li> <p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p> </li> <li> <p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p> </li> <li> <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p> </li> <li> <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/json.</p> </li> </ul> <p>*/",
           "setterMethodName" : "setContentType",
           "setterModel" : {
@@ -12647,6 +12825,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "RequestCharacters",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Number of characters synthesized.</p>\n@param requestCharacters Number of characters synthesized.*/",
           "setterMethodName" : "setRequestCharacters",
           "setterModel" : {
@@ -12961,6 +13140,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Gender",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Gender of the voice.</p>\n@param gender Gender of the voice.\n@see Gender*/",
         "setterMethodName" : "setGender",
         "setterModel" : {
@@ -13026,6 +13206,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Amazon Polly assigned voice ID. This is the ID that you specify when calling the <code>SynthesizeSpeech</code> operation.</p>\n@param id Amazon Polly assigned voice ID. This is the ID that you specify when calling the <code>SynthesizeSpeech</code> operation.\n@see VoiceId*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -13091,6 +13272,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Language code of the voice.</p>\n@param languageCode Language code of the voice.\n@see LanguageCode*/",
         "setterMethodName" : "setLanguageCode",
         "setterModel" : {
@@ -13156,6 +13338,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LanguageName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Human readable name of the language in English.</p>\n@param languageName Human readable name of the language in English.*/",
         "setterMethodName" : "setLanguageName",
         "setterModel" : {
@@ -13221,6 +13404,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.</p>\n@param name Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -13323,6 +13507,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see LanguageCode*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13366,6 +13551,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "AdditionalLanguageCodes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>\n@param additionalLanguageCodes Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.\n@see LanguageCode*/",
         "setterMethodName" : "setAdditionalLanguageCodes",
         "setterModel" : {
@@ -13470,6 +13656,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see LanguageCode*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -13513,6 +13700,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "AdditionalLanguageCodes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>\n@param additionalLanguageCodes Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.\n@see LanguageCode*/",
           "setterMethodName" : "setAdditionalLanguageCodes",
           "setterModel" : {
@@ -13579,6 +13767,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Gender",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Gender of the voice.</p>\n@param gender Gender of the voice.\n@see Gender*/",
           "setterMethodName" : "setGender",
           "setterModel" : {
@@ -13645,6 +13834,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Amazon Polly assigned voice ID. This is the ID that you specify when calling the <code>SynthesizeSpeech</code> operation.</p>\n@param id Amazon Polly assigned voice ID. This is the ID that you specify when calling the <code>SynthesizeSpeech</code> operation.\n@see VoiceId*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -13711,6 +13901,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Language code of the voice.</p>\n@param languageCode Language code of the voice.\n@see LanguageCode*/",
           "setterMethodName" : "setLanguageCode",
           "setterModel" : {
@@ -13777,6 +13968,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LanguageName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Human readable name of the language in English.</p>\n@param languageName Human readable name of the language in English.*/",
           "setterMethodName" : "setLanguageName",
           "setterModel" : {
@@ -13843,6 +14035,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.</p>\n@param name Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -13902,44 +14095,77 @@
       "deprecated" : false,
       "documentation" : "",
       "enums" : [ {
-        "name" : "Geraint",
-        "value" : "Geraint"
-      }, {
-        "name" : "Gwyneth",
-        "value" : "Gwyneth"
-      }, {
-        "name" : "Mads",
-        "value" : "Mads"
-      }, {
-        "name" : "Naja",
-        "value" : "Naja"
-      }, {
-        "name" : "Hans",
-        "value" : "Hans"
-      }, {
-        "name" : "Marlene",
-        "value" : "Marlene"
-      }, {
-        "name" : "Nicole",
-        "value" : "Nicole"
-      }, {
-        "name" : "Russell",
-        "value" : "Russell"
+        "name" : "Aditi",
+        "value" : "Aditi"
       }, {
         "name" : "Amy",
         "value" : "Amy"
       }, {
+        "name" : "Astrid",
+        "value" : "Astrid"
+      }, {
+        "name" : "Bianca",
+        "value" : "Bianca"
+      }, {
         "name" : "Brian",
         "value" : "Brian"
+      }, {
+        "name" : "Carla",
+        "value" : "Carla"
+      }, {
+        "name" : "Carmen",
+        "value" : "Carmen"
+      }, {
+        "name" : "Celine",
+        "value" : "Celine"
+      }, {
+        "name" : "Chantal",
+        "value" : "Chantal"
+      }, {
+        "name" : "Conchita",
+        "value" : "Conchita"
+      }, {
+        "name" : "Cristiano",
+        "value" : "Cristiano"
+      }, {
+        "name" : "Dora",
+        "value" : "Dora"
       }, {
         "name" : "Emma",
         "value" : "Emma"
       }, {
-        "name" : "Raveena",
-        "value" : "Raveena"
+        "name" : "Enrique",
+        "value" : "Enrique"
+      }, {
+        "name" : "Ewa",
+        "value" : "Ewa"
+      }, {
+        "name" : "Filiz",
+        "value" : "Filiz"
+      }, {
+        "name" : "Geraint",
+        "value" : "Geraint"
+      }, {
+        "name" : "Giorgio",
+        "value" : "Giorgio"
+      }, {
+        "name" : "Gwyneth",
+        "value" : "Gwyneth"
+      }, {
+        "name" : "Hans",
+        "value" : "Hans"
+      }, {
+        "name" : "Ines",
+        "value" : "Ines"
       }, {
         "name" : "Ivy",
         "value" : "Ivy"
+      }, {
+        "name" : "Jacek",
+        "value" : "Jacek"
+      }, {
+        "name" : "Jan",
+        "value" : "Jan"
       }, {
         "name" : "Joanna",
         "value" : "Joanna"
@@ -13950,56 +14176,17 @@
         "name" : "Justin",
         "value" : "Justin"
       }, {
+        "name" : "Karl",
+        "value" : "Karl"
+      }, {
         "name" : "Kendra",
         "value" : "Kendra"
       }, {
         "name" : "Kimberly",
         "value" : "Kimberly"
       }, {
-        "name" : "Matthew",
-        "value" : "Matthew"
-      }, {
-        "name" : "Salli",
-        "value" : "Salli"
-      }, {
-        "name" : "Conchita",
-        "value" : "Conchita"
-      }, {
-        "name" : "Enrique",
-        "value" : "Enrique"
-      }, {
-        "name" : "Miguel",
-        "value" : "Miguel"
-      }, {
-        "name" : "Penelope",
-        "value" : "Penelope"
-      }, {
-        "name" : "Chantal",
-        "value" : "Chantal"
-      }, {
-        "name" : "Celine",
-        "value" : "Celine"
-      }, {
         "name" : "Lea",
         "value" : "Lea"
-      }, {
-        "name" : "Mathieu",
-        "value" : "Mathieu"
-      }, {
-        "name" : "Dora",
-        "value" : "Dora"
-      }, {
-        "name" : "Karl",
-        "value" : "Karl"
-      }, {
-        "name" : "Carla",
-        "value" : "Carla"
-      }, {
-        "name" : "Giorgio",
-        "value" : "Giorgio"
-      }, {
-        "name" : "Mizuki",
-        "value" : "Mizuki"
       }, {
         "name" : "Liv",
         "value" : "Liv"
@@ -14007,59 +14194,77 @@
         "name" : "Lotte",
         "value" : "Lotte"
       }, {
-        "name" : "Ruben",
-        "value" : "Ruben"
+        "name" : "Lucia",
+        "value" : "Lucia"
       }, {
-        "name" : "Ewa",
-        "value" : "Ewa"
-      }, {
-        "name" : "Jacek",
-        "value" : "Jacek"
-      }, {
-        "name" : "Jan",
-        "value" : "Jan"
+        "name" : "Mads",
+        "value" : "Mads"
       }, {
         "name" : "Maja",
         "value" : "Maja"
       }, {
-        "name" : "Ricardo",
-        "value" : "Ricardo"
+        "name" : "Marlene",
+        "value" : "Marlene"
       }, {
-        "name" : "Vitoria",
-        "value" : "Vitoria"
+        "name" : "Mathieu",
+        "value" : "Mathieu"
       }, {
-        "name" : "Cristiano",
-        "value" : "Cristiano"
-      }, {
-        "name" : "Ines",
-        "value" : "Ines"
-      }, {
-        "name" : "Carmen",
-        "value" : "Carmen"
+        "name" : "Matthew",
+        "value" : "Matthew"
       }, {
         "name" : "Maxim",
         "value" : "Maxim"
       }, {
-        "name" : "Tatyana",
-        "value" : "Tatyana"
+        "name" : "Mia",
+        "value" : "Mia"
       }, {
-        "name" : "Astrid",
-        "value" : "Astrid"
+        "name" : "Miguel",
+        "value" : "Miguel"
       }, {
-        "name" : "Filiz",
-        "value" : "Filiz"
+        "name" : "Mizuki",
+        "value" : "Mizuki"
       }, {
-        "name" : "Vicki",
-        "value" : "Vicki"
+        "name" : "Naja",
+        "value" : "Naja"
       }, {
-        "name" : "Takumi",
-        "value" : "Takumi"
+        "name" : "Nicole",
+        "value" : "Nicole"
+      }, {
+        "name" : "Penelope",
+        "value" : "Penelope"
+      }, {
+        "name" : "Raveena",
+        "value" : "Raveena"
+      }, {
+        "name" : "Ricardo",
+        "value" : "Ricardo"
+      }, {
+        "name" : "Ruben",
+        "value" : "Ruben"
+      }, {
+        "name" : "Russell",
+        "value" : "Russell"
+      }, {
+        "name" : "Salli",
+        "value" : "Salli"
       }, {
         "name" : "Seoyeon",
         "value" : "Seoyeon"
       }, {
-        "name" : "Aditi",
-        "value" : "Aditi"
+        "name" : "Takumi",
+        "value" : "Takumi"
+      }, {
+        "name" : "Tatyana",
+        "value" : "Tatyana"
+      }, {
+        "name" : "Vicki",
+        "value" : "Vicki"
+      }, {
+        "name" : "Vitoria",
+        "value" : "Vitoria"
+      }, {
+        "name" : "Zeina",
+        "value" : "Zeina"
       }, {
         "name" : "Zhiyu",
         "value" : "Zhiyu"
@@ -14095,7 +14300,6 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : {
       "DeleteLexicon" : [ {
@@ -14233,7 +14437,7 @@
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AmazonPollyException",

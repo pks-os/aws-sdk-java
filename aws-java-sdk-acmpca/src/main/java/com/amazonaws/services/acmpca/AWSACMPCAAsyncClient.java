@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -51,10 +51,17 @@ import java.util.concurrent.ExecutorService;
  * specify a bucket policy that grants ACM PCA write permission.
  * </p>
  * <p>
- * You can also call the <a>CreateCertificateAuthorityAuditReport</a> to create an optional audit report that lists
- * every time the CA private key is used. The private key is used for signing when the <b>IssueCertificate</b> or
- * <b>RevokeCertificate</b> operation is called.
+ * You can also call the <a>CreateCertificateAuthorityAuditReport</a> to create an optional audit report, which
+ * enumerates all of the issued, valid, expired, and revoked certificates from the CA.
  * </p>
+ * <note>
+ * <p>
+ * Each ACM PCA API operation has a throttling limit which determines the number of times the operation can be called
+ * per second. For more information, see <a
+ * href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits in ACM
+ * PCA</a> in the ACM PCA user guide.
+ * </p>
+ * </note>
  */
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -157,6 +164,39 @@ public class AWSACMPCAAsyncClient extends AWSACMPCAClient implements AWSACMPCAAs
     }
 
     @Override
+    public java.util.concurrent.Future<CreatePermissionResult> createPermissionAsync(CreatePermissionRequest request) {
+
+        return createPermissionAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<CreatePermissionResult> createPermissionAsync(final CreatePermissionRequest request,
+            final com.amazonaws.handlers.AsyncHandler<CreatePermissionRequest, CreatePermissionResult> asyncHandler) {
+        final CreatePermissionRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<CreatePermissionResult>() {
+            @Override
+            public CreatePermissionResult call() throws Exception {
+                CreatePermissionResult result = null;
+
+                try {
+                    result = executeCreatePermission(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<DeleteCertificateAuthorityResult> deleteCertificateAuthorityAsync(DeleteCertificateAuthorityRequest request) {
 
         return deleteCertificateAuthorityAsync(request, null);
@@ -174,6 +214,39 @@ public class AWSACMPCAAsyncClient extends AWSACMPCAClient implements AWSACMPCAAs
 
                 try {
                     result = executeDeleteCertificateAuthority(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<DeletePermissionResult> deletePermissionAsync(DeletePermissionRequest request) {
+
+        return deletePermissionAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DeletePermissionResult> deletePermissionAsync(final DeletePermissionRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DeletePermissionRequest, DeletePermissionResult> asyncHandler) {
+        final DeletePermissionRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DeletePermissionResult>() {
+            @Override
+            public DeletePermissionResult call() throws Exception {
+                DeletePermissionResult result = null;
+
+                try {
+                    result = executeDeletePermission(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -444,6 +517,39 @@ public class AWSACMPCAAsyncClient extends AWSACMPCAClient implements AWSACMPCAAs
 
                 try {
                     result = executeListCertificateAuthorities(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListPermissionsResult> listPermissionsAsync(ListPermissionsRequest request) {
+
+        return listPermissionsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListPermissionsResult> listPermissionsAsync(final ListPermissionsRequest request,
+            final com.amazonaws.handlers.AsyncHandler<ListPermissionsRequest, ListPermissionsResult> asyncHandler) {
+        final ListPermissionsRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<ListPermissionsResult>() {
+            @Override
+            public ListPermissionsResult call() throws Exception {
+                ListPermissionsResult result = null;
+
+                try {
+                    result = executeListPermissions(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

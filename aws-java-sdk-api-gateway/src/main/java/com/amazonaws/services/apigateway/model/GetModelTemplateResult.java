@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,29 +20,29 @@ import javax.annotation.Generated;
  * Represents a mapping template used to transform a payload.
  * </p>
  * <div class="seeAlso"> <a
- * href="[[AwsDocsUrlPrefix]]/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings">Mapping
- * Templates</a> </div>
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings"
+ * >Mapping Templates</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class GetModelTemplateResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template content used
-     * for the template resource.
+     * The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html" target="_blank">Velocity
+     * Template Language (VTL)</a> template content used for the template resource.
      * </p>
      */
     private String value;
 
     /**
      * <p>
-     * The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template content used
-     * for the template resource.
+     * The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html" target="_blank">Velocity
+     * Template Language (VTL)</a> template content used for the template resource.
      * </p>
      * 
      * @param value
-     *        The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template
-     *        content used for the template resource.
+     *        The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html"
+     *        target="_blank">Velocity Template Language (VTL)</a> template content used for the template resource.
      */
 
     public void setValue(String value) {
@@ -51,12 +51,12 @@ public class GetModelTemplateResult extends com.amazonaws.AmazonWebServiceResult
 
     /**
      * <p>
-     * The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template content used
-     * for the template resource.
+     * The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html" target="_blank">Velocity
+     * Template Language (VTL)</a> template content used for the template resource.
      * </p>
      * 
-     * @return The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template
-     *         content used for the template resource.
+     * @return The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html"
+     *         target="_blank">Velocity Template Language (VTL)</a> template content used for the template resource.
      */
 
     public String getValue() {
@@ -65,13 +65,13 @@ public class GetModelTemplateResult extends com.amazonaws.AmazonWebServiceResult
 
     /**
      * <p>
-     * The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template content used
-     * for the template resource.
+     * The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html" target="_blank">Velocity
+     * Template Language (VTL)</a> template content used for the template resource.
      * </p>
      * 
      * @param value
-     *        The Apache <a href="[[ApacheVtlUrl]]" target="_blank">Velocity Template Language (VTL)</a> template
-     *        content used for the template resource.
+     *        The Apache <a href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html"
+     *        target="_blank">Velocity Template Language (VTL)</a> template content used for the template resource.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -81,7 +81,8 @@ public class GetModelTemplateResult extends com.amazonaws.AmazonWebServiceResult
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -133,7 +133,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
     private String projectName;
     /**
      * <p>
-     * Information about all previous build phases that are completed and information about any current build phase that
+     * Information about all previous build phases that are complete and information about any current build phase that
      * is not yet complete.
      * </p>
      */
@@ -164,21 +164,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the
      * source code you want to build. If a pull request ID is specified, it must use the format
-     * <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's
-     * HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     * <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you
-     * want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the
-     * default branch's HEAD commit ID will be used.
+     * want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default
+     * branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
-     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file
-     * to use.
+     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP
+     * file to use.
      * </p>
      * </li>
      * </ul>
@@ -229,7 +229,13 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
     private Integer timeoutInMinutes;
     /**
      * <p>
-     * Whether the build has finished. True if completed; otherwise, false.
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     */
+    private Integer queuedTimeoutInMinutes;
+    /**
+     * <p>
+     * Whether the build is complete. True if complete; otherwise, false.
      * </p>
      */
     private Boolean buildComplete;
@@ -246,7 +252,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      * <code>MyUserName</code>).
      * </p>
      * </li>
@@ -277,8 +283,14 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      */
@@ -1093,11 +1105,11 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about all previous build phases that are completed and information about any current build phase that
+     * Information about all previous build phases that are complete and information about any current build phase that
      * is not yet complete.
      * </p>
      * 
-     * @return Information about all previous build phases that are completed and information about any current build
+     * @return Information about all previous build phases that are complete and information about any current build
      *         phase that is not yet complete.
      */
 
@@ -1107,12 +1119,12 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about all previous build phases that are completed and information about any current build phase that
+     * Information about all previous build phases that are complete and information about any current build phase that
      * is not yet complete.
      * </p>
      * 
      * @param phases
-     *        Information about all previous build phases that are completed and information about any current build
+     *        Information about all previous build phases that are complete and information about any current build
      *        phase that is not yet complete.
      */
 
@@ -1127,7 +1139,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about all previous build phases that are completed and information about any current build phase that
+     * Information about all previous build phases that are complete and information about any current build phase that
      * is not yet complete.
      * </p>
      * <p>
@@ -1137,7 +1149,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * </p>
      * 
      * @param phases
-     *        Information about all previous build phases that are completed and information about any current build
+     *        Information about all previous build phases that are complete and information about any current build
      *        phase that is not yet complete.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -1154,12 +1166,12 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about all previous build phases that are completed and information about any current build phase that
+     * Information about all previous build phases that are complete and information about any current build phase that
      * is not yet complete.
      * </p>
      * 
      * @param phases
-     *        Information about all previous build phases that are completed and information about any current build
+     *        Information about all previous build phases that are complete and information about any current build
      *        phase that is not yet complete.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -1293,21 +1305,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the
      * source code you want to build. If a pull request ID is specified, it must use the format
-     * <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's
-     * HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     * <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you
-     * want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the
-     * default branch's HEAD commit ID will be used.
+     * want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default
+     * branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
-     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file
-     * to use.
+     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP
+     * file to use.
      * </p>
      * </li>
      * </ul>
@@ -1324,21 +1336,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *         <p>
      *         For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of
      *         the source code you want to build. If a pull request ID is specified, it must use the format
-     *         <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the
-     *         branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     *         <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the
+     *         branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
      *         For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code
-     *         you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not
-     *         specified, the default branch's HEAD commit ID will be used.
+     *         you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     *         the default branch's HEAD commit ID is used.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input
-     *         ZIP file to use.
+     *         For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build
+     *         input ZIP file to use.
      *         </p>
      *         </li>
      */
@@ -1361,21 +1373,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the
      * source code you want to build. If a pull request ID is specified, it must use the format
-     * <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's
-     * HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     * <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you
-     * want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the
-     * default branch's HEAD commit ID will be used.
+     * want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default
+     * branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
-     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file
-     * to use.
+     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP
+     * file to use.
      * </p>
      * </li>
      * </ul>
@@ -1393,21 +1405,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *        <p>
      *        For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of
      *        the source code you want to build. If a pull request ID is specified, it must use the format
-     *        <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the
-     *        branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     *        <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the
+     *        branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code
-     *        you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not
-     *        specified, the default branch's HEAD commit ID will be used.
+     *        you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     *        the default branch's HEAD commit ID is used.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input
-     *        ZIP file to use.
+     *        For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build
+     *        input ZIP file to use.
      *        </p>
      *        </li>
      */
@@ -1435,21 +1447,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the
      * source code you want to build. If a pull request ID is specified, it must use the format
-     * <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's
-     * HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     * <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you
-     * want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the
-     * default branch's HEAD commit ID will be used.
+     * want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default
+     * branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
-     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file
-     * to use.
+     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP
+     * file to use.
      * </p>
      * </li>
      * </ul>
@@ -1472,21 +1484,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *        <p>
      *        For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of
      *        the source code you want to build. If a pull request ID is specified, it must use the format
-     *        <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the
-     *        branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     *        <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the
+     *        branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code
-     *        you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not
-     *        specified, the default branch's HEAD commit ID will be used.
+     *        you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     *        the default branch's HEAD commit ID is used.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input
-     *        ZIP file to use.
+     *        For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build
+     *        input ZIP file to use.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1516,21 +1528,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the
      * source code you want to build. If a pull request ID is specified, it must use the format
-     * <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's
-     * HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     * <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
      * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you
-     * want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the
-     * default branch's HEAD commit ID will be used.
+     * want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default
+     * branch's HEAD commit ID is used.
      * </p>
      * </li>
      * <li>
      * <p>
-     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file
-     * to use.
+     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP
+     * file to use.
      * </p>
      * </li>
      * </ul>
@@ -1548,21 +1560,21 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *        <p>
      *        For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of
      *        the source code you want to build. If a pull request ID is specified, it must use the format
-     *        <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the
-     *        branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.
+     *        <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the
+     *        branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code
-     *        you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not
-     *        specified, the default branch's HEAD commit ID will be used.
+     *        you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     *        the default branch's HEAD commit ID is used.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input
-     *        ZIP file to use.
+     *        For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build
+     *        input ZIP file to use.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1891,11 +1903,51 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Whether the build has finished. True if completed; otherwise, false.
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     * 
+     * @param queuedTimeoutInMinutes
+     *        The number of minutes a build is allowed to be queued before it times out.
+     */
+
+    public void setQueuedTimeoutInMinutes(Integer queuedTimeoutInMinutes) {
+        this.queuedTimeoutInMinutes = queuedTimeoutInMinutes;
+    }
+
+    /**
+     * <p>
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     * 
+     * @return The number of minutes a build is allowed to be queued before it times out.
+     */
+
+    public Integer getQueuedTimeoutInMinutes() {
+        return this.queuedTimeoutInMinutes;
+    }
+
+    /**
+     * <p>
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     * 
+     * @param queuedTimeoutInMinutes
+     *        The number of minutes a build is allowed to be queued before it times out.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Build withQueuedTimeoutInMinutes(Integer queuedTimeoutInMinutes) {
+        setQueuedTimeoutInMinutes(queuedTimeoutInMinutes);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Whether the build is complete. True if complete; otherwise, false.
      * </p>
      * 
      * @param buildComplete
-     *        Whether the build has finished. True if completed; otherwise, false.
+     *        Whether the build is complete. True if complete; otherwise, false.
      */
 
     public void setBuildComplete(Boolean buildComplete) {
@@ -1904,10 +1956,10 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Whether the build has finished. True if completed; otherwise, false.
+     * Whether the build is complete. True if complete; otherwise, false.
      * </p>
      * 
-     * @return Whether the build has finished. True if completed; otherwise, false.
+     * @return Whether the build is complete. True if complete; otherwise, false.
      */
 
     public Boolean getBuildComplete() {
@@ -1916,11 +1968,11 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Whether the build has finished. True if completed; otherwise, false.
+     * Whether the build is complete. True if complete; otherwise, false.
      * </p>
      * 
      * @param buildComplete
-     *        Whether the build has finished. True if completed; otherwise, false.
+     *        Whether the build is complete. True if complete; otherwise, false.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1931,10 +1983,10 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Whether the build has finished. True if completed; otherwise, false.
+     * Whether the build is complete. True if complete; otherwise, false.
      * </p>
      * 
-     * @return Whether the build has finished. True if completed; otherwise, false.
+     * @return Whether the build is complete. True if complete; otherwise, false.
      */
 
     public Boolean isBuildComplete() {
@@ -1954,7 +2006,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      * <code>MyUserName</code>).
      * </p>
      * </li>
@@ -1976,7 +2028,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     *        If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      *        <code>MyUserName</code>).
      *        </p>
      *        </li>
@@ -2005,7 +2057,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      * <code>MyUserName</code>).
      * </p>
      * </li>
@@ -2026,7 +2078,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     *         If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      *         <code>MyUserName</code>).
      *         </p>
      *         </li>
@@ -2055,7 +2107,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      * <code>MyUserName</code>).
      * </p>
      * </li>
@@ -2077,7 +2129,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example
+     *        If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
      *        <code>MyUserName</code>).
      *        </p>
      *        </li>
@@ -2192,16 +2244,27 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      * 
      * @param encryptionKey
      *        The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build
-     *        output artifacts.</p>
+     *        output artifacts.</p> <note>
      *        <p>
-     *        This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using
+     *        You can use a cross-account KMS key to encrypt the build output artifacts if your service role has
+     *        permission to that key.
+     *        </p>
+     *        </note>
+     *        <p>
+     *        You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
      *        the format <code>alias/<i>alias-name</i> </code>).
      */
 
@@ -2214,15 +2277,26 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      * 
      * @return The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build
-     *         output artifacts.</p>
+     *         output artifacts.</p> <note>
      *         <p>
-     *         This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using
+     *         You can use a cross-account KMS key to encrypt the build output artifacts if your service role has
+     *         permission to that key.
+     *         </p>
+     *         </note>
+     *         <p>
+     *         You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
      *         the format <code>alias/<i>alias-name</i> </code>).
      */
 
@@ -2235,16 +2309,27 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      * 
      * @param encryptionKey
      *        The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build
-     *        output artifacts.</p>
+     *        output artifacts.</p> <note>
      *        <p>
-     *        This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using
+     *        You can use a cross-account KMS key to encrypt the build output artifacts if your service role has
+     *        permission to that key.
+     *        </p>
+     *        </note>
+     *        <p>
+     *        You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
      *        the format <code>alias/<i>alias-name</i> </code>).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -2255,7 +2340,8 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -2305,6 +2391,8 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
             sb.append("Logs: ").append(getLogs()).append(",");
         if (getTimeoutInMinutes() != null)
             sb.append("TimeoutInMinutes: ").append(getTimeoutInMinutes()).append(",");
+        if (getQueuedTimeoutInMinutes() != null)
+            sb.append("QueuedTimeoutInMinutes: ").append(getQueuedTimeoutInMinutes()).append(",");
         if (getBuildComplete() != null)
             sb.append("BuildComplete: ").append(getBuildComplete()).append(",");
         if (getInitiator() != null)
@@ -2409,6 +2497,10 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTimeoutInMinutes() != null && other.getTimeoutInMinutes().equals(this.getTimeoutInMinutes()) == false)
             return false;
+        if (other.getQueuedTimeoutInMinutes() == null ^ this.getQueuedTimeoutInMinutes() == null)
+            return false;
+        if (other.getQueuedTimeoutInMinutes() != null && other.getQueuedTimeoutInMinutes().equals(this.getQueuedTimeoutInMinutes()) == false)
+            return false;
         if (other.getBuildComplete() == null ^ this.getBuildComplete() == null)
             return false;
         if (other.getBuildComplete() != null && other.getBuildComplete().equals(this.getBuildComplete()) == false)
@@ -2457,6 +2549,7 @@ public class Build implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getServiceRole() == null) ? 0 : getServiceRole().hashCode());
         hashCode = prime * hashCode + ((getLogs() == null) ? 0 : getLogs().hashCode());
         hashCode = prime * hashCode + ((getTimeoutInMinutes() == null) ? 0 : getTimeoutInMinutes().hashCode());
+        hashCode = prime * hashCode + ((getQueuedTimeoutInMinutes() == null) ? 0 : getQueuedTimeoutInMinutes().hashCode());
         hashCode = prime * hashCode + ((getBuildComplete() == null) ? 0 : getBuildComplete().hashCode());
         hashCode = prime * hashCode + ((getInitiator() == null) ? 0 : getInitiator().hashCode());
         hashCode = prime * hashCode + ((getVpcConfig() == null) ? 0 : getVpcConfig().hashCode());

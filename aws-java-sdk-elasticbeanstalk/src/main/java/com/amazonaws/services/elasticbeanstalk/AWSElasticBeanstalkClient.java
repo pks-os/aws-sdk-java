@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.elasticbeanstalk.AWSElasticBeanstalkClientBuilder;
 
@@ -67,7 +68,7 @@ import com.amazonaws.services.elasticbeanstalk.model.transform.*;
  * </p>
  * <p>
  * For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <a
- * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region">Regions and Endpoints</a> in
+ * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region">Regions and Endpoints</a> in
  * the <i>Amazon Web Services Glossary</i>.
  * </p>
  */
@@ -85,6 +86,8 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
+
+    private final AdvancedConfig advancedConfig;
 
     /**
      * List of exception unmarshallers for all modeled exceptions
@@ -175,6 +178,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
     public AWSElasticBeanstalkClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -240,6 +244,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -258,9 +263,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
      *        Object providing client parameters.
      */
     AWSElasticBeanstalkClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -276,6 +279,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
     AWSElasticBeanstalkClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -348,11 +352,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AbortEnvironmentUpdate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<AbortEnvironmentUpdateResult> responseHandler = new StaxResponseHandler<AbortEnvironmentUpdateResult>(
                     new AbortEnvironmentUpdateResultStaxUnmarshaller());
@@ -413,11 +416,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ApplyEnvironmentManagedAction");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ApplyEnvironmentManagedActionResult> responseHandler = new StaxResponseHandler<ApplyEnvironmentManagedActionResult>(
                     new ApplyEnvironmentManagedActionResultStaxUnmarshaller());
@@ -467,11 +469,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CheckDNSAvailability");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CheckDNSAvailabilityResult> responseHandler = new StaxResponseHandler<CheckDNSAvailabilityResult>(
                     new CheckDNSAvailabilityResultStaxUnmarshaller());
@@ -491,7 +492,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
      * of version labels that specify application source bundles for each of the environments to create or update. The
      * name of each environment and other required information must be included in the source bundles in an environment
      * manifest named <code>env.yaml</code>. See <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html">Compose
+     * href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html">Compose
      * Environments</a> for details.
      * </p>
      * 
@@ -530,11 +531,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ComposeEnvironments");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ComposeEnvironmentsResult> responseHandler = new StaxResponseHandler<ComposeEnvironmentsResult>(
                     new ComposeEnvironmentsResultStaxUnmarshaller());
@@ -587,11 +587,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateApplication");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateApplicationResult> responseHandler = new StaxResponseHandler<CreateApplicationResult>(
                     new CreateApplicationResultStaxUnmarshaller());
@@ -688,11 +687,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateApplicationVersion");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateApplicationVersionResult> responseHandler = new StaxResponseHandler<CreateApplicationVersionResult>(
                     new CreateApplicationVersionResultStaxUnmarshaller());
@@ -773,11 +771,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateConfigurationTemplate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateConfigurationTemplateResult> responseHandler = new StaxResponseHandler<CreateConfigurationTemplateResult>(
                     new CreateConfigurationTemplateResultStaxUnmarshaller());
@@ -830,11 +827,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateEnvironment");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateEnvironmentResult> responseHandler = new StaxResponseHandler<CreateEnvironmentResult>(
                     new CreateEnvironmentResultStaxUnmarshaller());
@@ -890,11 +886,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreatePlatformVersion");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreatePlatformVersionResult> responseHandler = new StaxResponseHandler<CreatePlatformVersionResult>(
                     new CreatePlatformVersionResultStaxUnmarshaller());
@@ -952,11 +947,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateStorageLocation");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateStorageLocationResult> responseHandler = new StaxResponseHandler<CreateStorageLocationResult>(
                     new CreateStorageLocationResultStaxUnmarshaller());
@@ -1020,11 +1014,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteApplication");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteApplicationResult> responseHandler = new StaxResponseHandler<DeleteApplicationResult>(
                     new DeleteApplicationResultStaxUnmarshaller());
@@ -1106,11 +1099,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteApplicationVersion");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteApplicationVersionResult> responseHandler = new StaxResponseHandler<DeleteApplicationVersionResult>(
                     new DeleteApplicationVersionResultStaxUnmarshaller());
@@ -1169,11 +1161,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteConfigurationTemplate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteConfigurationTemplateResult> responseHandler = new StaxResponseHandler<DeleteConfigurationTemplateResult>(
                     new DeleteConfigurationTemplateResultStaxUnmarshaller());
@@ -1229,11 +1220,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteEnvironmentConfiguration");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteEnvironmentConfigurationResult> responseHandler = new StaxResponseHandler<DeleteEnvironmentConfigurationResult>(
                     new DeleteEnvironmentConfigurationResultStaxUnmarshaller());
@@ -1291,11 +1281,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeletePlatformVersion");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeletePlatformVersionResult> responseHandler = new StaxResponseHandler<DeletePlatformVersionResult>(
                     new DeletePlatformVersionResultStaxUnmarshaller());
@@ -1349,11 +1338,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAccountAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeAccountAttributesResult> responseHandler = new StaxResponseHandler<DescribeAccountAttributesResult>(
                     new DescribeAccountAttributesResultStaxUnmarshaller());
@@ -1403,11 +1391,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeApplicationVersions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeApplicationVersionsResult> responseHandler = new StaxResponseHandler<DescribeApplicationVersionsResult>(
                     new DescribeApplicationVersionsResultStaxUnmarshaller());
@@ -1462,11 +1449,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeApplications");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeApplicationsResult> responseHandler = new StaxResponseHandler<DescribeApplicationsResult>(
                     new DescribeApplicationsResultStaxUnmarshaller());
@@ -1525,11 +1511,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeConfigurationOptions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeConfigurationOptionsResult> responseHandler = new StaxResponseHandler<DescribeConfigurationOptionsResult>(
                     new DescribeConfigurationOptionsResultStaxUnmarshaller());
@@ -1598,11 +1583,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeConfigurationSettings");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeConfigurationSettingsResult> responseHandler = new StaxResponseHandler<DescribeConfigurationSettingsResult>(
                     new DescribeConfigurationSettingsResultStaxUnmarshaller());
@@ -1658,11 +1642,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEnvironmentHealth");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeEnvironmentHealthResult> responseHandler = new StaxResponseHandler<DescribeEnvironmentHealthResult>(
                     new DescribeEnvironmentHealthResultStaxUnmarshaller());
@@ -1717,11 +1700,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEnvironmentManagedActionHistory");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeEnvironmentManagedActionHistoryResult> responseHandler = new StaxResponseHandler<DescribeEnvironmentManagedActionHistoryResult>(
                     new DescribeEnvironmentManagedActionHistoryResultStaxUnmarshaller());
@@ -1775,11 +1757,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEnvironmentManagedActions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeEnvironmentManagedActionsResult> responseHandler = new StaxResponseHandler<DescribeEnvironmentManagedActionsResult>(
                     new DescribeEnvironmentManagedActionsResultStaxUnmarshaller());
@@ -1831,11 +1812,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEnvironmentResources");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeEnvironmentResourcesResult> responseHandler = new StaxResponseHandler<DescribeEnvironmentResourcesResult>(
                     new DescribeEnvironmentResourcesResultStaxUnmarshaller());
@@ -1885,11 +1865,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEnvironments");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeEnvironmentsResult> responseHandler = new StaxResponseHandler<DescribeEnvironmentsResult>(
                     new DescribeEnvironmentsResultStaxUnmarshaller());
@@ -1949,11 +1928,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEvents");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeEventsResult> responseHandler = new StaxResponseHandler<DescribeEventsResult>(
                     new DescribeEventsResultStaxUnmarshaller());
@@ -1975,7 +1953,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
     /**
      * <p>
      * Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
-     * requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
+     * requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
      * reporting</a>.
      * </p>
      * 
@@ -2015,11 +1993,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeInstancesHealth");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeInstancesHealthResult> responseHandler = new StaxResponseHandler<DescribeInstancesHealthResult>(
                     new DescribeInstancesHealthResultStaxUnmarshaller());
@@ -2072,11 +2049,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribePlatformVersion");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribePlatformVersionResult> responseHandler = new StaxResponseHandler<DescribePlatformVersionResult>(
                     new DescribePlatformVersionResultStaxUnmarshaller());
@@ -2126,11 +2102,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListAvailableSolutionStacks");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListAvailableSolutionStacksResult> responseHandler = new StaxResponseHandler<ListAvailableSolutionStacksResult>(
                     new ListAvailableSolutionStacksResultStaxUnmarshaller());
@@ -2188,11 +2163,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListPlatformVersions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListPlatformVersionsResult> responseHandler = new StaxResponseHandler<ListPlatformVersionsResult>(
                     new ListPlatformVersionsResultStaxUnmarshaller());
@@ -2214,7 +2188,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
      * <p>
      * Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about
      * environment tagging, see <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in
+     * href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in
      * Your Elastic Beanstalk Environment</a>.
      * </p>
      * 
@@ -2254,11 +2228,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTagsForResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListTagsForResourceResult> responseHandler = new StaxResponseHandler<ListTagsForResourceResult>(
                     new ListTagsForResourceResultStaxUnmarshaller());
@@ -2310,11 +2283,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RebuildEnvironment");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RebuildEnvironmentResult> responseHandler = new StaxResponseHandler<RebuildEnvironmentResult>(
                     new RebuildEnvironmentResultStaxUnmarshaller());
@@ -2385,11 +2357,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RequestEnvironmentInfo");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RequestEnvironmentInfoResult> responseHandler = new StaxResponseHandler<RequestEnvironmentInfoResult>(
                     new RequestEnvironmentInfoResultStaxUnmarshaller());
@@ -2438,11 +2409,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RestartAppServer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RestartAppServerResult> responseHandler = new StaxResponseHandler<RestartAppServerResult>(
                     new RestartAppServerResultStaxUnmarshaller());
@@ -2502,11 +2472,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RetrieveEnvironmentInfo");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RetrieveEnvironmentInfoResult> responseHandler = new StaxResponseHandler<RetrieveEnvironmentInfoResult>(
                     new RetrieveEnvironmentInfoResultStaxUnmarshaller());
@@ -2556,11 +2525,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SwapEnvironmentCNAMEs");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SwapEnvironmentCNAMEsResult> responseHandler = new StaxResponseHandler<SwapEnvironmentCNAMEsResult>(
                     new SwapEnvironmentCNAMEsResultStaxUnmarshaller());
@@ -2617,11 +2585,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "TerminateEnvironment");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<TerminateEnvironmentResult> responseHandler = new StaxResponseHandler<TerminateEnvironmentResult>(
                     new TerminateEnvironmentResultStaxUnmarshaller());
@@ -2677,11 +2644,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateApplication");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateApplicationResult> responseHandler = new StaxResponseHandler<UpdateApplicationResult>(
                     new UpdateApplicationResultStaxUnmarshaller());
@@ -2735,11 +2701,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateApplicationResourceLifecycle");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateApplicationResourceLifecycleResult> responseHandler = new StaxResponseHandler<UpdateApplicationResourceLifecycleResult>(
                     new UpdateApplicationResourceLifecycleResultStaxUnmarshaller());
@@ -2794,11 +2759,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateApplicationVersion");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateApplicationVersionResult> responseHandler = new StaxResponseHandler<UpdateApplicationVersionResult>(
                     new UpdateApplicationVersionResultStaxUnmarshaller());
@@ -2868,11 +2832,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateConfigurationTemplate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateConfigurationTemplateResult> responseHandler = new StaxResponseHandler<UpdateConfigurationTemplateResult>(
                     new UpdateConfigurationTemplateResultStaxUnmarshaller());
@@ -2936,11 +2899,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateEnvironment");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateEnvironmentResult> responseHandler = new StaxResponseHandler<UpdateEnvironmentResult>(
                     new UpdateEnvironmentResultStaxUnmarshaller());
@@ -2962,7 +2924,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
      * <p>
      * Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about
      * environment tagging, see <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in
+     * href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in
      * Your Elastic Beanstalk Environment</a>.
      * </p>
      * <p>
@@ -2987,7 +2949,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
      * </dl>
      * <p>
      * For details about creating a custom user policy, see <a href=
-     * "http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies"
+     * "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies"
      * >Creating a Custom User Policy</a>.
      * </p>
      * 
@@ -3035,11 +2997,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateTagsForResource");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UpdateTagsForResourceResult> responseHandler = new StaxResponseHandler<UpdateTagsForResourceResult>(
                     new UpdateTagsForResourceResultStaxUnmarshaller());
@@ -3098,11 +3059,10 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Beanstalk");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ValidateConfigurationSettings");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ValidateConfigurationSettingsResult> responseHandler = new StaxResponseHandler<ValidateConfigurationSettingsResult>(
                     new ValidateConfigurationSettingsResultStaxUnmarshaller());
@@ -3140,18 +3100,18 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -3161,7 +3121,7 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -3169,11 +3129,13 @@ public class AWSElasticBeanstalkClient extends AmazonWebServiceClient implements
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

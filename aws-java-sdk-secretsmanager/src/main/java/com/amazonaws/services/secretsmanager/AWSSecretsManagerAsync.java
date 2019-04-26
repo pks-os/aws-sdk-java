@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,7 @@ import com.amazonaws.services.secretsmanager.model.*;
  * </p>
  * <p>
  * This guide provides descriptions of the Secrets Manager API. For more information about using this service, see the
- * <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">AWS Secrets Manager User
+ * <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">AWS Secrets Manager User
  * Guide</a>.
  * </p>
  * <p>
@@ -54,7 +54,7 @@ import com.amazonaws.services.secretsmanager.model.*;
  * We recommend that you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you also can use
  * the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn more about the
  * Secrets Manager HTTP Query API, see <a
- * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in
+ * href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in
  * the <i>AWS Secrets Manager User Guide</i>.
  * </p>
  * <p>
@@ -93,7 +93,7 @@ import com.amazonaws.services.secretsmanager.model.*;
  * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging AWS
  * Secrets Manager Events with AWS CloudTrail</a> in the <i>AWS Secrets Manager User Guide</i>. To learn more about
  * CloudTrail, including how to turn it on and find your log files, see the <a
- * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail
+ * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail
  * User Guide</a>.
  * </p>
  */
@@ -300,9 +300,9 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
      * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
-     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
-     * can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
+     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
+     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
@@ -342,6 +342,11 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <p>
      * kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this
      * permission to use the account's default AWS managed CMK for Secrets Manager.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * secretsmanager:TagResource - needed only if you include the <code>Tags</code> parameter.
      * </p>
      * </li>
      * </ul>
@@ -418,9 +423,9 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
      * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
-     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
-     * can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
+     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
+     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
@@ -460,6 +465,11 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <p>
      * kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this
      * permission to use the account's default AWS managed CMK for Secrets Manager.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * secretsmanager:TagResource - needed only if you include the <code>Tags</code> parameter.
      * </p>
      * </li>
      * </ul>
@@ -1337,7 +1347,7 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * permitted by all of the relevant policies. For more information, see <a
      * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html"
      * >Using Resource-Based Policies for AWS Secrets Manager</a>. For the complete description of the AWS policy syntax
-     * and grammar, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
+     * and grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
      * Policy Reference</a> in the <i>IAM User Guide</i>.
      * </p>
      * <p>
@@ -1391,7 +1401,7 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * permitted by all of the relevant policies. For more information, see <a
      * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html"
      * >Using Resource-Based Policies for AWS Secrets Manager</a>. For the complete description of the AWS policy syntax
-     * and grammar, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
+     * and grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
      * Policy Reference</a> in the <i>IAM User Guide</i>.
      * </p>
      * <p>
@@ -1491,9 +1501,9 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
      * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
-     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
-     * can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
+     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
+     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
@@ -1612,9 +1622,9 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
      * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
-     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
-     * can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
+     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
+     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
@@ -1782,7 +1792,7 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * secret with the staging label <code>AWSCURRENT</code> so that your clients all immediately begin to use the new
      * version. For more information about rotating secrets and how to configure a Lambda function to rotate the secrets
      * for your protected service, see <a
-     * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS
+     * href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS
      * Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.
      * </p>
      * <p>
@@ -1880,7 +1890,7 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * secret with the staging label <code>AWSCURRENT</code> so that your clients all immediately begin to use the new
      * version. For more information about rotating secrets and how to configure a Lambda function to rotate the secrets
      * for your protected service, see <a
-     * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS
+     * href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS
      * Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.
      * </p>
      * <p>
@@ -2299,9 +2309,9 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
      * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
-     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
-     * can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
+     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
+     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
@@ -2415,9 +2425,9 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
      * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
-     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
-     * can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
+     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
+     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
@@ -2503,7 +2513,7 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * progresses through the secret rotation process. You can attach a staging label to only one version of a secret at
      * a time. If a staging label to be added is already attached to another version, then it is moved--removed from the
      * other version first and then attached to this one. For more information about staging labels, see <a
-     * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
+     * href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
      * Labels</a> in the <i>AWS Secrets Manager User Guide</i>.
      * </p>
      * <p>
@@ -2562,7 +2572,7 @@ public interface AWSSecretsManagerAsync extends AWSSecretsManager {
      * progresses through the secret rotation process. You can attach a staging label to only one version of a secret at
      * a time. If a staging label to be added is already attached to another version, then it is moved--removed from the
      * other version first and then attached to this one. For more information about staging labels, see <a
-     * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
+     * href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
      * Labels</a> in the <i>AWS Secrets Manager User Guide</i>.
      * </p>
      * <p>

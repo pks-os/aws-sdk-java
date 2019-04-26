@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -492,7 +492,8 @@ public class RadiusSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -511,7 +512,7 @@ public class RadiusSettings implements Serializable, Cloneable, StructuredPojo {
         if (getRadiusRetries() != null)
             sb.append("RadiusRetries: ").append(getRadiusRetries()).append(",");
         if (getSharedSecret() != null)
-            sb.append("SharedSecret: ").append(getSharedSecret()).append(",");
+            sb.append("SharedSecret: ").append("***Sensitive Data Redacted***").append(",");
         if (getAuthenticationProtocol() != null)
             sb.append("AuthenticationProtocol: ").append(getAuthenticationProtocol()).append(",");
         if (getDisplayLabel() != null)

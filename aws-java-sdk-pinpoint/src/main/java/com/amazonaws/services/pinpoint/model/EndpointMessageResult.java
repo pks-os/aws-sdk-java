@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,7 +40,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      * TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     * QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     * QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      * DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period.
      * 
@@ -112,7 +112,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      * TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     * QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     * QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      * DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period.
      * 
@@ -141,7 +141,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      *        TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     *        QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     *        QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      *        DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour
      *        period.
@@ -176,7 +176,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      * TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     * QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     * QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      * DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period.
      * 
@@ -204,7 +204,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      *         TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     *         QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     *         QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      *         DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour
      *         period.
@@ -239,7 +239,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      * TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     * QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     * QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      * DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period.
      * 
@@ -268,7 +268,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      *        TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     *        QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     *        QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      *        DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour
      *        period.
@@ -305,7 +305,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      * TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     * QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     * QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      * DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period.
      * 
@@ -334,7 +334,7 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
      * 
      *        TIMEOUT - The message couldn't be sent within the timeout period.
      * 
-     *        QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
+     *        QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app.
      * 
      *        DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour
      *        period.
@@ -496,7 +496,8 @@ public class EndpointMessageResult implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

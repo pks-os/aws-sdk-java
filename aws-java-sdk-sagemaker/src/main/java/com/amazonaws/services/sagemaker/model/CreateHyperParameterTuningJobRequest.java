@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,15 +28,16 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
     /**
      * <p>
      * The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job
-     * launches. The name must be unique within the same AWS account and AWS Region. Names are not case sensitive, and
-     * must be between 1-32 characters.
+     * launches. The name must be unique within the same AWS account and AWS Region. The name must have { } to { }
+     * characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
      * </p>
      */
     private String hyperParameterTuningJobName;
     /**
      * <p>
-     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy,
-     * metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job.
+     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy, the
+     * objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the
+     * tuning job. For more information, see <a>automatic-model-tuning</a>
      * </p>
      */
     private HyperParameterTuningJobConfig hyperParameterTuningJobConfig;
@@ -50,10 +51,33 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
     private HyperParameterTrainingJobDefinition trainingJobDefinition;
     /**
      * <p>
+     * Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * <p>
+     * All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If
+     * you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value for the warm start
+     * configuration, the training job that performs the best in the new tuning job is compared to the best training
+     * jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the
+     * objective metric is returned as the overall best training job.
+     * </p>
+     * <note>
+     * <p>
+     * All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count
+     * against the limit of training jobs for the tuning job.
+     * </p>
+     * </note>
+     */
+    private HyperParameterTuningJobWarmStartConfig warmStartConfig;
+    /**
+     * <p>
      * An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by
      * purpose, owner, or environment. For more information, see <a
-     * href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-     * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     * href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>.
+     * </p>
+     * <p>
+     * Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * </p>
      */
     private java.util.List<Tag> tags;
@@ -61,14 +85,15 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
     /**
      * <p>
      * The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job
-     * launches. The name must be unique within the same AWS account and AWS Region. Names are not case sensitive, and
-     * must be between 1-32 characters.
+     * launches. The name must be unique within the same AWS account and AWS Region. The name must have { } to { }
+     * characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
      * </p>
      * 
      * @param hyperParameterTuningJobName
      *        The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning
-     *        job launches. The name must be unique within the same AWS account and AWS Region. Names are not case
-     *        sensitive, and must be between 1-32 characters.
+     *        job launches. The name must be unique within the same AWS account and AWS Region. The name must have { }
+     *        to { } characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case
+     *        sensitive.
      */
 
     public void setHyperParameterTuningJobName(String hyperParameterTuningJobName) {
@@ -78,13 +103,14 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
     /**
      * <p>
      * The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job
-     * launches. The name must be unique within the same AWS account and AWS Region. Names are not case sensitive, and
-     * must be between 1-32 characters.
+     * launches. The name must be unique within the same AWS account and AWS Region. The name must have { } to { }
+     * characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
      * </p>
      * 
      * @return The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning
-     *         job launches. The name must be unique within the same AWS account and AWS Region. Names are not case
-     *         sensitive, and must be between 1-32 characters.
+     *         job launches. The name must be unique within the same AWS account and AWS Region. The name must have { }
+     *         to { } characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case
+     *         sensitive.
      */
 
     public String getHyperParameterTuningJobName() {
@@ -94,14 +120,15 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
     /**
      * <p>
      * The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job
-     * launches. The name must be unique within the same AWS account and AWS Region. Names are not case sensitive, and
-     * must be between 1-32 characters.
+     * launches. The name must be unique within the same AWS account and AWS Region. The name must have { } to { }
+     * characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
      * </p>
      * 
      * @param hyperParameterTuningJobName
      *        The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning
-     *        job launches. The name must be unique within the same AWS account and AWS Region. Names are not case
-     *        sensitive, and must be between 1-32 characters.
+     *        job launches. The name must be unique within the same AWS account and AWS Region. The name must have { }
+     *        to { } characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case
+     *        sensitive.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -112,14 +139,15 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
-     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy,
-     * metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job.
+     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy, the
+     * objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the
+     * tuning job. For more information, see <a>automatic-model-tuning</a>
      * </p>
      * 
      * @param hyperParameterTuningJobConfig
      *        The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search
-     *        strategy, metric used to evaluate training jobs, ranges of parameters to search, and resource limits for
-     *        the tuning job.
+     *        strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and
+     *        resource limits for the tuning job. For more information, see <a>automatic-model-tuning</a>
      */
 
     public void setHyperParameterTuningJobConfig(HyperParameterTuningJobConfig hyperParameterTuningJobConfig) {
@@ -128,13 +156,14 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
-     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy,
-     * metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job.
+     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy, the
+     * objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the
+     * tuning job. For more information, see <a>automatic-model-tuning</a>
      * </p>
      * 
      * @return The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search
-     *         strategy, metric used to evaluate training jobs, ranges of parameters to search, and resource limits for
-     *         the tuning job.
+     *         strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and
+     *         resource limits for the tuning job. For more information, see <a>automatic-model-tuning</a>
      */
 
     public HyperParameterTuningJobConfig getHyperParameterTuningJobConfig() {
@@ -143,14 +172,15 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
-     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy,
-     * metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job.
+     * The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search strategy, the
+     * objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the
+     * tuning job. For more information, see <a>automatic-model-tuning</a>
      * </p>
      * 
      * @param hyperParameterTuningJobConfig
      *        The <a>HyperParameterTuningJobConfig</a> object that describes the tuning job, including the search
-     *        strategy, metric used to evaluate training jobs, ranges of parameters to search, and resource limits for
-     *        the tuning job.
+     *        strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and
+     *        resource limits for the tuning job. For more information, see <a>automatic-model-tuning</a>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -213,16 +243,148 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
+     * Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * <p>
+     * All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If
+     * you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value for the warm start
+     * configuration, the training job that performs the best in the new tuning job is compared to the best training
+     * jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the
+     * objective metric is returned as the overall best training job.
+     * </p>
+     * <note>
+     * <p>
+     * All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count
+     * against the limit of training jobs for the tuning job.
+     * </p>
+     * </note>
+     * 
+     * @param warmStartConfig
+     *        Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning
+     *        jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of
+     *        hyperparameters to search over in the new tuning job.</p>
+     *        <p>
+     *        All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective
+     *        metric. If you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value
+     *        for the warm start configuration, the training job that performs the best in the new tuning job is
+     *        compared to the best training jobs from the parent tuning jobs. From these, the training job that performs
+     *        the best as measured by the objective metric is returned as the overall best training job.
+     *        </p>
+     *        <note>
+     *        <p>
+     *        All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs
+     *        count against the limit of training jobs for the tuning job.
+     *        </p>
+     */
+
+    public void setWarmStartConfig(HyperParameterTuningJobWarmStartConfig warmStartConfig) {
+        this.warmStartConfig = warmStartConfig;
+    }
+
+    /**
+     * <p>
+     * Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * <p>
+     * All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If
+     * you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value for the warm start
+     * configuration, the training job that performs the best in the new tuning job is compared to the best training
+     * jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the
+     * objective metric is returned as the overall best training job.
+     * </p>
+     * <note>
+     * <p>
+     * All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count
+     * against the limit of training jobs for the tuning job.
+     * </p>
+     * </note>
+     * 
+     * @return Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning
+     *         jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of
+     *         hyperparameters to search over in the new tuning job.</p>
+     *         <p>
+     *         All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective
+     *         metric. If you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value
+     *         for the warm start configuration, the training job that performs the best in the new tuning job is
+     *         compared to the best training jobs from the parent tuning jobs. From these, the training job that
+     *         performs the best as measured by the objective metric is returned as the overall best training job.
+     *         </p>
+     *         <note>
+     *         <p>
+     *         All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs
+     *         count against the limit of training jobs for the tuning job.
+     *         </p>
+     */
+
+    public HyperParameterTuningJobWarmStartConfig getWarmStartConfig() {
+        return this.warmStartConfig;
+    }
+
+    /**
+     * <p>
+     * Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * <p>
+     * All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If
+     * you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value for the warm start
+     * configuration, the training job that performs the best in the new tuning job is compared to the best training
+     * jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the
+     * objective metric is returned as the overall best training job.
+     * </p>
+     * <note>
+     * <p>
+     * All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count
+     * against the limit of training jobs for the tuning job.
+     * </p>
+     * </note>
+     * 
+     * @param warmStartConfig
+     *        Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning
+     *        jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of
+     *        hyperparameters to search over in the new tuning job.</p>
+     *        <p>
+     *        All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective
+     *        metric. If you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value
+     *        for the warm start configuration, the training job that performs the best in the new tuning job is
+     *        compared to the best training jobs from the parent tuning jobs. From these, the training job that performs
+     *        the best as measured by the objective metric is returned as the overall best training job.
+     *        </p>
+     *        <note>
+     *        <p>
+     *        All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs
+     *        count against the limit of training jobs for the tuning job.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateHyperParameterTuningJobRequest withWarmStartConfig(HyperParameterTuningJobWarmStartConfig warmStartConfig) {
+        setWarmStartConfig(warmStartConfig);
+        return this;
+    }
+
+    /**
+     * <p>
      * An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by
      * purpose, owner, or environment. For more information, see <a
-     * href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-     * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     * href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>.
+     * </p>
+     * <p>
+     * Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * </p>
      * 
      * @return An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for
-     *         example, by purpose, owner, or environment. For more information, see <a href=
-     *         "http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-     *         Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     *         example, by purpose, owner, or environment. For more information, see <a
+     *         href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+     *         Strategies</a>.</p>
+     *         <p>
+     *         Tags that you specify for the tuning job are also added to all training jobs that the tuning job
+     *         launches.
      */
 
     public java.util.List<Tag> getTags() {
@@ -233,15 +395,19 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
      * <p>
      * An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by
      * purpose, owner, or environment. For more information, see <a
-     * href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-     * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     * href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>.
+     * </p>
+     * <p>
+     * Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * </p>
      * 
      * @param tags
      *        An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for
      *        example, by purpose, owner, or environment. For more information, see <a
-     *        href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
-     *        >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     *        href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+     *        Strategies</a>.</p>
+     *        <p>
+     *        Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      */
 
     public void setTags(java.util.Collection<Tag> tags) {
@@ -257,8 +423,10 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
      * <p>
      * An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by
      * purpose, owner, or environment. For more information, see <a
-     * href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-     * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     * href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>.
+     * </p>
+     * <p>
+     * Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -269,8 +437,10 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
      * @param tags
      *        An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for
      *        example, by purpose, owner, or environment. For more information, see <a
-     *        href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
-     *        >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     *        href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+     *        Strategies</a>.</p>
+     *        <p>
+     *        Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -288,15 +458,19 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
      * <p>
      * An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by
      * purpose, owner, or environment. For more information, see <a
-     * href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-     * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     * href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>.
+     * </p>
+     * <p>
+     * Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * </p>
      * 
      * @param tags
      *        An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for
      *        example, by purpose, owner, or environment. For more information, see <a
-     *        href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
-     *        >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+     *        href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+     *        Strategies</a>.</p>
+     *        <p>
+     *        Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -306,7 +480,8 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -322,6 +497,8 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
             sb.append("HyperParameterTuningJobConfig: ").append(getHyperParameterTuningJobConfig()).append(",");
         if (getTrainingJobDefinition() != null)
             sb.append("TrainingJobDefinition: ").append(getTrainingJobDefinition()).append(",");
+        if (getWarmStartConfig() != null)
+            sb.append("WarmStartConfig: ").append(getWarmStartConfig()).append(",");
         if (getTags() != null)
             sb.append("Tags: ").append(getTags());
         sb.append("}");
@@ -351,6 +528,10 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
             return false;
         if (other.getTrainingJobDefinition() != null && other.getTrainingJobDefinition().equals(this.getTrainingJobDefinition()) == false)
             return false;
+        if (other.getWarmStartConfig() == null ^ this.getWarmStartConfig() == null)
+            return false;
+        if (other.getWarmStartConfig() != null && other.getWarmStartConfig().equals(this.getWarmStartConfig()) == false)
+            return false;
         if (other.getTags() == null ^ this.getTags() == null)
             return false;
         if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
@@ -366,6 +547,7 @@ public class CreateHyperParameterTuningJobRequest extends com.amazonaws.AmazonWe
         hashCode = prime * hashCode + ((getHyperParameterTuningJobName() == null) ? 0 : getHyperParameterTuningJobName().hashCode());
         hashCode = prime * hashCode + ((getHyperParameterTuningJobConfig() == null) ? 0 : getHyperParameterTuningJobConfig().hashCode());
         hashCode = prime * hashCode + ((getTrainingJobDefinition() == null) ? 0 : getTrainingJobDefinition().hashCode());
+        hashCode = prime * hashCode + ((getWarmStartConfig() == null) ? 0 : getWarmStartConfig().hashCode());
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }

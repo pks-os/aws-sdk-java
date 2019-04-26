@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,8 +45,8 @@ public class DescribeImagesRequest extends com.amazonaws.AmazonWebServiceRequest
     private String type;
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      */
     private String nextToken;
@@ -258,13 +258,13 @@ public class DescribeImagesRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      * 
      * @param nextToken
-     *        The pagination token to use to retrieve the next page of results. If this value is empty, only the first
-     *        page is retrieved.
+     *        The pagination token to use to retrieve the next page of results for this operation. If this value is
+     *        null, it retrieves the first page.
      */
 
     public void setNextToken(String nextToken) {
@@ -273,12 +273,12 @@ public class DescribeImagesRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      * 
-     * @return The pagination token to use to retrieve the next page of results. If this value is empty, only the first
-     *         page is retrieved.
+     * @return The pagination token to use to retrieve the next page of results for this operation. If this value is
+     *         null, it retrieves the first page.
      */
 
     public String getNextToken() {
@@ -287,13 +287,13 @@ public class DescribeImagesRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      * 
      * @param nextToken
-     *        The pagination token to use to retrieve the next page of results. If this value is empty, only the first
-     *        page is retrieved.
+     *        The pagination token to use to retrieve the next page of results for this operation. If this value is
+     *        null, it retrieves the first page.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -343,7 +343,8 @@ public class DescribeImagesRequest extends com.amazonaws.AmazonWebServiceRequest
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

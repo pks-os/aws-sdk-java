@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -59,6 +59,14 @@ public class ContainerDefinitionMarshaller {
             .marshallLocationName("volumesFrom").build();
     private static final MarshallingInfo<StructuredPojo> LINUXPARAMETERS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("linuxParameters").build();
+    private static final MarshallingInfo<List> SECRETS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
+            .marshallLocationName("secrets").build();
+    private static final MarshallingInfo<List> DEPENDSON_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
+            .marshallLocationName("dependsOn").build();
+    private static final MarshallingInfo<Integer> STARTTIMEOUT_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("startTimeout").build();
+    private static final MarshallingInfo<Integer> STOPTIMEOUT_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("stopTimeout").build();
     private static final MarshallingInfo<String> HOSTNAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("hostname").build();
     private static final MarshallingInfo<String> USER_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
@@ -93,6 +101,8 @@ public class ContainerDefinitionMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("healthCheck").build();
     private static final MarshallingInfo<List> SYSTEMCONTROLS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("systemControls").build();
+    private static final MarshallingInfo<List> RESOURCEREQUIREMENTS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("resourceRequirements").build();
 
     private static final ContainerDefinitionMarshaller instance = new ContainerDefinitionMarshaller();
 
@@ -125,6 +135,10 @@ public class ContainerDefinitionMarshaller {
             protocolMarshaller.marshall(containerDefinition.getMountPoints(), MOUNTPOINTS_BINDING);
             protocolMarshaller.marshall(containerDefinition.getVolumesFrom(), VOLUMESFROM_BINDING);
             protocolMarshaller.marshall(containerDefinition.getLinuxParameters(), LINUXPARAMETERS_BINDING);
+            protocolMarshaller.marshall(containerDefinition.getSecrets(), SECRETS_BINDING);
+            protocolMarshaller.marshall(containerDefinition.getDependsOn(), DEPENDSON_BINDING);
+            protocolMarshaller.marshall(containerDefinition.getStartTimeout(), STARTTIMEOUT_BINDING);
+            protocolMarshaller.marshall(containerDefinition.getStopTimeout(), STOPTIMEOUT_BINDING);
             protocolMarshaller.marshall(containerDefinition.getHostname(), HOSTNAME_BINDING);
             protocolMarshaller.marshall(containerDefinition.getUser(), USER_BINDING);
             protocolMarshaller.marshall(containerDefinition.getWorkingDirectory(), WORKINGDIRECTORY_BINDING);
@@ -142,6 +156,7 @@ public class ContainerDefinitionMarshaller {
             protocolMarshaller.marshall(containerDefinition.getLogConfiguration(), LOGCONFIGURATION_BINDING);
             protocolMarshaller.marshall(containerDefinition.getHealthCheck(), HEALTHCHECK_BINDING);
             protocolMarshaller.marshall(containerDefinition.getSystemControls(), SYSTEMCONTROLS_BINDING);
+            protocolMarshaller.marshall(containerDefinition.getResourceRequirements(), RESOURCEREQUIREMENTS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

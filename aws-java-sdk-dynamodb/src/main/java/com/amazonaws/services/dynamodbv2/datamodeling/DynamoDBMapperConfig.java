@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -614,7 +614,7 @@ public class DynamoDBMapperConfig {
     }
 
     /**
-     * Interface for a strategy used to determine the table name of an object based on it's class.
+     * Interface for a strategy used to determine the table name of an object based on its class.
      * This resolver is used when an object isn't available such as in
      * {@link DynamoDBMapper#query(Class, DynamoDBQueryExpression)}
      *
@@ -635,7 +635,7 @@ public class DynamoDBMapperConfig {
     }
 
     /**
-     * Interface for a strategy used to determine the table name of an object based on it's class.
+     * Interface for a strategy used to determine the table name of an object based on its class.
      * This resolver is used when an object is available such as in
      * {@link DynamoDBMapper#batchSave(Object...)}
      *

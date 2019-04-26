@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,17 +15,20 @@
 
 package com.amazonaws.monitoring.internal;
 
-import static com.amazonaws.monitoring.ApiCallMonitoringEvent.API_CALL_MONITORING_EVENT_TYPE;
 import static com.amazonaws.http.HttpResponseHandler.X_AMZN_REQUEST_ID_HEADER;
+import static com.amazonaws.monitoring.ApiCallMonitoringEvent.API_CALL_MONITORING_EVENT_TYPE;
+import static com.amazonaws.util.AwsClientSideMonitoringMetrics.MaxRetriesExceeded;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -39,6 +42,7 @@ import com.amazonaws.auth.internal.SignerConstants;
 import com.amazonaws.handlers.HandlerAfterAttemptContext;
 import com.amazonaws.handlers.HandlerContextKey;
 import com.amazonaws.http.HttpResponse;
+import com.amazonaws.http.timers.client.ClientExecutionTimeoutException;
 import com.amazonaws.monitoring.ApiCallAttemptMonitoringEvent;
 import com.amazonaws.monitoring.ApiCallMonitoringEvent;
 import com.amazonaws.monitoring.ApiMonitoringEvent;
@@ -316,6 +320,144 @@ public class ClientSideMonitoringRequestHandlerTest {
         verify(customMonitoringListener, times(1)).handleEvent(any(ApiMonitoringEvent.class));
     }
 
+    @Test
+    public void afterError_maxRetriesExceeded() {
+        Request<?> request = getRequest();
+        AWSRequestMetrics metrics = getMetrics(3);
+        metrics.addPropertyWith(MaxRetriesExceeded, true);
+        request.setAWSRequestMetrics(metrics);
+        requestHandler.afterError(request, getResponse(request), new IOException(""));
+
+        ApiCallMonitoringEvent event = getCapturedEvent(ApiCallMonitoringEvent.class);
+        assertThat(event.getMaxRetriesExceeded(), is(1));
+    }
+
+    @Test
+    public void afterError_clientExecutionTimeoutException() {
+        Request<?> request = getRequest();
+        AWSRequestMetrics metrics = getMetrics(1);
+        request.setAWSRequestMetrics(metrics);
+        requestHandler.afterError(request, getResponse(request), new ClientExecutionTimeoutException(""));
+
+        ApiCallMonitoringEvent event = getCapturedEvent(ApiCallMonitoringEvent.class);
+        assertThat(event.getApiCallTimeout(), is(1));
+    }
+
+    @Test
+    public void afterErrorWithoutApiCallAttemptExcludesFinalFields() {
+        Request<?> request = getRequest();
+        AWSRequestMetrics metrics = getMetrics(1);
+        request.setAWSRequestMetrics(metrics);
+        requestHandler.afterError(request, getResponse(request), new ClientExecutionTimeoutException(""));
+
+        verifyEmptyFinalFields(getCapturedEvent(ApiCallMonitoringEvent.class));
+    }
+
+    @Test
+    public void afterResponseIncludesFinalFieldsOfLastAttempt() {
+        Request<?> request = getRequest();
+
+        HandlerAfterAttemptContext failedAttempt =
+                HandlerAfterAttemptContext.builder()
+                                          .withRequest(request)
+                                          .withResponse(getResponse(request))
+                                          .withException(new AmazonServiceException("ErrorMessage"))
+                                          .build();
+
+        HandlerAfterAttemptContext successfulAttempt =
+                HandlerAfterAttemptContext.builder()
+                                          .withRequest(request)
+                                          .withResponse(getResponse(request))
+                                          .build();
+
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterAttempt(successfulAttempt);
+        requestHandler.afterResponse(successfulAttempt.getRequest(), successfulAttempt.getResponse());
+
+        verifyFinalFields(getCapturedEvent(ApiCallMonitoringEvent.class),
+                          getCapturedEvents(ApiCallAttemptMonitoringEvent.class, 2).get(1));
+    }
+
+    @Test
+    public void afterErrorIncludesFinalAwsExceptionFieldsOfLastAttempt() {
+        Request<?> request = getRequest();
+
+        HandlerAfterAttemptContext failedAttempt =
+                HandlerAfterAttemptContext.builder()
+                                          .withRequest(request)
+                                          .withResponse(getResponse(request))
+                                          .withException(new AmazonServiceException("ErrorMessage"))
+                                          .build();
+
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterError(failedAttempt.getRequest(), failedAttempt.getResponse(), failedAttempt.getException());
+
+        verifyFinalFields(getCapturedEvent(ApiCallMonitoringEvent.class),
+                          getCapturedEvents(ApiCallAttemptMonitoringEvent.class, 3).get(2));
+    }
+
+    @Test
+    public void afterErrorIncludesFinalSdkExceptionFieldsOfLastAttempt() {
+        Request<?> request = getRequest();
+
+        HandlerAfterAttemptContext failedAttempt =
+                HandlerAfterAttemptContext.builder()
+                                          .withRequest(request)
+                                          .withResponse(getResponse(request))
+                                          .withException(new RuntimeException("ErrorMessage"))
+                                          .build();
+
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterAttempt(failedAttempt);
+        requestHandler.afterError(failedAttempt.getRequest(), failedAttempt.getResponse(), failedAttempt.getException());
+
+        verifyFinalFields(getCapturedEvent(ApiCallMonitoringEvent.class),
+                          getCapturedEvents(ApiCallAttemptMonitoringEvent.class, 3).get(2));
+    }
+
+    private <T extends ApiMonitoringEvent> T getCapturedEvent(Class<T> eventType) {
+        return getCapturedEvents(eventType, 1).get(0);
+    }
+
+    private <T extends ApiMonitoringEvent> List<T> getCapturedEvents(Class<T> eventType, int expectedCount) {
+        ArgumentCaptor<T> monitoringEventArgumentCaptor = ArgumentCaptor.forClass(eventType);
+
+        verify(agentMonitoringListener, atLeastOnce()).handleEvent(monitoringEventArgumentCaptor.capture());
+
+        List<T> matchingEvents = new ArrayList<T>();
+        for (ApiMonitoringEvent event : monitoringEventArgumentCaptor.getAllValues()) {
+            if (eventType.isInstance(event)) {
+                matchingEvents.add(eventType.cast(event));
+            }
+        }
+
+        if (matchingEvents.size() != expectedCount) {
+            throw new AssertionError("Captured " + matchingEvents.size() + " " + eventType + " events, where " + expectedCount +
+                                     " was expected.");
+        }
+
+        return matchingEvents;
+    }
+
+    private void verifyFinalFields(ApiCallMonitoringEvent callEvent, ApiCallAttemptMonitoringEvent callAttemptEvent) {
+        assertThat(callEvent.getFinalHttpStatusCode(), is(callAttemptEvent.getHttpStatusCode()));
+        assertThat(callEvent.getFinalAwsException(), is(callAttemptEvent.getAwsException()));
+        assertThat(callEvent.getFinalAwsExceptionMessage(), is(callAttemptEvent.getAwsExceptionMessage()));
+        assertThat(callEvent.getFinalSdkException(), is(callAttemptEvent.getSdkException()));
+        assertThat(callEvent.getFinalSdkExceptionMessage(), is(callAttemptEvent.getSdkExceptionMessage()));
+    }
+
+    private void verifyEmptyFinalFields(ApiCallMonitoringEvent event) {
+        assertThat(event.getFinalHttpStatusCode(), is(nullValue()));
+        assertThat(event.getFinalAwsException(), is(nullValue()));
+        assertThat(event.getFinalAwsExceptionMessage(), is(nullValue()));
+        assertThat(event.getFinalSdkException(), is(nullValue()));
+        assertThat(event.getFinalSdkExceptionMessage(), is(nullValue()));
+    }
+
     /**
      * Generate metrics.
      */
@@ -323,7 +465,7 @@ public class ClientSideMonitoringRequestHandlerTest {
         AWSRequestMetricsFullSupport metrics =
             new AWSRequestMetricsFullSupport();
         metrics.addProperty(AWSRequestMetrics.Field.ServiceName, SERVICE_NAME);
-        metrics.startEvent(AwsClientSideMonitoringMetrics.Latency);
+        metrics.startEvent(AwsClientSideMonitoringMetrics.ApiCallLatency);
 
         for (int i = 0; i < requestCount; i++) {
             metrics.startEvent(AWSRequestMetrics.Field.HttpRequestTime);
@@ -332,7 +474,7 @@ public class ClientSideMonitoringRequestHandlerTest {
             metrics.startEvent(AWSRequestMetrics.Field.HttpClientReceiveResponseTime);
             metrics.endEvent(AWSRequestMetrics.Field.HttpClientReceiveResponseTime);
             metrics.endEvent(AWSRequestMetrics.Field.HttpRequestTime);
-            metrics.endEvent(AwsClientSideMonitoringMetrics.Latency);
+            metrics.endEvent(AwsClientSideMonitoringMetrics.ApiCallLatency);
         }
 
         metrics.setCounter(AWSRequestMetrics.Field.RequestCount, requestCount);
@@ -367,7 +509,6 @@ public class ClientSideMonitoringRequestHandlerTest {
         assertNotNull("attempt latency should not be null", monitoringEvent
             .getAttemptLatency());
         assertEquals("wow.service", monitoringEvent.getFqdn());
-        assertEquals(REGION, monitoringEvent.getRegion());
         assertEquals(SECURITY_TOKENS, monitoringEvent.getSessionToken());
         assertNotNull(monitoringEvent.getUserAgent());
     }
@@ -422,6 +563,7 @@ public class ClientSideMonitoringRequestHandlerTest {
         assertEquals(API_NAME, monitoringEvent.getApi());
         assertEquals(SERVICE_ID, monitoringEvent.getService());
         assertEquals(CLIENT_ID, monitoringEvent.getClientId());
+        assertEquals(REGION, monitoringEvent.getRegion());
         assertNotNull("timestamp should not be null", monitoringEvent.getTimestamp());
         assertNotNull("type should not be null", monitoringEvent.getType());
         assertNotNull("Version should not be null", monitoringEvent.getVersion());

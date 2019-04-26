@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,7 +26,10 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
 
-    /** The unique identifier for the recipient. For example, an address could be a device token or an endpoint ID. */
+    /**
+     * The unique identifier for the recipient. For example, an address could be a device token, email address, or
+     * mobile phone number.
+     */
     private String address;
     /**
      * Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria
@@ -41,7 +44,7 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     private String channelType;
     /** The endpoint demographic attributes. */
     private EndpointDemographic demographic;
-    /** The date and time when the endpoint was last updated. */
+    /** The date and time when the endpoint was last updated, in ISO 8601 format. */
     private String effectiveDate;
     /**
      * The status of the endpoint. If the update fails, the value is INACTIVE. If the endpoint is updated successfully,
@@ -66,11 +69,12 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     private EndpointUser user;
 
     /**
-     * The unique identifier for the recipient. For example, an address could be a device token or an endpoint ID.
+     * The unique identifier for the recipient. For example, an address could be a device token, email address, or
+     * mobile phone number.
      * 
      * @param address
-     *        The unique identifier for the recipient. For example, an address could be a device token or an endpoint
-     *        ID.
+     *        The unique identifier for the recipient. For example, an address could be a device token, email address,
+     *        or mobile phone number.
      */
 
     public void setAddress(String address) {
@@ -78,10 +82,11 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The unique identifier for the recipient. For example, an address could be a device token or an endpoint ID.
+     * The unique identifier for the recipient. For example, an address could be a device token, email address, or
+     * mobile phone number.
      * 
-     * @return The unique identifier for the recipient. For example, an address could be a device token or an endpoint
-     *         ID.
+     * @return The unique identifier for the recipient. For example, an address could be a device token, email address,
+     *         or mobile phone number.
      */
 
     public String getAddress() {
@@ -89,11 +94,12 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The unique identifier for the recipient. For example, an address could be a device token or an endpoint ID.
+     * The unique identifier for the recipient. For example, an address could be a device token, email address, or
+     * mobile phone number.
      * 
      * @param address
-     *        The unique identifier for the recipient. For example, an address could be a device token or an endpoint
-     *        ID.
+     *        The unique identifier for the recipient. For example, an address could be a device token, email address,
+     *        or mobile phone number.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -265,10 +271,10 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The date and time when the endpoint was last updated.
+     * The date and time when the endpoint was last updated, in ISO 8601 format.
      * 
      * @param effectiveDate
-     *        The date and time when the endpoint was last updated.
+     *        The date and time when the endpoint was last updated, in ISO 8601 format.
      */
 
     public void setEffectiveDate(String effectiveDate) {
@@ -276,9 +282,9 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The date and time when the endpoint was last updated.
+     * The date and time when the endpoint was last updated, in ISO 8601 format.
      * 
-     * @return The date and time when the endpoint was last updated.
+     * @return The date and time when the endpoint was last updated, in ISO 8601 format.
      */
 
     public String getEffectiveDate() {
@@ -286,10 +292,10 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The date and time when the endpoint was last updated.
+     * The date and time when the endpoint was last updated, in ISO 8601 format.
      * 
      * @param effectiveDate
-     *        The date and time when the endpoint was last updated.
+     *        The date and time when the endpoint was last updated, in ISO 8601 format.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -554,7 +560,8 @@ public class PublicEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

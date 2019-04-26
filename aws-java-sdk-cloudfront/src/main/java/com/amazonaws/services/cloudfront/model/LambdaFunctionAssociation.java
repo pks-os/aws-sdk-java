@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * A complex type that contains a Lambda function association.
  * </p>
  * 
- * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-06-18/LambdaFunctionAssociation"
+ * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/LambdaFunctionAssociation"
  *      target="_top">AWS API Documentation</a>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -55,9 +55,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      * <code>origin-response</code>: The function executes after CloudFront receives a response from the origin and
      * before it caches the object in the response. When the requested object is in the edge cache, the function doesn't
      * execute.
-     * </p>
-     * <p>
-     * If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
      * </p>
      * </li>
      * <li>
@@ -150,9 +147,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      * before it caches the object in the response. When the requested object is in the edge cache, the function doesn't
      * execute.
      * </p>
-     * <p>
-     * If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -186,9 +180,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      *        <code>origin-response</code>: The function executes after CloudFront receives a response from the origin
      *        and before it caches the object in the response. When the requested object is in the edge cache, the
      *        function doesn't execute.
-     *        </p>
-     *        <p>
-     *        If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
      *        </p>
      *        </li>
      *        <li>
@@ -230,9 +221,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      * before it caches the object in the response. When the requested object is in the edge cache, the function doesn't
      * execute.
      * </p>
-     * <p>
-     * If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -265,9 +253,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      *         <code>origin-response</code>: The function executes after CloudFront receives a response from the origin
      *         and before it caches the object in the response. When the requested object is in the edge cache, the
      *         function doesn't execute.
-     *         </p>
-     *         <p>
-     *         If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
      *         </p>
      *         </li>
      *         <li>
@@ -309,9 +294,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      * before it caches the object in the response. When the requested object is in the edge cache, the function doesn't
      * execute.
      * </p>
-     * <p>
-     * If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -345,9 +327,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      *        <code>origin-response</code>: The function executes after CloudFront receives a response from the origin
      *        and before it caches the object in the response. When the requested object is in the edge cache, the
      *        function doesn't execute.
-     *        </p>
-     *        <p>
-     *        If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
      *        </p>
      *        </li>
      *        <li>
@@ -391,9 +370,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      * before it caches the object in the response. When the requested object is in the edge cache, the function doesn't
      * execute.
      * </p>
-     * <p>
-     * If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -427,9 +403,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      *        <code>origin-response</code>: The function executes after CloudFront receives a response from the origin
      *        and before it caches the object in the response. When the requested object is in the edge cache, the
      *        function doesn't execute.
-     *        </p>
-     *        <p>
-     *        If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
      *        </p>
      *        </li>
      *        <li>
@@ -471,9 +444,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      * before it caches the object in the response. When the requested object is in the edge cache, the function doesn't
      * execute.
      * </p>
-     * <p>
-     * If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -507,9 +477,6 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
      *        <code>origin-response</code>: The function executes after CloudFront receives a response from the origin
      *        and before it caches the object in the response. When the requested object is in the edge cache, the
      *        function doesn't execute.
-     *        </p>
-     *        <p>
-     *        If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
      *        </p>
      *        </li>
      *        <li>
@@ -605,7 +572,8 @@ public class LambdaFunctionAssociation implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

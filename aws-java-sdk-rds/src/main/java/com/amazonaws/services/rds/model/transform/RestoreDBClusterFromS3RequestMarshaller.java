@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -196,6 +196,10 @@ public class RestoreDBClusterFromS3RequestMarshaller implements Marshaller<Reque
 
         if (restoreDBClusterFromS3Request.getDeletionProtection() != null) {
             request.addParameter("DeletionProtection", StringUtils.fromBoolean(restoreDBClusterFromS3Request.getDeletionProtection()));
+        }
+
+        if (restoreDBClusterFromS3Request.getCopyTagsToSnapshot() != null) {
+            request.addParameter("CopyTagsToSnapshot", StringUtils.fromBoolean(restoreDBClusterFromS3Request.getCopyTagsToSnapshot()));
         }
 
         return request;

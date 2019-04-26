@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -123,27 +123,26 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     * settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon DynamoDB
-     * Database as a Target for AWS Database Migration Service</a>.
+     * settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using Object
+     * Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      */
     private DynamoDbSettings dynamoDbSettings;
     /**
      * <p>
-     * Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the
-     * <b>Extra Connection Attributes</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target for AWS
-     * Database Migration Service</a>.
+     * Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see
+     * <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+     * Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database Migration Service
+     * User Guide.</i>
      * </p>
      */
     private S3Settings s3Settings;
     /**
      * <p>
-     * The settings in JSON format for the DMS Transfer type source endpoint.
+     * The settings in JSON format for the DMS transfer type of source endpoint.
      * </p>
      * <p>
-     * Attributes include:
+     * Attributes include the following:
      * </p>
      * <ul>
      * <li>
@@ -177,12 +176,34 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see
-     * the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service</b> section at
-     * <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using Amazon S3 as a Target
-     * for AWS Database Migration Service</a>.
+     * the configuration properties section in <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a Target for
+     * AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      */
     private MongoDbSettings mongoDbSettings;
+    /**
+     * <p>
+     * Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the
+     * available settings, see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     * >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     * Guide.</i>
+     * </p>
+     */
+    private KinesisSettings kinesisSettings;
+    /**
+     * <p>
+     * Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings,
+     * see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     * >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     * Migration User Guide.</i>
+     * </p>
+     */
+    private ElasticsearchSettings elasticsearchSettings;
+
+    private RedshiftSettings redshiftSettings;
 
     /**
      * <p>
@@ -892,16 +913,14 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     * settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon DynamoDB
-     * Database as a Target for AWS Database Migration Service</a>.
+     * settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using Object
+     * Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      * 
      * @param dynamoDbSettings
      *        Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     *        settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     *        href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon DynamoDB
-     *        Database as a Target for AWS Database Migration Service</a>.
+     *        settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using
+     *        Object Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      */
 
     public void setDynamoDbSettings(DynamoDbSettings dynamoDbSettings) {
@@ -911,15 +930,13 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     * settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon DynamoDB
-     * Database as a Target for AWS Database Migration Service</a>.
+     * settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using Object
+     * Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      * 
      * @return Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     *         settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     *         href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon
-     *         DynamoDB Database as a Target for AWS Database Migration Service</a>.
+     *         settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using
+     *         Object Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      */
 
     public DynamoDbSettings getDynamoDbSettings() {
@@ -929,16 +946,14 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     * settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon DynamoDB
-     * Database as a Target for AWS Database Migration Service</a>.
+     * settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using Object
+     * Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      * 
      * @param dynamoDbSettings
      *        Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available
-     *        settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a
-     *        href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html"> Using an Amazon DynamoDB
-     *        Database as a Target for AWS Database Migration Service</a>.
+     *        settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using
+     *        Object Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service User Guide.</i>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -949,17 +964,18 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the
-     * <b>Extra Connection Attributes</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target for AWS
-     * Database Migration Service</a>.
+     * Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see
+     * <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+     * Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database Migration Service
+     * User Guide.</i>
      * </p>
      * 
      * @param s3Settings
-     *        Settings in JSON format for the target S3 endpoint. For more information about the available settings, see
-     *        the <b>Extra Connection Attributes</b> section at <a
-     *        href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target
-     *        for AWS Database Migration Service</a>.
+     *        Settings in JSON format for the target Amazon S3 endpoint. For more information about the available
+     *        settings, see <a
+     *        href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring"
+     *        >Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database
+     *        Migration Service User Guide.</i>
      */
 
     public void setS3Settings(S3Settings s3Settings) {
@@ -968,16 +984,17 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the
-     * <b>Extra Connection Attributes</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target for AWS
-     * Database Migration Service</a>.
+     * Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see
+     * <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+     * Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database Migration Service
+     * User Guide.</i>
      * </p>
      * 
-     * @return Settings in JSON format for the target S3 endpoint. For more information about the available settings,
-     *         see the <b>Extra Connection Attributes</b> section at <a
-     *         href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target
-     *         for AWS Database Migration Service</a>.
+     * @return Settings in JSON format for the target Amazon S3 endpoint. For more information about the available
+     *         settings, see <a
+     *         href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring"
+     *         >Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database
+     *         Migration Service User Guide.</i>
      */
 
     public S3Settings getS3Settings() {
@@ -986,17 +1003,18 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the
-     * <b>Extra Connection Attributes</b> section at <a
-     * href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target for AWS
-     * Database Migration Service</a>.
+     * Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see
+     * <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+     * Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database Migration Service
+     * User Guide.</i>
      * </p>
      * 
      * @param s3Settings
-     *        Settings in JSON format for the target S3 endpoint. For more information about the available settings, see
-     *        the <b>Extra Connection Attributes</b> section at <a
-     *        href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html"> Using Amazon S3 as a Target
-     *        for AWS Database Migration Service</a>.
+     *        Settings in JSON format for the target Amazon S3 endpoint. For more information about the available
+     *        settings, see <a
+     *        href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring"
+     *        >Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS Database
+     *        Migration Service User Guide.</i>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1007,10 +1025,10 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The settings in JSON format for the DMS Transfer type source endpoint.
+     * The settings in JSON format for the DMS transfer type of source endpoint.
      * </p>
      * <p>
-     * Attributes include:
+     * Attributes include the following:
      * </p>
      * <ul>
      * <li>
@@ -1041,9 +1059,9 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * 
      * @param dmsTransferSettings
-     *        The settings in JSON format for the DMS Transfer type source endpoint. </p>
+     *        The settings in JSON format for the DMS transfer type of source endpoint. </p>
      *        <p>
-     *        Attributes include:
+     *        Attributes include the following:
      *        </p>
      *        <ul>
      *        <li>
@@ -1079,10 +1097,10 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The settings in JSON format for the DMS Transfer type source endpoint.
+     * The settings in JSON format for the DMS transfer type of source endpoint.
      * </p>
      * <p>
-     * Attributes include:
+     * Attributes include the following:
      * </p>
      * <ul>
      * <li>
@@ -1112,9 +1130,9 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
      * { "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" }
      * </p>
      * 
-     * @return The settings in JSON format for the DMS Transfer type source endpoint. </p>
+     * @return The settings in JSON format for the DMS transfer type of source endpoint. </p>
      *         <p>
-     *         Attributes include:
+     *         Attributes include the following:
      *         </p>
      *         <ul>
      *         <li>
@@ -1150,10 +1168,10 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The settings in JSON format for the DMS Transfer type source endpoint.
+     * The settings in JSON format for the DMS transfer type of source endpoint.
      * </p>
      * <p>
-     * Attributes include:
+     * Attributes include the following:
      * </p>
      * <ul>
      * <li>
@@ -1184,9 +1202,9 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * 
      * @param dmsTransferSettings
-     *        The settings in JSON format for the DMS Transfer type source endpoint. </p>
+     *        The settings in JSON format for the DMS transfer type of source endpoint. </p>
      *        <p>
-     *        Attributes include:
+     *        Attributes include the following:
      *        </p>
      *        <ul>
      *        <li>
@@ -1225,16 +1243,16 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see
-     * the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service</b> section at
-     * <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using Amazon S3 as a Target
-     * for AWS Database Migration Service</a>.
+     * the configuration properties section in <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a Target for
+     * AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      * 
      * @param mongoDbSettings
      *        Settings in JSON format for the source MongoDB endpoint. For more information about the available
-     *        settings, see the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration
-     *        Service</b> section at <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html">
-     *        Using Amazon S3 as a Target for AWS Database Migration Service</a>.
+     *        settings, see the configuration properties section in <a
+     *        href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a
+     *        Target for AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      */
 
     public void setMongoDbSettings(MongoDbSettings mongoDbSettings) {
@@ -1244,16 +1262,15 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see
-     * the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service</b> section at
-     * <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using Amazon S3 as a Target
-     * for AWS Database Migration Service</a>.
+     * the configuration properties section in <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a Target for
+     * AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      * 
      * @return Settings in JSON format for the source MongoDB endpoint. For more information about the available
-     *         settings, see the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration
-     *         Service</b> section at <a
-     *         href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using Amazon S3 as a
-     *         Target for AWS Database Migration Service</a>.
+     *         settings, see the configuration properties section in <a
+     *         href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a
+     *         Target for AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      */
 
     public MongoDbSettings getMongoDbSettings() {
@@ -1263,16 +1280,16 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see
-     * the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service</b> section at
-     * <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using Amazon S3 as a Target
-     * for AWS Database Migration Service</a>.
+     * the configuration properties section in <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a Target for
+     * AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      * </p>
      * 
      * @param mongoDbSettings
      *        Settings in JSON format for the source MongoDB endpoint. For more information about the available
-     *        settings, see the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration
-     *        Service</b> section at <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html">
-     *        Using Amazon S3 as a Target for AWS Database Migration Service</a>.
+     *        settings, see the configuration properties section in <a
+     *        href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html"> Using MongoDB as a
+     *        Target for AWS Database Migration Service</a> in the <i>AWS Database Migration Service User Guide.</i>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1282,7 +1299,162 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the
+     * available settings, see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     * >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     * Guide.</i>
+     * </p>
+     * 
+     * @param kinesisSettings
+     *        Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about
+     *        the available settings, see <a href=
+     *        "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     *        >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     *        Guide.</i>
+     */
+
+    public void setKinesisSettings(KinesisSettings kinesisSettings) {
+        this.kinesisSettings = kinesisSettings;
+    }
+
+    /**
+     * <p>
+     * Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the
+     * available settings, see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     * >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     * Guide.</i>
+     * </p>
+     * 
+     * @return Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about
+     *         the available settings, see <a href=
+     *         "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     *         >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     *         Guide.</i>
+     */
+
+    public KinesisSettings getKinesisSettings() {
+        return this.kinesisSettings;
+    }
+
+    /**
+     * <p>
+     * Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the
+     * available settings, see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     * >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     * Guide.</i>
+     * </p>
+     * 
+     * @param kinesisSettings
+     *        Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about
+     *        the available settings, see <a href=
+     *        "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping "
+     *        >Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS Database Migration User
+     *        Guide.</i>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyEndpointRequest withKinesisSettings(KinesisSettings kinesisSettings) {
+        setKinesisSettings(kinesisSettings);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings,
+     * see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     * >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     * Migration User Guide.</i>
+     * </p>
+     * 
+     * @param elasticsearchSettings
+     *        Settings in JSON format for the target Elasticsearch endpoint. For more information about the available
+     *        settings, see <a href=
+     *        "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     *        >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     *        Migration User Guide.</i>
+     */
+
+    public void setElasticsearchSettings(ElasticsearchSettings elasticsearchSettings) {
+        this.elasticsearchSettings = elasticsearchSettings;
+    }
+
+    /**
+     * <p>
+     * Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings,
+     * see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     * >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     * Migration User Guide.</i>
+     * </p>
+     * 
+     * @return Settings in JSON format for the target Elasticsearch endpoint. For more information about the available
+     *         settings, see <a href=
+     *         "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     *         >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     *         Migration User Guide.</i>
+     */
+
+    public ElasticsearchSettings getElasticsearchSettings() {
+        return this.elasticsearchSettings;
+    }
+
+    /**
+     * <p>
+     * Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings,
+     * see <a href=
+     * "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     * >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     * Migration User Guide.</i>
+     * </p>
+     * 
+     * @param elasticsearchSettings
+     *        Settings in JSON format for the target Elasticsearch endpoint. For more information about the available
+     *        settings, see <a href=
+     *        "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration"
+     *        >Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the <i>AWS Database
+     *        Migration User Guide.</i>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyEndpointRequest withElasticsearchSettings(ElasticsearchSettings elasticsearchSettings) {
+        setElasticsearchSettings(elasticsearchSettings);
+        return this;
+    }
+
+    /**
+     * @param redshiftSettings
+     */
+
+    public void setRedshiftSettings(RedshiftSettings redshiftSettings) {
+        this.redshiftSettings = redshiftSettings;
+    }
+
+    /**
+     * @return
+     */
+
+    public RedshiftSettings getRedshiftSettings() {
+        return this.redshiftSettings;
+    }
+
+    /**
+     * @param redshiftSettings
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyEndpointRequest withRedshiftSettings(RedshiftSettings redshiftSettings) {
+        setRedshiftSettings(redshiftSettings);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1303,7 +1475,7 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
         if (getUsername() != null)
             sb.append("Username: ").append(getUsername()).append(",");
         if (getPassword() != null)
-            sb.append("Password: ").append(getPassword()).append(",");
+            sb.append("Password: ").append("***Sensitive Data Redacted***").append(",");
         if (getServerName() != null)
             sb.append("ServerName: ").append(getServerName()).append(",");
         if (getPort() != null)
@@ -1327,7 +1499,13 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
         if (getDmsTransferSettings() != null)
             sb.append("DmsTransferSettings: ").append(getDmsTransferSettings()).append(",");
         if (getMongoDbSettings() != null)
-            sb.append("MongoDbSettings: ").append(getMongoDbSettings());
+            sb.append("MongoDbSettings: ").append(getMongoDbSettings()).append(",");
+        if (getKinesisSettings() != null)
+            sb.append("KinesisSettings: ").append(getKinesisSettings()).append(",");
+        if (getElasticsearchSettings() != null)
+            sb.append("ElasticsearchSettings: ").append(getElasticsearchSettings()).append(",");
+        if (getRedshiftSettings() != null)
+            sb.append("RedshiftSettings: ").append(getRedshiftSettings());
         sb.append("}");
         return sb.toString();
     }
@@ -1414,6 +1592,18 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
             return false;
         if (other.getMongoDbSettings() != null && other.getMongoDbSettings().equals(this.getMongoDbSettings()) == false)
             return false;
+        if (other.getKinesisSettings() == null ^ this.getKinesisSettings() == null)
+            return false;
+        if (other.getKinesisSettings() != null && other.getKinesisSettings().equals(this.getKinesisSettings()) == false)
+            return false;
+        if (other.getElasticsearchSettings() == null ^ this.getElasticsearchSettings() == null)
+            return false;
+        if (other.getElasticsearchSettings() != null && other.getElasticsearchSettings().equals(this.getElasticsearchSettings()) == false)
+            return false;
+        if (other.getRedshiftSettings() == null ^ this.getRedshiftSettings() == null)
+            return false;
+        if (other.getRedshiftSettings() != null && other.getRedshiftSettings().equals(this.getRedshiftSettings()) == false)
+            return false;
         return true;
     }
 
@@ -1440,6 +1630,9 @@ public class ModifyEndpointRequest extends com.amazonaws.AmazonWebServiceRequest
         hashCode = prime * hashCode + ((getS3Settings() == null) ? 0 : getS3Settings().hashCode());
         hashCode = prime * hashCode + ((getDmsTransferSettings() == null) ? 0 : getDmsTransferSettings().hashCode());
         hashCode = prime * hashCode + ((getMongoDbSettings() == null) ? 0 : getMongoDbSettings().hashCode());
+        hashCode = prime * hashCode + ((getKinesisSettings() == null) ? 0 : getKinesisSettings().hashCode());
+        hashCode = prime * hashCode + ((getElasticsearchSettings() == null) ? 0 : getElasticsearchSettings().hashCode());
+        hashCode = prime * hashCode + ((getRedshiftSettings() == null) ? 0 : getRedshiftSettings().hashCode());
         return hashCode;
     }
 

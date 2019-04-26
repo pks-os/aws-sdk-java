@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -64,9 +64,15 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
     private String replicaStatus;
     /**
      * <p>
+     * The read/write capacity mode of the replica.
+     * </p>
+     */
+    private BillingModeSummary replicaBillingModeSummary;
+    /**
+     * <p>
      * The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      * <code>ThrottlingException</code>. For more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      */
@@ -81,7 +87,7 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
      * <p>
      * The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For
      * more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      */
@@ -372,16 +378,56 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
 
     /**
      * <p>
+     * The read/write capacity mode of the replica.
+     * </p>
+     * 
+     * @param replicaBillingModeSummary
+     *        The read/write capacity mode of the replica.
+     */
+
+    public void setReplicaBillingModeSummary(BillingModeSummary replicaBillingModeSummary) {
+        this.replicaBillingModeSummary = replicaBillingModeSummary;
+    }
+
+    /**
+     * <p>
+     * The read/write capacity mode of the replica.
+     * </p>
+     * 
+     * @return The read/write capacity mode of the replica.
+     */
+
+    public BillingModeSummary getReplicaBillingModeSummary() {
+        return this.replicaBillingModeSummary;
+    }
+
+    /**
+     * <p>
+     * The read/write capacity mode of the replica.
+     * </p>
+     * 
+     * @param replicaBillingModeSummary
+     *        The read/write capacity mode of the replica.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ReplicaSettingsDescription withReplicaBillingModeSummary(BillingModeSummary replicaBillingModeSummary) {
+        setReplicaBillingModeSummary(replicaBillingModeSummary);
+        return this;
+    }
+
+    /**
+     * <p>
      * The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      * <code>ThrottlingException</code>. For more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      * 
      * @param replicaProvisionedReadCapacityUnits
      *        The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      *        <code>ThrottlingException</code>. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     *        "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      *        >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      */
 
@@ -393,13 +439,13 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
      * <p>
      * The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      * <code>ThrottlingException</code>. For more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      * 
      * @return The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      *         <code>ThrottlingException</code>. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     *         "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      *         >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      */
 
@@ -411,14 +457,14 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
      * <p>
      * The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      * <code>ThrottlingException</code>. For more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      * 
      * @param replicaProvisionedReadCapacityUnits
      *        The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
      *        <code>ThrottlingException</code>. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     *        "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      *        >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -473,14 +519,14 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
      * <p>
      * The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For
      * more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      * 
      * @param replicaProvisionedWriteCapacityUnits
      *        The maximum number of writes consumed per second before DynamoDB returns a
      *        <code>ThrottlingException</code>. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     *        "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      *        >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      */
 
@@ -492,13 +538,13 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
      * <p>
      * The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For
      * more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      * 
      * @return The maximum number of writes consumed per second before DynamoDB returns a
      *         <code>ThrottlingException</code>. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     *         "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      *         >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      */
 
@@ -510,14 +556,14 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
      * <p>
      * The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For
      * more information, see <a href=
-     * "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     * "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      * >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * </p>
      * 
      * @param replicaProvisionedWriteCapacityUnits
      *        The maximum number of writes consumed per second before DynamoDB returns a
      *        <code>ThrottlingException</code>. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
+     *        "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput"
      *        >Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -643,7 +689,8 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -657,6 +704,8 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
             sb.append("RegionName: ").append(getRegionName()).append(",");
         if (getReplicaStatus() != null)
             sb.append("ReplicaStatus: ").append(getReplicaStatus()).append(",");
+        if (getReplicaBillingModeSummary() != null)
+            sb.append("ReplicaBillingModeSummary: ").append(getReplicaBillingModeSummary()).append(",");
         if (getReplicaProvisionedReadCapacityUnits() != null)
             sb.append("ReplicaProvisionedReadCapacityUnits: ").append(getReplicaProvisionedReadCapacityUnits()).append(",");
         if (getReplicaProvisionedReadCapacityAutoScalingSettings() != null)
@@ -688,6 +737,10 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
         if (other.getReplicaStatus() == null ^ this.getReplicaStatus() == null)
             return false;
         if (other.getReplicaStatus() != null && other.getReplicaStatus().equals(this.getReplicaStatus()) == false)
+            return false;
+        if (other.getReplicaBillingModeSummary() == null ^ this.getReplicaBillingModeSummary() == null)
+            return false;
+        if (other.getReplicaBillingModeSummary() != null && other.getReplicaBillingModeSummary().equals(this.getReplicaBillingModeSummary()) == false)
             return false;
         if (other.getReplicaProvisionedReadCapacityUnits() == null ^ this.getReplicaProvisionedReadCapacityUnits() == null)
             return false;
@@ -724,6 +777,7 @@ public class ReplicaSettingsDescription implements Serializable, Cloneable, Stru
 
         hashCode = prime * hashCode + ((getRegionName() == null) ? 0 : getRegionName().hashCode());
         hashCode = prime * hashCode + ((getReplicaStatus() == null) ? 0 : getReplicaStatus().hashCode());
+        hashCode = prime * hashCode + ((getReplicaBillingModeSummary() == null) ? 0 : getReplicaBillingModeSummary().hashCode());
         hashCode = prime * hashCode + ((getReplicaProvisionedReadCapacityUnits() == null) ? 0 : getReplicaProvisionedReadCapacityUnits().hashCode());
         hashCode = prime * hashCode
                 + ((getReplicaProvisionedReadCapacityAutoScalingSettings() == null) ? 0 : getReplicaProvisionedReadCapacityAutoScalingSettings().hashCode());

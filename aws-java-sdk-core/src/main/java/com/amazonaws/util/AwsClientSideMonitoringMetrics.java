@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,5 +21,14 @@ import com.amazonaws.metrics.RequestMetricType;
  * Metrics used for generate client side monitoring events.
  */
 public enum AwsClientSideMonitoringMetrics implements RequestMetricType {
-    Latency
+    /**
+     * The elapsed time, in milliseconds, between when the Api Call was begun and when a final response or error is
+     * manifested to the caller.
+     */
+    ApiCallLatency,
+
+    /**
+     * a boolean value that is false unless the Api call failed and the final attempt returned a retryable error.
+     */
+    MaxRetriesExceeded
 }

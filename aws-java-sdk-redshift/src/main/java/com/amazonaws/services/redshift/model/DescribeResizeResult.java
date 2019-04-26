@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,7 +52,8 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
+     * <code>CANCELLING</code>
      * </p>
      */
     private String status;
@@ -122,8 +123,8 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
     private Long estimatedTimeToCompletionInSeconds;
     /**
      * <p>
-     * An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     * operation being performed.
+     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
+     * the type of resize operation being performed.
      * </p>
      */
     private String resizeType;
@@ -143,6 +144,12 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * </p>
      */
     private String targetEncryptionType;
+    /**
+     * <p>
+     * The percent of data transferred from source cluster to target cluster.
+     * </p>
+     */
+    private Double dataTransferProgressPercent;
 
     /**
      * <p>
@@ -284,13 +291,15 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
+     * <code>CANCELLING</code>
      * </p>
      * 
      * @param status
      *        The status of the resize operation.</p>
      *        <p>
      *        Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     *        | <code>CANCELLING</code>
      */
 
     public void setStatus(String status) {
@@ -302,12 +311,14 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
+     * <code>CANCELLING</code>
      * </p>
      * 
      * @return The status of the resize operation.</p>
      *         <p>
      *         Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     *         | <code>CANCELLING</code>
      */
 
     public String getStatus() {
@@ -319,13 +330,15 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
+     * <code>CANCELLING</code>
      * </p>
      * 
      * @param status
      *        The status of the resize operation.</p>
      *        <p>
      *        Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
+     *        | <code>CANCELLING</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -857,13 +870,13 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     * operation being performed.
+     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
+     * the type of resize operation being performed.
      * </p>
      * 
      * @param resizeType
-     *        An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     *        operation being performed.
+     *        An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values
+     *        describe the type of resize operation being performed.
      */
 
     public void setResizeType(String resizeType) {
@@ -872,12 +885,12 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     * operation being performed.
+     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
+     * the type of resize operation being performed.
      * </p>
      * 
-     * @return An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     *         operation being performed.
+     * @return An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values
+     *         describe the type of resize operation being performed.
      */
 
     public String getResizeType() {
@@ -886,13 +899,13 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     * operation being performed.
+     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
+     * the type of resize operation being performed.
      * </p>
      * 
      * @param resizeType
-     *        An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize
-     *        operation being performed.
+     *        An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values
+     *        describe the type of resize operation being performed.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1003,7 +1016,48 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The percent of data transferred from source cluster to target cluster.
+     * </p>
+     * 
+     * @param dataTransferProgressPercent
+     *        The percent of data transferred from source cluster to target cluster.
+     */
+
+    public void setDataTransferProgressPercent(Double dataTransferProgressPercent) {
+        this.dataTransferProgressPercent = dataTransferProgressPercent;
+    }
+
+    /**
+     * <p>
+     * The percent of data transferred from source cluster to target cluster.
+     * </p>
+     * 
+     * @return The percent of data transferred from source cluster to target cluster.
+     */
+
+    public Double getDataTransferProgressPercent() {
+        return this.dataTransferProgressPercent;
+    }
+
+    /**
+     * <p>
+     * The percent of data transferred from source cluster to target cluster.
+     * </p>
+     * 
+     * @param dataTransferProgressPercent
+     *        The percent of data transferred from source cluster to target cluster.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeResizeResult withDataTransferProgressPercent(Double dataTransferProgressPercent) {
+        setDataTransferProgressPercent(dataTransferProgressPercent);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1042,7 +1096,9 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
         if (getMessage() != null)
             sb.append("Message: ").append(getMessage()).append(",");
         if (getTargetEncryptionType() != null)
-            sb.append("TargetEncryptionType: ").append(getTargetEncryptionType());
+            sb.append("TargetEncryptionType: ").append(getTargetEncryptionType()).append(",");
+        if (getDataTransferProgressPercent() != null)
+            sb.append("DataTransferProgressPercent: ").append(getDataTransferProgressPercent());
         sb.append("}");
         return sb.toString();
     }
@@ -1119,6 +1175,10 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
             return false;
         if (other.getTargetEncryptionType() != null && other.getTargetEncryptionType().equals(this.getTargetEncryptionType()) == false)
             return false;
+        if (other.getDataTransferProgressPercent() == null ^ this.getDataTransferProgressPercent() == null)
+            return false;
+        if (other.getDataTransferProgressPercent() != null && other.getDataTransferProgressPercent().equals(this.getDataTransferProgressPercent()) == false)
+            return false;
         return true;
     }
 
@@ -1142,6 +1202,7 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
         hashCode = prime * hashCode + ((getResizeType() == null) ? 0 : getResizeType().hashCode());
         hashCode = prime * hashCode + ((getMessage() == null) ? 0 : getMessage().hashCode());
         hashCode = prime * hashCode + ((getTargetEncryptionType() == null) ? 0 : getTargetEncryptionType().hashCode());
+        hashCode = prime * hashCode + ((getDataTransferProgressPercent() == null) ? 0 : getDataTransferProgressPercent().hashCode());
         return hashCode;
     }
 

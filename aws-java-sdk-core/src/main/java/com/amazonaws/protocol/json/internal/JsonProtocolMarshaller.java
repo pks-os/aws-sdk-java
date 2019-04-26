@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -163,7 +163,7 @@ public class JsonProtocolMarshaller<OrigRequest> implements ProtocolRequestMarsh
             marshallBinaryPayload(val);
         } else {
             marshallerRegistry.getMarshaller(marshallingInfo.marshallLocation(), marshallingInfo.marshallingType(), val)
-                              .marshall(val, marshallerContext, marshallingInfo.marshallLocationName());
+                              .marshall(val, marshallerContext, marshallingInfo);
         }
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,8 +31,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any
      * resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be
      * "scope-down" policies, such as you could include in a call to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
-     * one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
+     * one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      * operations. In other words, do not use policies designed to restrict what a user can do while using the temporary
      * credentials.
      * </p>
@@ -68,7 +68,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     private com.amazonaws.internal.SdkInternalList<String> actionNames;
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -84,8 +84,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * <p>
      * For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-     * AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
+     * and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> resourceArns;
@@ -166,8 +166,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes
      * VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the
      * subnet resource. For more information on the EC2 scenario options, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a> in
-     * the <i>Amazon EC2 User Guide</i>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>
+     * in the <i>Amazon EC2 User Guide</i>.
      * </p>
      * <ul>
      * <li>
@@ -223,15 +223,15 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     private String resourceHandlingOption;
     /**
      * <p>
-     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
-     * is <code>true</code>.
+     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
+     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
+     * <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
-     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
-     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
-     * service where to continue from.
+     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
+     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
+     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
+     * the service where to continue from.
      * </p>
      */
     private Integer maxItems;
@@ -250,8 +250,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any
      * resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be
      * "scope-down" policies, such as you could include in a call to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
-     * one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
+     * one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      * operations. In other words, do not use policies designed to restrict what a user can do while using the temporary
      * credentials.
      * </p>
@@ -281,9 +281,9 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *         containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in
      *         this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code>
      *         parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a
-     *         href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
+     *         href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
      *         >GetFederationToken</a> or one of the <a
-     *         href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     *         href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      *         operations. In other words, do not use policies designed to restrict what a user can do while using the
      *         temporary credentials.</p>
      *         <p>
@@ -322,8 +322,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any
      * resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be
      * "scope-down" policies, such as you could include in a call to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
-     * one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
+     * one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      * operations. In other words, do not use policies designed to restrict what a user can do while using the temporary
      * credentials.
      * </p>
@@ -354,9 +354,9 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this
      *        parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The
      *        policies cannot be "scope-down" policies, such as you could include in a call to <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
+     *        href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
      *        >GetFederationToken</a> or one of the <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     *        href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      *        operations. In other words, do not use policies designed to restrict what a user can do while using the
      *        temporary credentials.</p>
      *        <p>
@@ -397,8 +397,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any
      * resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be
      * "scope-down" policies, such as you could include in a call to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
-     * one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
+     * one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      * operations. In other words, do not use policies designed to restrict what a user can do while using the temporary
      * credentials.
      * </p>
@@ -434,9 +434,9 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this
      *        parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The
      *        policies cannot be "scope-down" policies, such as you could include in a call to <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
+     *        href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
      *        >GetFederationToken</a> or one of the <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     *        href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      *        operations. In other words, do not use policies designed to restrict what a user can do while using the
      *        temporary credentials.</p>
      *        <p>
@@ -479,8 +479,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any
      * resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be
      * "scope-down" policies, such as you could include in a call to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
-     * one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or
+     * one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      * operations. In other words, do not use policies designed to restrict what a user can do while using the temporary
      * credentials.
      * </p>
@@ -511,9 +511,9 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this
      *        parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The
      *        policies cannot be "scope-down" policies, such as you could include in a call to <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
+     *        href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html"
      *        >GetFederationToken</a> or one of the <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
+     *        href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API
      *        operations. In other words, do not use policies designed to restrict what a user can do while using the
      *        temporary credentials.</p>
      *        <p>
@@ -628,7 +628,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -644,11 +644,11 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * <p>
      * For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-     * AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
+     * and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * </p>
      * 
-     * @return A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
+     * @return A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
      *         value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *         evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *         of each combination and reports it in the response.</p>
@@ -663,7 +663,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *         </p>
      *         <p>
      *         For more information about ARNs, see <a
-     *         href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+     *         href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
      *         (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      */
 
@@ -676,7 +676,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -692,12 +692,12 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * <p>
      * For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-     * AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
+     * and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * </p>
      * 
      * @param resourceArns
-     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
+     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
      *        value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *        evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *        of each combination and reports it in the response.</p>
@@ -712,7 +712,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        </p>
      *        <p>
      *        For more information about ARNs, see <a
-     *        href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+     *        href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
      *        (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      */
 
@@ -727,7 +727,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -743,8 +743,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * <p>
      * For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-     * AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
+     * and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -753,7 +753,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * 
      * @param resourceArns
-     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
+     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
      *        value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *        evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *        of each combination and reports it in the response.</p>
@@ -768,7 +768,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        </p>
      *        <p>
      *        For more information about ARNs, see <a
-     *        href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+     *        href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
      *        (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -785,7 +785,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -801,12 +801,12 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * <p>
      * For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-     * AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)
+     * and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * </p>
      * 
      * @param resourceArns
-     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
+     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
      *        value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *        evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *        of each combination and reports it in the response.</p>
@@ -821,7 +821,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        </p>
      *        <p>
      *        For more information about ARNs, see <a
-     *        href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+     *        href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
      *        (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -1276,8 +1276,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes
      * VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the
      * subnet resource. For more information on the EC2 scenario options, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a> in
-     * the <i>Amazon EC2 User Guide</i>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>
+     * in the <i>Amazon EC2 User Guide</i>.
      * </p>
      * <ul>
      * <li>
@@ -1342,7 +1342,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario
      *        includes VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you
      *        must specify the subnet resource. For more information on the EC2 scenario options, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
      *        Platforms</a> in the <i>Amazon EC2 User Guide</i>.
      *        </p>
      *        <ul>
@@ -1413,8 +1413,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes
      * VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the
      * subnet resource. For more information on the EC2 scenario options, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a> in
-     * the <i>Amazon EC2 User Guide</i>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>
+     * in the <i>Amazon EC2 User Guide</i>.
      * </p>
      * <ul>
      * <li>
@@ -1478,7 +1478,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *         your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2
      *         scenario includes VPC, then you must supply the network-interface resource. If it includes an IP subnet,
      *         then you must specify the subnet resource. For more information on the EC2 scenario options, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
      *         Platforms</a> in the <i>Amazon EC2 User Guide</i>.
      *         </p>
      *         <ul>
@@ -1549,8 +1549,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes
      * VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the
      * subnet resource. For more information on the EC2 scenario options, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a> in
-     * the <i>Amazon EC2 User Guide</i>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>
+     * in the <i>Amazon EC2 User Guide</i>.
      * </p>
      * <ul>
      * <li>
@@ -1615,7 +1615,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      *        scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario
      *        includes VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you
      *        must specify the subnet resource. For more information on the EC2 scenario options, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
      *        Platforms</a> in the <i>Amazon EC2 User Guide</i>.
      *        </p>
      *        <ul>
@@ -1677,26 +1677,26 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
-     * is <code>true</code>.
+     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
+     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
+     * <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
-     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
-     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
-     * service where to continue from.
+     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
+     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
+     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
+     * the service where to continue from.
      * </p>
      * 
      * @param maxItems
-     *        (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     *        response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response
-     *        element is <code>true</code>.</p>
+     *        Use this only when paginating results to indicate the maximum number of items you want in the response. If
+     *        additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
+     *        <code>true</code>.</p>
      *        <p>
-     *        If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even
-     *        when there are more results available. In that case, the <code>IsTruncated</code> response element returns
-     *        <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells
-     *        the service where to continue from.
+     *        If you do not include this parameter, the number of items defaults to 100. Note that IAM might return
+     *        fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
+     *        response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the
+     *        subsequent call that tells the service where to continue from.
      */
 
     public void setMaxItems(Integer maxItems) {
@@ -1705,25 +1705,25 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
-     * is <code>true</code>.
+     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
+     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
+     * <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
-     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
-     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
-     * service where to continue from.
+     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
+     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
+     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
+     * the service where to continue from.
      * </p>
      * 
-     * @return (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     *         response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response
-     *         element is <code>true</code>.</p>
+     * @return Use this only when paginating results to indicate the maximum number of items you want in the response.
+     *         If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
+     *         is <code>true</code>.</p>
      *         <p>
-     *         If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even
-     *         when there are more results available. In that case, the <code>IsTruncated</code> response element
-     *         returns <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that
-     *         tells the service where to continue from.
+     *         If you do not include this parameter, the number of items defaults to 100. Note that IAM might return
+     *         fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
+     *         response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the
+     *         subsequent call that tells the service where to continue from.
      */
 
     public Integer getMaxItems() {
@@ -1732,26 +1732,26 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
-     * is <code>true</code>.
+     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
+     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
+     * <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
-     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
-     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
-     * service where to continue from.
+     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
+     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
+     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
+     * the service where to continue from.
      * </p>
      * 
      * @param maxItems
-     *        (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
-     *        response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response
-     *        element is <code>true</code>.</p>
+     *        Use this only when paginating results to indicate the maximum number of items you want in the response. If
+     *        additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
+     *        <code>true</code>.</p>
      *        <p>
-     *        If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even
-     *        when there are more results available. In that case, the <code>IsTruncated</code> response element returns
-     *        <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells
-     *        the service where to continue from.
+     *        If you do not include this parameter, the number of items defaults to 100. Note that IAM might return
+     *        fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
+     *        response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the
+     *        subsequent call that tells the service where to continue from.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1813,7 +1813,8 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

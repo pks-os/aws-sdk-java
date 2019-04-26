@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,16 +20,14 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DescribeInstancesRequestMarshaller;
 
 /**
- * <p>
- * Contains the parameters for DescribeInstances.
- * </p>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeInstancesRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<DescribeInstancesRequest> {
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -95,6 +93,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     * hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      * </p>
      * </li>
      * <li>
@@ -366,6 +370,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>placement-group-name</code> - The name of the placement group for the instance.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
      * </p>
      * </li>
      * <li>
@@ -494,7 +503,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
     private com.amazonaws.internal.SdkInternalList<Filter> filters;
     /**
      * <p>
-     * One or more instance IDs.
+     * The instance IDs.
      * </p>
      * <p>
      * Default: Describes all your instances.
@@ -518,7 +527,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -584,6 +593,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     * hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      * </p>
      * </li>
      * <li>
@@ -859,6 +874,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -980,7 +1000,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * </ul>
      * 
-     * @return One or more filters.</p>
+     * @return The filters.</p>
      *         <ul>
      *         <li>
      *         <p>
@@ -1045,6 +1065,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *         <li>
      *         <p>
      *         <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled
+     *         for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      *         </p>
      *         </li>
      *         <li>
@@ -1324,6 +1350,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *         </li>
      *         <li>
      *         <p>
+     *         <code>placement-partition-number</code> - The partition in which the instance is located.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
      *         <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise,
      *         leave blank.
      *         </p>
@@ -1458,7 +1489,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -1524,6 +1555,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     * hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      * </p>
      * </li>
      * <li>
@@ -1799,6 +1836,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -1921,7 +1963,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </ul>
      * 
      * @param filters
-     *        One or more filters.</p>
+     *        The filters.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -1986,6 +2028,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     *        hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      *        </p>
      *        </li>
      *        <li>
@@ -2261,6 +2309,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>placement-group-name</code> - The name of the placement group for the instance.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>placement-partition-number</code> - The partition in which the instance is located.
      *        </p>
      *        </li>
      *        <li>
@@ -2400,7 +2453,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -2466,6 +2519,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     * hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      * </p>
      * </li>
      * <li>
@@ -2741,6 +2800,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -2868,7 +2932,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </p>
      * 
      * @param filters
-     *        One or more filters.</p>
+     *        The filters.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -2933,6 +2997,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     *        hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      *        </p>
      *        </li>
      *        <li>
@@ -3208,6 +3278,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>placement-group-name</code> - The name of the placement group for the instance.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>placement-partition-number</code> - The partition in which the instance is located.
      *        </p>
      *        </li>
      *        <li>
@@ -3349,7 +3424,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -3415,6 +3490,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     * hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      * </p>
      * </li>
      * <li>
@@ -3690,6 +3771,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -3812,7 +3898,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </ul>
      * 
      * @param filters
-     *        One or more filters.</p>
+     *        The filters.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -3877,6 +3963,12 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>group-name</code> - The name of the security group for the instance. EC2-Classic only.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for
+     *        hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.
      *        </p>
      *        </li>
      *        <li>
@@ -4156,6 +4248,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        </li>
      *        <li>
      *        <p>
+     *        <code>placement-partition-number</code> - The partition in which the instance is located.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
      *        <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise,
      *        leave blank.
      *        </p>
@@ -4288,13 +4385,13 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more instance IDs.
+     * The instance IDs.
      * </p>
      * <p>
      * Default: Describes all your instances.
      * </p>
      * 
-     * @return One or more instance IDs.</p>
+     * @return The instance IDs.</p>
      *         <p>
      *         Default: Describes all your instances.
      */
@@ -4308,14 +4405,14 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more instance IDs.
+     * The instance IDs.
      * </p>
      * <p>
      * Default: Describes all your instances.
      * </p>
      * 
      * @param instanceIds
-     *        One or more instance IDs.</p>
+     *        The instance IDs.</p>
      *        <p>
      *        Default: Describes all your instances.
      */
@@ -4331,7 +4428,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more instance IDs.
+     * The instance IDs.
      * </p>
      * <p>
      * Default: Describes all your instances.
@@ -4343,7 +4440,7 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </p>
      * 
      * @param instanceIds
-     *        One or more instance IDs.</p>
+     *        The instance IDs.</p>
      *        <p>
      *        Default: Describes all your instances.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -4361,14 +4458,14 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
 
     /**
      * <p>
-     * One or more instance IDs.
+     * The instance IDs.
      * </p>
      * <p>
      * Default: Describes all your instances.
      * </p>
      * 
      * @param instanceIds
-     *        One or more instance IDs.</p>
+     *        The instance IDs.</p>
      *        <p>
      *        Default: Describes all your instances.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -4483,7 +4580,8 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -46,9 +46,7 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     private String availabilityZone;
     /**
      * <p>
-     * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * The lifecycle state for the instance.
      * </p>
      */
     private String lifecycleState;
@@ -202,15 +200,11 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * The lifecycle state for the instance.
      * </p>
      * 
      * @param lifecycleState
-     *        The lifecycle state for the instance. For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     *        Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        The lifecycle state for the instance.
      */
 
     public void setLifecycleState(String lifecycleState) {
@@ -219,14 +213,10 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * The lifecycle state for the instance.
      * </p>
      * 
-     * @return The lifecycle state for the instance. For more information, see <a
-     *         href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     *         Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * @return The lifecycle state for the instance.
      */
 
     public String getLifecycleState() {
@@ -235,15 +225,11 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * The lifecycle state for the instance.
      * </p>
      * 
      * @param lifecycleState
-     *        The lifecycle state for the instance. For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     *        Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        The lifecycle state for the instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -443,7 +429,8 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

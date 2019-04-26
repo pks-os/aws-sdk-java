@@ -15,11 +15,12 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
     "customSignerProvider" : null,
-    "deprecatedSuppressions" : [ "EnumSetterOverload", "ClientConstructors", "ClientMutationMethods" ],
+    "deprecatedSuppressions" : [ "ClientConstructors", "ClientMutationMethods", "EnumSetterOverload" ],
     "emitLegacyEnumSetterFor" : null,
     "operationModifiers" : null,
     "operationsWithResponseStreamContentLengthValidation" : null,
@@ -93,6 +94,7 @@
       "documentation" : "<p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -123,6 +125,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentEC2Request",
@@ -151,6 +154,7 @@
       "documentation" : "<p>Adds an environment member to an AWS Cloud9 development environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -181,6 +185,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentMembershipRequest",
@@ -209,6 +214,7 @@
       "documentation" : "<p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -239,6 +245,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentRequest",
@@ -267,6 +274,7 @@
       "documentation" : "<p>Deletes an environment member from an AWS Cloud9 development environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -297,6 +305,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentMembershipRequest",
@@ -325,6 +334,7 @@
       "documentation" : "<p>Gets information about environment members for an AWS Cloud9 development environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -355,6 +365,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentMembershipsRequest",
@@ -383,6 +394,7 @@
       "documentation" : "<p>Gets status information for an AWS Cloud9 development environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -413,6 +425,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentStatusRequest",
@@ -441,6 +454,7 @@
       "documentation" : "<p>Gets information about AWS Cloud9 development environments.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -471,6 +485,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentsRequest",
@@ -499,6 +514,7 @@
       "documentation" : "<p>Gets a list of AWS Cloud9 development environment identifiers.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -529,6 +545,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListEnvironmentsRequest",
@@ -557,6 +574,7 @@
       "documentation" : "<p>Changes the settings of an existing AWS Cloud9 development environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -587,6 +605,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentRequest",
@@ -615,6 +634,7 @@
       "documentation" : "<p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -645,6 +665,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentMembershipRequest",
@@ -803,6 +824,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>\n@param name The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -868,6 +890,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>The description of the environment to create.</p>\n@param description The description of the environment to create.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -933,6 +956,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientRequestToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>\n@param clientRequestToken A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.*/",
         "setterMethodName" : "setClientRequestToken",
         "setterModel" : {
@@ -998,6 +1022,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "InstanceType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>\n@param instanceType The type of instance to connect to the environment (for example, <code>t2.micro</code>).*/",
         "setterMethodName" : "setInstanceType",
         "setterModel" : {
@@ -1063,6 +1088,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubnetId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>\n@param subnetId The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.*/",
         "setterMethodName" : "setSubnetId",
         "setterModel" : {
@@ -1128,6 +1154,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "AutomaticStopTimeMinutes",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>\n@param automaticStopTimeMinutes The number of minutes until the running instance is shut down after the environment has last been used.*/",
         "setterMethodName" : "setAutomaticStopTimeMinutes",
         "setterModel" : {
@@ -1193,6 +1220,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OwnerArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.*/",
         "setterMethodName" : "setOwnerArn",
         "setterModel" : {
@@ -1260,6 +1288,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "AutomaticStopTimeMinutes",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>\n@param automaticStopTimeMinutes The number of minutes until the running instance is shut down after the environment has last been used.*/",
           "setterMethodName" : "setAutomaticStopTimeMinutes",
           "setterModel" : {
@@ -1326,6 +1355,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientRequestToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>\n@param clientRequestToken A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.*/",
           "setterMethodName" : "setClientRequestToken",
           "setterModel" : {
@@ -1392,6 +1422,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>The description of the environment to create.</p>\n@param description The description of the environment to create.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -1458,6 +1489,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "InstanceType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>\n@param instanceType The type of instance to connect to the environment (for example, <code>t2.micro</code>).*/",
           "setterMethodName" : "setInstanceType",
           "setterModel" : {
@@ -1524,6 +1556,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>\n@param name The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -1590,6 +1623,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OwnerArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.*/",
           "setterMethodName" : "setOwnerArn",
           "setterModel" : {
@@ -1656,6 +1690,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubnetId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>\n@param subnetId The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.*/",
           "setterMethodName" : "setSubnetId",
           "setterModel" : {
@@ -1758,6 +1793,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment that was created.</p>\n@param environmentId The ID of the environment that was created.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -1825,6 +1861,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment that was created.</p>\n@param environmentId The ID of the environment that was created.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -1937,6 +1974,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment that contains the environment member you want to add.</p>\n@param environmentId The ID of the environment that contains the environment member you want to add.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -2002,6 +2040,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member you want to add.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
@@ -2067,6 +2106,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Permissions",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
@@ -2134,6 +2174,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment that contains the environment member you want to add.</p>\n@param environmentId The ID of the environment that contains the environment member you want to add.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -2200,6 +2241,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Permissions",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
@@ -2266,6 +2308,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member you want to add.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
@@ -2368,6 +2411,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Membership",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environment member that was added.</p>\n@param membership Information about the environment member that was added.*/",
         "setterMethodName" : "setMembership",
         "setterModel" : {
@@ -2435,6 +2479,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Membership",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environment member that was added.</p>\n@param membership Information about the environment member that was added.*/",
           "setterMethodName" : "setMembership",
           "setterModel" : {
@@ -2547,6 +2592,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to delete the environment member from.</p>\n@param environmentId The ID of the environment to delete the environment member from.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -2612,6 +2658,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member to delete from the environment.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
@@ -2679,6 +2726,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to delete the environment member from.</p>\n@param environmentId The ID of the environment to delete the environment member from.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -2745,6 +2793,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member to delete from the environment.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
@@ -2894,6 +2943,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to delete.</p>\n@param environmentId The ID of the environment to delete.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -2961,6 +3011,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to delete.</p>\n@param environmentId The ID of the environment to delete.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -3110,6 +3161,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>\n@param userArn The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
@@ -3175,6 +3227,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to get environment member information about.</p>\n@param environmentId The ID of the environment to get environment member information about.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -3277,6 +3330,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see Permissions*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -3320,6 +3374,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Permissions",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>\n@param permissions The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.\n@see Permissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
@@ -3385,6 +3440,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -3450,6 +3506,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The maximum number of environment members to get information about.</p>\n@param maxResults The maximum number of environment members to get information about.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -3517,6 +3574,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to get environment member information about.</p>\n@param environmentId The ID of the environment to get environment member information about.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -3583,6 +3641,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The maximum number of environment members to get information about.</p>\n@param maxResults The maximum number of environment members to get information about.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -3649,6 +3708,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -3752,6 +3812,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see Permissions*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -3795,6 +3856,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Permissions",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>\n@param permissions The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.\n@see Permissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
@@ -3861,6 +3923,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>\n@param userArn The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
@@ -4000,6 +4063,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -4043,6 +4107,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Memberships",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environment members for the environment.</p>\n@param memberships Information about the environment members for the environment.*/",
         "setterMethodName" : "setMemberships",
         "setterModel" : {
@@ -4108,6 +4173,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -4212,6 +4278,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -4255,6 +4322,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Memberships",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environment members for the environment.</p>\n@param memberships Information about the environment members for the environment.*/",
           "setterMethodName" : "setMemberships",
           "setterModel" : {
@@ -4321,6 +4389,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -4433,6 +4502,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to get status information about.</p>\n@param environmentId The ID of the environment to get status information about.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -4500,6 +4570,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to get status information about.</p>\n@param environmentId The ID of the environment to get status information about.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -4602,6 +4673,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>\n@param status The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li>\n@see EnvironmentStatus*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -4667,6 +4739,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Message",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Any informational message about the status of the environment.</p>\n@param message Any informational message about the status of the environment.*/",
         "setterMethodName" : "setMessage",
         "setterModel" : {
@@ -4734,6 +4807,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Message",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Any informational message about the status of the environment.</p>\n@param message Any informational message about the status of the environment.*/",
           "setterMethodName" : "setMessage",
           "setterModel" : {
@@ -4800,6 +4874,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>\n@param status The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li>\n@see EnvironmentStatus*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -4949,6 +5024,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -4992,6 +5068,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "EnvironmentIds",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IDs of individual environments to get information about.</p>\n@param environmentIds The IDs of individual environments to get information about.*/",
         "setterMethodName" : "setEnvironmentIds",
         "setterModel" : {
@@ -5096,6 +5173,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -5139,6 +5217,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "EnvironmentIds",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IDs of individual environments to get information about.</p>\n@param environmentIds The IDs of individual environments to get information about.*/",
           "setterMethodName" : "setEnvironmentIds",
           "setterModel" : {
@@ -5278,6 +5357,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5321,6 +5401,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Environments",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environments that are returned.</p>\n@param environments Information about the environments that are returned.*/",
         "setterMethodName" : "setEnvironments",
         "setterModel" : {
@@ -5425,6 +5506,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -5468,6 +5550,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Environments",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environments that are returned.</p>\n@param environments Information about the environments that are returned.*/",
           "setterMethodName" : "setEnvironments",
           "setterModel" : {
@@ -5573,6 +5656,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment.</p>\n@param id The ID of the environment.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
@@ -5638,6 +5722,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the environment.</p>\n@param name The name of the environment.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -5703,6 +5788,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>The description for the environment.</p>\n@param description The description for the environment.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -5768,6 +5854,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Type",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>\n@param type The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li>\n@see EnvironmentType*/",
         "setterMethodName" : "setType",
         "setterModel" : {
@@ -5833,6 +5920,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Arn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment.</p>\n@param arn The Amazon Resource Name (ARN) of the environment.*/",
         "setterMethodName" : "setArn",
         "setterModel" : {
@@ -5898,6 +5986,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OwnerArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner.*/",
         "setterMethodName" : "setOwnerArn",
         "setterModel" : {
@@ -5921,6 +6010,72 @@
           "documentation" : "<p>The Amazon Resource Name (ARN) of the environment owner.</p>",
           "simpleType" : "String",
           "variableSetterType" : "String"
+        },
+        "xmlNameSpaceUri" : null
+      }, {
+        "c2jName" : "lifecycle",
+        "c2jShape" : "EnvironmentLifecycle",
+        "deprecated" : false,
+        "documentation" : "<p>The state of the environment in its creation or deletion lifecycle.</p>",
+        "enumType" : null,
+        "fluentSetterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@param lifecycle The state of the environment in its creation or deletion lifecycle.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+        "fluentSetterMethodName" : "withLifecycle",
+        "getterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@return The state of the environment in its creation or deletion lifecycle.*/",
+        "getterMethodName" : "getLifecycle",
+        "getterModel" : {
+          "returnType" : "EnvironmentLifecycle",
+          "documentation" : null
+        },
+        "http" : {
+          "additionalMarshallingPath" : null,
+          "additionalUnmarshallingPath" : null,
+          "flattened" : false,
+          "greedy" : false,
+          "header" : false,
+          "isPayload" : false,
+          "isStreaming" : false,
+          "location" : null,
+          "marshallLocation" : "PAYLOAD",
+          "marshallLocationName" : "lifecycle",
+          "queryString" : false,
+          "statusCode" : false,
+          "unmarshallLocationName" : "lifecycle",
+          "uri" : false
+        },
+        "idempotencyToken" : false,
+        "isBinary" : false,
+        "jsonValue" : false,
+        "list" : false,
+        "listModel" : null,
+        "map" : false,
+        "mapModel" : null,
+        "marshallingTargetClass" : "StructuredPojo",
+        "marshallingType" : "STRUCTURED",
+        "name" : "Lifecycle",
+        "sensitive" : false,
+        "setterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@param lifecycle The state of the environment in its creation or deletion lifecycle.*/",
+        "setterMethodName" : "setLifecycle",
+        "setterModel" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "EnvironmentLifecycle",
+          "variableName" : "lifecycle",
+          "variableType" : "EnvironmentLifecycle",
+          "documentation" : "",
+          "simpleType" : "EnvironmentLifecycle",
+          "variableSetterType" : "EnvironmentLifecycle"
+        },
+        "shouldEmitLegacyEnumSetter" : false,
+        "simple" : false,
+        "unmarshallingType" : null,
+        "varargSetterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@param lifecycle The state of the environment in its creation or deletion lifecycle.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+        "variable" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "EnvironmentLifecycle",
+          "variableName" : "lifecycle",
+          "variableType" : "EnvironmentLifecycle",
+          "documentation" : "<p>The state of the environment in its creation or deletion lifecycle.</p>",
+          "simpleType" : "EnvironmentLifecycle",
+          "variableSetterType" : "EnvironmentLifecycle"
         },
         "xmlNameSpaceUri" : null
       } ],
@@ -5965,6 +6120,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Arn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment.</p>\n@param arn The Amazon Resource Name (ARN) of the environment.*/",
           "setterMethodName" : "setArn",
           "setterModel" : {
@@ -6031,6 +6187,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>The description for the environment.</p>\n@param description The description for the environment.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -6097,6 +6254,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment.</p>\n@param id The ID of the environment.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
@@ -6120,6 +6278,73 @@
             "documentation" : "<p>The ID of the environment.</p>",
             "simpleType" : "String",
             "variableSetterType" : "String"
+          },
+          "xmlNameSpaceUri" : null
+        },
+        "Lifecycle" : {
+          "c2jName" : "lifecycle",
+          "c2jShape" : "EnvironmentLifecycle",
+          "deprecated" : false,
+          "documentation" : "<p>The state of the environment in its creation or deletion lifecycle.</p>",
+          "enumType" : null,
+          "fluentSetterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@param lifecycle The state of the environment in its creation or deletion lifecycle.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+          "fluentSetterMethodName" : "withLifecycle",
+          "getterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@return The state of the environment in its creation or deletion lifecycle.*/",
+          "getterMethodName" : "getLifecycle",
+          "getterModel" : {
+            "returnType" : "EnvironmentLifecycle",
+            "documentation" : null
+          },
+          "http" : {
+            "additionalMarshallingPath" : null,
+            "additionalUnmarshallingPath" : null,
+            "flattened" : false,
+            "greedy" : false,
+            "header" : false,
+            "isPayload" : false,
+            "isStreaming" : false,
+            "location" : null,
+            "marshallLocation" : "PAYLOAD",
+            "marshallLocationName" : "lifecycle",
+            "queryString" : false,
+            "statusCode" : false,
+            "unmarshallLocationName" : "lifecycle",
+            "uri" : false
+          },
+          "idempotencyToken" : false,
+          "isBinary" : false,
+          "jsonValue" : false,
+          "list" : false,
+          "listModel" : null,
+          "map" : false,
+          "mapModel" : null,
+          "marshallingTargetClass" : "StructuredPojo",
+          "marshallingType" : "STRUCTURED",
+          "name" : "Lifecycle",
+          "sensitive" : false,
+          "setterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@param lifecycle The state of the environment in its creation or deletion lifecycle.*/",
+          "setterMethodName" : "setLifecycle",
+          "setterModel" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "EnvironmentLifecycle",
+            "variableName" : "lifecycle",
+            "variableType" : "EnvironmentLifecycle",
+            "documentation" : "",
+            "simpleType" : "EnvironmentLifecycle",
+            "variableSetterType" : "EnvironmentLifecycle"
+          },
+          "shouldEmitLegacyEnumSetter" : false,
+          "simple" : false,
+          "unmarshallingType" : null,
+          "varargSetterDocumentation" : "/**<p>The state of the environment in its creation or deletion lifecycle.</p>\n@param lifecycle The state of the environment in its creation or deletion lifecycle.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+          "variable" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "EnvironmentLifecycle",
+            "variableName" : "lifecycle",
+            "variableType" : "EnvironmentLifecycle",
+            "documentation" : "<p>The state of the environment in its creation or deletion lifecycle.</p>",
+            "simpleType" : "EnvironmentLifecycle",
+            "variableSetterType" : "EnvironmentLifecycle"
           },
           "xmlNameSpaceUri" : null
         },
@@ -6163,6 +6388,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the environment.</p>\n@param name The name of the environment.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -6229,6 +6455,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OwnerArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner.*/",
           "setterMethodName" : "setOwnerArn",
           "setterModel" : {
@@ -6295,6 +6522,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Type",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>\n@param type The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li>\n@see EnvironmentType*/",
           "setterMethodName" : "setType",
           "setterModel" : {
@@ -6340,6 +6568,495 @@
         "documentation" : null,
         "simpleType" : "Environment",
         "variableSetterType" : "Environment"
+      },
+      "wrapper" : false
+    },
+    "EnvironmentLifecycle" : {
+      "c2jName" : "EnvironmentLifecycle",
+      "customization" : {
+        "artificialResultWrapper" : null,
+        "skipGeneratingMarshaller" : false,
+        "skipGeneratingModelClass" : false,
+        "skipGeneratingUnmarshaller" : false
+      },
+      "deprecated" : false,
+      "documentation" : "<p>Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.</p>",
+      "enums" : null,
+      "errorCode" : null,
+      "hasHeaderMember" : false,
+      "hasPayloadMember" : false,
+      "hasStatusCodeMember" : false,
+      "hasStreamingMember" : false,
+      "marshaller" : null,
+      "members" : [ {
+        "c2jName" : "status",
+        "c2jShape" : "EnvironmentLifecycleStatus",
+        "deprecated" : false,
+        "documentation" : "<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>",
+        "enumType" : "EnvironmentLifecycleStatus",
+        "fluentSetterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@param status The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentLifecycleStatus*/",
+        "fluentSetterMethodName" : "withStatus",
+        "getterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@return The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@see EnvironmentLifecycleStatus*/",
+        "getterMethodName" : "getStatus",
+        "getterModel" : {
+          "returnType" : "String",
+          "documentation" : null
+        },
+        "http" : {
+          "additionalMarshallingPath" : null,
+          "additionalUnmarshallingPath" : null,
+          "flattened" : false,
+          "greedy" : false,
+          "header" : false,
+          "isPayload" : false,
+          "isStreaming" : false,
+          "location" : null,
+          "marshallLocation" : "PAYLOAD",
+          "marshallLocationName" : "status",
+          "queryString" : false,
+          "statusCode" : false,
+          "unmarshallLocationName" : "status",
+          "uri" : false
+        },
+        "idempotencyToken" : false,
+        "isBinary" : false,
+        "jsonValue" : false,
+        "list" : false,
+        "listModel" : null,
+        "map" : false,
+        "mapModel" : null,
+        "marshallingTargetClass" : "String",
+        "marshallingType" : "STRING",
+        "name" : "Status",
+        "sensitive" : false,
+        "setterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@param status The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@see EnvironmentLifecycleStatus*/",
+        "setterMethodName" : "setStatus",
+        "setterModel" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "String",
+          "variableName" : "status",
+          "variableType" : "String",
+          "documentation" : "",
+          "simpleType" : "String",
+          "variableSetterType" : "String"
+        },
+        "shouldEmitLegacyEnumSetter" : false,
+        "simple" : true,
+        "unmarshallingType" : null,
+        "varargSetterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@param status The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentLifecycleStatus*/",
+        "variable" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "String",
+          "variableName" : "status",
+          "variableType" : "String",
+          "documentation" : "<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>",
+          "simpleType" : "String",
+          "variableSetterType" : "String"
+        },
+        "xmlNameSpaceUri" : null
+      }, {
+        "c2jName" : "reason",
+        "c2jShape" : "String",
+        "deprecated" : false,
+        "documentation" : "<p>Any informational message about the lifecycle state of the environment.</p>",
+        "enumType" : null,
+        "fluentSetterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@param reason Any informational message about the lifecycle state of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+        "fluentSetterMethodName" : "withReason",
+        "getterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@return Any informational message about the lifecycle state of the environment.*/",
+        "getterMethodName" : "getReason",
+        "getterModel" : {
+          "returnType" : "String",
+          "documentation" : null
+        },
+        "http" : {
+          "additionalMarshallingPath" : null,
+          "additionalUnmarshallingPath" : null,
+          "flattened" : false,
+          "greedy" : false,
+          "header" : false,
+          "isPayload" : false,
+          "isStreaming" : false,
+          "location" : null,
+          "marshallLocation" : "PAYLOAD",
+          "marshallLocationName" : "reason",
+          "queryString" : false,
+          "statusCode" : false,
+          "unmarshallLocationName" : "reason",
+          "uri" : false
+        },
+        "idempotencyToken" : false,
+        "isBinary" : false,
+        "jsonValue" : false,
+        "list" : false,
+        "listModel" : null,
+        "map" : false,
+        "mapModel" : null,
+        "marshallingTargetClass" : "String",
+        "marshallingType" : "STRING",
+        "name" : "Reason",
+        "sensitive" : false,
+        "setterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@param reason Any informational message about the lifecycle state of the environment.*/",
+        "setterMethodName" : "setReason",
+        "setterModel" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "String",
+          "variableName" : "reason",
+          "variableType" : "String",
+          "documentation" : "",
+          "simpleType" : "String",
+          "variableSetterType" : "String"
+        },
+        "shouldEmitLegacyEnumSetter" : false,
+        "simple" : true,
+        "unmarshallingType" : null,
+        "varargSetterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@param reason Any informational message about the lifecycle state of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+        "variable" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "String",
+          "variableName" : "reason",
+          "variableType" : "String",
+          "documentation" : "<p>Any informational message about the lifecycle state of the environment.</p>",
+          "simpleType" : "String",
+          "variableSetterType" : "String"
+        },
+        "xmlNameSpaceUri" : null
+      }, {
+        "c2jName" : "failureResource",
+        "c2jShape" : "String",
+        "deprecated" : false,
+        "documentation" : "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>",
+        "enumType" : null,
+        "fluentSetterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@param failureResource If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+        "fluentSetterMethodName" : "withFailureResource",
+        "getterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@return If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.*/",
+        "getterMethodName" : "getFailureResource",
+        "getterModel" : {
+          "returnType" : "String",
+          "documentation" : null
+        },
+        "http" : {
+          "additionalMarshallingPath" : null,
+          "additionalUnmarshallingPath" : null,
+          "flattened" : false,
+          "greedy" : false,
+          "header" : false,
+          "isPayload" : false,
+          "isStreaming" : false,
+          "location" : null,
+          "marshallLocation" : "PAYLOAD",
+          "marshallLocationName" : "failureResource",
+          "queryString" : false,
+          "statusCode" : false,
+          "unmarshallLocationName" : "failureResource",
+          "uri" : false
+        },
+        "idempotencyToken" : false,
+        "isBinary" : false,
+        "jsonValue" : false,
+        "list" : false,
+        "listModel" : null,
+        "map" : false,
+        "mapModel" : null,
+        "marshallingTargetClass" : "String",
+        "marshallingType" : "STRING",
+        "name" : "FailureResource",
+        "sensitive" : false,
+        "setterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@param failureResource If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.*/",
+        "setterMethodName" : "setFailureResource",
+        "setterModel" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "String",
+          "variableName" : "failureResource",
+          "variableType" : "String",
+          "documentation" : "",
+          "simpleType" : "String",
+          "variableSetterType" : "String"
+        },
+        "shouldEmitLegacyEnumSetter" : false,
+        "simple" : true,
+        "unmarshallingType" : null,
+        "varargSetterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@param failureResource If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+        "variable" : {
+          "timestampFormat" : null,
+          "variableDeclarationType" : "String",
+          "variableName" : "failureResource",
+          "variableType" : "String",
+          "documentation" : "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>",
+          "simpleType" : "String",
+          "variableSetterType" : "String"
+        },
+        "xmlNameSpaceUri" : null
+      } ],
+      "membersAsMap" : {
+        "FailureResource" : {
+          "c2jName" : "failureResource",
+          "c2jShape" : "String",
+          "deprecated" : false,
+          "documentation" : "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>",
+          "enumType" : null,
+          "fluentSetterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@param failureResource If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+          "fluentSetterMethodName" : "withFailureResource",
+          "getterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@return If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.*/",
+          "getterMethodName" : "getFailureResource",
+          "getterModel" : {
+            "returnType" : "String",
+            "documentation" : null
+          },
+          "http" : {
+            "additionalMarshallingPath" : null,
+            "additionalUnmarshallingPath" : null,
+            "flattened" : false,
+            "greedy" : false,
+            "header" : false,
+            "isPayload" : false,
+            "isStreaming" : false,
+            "location" : null,
+            "marshallLocation" : "PAYLOAD",
+            "marshallLocationName" : "failureResource",
+            "queryString" : false,
+            "statusCode" : false,
+            "unmarshallLocationName" : "failureResource",
+            "uri" : false
+          },
+          "idempotencyToken" : false,
+          "isBinary" : false,
+          "jsonValue" : false,
+          "list" : false,
+          "listModel" : null,
+          "map" : false,
+          "mapModel" : null,
+          "marshallingTargetClass" : "String",
+          "marshallingType" : "STRING",
+          "name" : "FailureResource",
+          "sensitive" : false,
+          "setterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@param failureResource If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.*/",
+          "setterMethodName" : "setFailureResource",
+          "setterModel" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "String",
+            "variableName" : "failureResource",
+            "variableType" : "String",
+            "documentation" : "",
+            "simpleType" : "String",
+            "variableSetterType" : "String"
+          },
+          "shouldEmitLegacyEnumSetter" : false,
+          "simple" : true,
+          "unmarshallingType" : null,
+          "varargSetterDocumentation" : "/**<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>\n@param failureResource If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+          "variable" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "String",
+            "variableName" : "failureResource",
+            "variableType" : "String",
+            "documentation" : "<p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>",
+            "simpleType" : "String",
+            "variableSetterType" : "String"
+          },
+          "xmlNameSpaceUri" : null
+        },
+        "Reason" : {
+          "c2jName" : "reason",
+          "c2jShape" : "String",
+          "deprecated" : false,
+          "documentation" : "<p>Any informational message about the lifecycle state of the environment.</p>",
+          "enumType" : null,
+          "fluentSetterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@param reason Any informational message about the lifecycle state of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+          "fluentSetterMethodName" : "withReason",
+          "getterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@return Any informational message about the lifecycle state of the environment.*/",
+          "getterMethodName" : "getReason",
+          "getterModel" : {
+            "returnType" : "String",
+            "documentation" : null
+          },
+          "http" : {
+            "additionalMarshallingPath" : null,
+            "additionalUnmarshallingPath" : null,
+            "flattened" : false,
+            "greedy" : false,
+            "header" : false,
+            "isPayload" : false,
+            "isStreaming" : false,
+            "location" : null,
+            "marshallLocation" : "PAYLOAD",
+            "marshallLocationName" : "reason",
+            "queryString" : false,
+            "statusCode" : false,
+            "unmarshallLocationName" : "reason",
+            "uri" : false
+          },
+          "idempotencyToken" : false,
+          "isBinary" : false,
+          "jsonValue" : false,
+          "list" : false,
+          "listModel" : null,
+          "map" : false,
+          "mapModel" : null,
+          "marshallingTargetClass" : "String",
+          "marshallingType" : "STRING",
+          "name" : "Reason",
+          "sensitive" : false,
+          "setterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@param reason Any informational message about the lifecycle state of the environment.*/",
+          "setterMethodName" : "setReason",
+          "setterModel" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "String",
+            "variableName" : "reason",
+            "variableType" : "String",
+            "documentation" : "",
+            "simpleType" : "String",
+            "variableSetterType" : "String"
+          },
+          "shouldEmitLegacyEnumSetter" : false,
+          "simple" : true,
+          "unmarshallingType" : null,
+          "varargSetterDocumentation" : "/**<p>Any informational message about the lifecycle state of the environment.</p>\n@param reason Any informational message about the lifecycle state of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
+          "variable" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "String",
+            "variableName" : "reason",
+            "variableType" : "String",
+            "documentation" : "<p>Any informational message about the lifecycle state of the environment.</p>",
+            "simpleType" : "String",
+            "variableSetterType" : "String"
+          },
+          "xmlNameSpaceUri" : null
+        },
+        "Status" : {
+          "c2jName" : "status",
+          "c2jShape" : "EnvironmentLifecycleStatus",
+          "deprecated" : false,
+          "documentation" : "<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>",
+          "enumType" : "EnvironmentLifecycleStatus",
+          "fluentSetterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@param status The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentLifecycleStatus*/",
+          "fluentSetterMethodName" : "withStatus",
+          "getterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@return The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@see EnvironmentLifecycleStatus*/",
+          "getterMethodName" : "getStatus",
+          "getterModel" : {
+            "returnType" : "String",
+            "documentation" : null
+          },
+          "http" : {
+            "additionalMarshallingPath" : null,
+            "additionalUnmarshallingPath" : null,
+            "flattened" : false,
+            "greedy" : false,
+            "header" : false,
+            "isPayload" : false,
+            "isStreaming" : false,
+            "location" : null,
+            "marshallLocation" : "PAYLOAD",
+            "marshallLocationName" : "status",
+            "queryString" : false,
+            "statusCode" : false,
+            "unmarshallLocationName" : "status",
+            "uri" : false
+          },
+          "idempotencyToken" : false,
+          "isBinary" : false,
+          "jsonValue" : false,
+          "list" : false,
+          "listModel" : null,
+          "map" : false,
+          "mapModel" : null,
+          "marshallingTargetClass" : "String",
+          "marshallingType" : "STRING",
+          "name" : "Status",
+          "sensitive" : false,
+          "setterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@param status The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@see EnvironmentLifecycleStatus*/",
+          "setterMethodName" : "setStatus",
+          "setterModel" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "String",
+            "variableName" : "status",
+            "variableType" : "String",
+            "documentation" : "",
+            "simpleType" : "String",
+            "variableSetterType" : "String"
+          },
+          "shouldEmitLegacyEnumSetter" : false,
+          "simple" : true,
+          "unmarshallingType" : null,
+          "varargSetterDocumentation" : "/**<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>\n@param status The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentLifecycleStatus*/",
+          "variable" : {
+            "timestampFormat" : null,
+            "variableDeclarationType" : "String",
+            "variableName" : "status",
+            "variableType" : "String",
+            "documentation" : "<p>The current creation or deletion lifecycle state of the environment.</p> <ul> <li> <p> <code>CREATED</code>: The environment was successfully created.</p> </li> <li> <p> <code>DELETE_FAILED</code>: The environment failed to delete.</p> </li> <li> <p> <code>DELETING</code>: The environment is in the process of being deleted.</p> </li> </ul>",
+            "simpleType" : "String",
+            "variableSetterType" : "String"
+          },
+          "xmlNameSpaceUri" : null
+        }
+      },
+      "requestSignerAware" : false,
+      "requestSignerClassFqcn" : null,
+      "required" : null,
+      "shapeName" : "EnvironmentLifecycle",
+      "signerAware" : false,
+      "signerType" : null,
+      "unmarshaller" : {
+        "flattened" : false,
+        "resultWrapper" : null
+      },
+      "variable" : {
+        "timestampFormat" : null,
+        "variableDeclarationType" : "EnvironmentLifecycle",
+        "variableName" : "environmentLifecycle",
+        "variableType" : "EnvironmentLifecycle",
+        "documentation" : null,
+        "simpleType" : "EnvironmentLifecycle",
+        "variableSetterType" : "EnvironmentLifecycle"
+      },
+      "wrapper" : false
+    },
+    "EnvironmentLifecycleStatus" : {
+      "c2jName" : "EnvironmentLifecycleStatus",
+      "customization" : {
+        "artificialResultWrapper" : null,
+        "skipGeneratingMarshaller" : false,
+        "skipGeneratingModelClass" : false,
+        "skipGeneratingUnmarshaller" : false
+      },
+      "deprecated" : false,
+      "documentation" : "",
+      "enums" : [ {
+        "name" : "CREATED",
+        "value" : "CREATED"
+      }, {
+        "name" : "DELETING",
+        "value" : "DELETING"
+      }, {
+        "name" : "DELETE_FAILED",
+        "value" : "DELETE_FAILED"
+      } ],
+      "errorCode" : null,
+      "hasHeaderMember" : false,
+      "hasPayloadMember" : false,
+      "hasStatusCodeMember" : false,
+      "hasStreamingMember" : false,
+      "marshaller" : null,
+      "members" : null,
+      "membersAsMap" : { },
+      "requestSignerAware" : false,
+      "requestSignerClassFqcn" : null,
+      "required" : null,
+      "shapeName" : "EnvironmentLifecycleStatus",
+      "signerAware" : false,
+      "signerType" : null,
+      "unmarshaller" : {
+        "flattened" : false,
+        "resultWrapper" : null
+      },
+      "variable" : {
+        "timestampFormat" : null,
+        "variableDeclarationType" : "EnvironmentLifecycleStatus",
+        "variableName" : "environmentLifecycleStatus",
+        "variableType" : "EnvironmentLifecycleStatus",
+        "documentation" : null,
+        "simpleType" : "EnvironmentLifecycleStatus",
+        "variableSetterType" : "EnvironmentLifecycleStatus"
       },
       "wrapper" : false
     },
@@ -6400,6 +7117,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Permissions",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see Permissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
@@ -6465,6 +7183,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>\n@param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.*/",
         "setterMethodName" : "setUserId",
         "setterModel" : {
@@ -6530,6 +7249,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
@@ -6595,6 +7315,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment for the environment member.</p>\n@param environmentId The ID of the environment for the environment member.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -6660,6 +7381,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastAccess",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>\n@param lastAccess The time, expressed in epoch time format, when the environment member last opened the environment.*/",
         "setterMethodName" : "setLastAccess",
         "setterModel" : {
@@ -6727,6 +7449,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment for the environment member.</p>\n@param environmentId The ID of the environment for the environment member.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -6793,6 +7516,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastAccess",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>\n@param lastAccess The time, expressed in epoch time format, when the environment member last opened the environment.*/",
           "setterMethodName" : "setLastAccess",
           "setterModel" : {
@@ -6859,6 +7583,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Permissions",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see Permissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
@@ -6925,6 +7650,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
@@ -6991,6 +7717,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>\n@param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.*/",
           "setterMethodName" : "setUserId",
           "setterModel" : {
@@ -7321,6 +8048,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -7386,6 +8114,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The maximum number of environments to get identifiers for.</p>\n@param maxResults The maximum number of environments to get identifiers for.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -7453,6 +8182,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The maximum number of environments to get identifiers for.</p>\n@param maxResults The maximum number of environments to get identifiers for.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -7519,6 +8249,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -7621,6 +8352,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -7723,6 +8455,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7766,6 +8499,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "EnvironmentIds",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of environment identifiers.</p>\n@param environmentIds The list of environment identifiers.*/",
         "setterMethodName" : "setEnvironmentIds",
         "setterModel" : {
@@ -7870,6 +8604,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -7913,6 +8648,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "EnvironmentIds",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of environment identifiers.</p>\n@param environmentIds The list of environment identifiers.*/",
           "setterMethodName" : "setEnvironmentIds",
           "setterModel" : {
@@ -7979,6 +8715,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -8260,6 +8997,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment for the environment member whose settings you want to change.</p>\n@param environmentId The ID of the environment for the environment member whose settings you want to change.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -8325,6 +9063,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member whose settings you want to change.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
@@ -8390,6 +9129,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Permissions",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
@@ -8457,6 +9197,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment for the environment member whose settings you want to change.</p>\n@param environmentId The ID of the environment for the environment member whose settings you want to change.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -8523,6 +9264,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Permissions",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
@@ -8589,6 +9331,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member whose settings you want to change.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
@@ -8691,6 +9434,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Membership",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environment member whose settings were changed.</p>\n@param membership Information about the environment member whose settings were changed.*/",
         "setterMethodName" : "setMembership",
         "setterModel" : {
@@ -8758,6 +9502,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Membership",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environment member whose settings were changed.</p>\n@param membership Information about the environment member whose settings were changed.*/",
           "setterMethodName" : "setMembership",
           "setterModel" : {
@@ -8870,6 +9615,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to change settings.</p>\n@param environmentId The ID of the environment to change settings.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
@@ -8935,6 +9681,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A replacement name for the environment.</p>\n@param name A replacement name for the environment.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -9000,6 +9747,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : true,
         "setterDocumentation" : "/**<p>Any new or replacement description for the environment.</p>\n@param description Any new or replacement description for the environment.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -9067,6 +9815,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : true,
           "setterDocumentation" : "/**<p>Any new or replacement description for the environment.</p>\n@param description Any new or replacement description for the environment.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -9133,6 +9882,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to change settings.</p>\n@param environmentId The ID of the environment to change settings.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
@@ -9199,6 +9949,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A replacement name for the environment.</p>\n@param name A replacement name for the environment.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -9286,7 +10037,6 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : {
       "CreateEnvironmentEC2" : [ {
@@ -9527,7 +10277,7 @@
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AWSCloud9Exception",

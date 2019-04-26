@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,6 +33,8 @@ public class ProjectSourceMarshaller {
             .marshallLocationName("location").build();
     private static final MarshallingInfo<Integer> GITCLONEDEPTH_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("gitCloneDepth").build();
+    private static final MarshallingInfo<StructuredPojo> GITSUBMODULESCONFIG_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("gitSubmodulesConfig").build();
     private static final MarshallingInfo<String> BUILDSPEC_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("buildspec").build();
     private static final MarshallingInfo<StructuredPojo> AUTH_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
@@ -63,6 +65,7 @@ public class ProjectSourceMarshaller {
             protocolMarshaller.marshall(projectSource.getType(), TYPE_BINDING);
             protocolMarshaller.marshall(projectSource.getLocation(), LOCATION_BINDING);
             protocolMarshaller.marshall(projectSource.getGitCloneDepth(), GITCLONEDEPTH_BINDING);
+            protocolMarshaller.marshall(projectSource.getGitSubmodulesConfig(), GITSUBMODULESCONFIG_BINDING);
             protocolMarshaller.marshall(projectSource.getBuildspec(), BUILDSPEC_BINDING);
             protocolMarshaller.marshall(projectSource.getAuth(), AUTH_BINDING);
             protocolMarshaller.marshall(projectSource.getReportBuildStatus(), REPORTBUILDSTATUS_BINDING);

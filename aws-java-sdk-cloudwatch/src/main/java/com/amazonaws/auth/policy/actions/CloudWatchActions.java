@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -51,6 +51,8 @@ public enum CloudWatchActions implements Action {
     ListDashboards("cloudwatch:ListDashboards"),
     /** Action for the ListMetrics operation. */
     ListMetrics("cloudwatch:ListMetrics"),
+    /** Action for the ListTagsForResource operation. */
+    ListTagsForResource("cloudwatch:ListTagsForResource"),
     /** Action for the PutDashboard operation. */
     PutDashboard("cloudwatch:PutDashboard"),
     /** Action for the PutMetricAlarm operation. */
@@ -59,6 +61,10 @@ public enum CloudWatchActions implements Action {
     PutMetricData("cloudwatch:PutMetricData"),
     /** Action for the SetAlarmState operation. */
     SetAlarmState("cloudwatch:SetAlarmState"),
+    /** Action for the TagResource operation. */
+    TagResource("cloudwatch:TagResource"),
+    /** Action for the UntagResource operation. */
+    UntagResource("cloudwatch:UntagResource"),
 
     ;
 

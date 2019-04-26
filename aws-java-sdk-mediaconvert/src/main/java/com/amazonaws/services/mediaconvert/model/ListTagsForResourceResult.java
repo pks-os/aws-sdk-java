@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,10 +23,14 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ListTagsForResourceResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
+    /** The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource. */
     private ResourceTags resourceTags;
 
     /**
+     * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+     * 
      * @param resourceTags
+     *        The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
      */
 
     public void setResourceTags(ResourceTags resourceTags) {
@@ -34,7 +38,9 @@ public class ListTagsForResourceResult extends com.amazonaws.AmazonWebServiceRes
     }
 
     /**
-     * @return
+     * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+     * 
+     * @return The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
      */
 
     public ResourceTags getResourceTags() {
@@ -42,7 +48,10 @@ public class ListTagsForResourceResult extends com.amazonaws.AmazonWebServiceRes
     }
 
     /**
+     * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+     * 
      * @param resourceTags
+     *        The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -52,7 +61,8 @@ public class ListTagsForResourceResult extends com.amazonaws.AmazonWebServiceRes
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

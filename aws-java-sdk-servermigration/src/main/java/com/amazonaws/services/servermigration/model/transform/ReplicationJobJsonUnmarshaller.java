@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -72,6 +72,10 @@ public class ReplicationJobJsonUnmarshaller implements Unmarshaller<ReplicationJ
                     context.nextToken();
                     replicationJob.setFrequency(context.getUnmarshaller(Integer.class).unmarshall(context));
                 }
+                if (context.testExpression("runOnce", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setRunOnce(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
                 if (context.testExpression("nextReplicationRunStartTime", targetDepth)) {
                     context.nextToken();
                     replicationJob.setNextReplicationRunStartTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
@@ -99,6 +103,18 @@ public class ReplicationJobJsonUnmarshaller implements Unmarshaller<ReplicationJ
                 if (context.testExpression("description", targetDepth)) {
                     context.nextToken();
                     replicationJob.setDescription(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("numberOfRecentAmisToKeep", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setNumberOfRecentAmisToKeep(context.getUnmarshaller(Integer.class).unmarshall(context));
+                }
+                if (context.testExpression("encrypted", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setEncrypted(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
+                if (context.testExpression("kmsKeyId", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setKmsKeyId(context.getUnmarshaller(String.class).unmarshall(context));
                 }
                 if (context.testExpression("replicationRunList", targetDepth)) {
                     context.nextToken();

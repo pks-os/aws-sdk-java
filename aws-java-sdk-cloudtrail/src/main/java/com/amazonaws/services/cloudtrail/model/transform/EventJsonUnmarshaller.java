@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -55,6 +55,14 @@ public class EventJsonUnmarshaller implements Unmarshaller<Event, JsonUnmarshall
                 if (context.testExpression("EventName", targetDepth)) {
                     context.nextToken();
                     event.setEventName(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("ReadOnly", targetDepth)) {
+                    context.nextToken();
+                    event.setReadOnly(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("AccessKeyId", targetDepth)) {
+                    context.nextToken();
+                    event.setAccessKeyId(context.getUnmarshaller(String.class).unmarshall(context));
                 }
                 if (context.testExpression("EventTime", targetDepth)) {
                     context.nextToken();

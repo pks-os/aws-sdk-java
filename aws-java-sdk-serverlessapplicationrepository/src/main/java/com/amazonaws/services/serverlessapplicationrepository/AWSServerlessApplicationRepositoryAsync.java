@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -166,6 +166,41 @@ public interface AWSServerlessApplicationRepositoryAsync extends AWSServerlessAp
 
     /**
      * <p>
+     * Creates an AWS CloudFormation template.
+     * </p>
+     * 
+     * @param createCloudFormationTemplateRequest
+     * @return A Java Future containing the result of the CreateCloudFormationTemplate operation returned by the
+     *         service.
+     * @sample AWSServerlessApplicationRepositoryAsync.CreateCloudFormationTemplate
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/CreateCloudFormationTemplate"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<CreateCloudFormationTemplateResult> createCloudFormationTemplateAsync(
+            CreateCloudFormationTemplateRequest createCloudFormationTemplateRequest);
+
+    /**
+     * <p>
+     * Creates an AWS CloudFormation template.
+     * </p>
+     * 
+     * @param createCloudFormationTemplateRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the CreateCloudFormationTemplate operation returned by the
+     *         service.
+     * @sample AWSServerlessApplicationRepositoryAsyncHandler.CreateCloudFormationTemplate
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/CreateCloudFormationTemplate"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<CreateCloudFormationTemplateResult> createCloudFormationTemplateAsync(
+            CreateCloudFormationTemplateRequest createCloudFormationTemplateRequest,
+            com.amazonaws.handlers.AsyncHandler<CreateCloudFormationTemplateRequest, CreateCloudFormationTemplateResult> asyncHandler);
+
+    /**
+     * <p>
      * Deletes the specified application.
      * </p>
      * 
@@ -259,6 +294,72 @@ public interface AWSServerlessApplicationRepositoryAsync extends AWSServerlessAp
 
     /**
      * <p>
+     * Gets the specified AWS CloudFormation template.
+     * </p>
+     * 
+     * @param getCloudFormationTemplateRequest
+     * @return A Java Future containing the result of the GetCloudFormationTemplate operation returned by the service.
+     * @sample AWSServerlessApplicationRepositoryAsync.GetCloudFormationTemplate
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/GetCloudFormationTemplate"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<GetCloudFormationTemplateResult> getCloudFormationTemplateAsync(
+            GetCloudFormationTemplateRequest getCloudFormationTemplateRequest);
+
+    /**
+     * <p>
+     * Gets the specified AWS CloudFormation template.
+     * </p>
+     * 
+     * @param getCloudFormationTemplateRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the GetCloudFormationTemplate operation returned by the service.
+     * @sample AWSServerlessApplicationRepositoryAsyncHandler.GetCloudFormationTemplate
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/GetCloudFormationTemplate"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<GetCloudFormationTemplateResult> getCloudFormationTemplateAsync(
+            GetCloudFormationTemplateRequest getCloudFormationTemplateRequest,
+            com.amazonaws.handlers.AsyncHandler<GetCloudFormationTemplateRequest, GetCloudFormationTemplateResult> asyncHandler);
+
+    /**
+     * <p>
+     * Retrieves the list of applications nested in the containing application.
+     * </p>
+     * 
+     * @param listApplicationDependenciesRequest
+     * @return A Java Future containing the result of the ListApplicationDependencies operation returned by the service.
+     * @sample AWSServerlessApplicationRepositoryAsync.ListApplicationDependencies
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/ListApplicationDependencies"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ListApplicationDependenciesResult> listApplicationDependenciesAsync(
+            ListApplicationDependenciesRequest listApplicationDependenciesRequest);
+
+    /**
+     * <p>
+     * Retrieves the list of applications nested in the containing application.
+     * </p>
+     * 
+     * @param listApplicationDependenciesRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ListApplicationDependencies operation returned by the service.
+     * @sample AWSServerlessApplicationRepositoryAsyncHandler.ListApplicationDependencies
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/ListApplicationDependencies"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ListApplicationDependenciesResult> listApplicationDependenciesAsync(
+            ListApplicationDependenciesRequest listApplicationDependenciesRequest,
+            com.amazonaws.handlers.AsyncHandler<ListApplicationDependenciesRequest, ListApplicationDependenciesResult> asyncHandler);
+
+    /**
+     * <p>
      * Lists versions for the specified application.
      * </p>
      * 
@@ -321,9 +422,9 @@ public interface AWSServerlessApplicationRepositoryAsync extends AWSServerlessAp
 
     /**
      * <p>
-     * Sets the permission policy for an application. See <a href=
+     * Sets the permission policy for an application. For the list of actions supported for this operation, see <a href=
      * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a> for the list of supported actions that can be used with this operation.
+     * >Application Permissions</a> .
      * </p>
      * 
      * @param putApplicationPolicyRequest
@@ -336,9 +437,9 @@ public interface AWSServerlessApplicationRepositoryAsync extends AWSServerlessAp
 
     /**
      * <p>
-     * Sets the permission policy for an application. See <a href=
+     * Sets the permission policy for an application. For the list of actions supported for this operation, see <a href=
      * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a> for the list of supported actions that can be used with this operation.
+     * >Application Permissions</a> .
      * </p>
      * 
      * @param putApplicationPolicyRequest

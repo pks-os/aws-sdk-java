@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,6 +52,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      * <li>
      * <p>
      * FAILED - The job did not complete. To get details, use the operation.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * STOPPED - The job was successfully stopped without completing.
      * </p>
      * </li>
      * </ul>
@@ -123,6 +133,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      * FAILED - The job did not complete. To get details, use the operation.
      * </p>
      * </li>
+     * <li>
+     * <p>
+     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * STOPPED - The job was successfully stopped without completing.
+     * </p>
+     * </li>
      * </ul>
      * 
      * @param jobStatus
@@ -146,6 +166,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      *        <li>
      *        <p>
      *        FAILED - The job did not complete. To get details, use the operation.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        STOPPED - The job was successfully stopped without completing.
      *        </p>
      *        </li>
      * @see JobStatus
@@ -180,6 +210,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      * FAILED - The job did not complete. To get details, use the operation.
      * </p>
      * </li>
+     * <li>
+     * <p>
+     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * STOPPED - The job was successfully stopped without completing.
+     * </p>
+     * </li>
      * </ul>
      * 
      * @return The status of the job. </p>
@@ -202,6 +242,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      *         <li>
      *         <p>
      *         FAILED - The job did not complete. To get details, use the operation.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         STOPPED - The job was successfully stopped without completing.
      *         </p>
      *         </li>
      * @see JobStatus
@@ -236,6 +286,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      * FAILED - The job did not complete. To get details, use the operation.
      * </p>
      * </li>
+     * <li>
+     * <p>
+     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * STOPPED - The job was successfully stopped without completing.
+     * </p>
+     * </li>
      * </ul>
      * 
      * @param jobStatus
@@ -259,6 +319,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      *        <li>
      *        <p>
      *        FAILED - The job did not complete. To get details, use the operation.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        STOPPED - The job was successfully stopped without completing.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -295,6 +365,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      * FAILED - The job did not complete. To get details, use the operation.
      * </p>
      * </li>
+     * <li>
+     * <p>
+     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * STOPPED - The job was successfully stopped without completing.
+     * </p>
+     * </li>
      * </ul>
      * 
      * @param jobStatus
@@ -320,6 +400,16 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
      *        FAILED - The job did not complete. To get details, use the operation.
      *        </p>
      *        </li>
+     *        <li>
+     *        <p>
+     *        STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        STOPPED - The job was successfully stopped without completing.
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see JobStatus
      */
@@ -330,7 +420,8 @@ public class StartEntitiesDetectionJobResult extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

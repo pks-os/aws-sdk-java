@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,6 +31,13 @@ public class UpdateGlobalTableSettingsRequest extends com.amazonaws.AmazonWebSer
      * </p>
      */
     private String globalTableName;
+    /**
+     * <p>
+     * The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table
+     * defaults to <code>PROVISIONED</code> capacity billing mode.
+     * </p>
+     */
+    private String globalTableBillingMode;
     /**
      * <p>
      * The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code>
@@ -93,6 +100,73 @@ public class UpdateGlobalTableSettingsRequest extends com.amazonaws.AmazonWebSer
 
     public UpdateGlobalTableSettingsRequest withGlobalTableName(String globalTableName) {
         setGlobalTableName(globalTableName);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table
+     * defaults to <code>PROVISIONED</code> capacity billing mode.
+     * </p>
+     * 
+     * @param globalTableBillingMode
+     *        The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global
+     *        table defaults to <code>PROVISIONED</code> capacity billing mode.
+     * @see BillingMode
+     */
+
+    public void setGlobalTableBillingMode(String globalTableBillingMode) {
+        this.globalTableBillingMode = globalTableBillingMode;
+    }
+
+    /**
+     * <p>
+     * The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table
+     * defaults to <code>PROVISIONED</code> capacity billing mode.
+     * </p>
+     * 
+     * @return The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global
+     *         table defaults to <code>PROVISIONED</code> capacity billing mode.
+     * @see BillingMode
+     */
+
+    public String getGlobalTableBillingMode() {
+        return this.globalTableBillingMode;
+    }
+
+    /**
+     * <p>
+     * The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table
+     * defaults to <code>PROVISIONED</code> capacity billing mode.
+     * </p>
+     * 
+     * @param globalTableBillingMode
+     *        The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global
+     *        table defaults to <code>PROVISIONED</code> capacity billing mode.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see BillingMode
+     */
+
+    public UpdateGlobalTableSettingsRequest withGlobalTableBillingMode(String globalTableBillingMode) {
+        setGlobalTableBillingMode(globalTableBillingMode);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table
+     * defaults to <code>PROVISIONED</code> capacity billing mode.
+     * </p>
+     * 
+     * @param globalTableBillingMode
+     *        The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global
+     *        table defaults to <code>PROVISIONED</code> capacity billing mode.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see BillingMode
+     */
+
+    public UpdateGlobalTableSettingsRequest withGlobalTableBillingMode(BillingMode globalTableBillingMode) {
+        this.globalTableBillingMode = globalTableBillingMode.toString();
         return this;
     }
 
@@ -328,7 +402,8 @@ public class UpdateGlobalTableSettingsRequest extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -340,6 +415,8 @@ public class UpdateGlobalTableSettingsRequest extends com.amazonaws.AmazonWebSer
         sb.append("{");
         if (getGlobalTableName() != null)
             sb.append("GlobalTableName: ").append(getGlobalTableName()).append(",");
+        if (getGlobalTableBillingMode() != null)
+            sb.append("GlobalTableBillingMode: ").append(getGlobalTableBillingMode()).append(",");
         if (getGlobalTableProvisionedWriteCapacityUnits() != null)
             sb.append("GlobalTableProvisionedWriteCapacityUnits: ").append(getGlobalTableProvisionedWriteCapacityUnits()).append(",");
         if (getGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate() != null)
@@ -366,6 +443,10 @@ public class UpdateGlobalTableSettingsRequest extends com.amazonaws.AmazonWebSer
         if (other.getGlobalTableName() == null ^ this.getGlobalTableName() == null)
             return false;
         if (other.getGlobalTableName() != null && other.getGlobalTableName().equals(this.getGlobalTableName()) == false)
+            return false;
+        if (other.getGlobalTableBillingMode() == null ^ this.getGlobalTableBillingMode() == null)
+            return false;
+        if (other.getGlobalTableBillingMode() != null && other.getGlobalTableBillingMode().equals(this.getGlobalTableBillingMode()) == false)
             return false;
         if (other.getGlobalTableProvisionedWriteCapacityUnits() == null ^ this.getGlobalTableProvisionedWriteCapacityUnits() == null)
             return false;
@@ -397,6 +478,7 @@ public class UpdateGlobalTableSettingsRequest extends com.amazonaws.AmazonWebSer
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getGlobalTableName() == null) ? 0 : getGlobalTableName().hashCode());
+        hashCode = prime * hashCode + ((getGlobalTableBillingMode() == null) ? 0 : getGlobalTableBillingMode().hashCode());
         hashCode = prime * hashCode + ((getGlobalTableProvisionedWriteCapacityUnits() == null) ? 0 : getGlobalTableProvisionedWriteCapacityUnits().hashCode());
         hashCode = prime
                 * hashCode

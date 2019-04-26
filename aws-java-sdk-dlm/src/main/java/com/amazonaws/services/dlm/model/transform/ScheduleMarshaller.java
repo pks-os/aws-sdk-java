@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,6 +30,8 @@ public class ScheduleMarshaller {
 
     private static final MarshallingInfo<String> NAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("Name").build();
+    private static final MarshallingInfo<Boolean> COPYTAGS_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CopyTags").build();
     private static final MarshallingInfo<List> TAGSTOADD_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("TagsToAdd").build();
     private static final MarshallingInfo<StructuredPojo> CREATERULE_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
@@ -54,6 +56,7 @@ public class ScheduleMarshaller {
 
         try {
             protocolMarshaller.marshall(schedule.getName(), NAME_BINDING);
+            protocolMarshaller.marshall(schedule.getCopyTags(), COPYTAGS_BINDING);
             protocolMarshaller.marshall(schedule.getTagsToAdd(), TAGSTOADD_BINDING);
             protocolMarshaller.marshall(schedule.getCreateRule(), CREATERULE_BINDING);
             protocolMarshaller.marshall(schedule.getRetainRule(), RETAINRULE_BINDING);

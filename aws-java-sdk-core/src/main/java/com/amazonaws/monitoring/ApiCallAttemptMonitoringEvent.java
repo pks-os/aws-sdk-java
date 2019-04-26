@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,8 +24,6 @@ public class ApiCallAttemptMonitoringEvent extends ApiMonitoringEvent {
     public static final String API_CALL_ATTEMPT_MONITORING_EVENT_TYPE = "ApiCallAttempt";
 
     private String fqdn;
-    private String region;
-    private String userAgent;
     private String accessKey;
     private String sessionToken;
     private Integer httpStatusCode;
@@ -48,6 +46,12 @@ public class ApiCallAttemptMonitoringEvent extends ApiMonitoringEvent {
     @Override
     public ApiCallAttemptMonitoringEvent withVersion(Integer version) {
         this.version = version;
+        return this;
+    }
+
+    @Override
+    public ApiCallAttemptMonitoringEvent withUserAgent(String userAgent) {
+        this.userAgent = userAgent;
         return this;
     }
 
@@ -94,38 +98,14 @@ public class ApiCallAttemptMonitoringEvent extends ApiMonitoringEvent {
     }
 
     /**
-     * @return the signing region used by the service client that made the request attempt.
-     */
-    public String getRegion() {
-        return region;
-    }
-
-    /**
      * Sets the region
      *
      * @param region The new region value.
      * @return This object for method chaining.
      */
+    @Override
     public ApiCallAttemptMonitoringEvent withRegion(String region) {
         this.region = region;
-        return this;
-    }
-
-    /**
-     * @return The full value of the SDK's default user agent header for http requests.
-     */
-    public String getUserAgent() {
-        return userAgent;
-    }
-
-    /**
-     * Sets the userAgent
-     *
-     * @param userAgent The new userAgent value.
-     * @return This object for method chaining.
-     */
-    public ApiCallAttemptMonitoringEvent withUserAgent(String userAgent) {
-        this.userAgent = userAgent;
         return this;
     }
 

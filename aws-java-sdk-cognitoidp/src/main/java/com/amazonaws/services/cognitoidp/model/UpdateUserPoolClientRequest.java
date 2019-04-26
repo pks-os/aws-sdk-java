@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -156,10 +156,6 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * <p>
      * Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response.
      * This code can be exchanged for access tokens with the token endpoint.
-     * </p>
-     * <p>
-     * Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token,
-     * based on scopes) directly.
      * </p>
      */
     private java.util.List<String> allowedOAuthFlows;
@@ -1235,16 +1231,9 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response.
      * This code can be exchanged for access tokens with the token endpoint.
      * </p>
-     * <p>
-     * Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token,
-     * based on scopes) directly.
-     * </p>
      * 
      * @return Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the
-     *         response. This code can be exchanged for access tokens with the token endpoint.</p>
-     *         <p>
-     *         Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID
-     *         token, based on scopes) directly.
+     *         response. This code can be exchanged for access tokens with the token endpoint.
      * @see OAuthFlowType
      */
 
@@ -1257,17 +1246,10 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response.
      * This code can be exchanged for access tokens with the token endpoint.
      * </p>
-     * <p>
-     * Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token,
-     * based on scopes) directly.
-     * </p>
      * 
      * @param allowedOAuthFlows
      *        Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the
-     *        response. This code can be exchanged for access tokens with the token endpoint.</p>
-     *        <p>
-     *        Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID
-     *        token, based on scopes) directly.
+     *        response. This code can be exchanged for access tokens with the token endpoint.
      * @see OAuthFlowType
      */
 
@@ -1286,10 +1268,6 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * This code can be exchanged for access tokens with the token endpoint.
      * </p>
      * <p>
-     * Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token,
-     * based on scopes) directly.
-     * </p>
-     * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setAllowedOAuthFlows(java.util.Collection)} or {@link #withAllowedOAuthFlows(java.util.Collection)} if
      * you want to override the existing values.
@@ -1297,10 +1275,7 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * 
      * @param allowedOAuthFlows
      *        Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the
-     *        response. This code can be exchanged for access tokens with the token endpoint.</p>
-     *        <p>
-     *        Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID
-     *        token, based on scopes) directly.
+     *        response. This code can be exchanged for access tokens with the token endpoint.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see OAuthFlowType
      */
@@ -1320,17 +1295,10 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response.
      * This code can be exchanged for access tokens with the token endpoint.
      * </p>
-     * <p>
-     * Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token,
-     * based on scopes) directly.
-     * </p>
      * 
      * @param allowedOAuthFlows
      *        Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the
-     *        response. This code can be exchanged for access tokens with the token endpoint.</p>
-     *        <p>
-     *        Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID
-     *        token, based on scopes) directly.
+     *        response. This code can be exchanged for access tokens with the token endpoint.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see OAuthFlowType
      */
@@ -1345,17 +1313,10 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
      * Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response.
      * This code can be exchanged for access tokens with the token endpoint.
      * </p>
-     * <p>
-     * Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token,
-     * based on scopes) directly.
-     * </p>
      * 
      * @param allowedOAuthFlows
      *        Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the
-     *        response. This code can be exchanged for access tokens with the token endpoint.</p>
-     *        <p>
-     *        Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID
-     *        token, based on scopes) directly.
+     *        response. This code can be exchanged for access tokens with the token endpoint.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see OAuthFlowType
      */
@@ -1548,7 +1509,8 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1561,7 +1523,7 @@ public class UpdateUserPoolClientRequest extends com.amazonaws.AmazonWebServiceR
         if (getUserPoolId() != null)
             sb.append("UserPoolId: ").append(getUserPoolId()).append(",");
         if (getClientId() != null)
-            sb.append("ClientId: ").append(getClientId()).append(",");
+            sb.append("ClientId: ").append("***Sensitive Data Redacted***").append(",");
         if (getClientName() != null)
             sb.append("ClientName: ").append(getClientName()).append(",");
         if (getRefreshTokenValidity() != null)

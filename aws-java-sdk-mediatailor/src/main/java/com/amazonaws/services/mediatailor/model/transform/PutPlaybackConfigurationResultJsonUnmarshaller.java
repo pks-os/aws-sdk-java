@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -56,6 +56,10 @@ public class PutPlaybackConfigurationResultJsonUnmarshaller implements Unmarshal
                     context.nextToken();
                     putPlaybackConfigurationResult.setCdnConfiguration(CdnConfigurationJsonUnmarshaller.getInstance().unmarshall(context));
                 }
+                if (context.testExpression("DashConfiguration", targetDepth)) {
+                    context.nextToken();
+                    putPlaybackConfigurationResult.setDashConfiguration(DashConfigurationJsonUnmarshaller.getInstance().unmarshall(context));
+                }
                 if (context.testExpression("HlsConfiguration", targetDepth)) {
                     context.nextToken();
                     putPlaybackConfigurationResult.setHlsConfiguration(HlsConfigurationJsonUnmarshaller.getInstance().unmarshall(context));
@@ -63,6 +67,10 @@ public class PutPlaybackConfigurationResultJsonUnmarshaller implements Unmarshal
                 if (context.testExpression("Name", targetDepth)) {
                     context.nextToken();
                     putPlaybackConfigurationResult.setName(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("PlaybackConfigurationArn", targetDepth)) {
+                    context.nextToken();
+                    putPlaybackConfigurationResult.setPlaybackConfigurationArn(context.getUnmarshaller(String.class).unmarshall(context));
                 }
                 if (context.testExpression("PlaybackEndpointPrefix", targetDepth)) {
                     context.nextToken();
@@ -75,6 +83,15 @@ public class PutPlaybackConfigurationResultJsonUnmarshaller implements Unmarshal
                 if (context.testExpression("SlateAdUrl", targetDepth)) {
                     context.nextToken();
                     putPlaybackConfigurationResult.setSlateAdUrl(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    putPlaybackConfigurationResult.setTags(new MapUnmarshaller<String, String>(context.getUnmarshaller(String.class), context
+                            .getUnmarshaller(String.class)).unmarshall(context));
+                }
+                if (context.testExpression("TranscodeProfileName", targetDepth)) {
+                    context.nextToken();
+                    putPlaybackConfigurationResult.setTranscodeProfileName(context.getUnmarshaller(String.class).unmarshall(context));
                 }
                 if (context.testExpression("VideoContentSourceUrl", targetDepth)) {
                     context.nextToken();

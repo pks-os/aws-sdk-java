@@ -15,6 +15,7 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
@@ -98,6 +99,7 @@
       "documentation" : "<p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -124,6 +126,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "BulkPublishRequest",
@@ -152,6 +155,7 @@
       "documentation" : "<p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p> <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -178,6 +182,7 @@
         "httpStatusCode" : 409
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteDatasetRequest",
@@ -206,6 +211,7 @@
       "documentation" : "<p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p> <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -228,6 +234,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeDatasetRequest",
@@ -256,6 +263,7 @@
       "documentation" : "<p>Gets usage details (for example, data storage) about a particular identity pool.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -278,6 +286,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeIdentityPoolUsageRequest",
@@ -306,6 +315,7 @@
       "documentation" : "<p>Gets usage information for an identity, including number of datasets and data usage.</p> <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -328,6 +338,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeIdentityUsageRequest",
@@ -356,6 +367,7 @@
       "documentation" : "<p>Get the status of the last BulkPublish operation for an identity pool.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -374,6 +386,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetBulkPublishDetailsRequest",
@@ -402,6 +415,7 @@
       "documentation" : "<p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidParameterException",
         "documentation" : "Thrown when a request parameter does not comply with the associated constraints.",
@@ -424,6 +438,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetCognitoEventsRequest",
@@ -452,6 +467,7 @@
       "documentation" : "<p>Gets the configuration settings of an identity pool.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -474,6 +490,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetIdentityPoolConfigurationRequest",
@@ -502,6 +519,7 @@
       "documentation" : "<p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p> <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -520,6 +538,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListDatasetsRequest",
@@ -548,6 +567,7 @@
       "documentation" : "<p>Gets a list of identity pools registered with Cognito.</p> <p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -566,6 +586,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListIdentityPoolUsageRequest",
@@ -594,6 +615,7 @@
       "documentation" : "<p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p> <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidParameterException",
         "documentation" : "Thrown when a request parameter does not comply with the associated constraints.",
@@ -612,6 +634,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListRecordsRequest",
@@ -640,6 +663,7 @@
       "documentation" : "<p>Registers a device to receive push sync notifications.</p> <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -666,6 +690,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "RegisterDeviceRequest",
@@ -694,6 +719,7 @@
       "documentation" : "<p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidParameterException",
         "documentation" : "Thrown when a request parameter does not comply with the associated constraints.",
@@ -716,6 +742,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "SetCognitoEventsRequest",
@@ -744,6 +771,7 @@
       "documentation" : "<p>Sets the necessary configuration for push sync.</p> <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -770,6 +798,7 @@
         "httpStatusCode" : 400
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "SetIdentityPoolConfigurationRequest",
@@ -798,6 +827,7 @@
       "documentation" : "<p>Subscribes to receive notifications when a dataset is modified by another device.</p> <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -824,6 +854,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "SubscribeToDatasetRequest",
@@ -852,6 +883,7 @@
       "documentation" : "<p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p> <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "NotAuthorizedException",
         "documentation" : "Thrown when a user is not authorized to access the requested resource.",
@@ -878,6 +910,7 @@
         "httpStatusCode" : 429
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UnsubscribeFromDatasetRequest",
@@ -906,6 +939,7 @@
       "documentation" : "<p>Posts updates to records and adds and deletes records for a dataset and user.</p> <p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p> <p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p> <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidParameterException",
         "documentation" : "Thrown when a request parameter does not comply with the associated constraints.",
@@ -944,6 +978,7 @@
         "httpStatusCode" : 500
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UpdateRecordsRequest",
@@ -1065,6 +1100,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -1132,6 +1168,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -1234,6 +1271,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -1301,6 +1339,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -1458,6 +1497,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StreamName",
+        "sensitive" : false,
         "setterDocumentation" : "/**The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.\n@param streamName The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.*/",
         "setterMethodName" : "setStreamName",
         "setterModel" : {
@@ -1523,6 +1563,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "RoleArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.\n@param roleArn The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.*/",
         "setterMethodName" : "setRoleArn",
         "setterModel" : {
@@ -1588,6 +1629,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StreamingStatus",
+        "sensitive" : false,
         "setterDocumentation" : "/**Status of the Cognito streams. Valid values are: <p>ENABLED - Streaming of updates to identity pool is enabled.</p> <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n@param streamingStatus Status of the Cognito streams. Valid values are: <p>ENABLED - Streaming of updates to identity pool is enabled.</p> <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n@see StreamingStatus*/",
         "setterMethodName" : "setStreamingStatus",
         "setterModel" : {
@@ -1655,6 +1697,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "RoleArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.\n@param roleArn The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.*/",
           "setterMethodName" : "setRoleArn",
           "setterModel" : {
@@ -1721,6 +1764,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StreamName",
+          "sensitive" : false,
           "setterDocumentation" : "/**The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.\n@param streamName The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.*/",
           "setterMethodName" : "setStreamName",
           "setterModel" : {
@@ -1787,6 +1831,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StreamingStatus",
+          "sensitive" : false,
           "setterDocumentation" : "/**Status of the Cognito streams. Valid values are: <p>ENABLED - Streaming of updates to identity pool is enabled.</p> <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n@param streamingStatus Status of the Cognito streams. Valid values are: <p>ENABLED - Streaming of updates to identity pool is enabled.</p> <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n@see StreamingStatus*/",
           "setterMethodName" : "setStreamingStatus",
           "setterModel" : {
@@ -1929,6 +1974,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -1994,6 +2040,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -2059,6 +2106,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "CreationDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**Date on which the dataset was created.\n@param creationDate Date on which the dataset was created.*/",
         "setterMethodName" : "setCreationDate",
         "setterModel" : {
@@ -2124,6 +2172,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastModifiedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**Date when the dataset was last modified.\n@param lastModifiedDate Date when the dataset was last modified.*/",
         "setterMethodName" : "setLastModifiedDate",
         "setterModel" : {
@@ -2189,6 +2238,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LastModifiedBy",
+        "sensitive" : false,
         "setterDocumentation" : "/**The device that made the last change to this dataset.\n@param lastModifiedBy The device that made the last change to this dataset.*/",
         "setterMethodName" : "setLastModifiedBy",
         "setterModel" : {
@@ -2254,6 +2304,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "DataStorage",
+        "sensitive" : false,
         "setterDocumentation" : "/**Total size in bytes of the records in this dataset.\n@param dataStorage Total size in bytes of the records in this dataset.*/",
         "setterMethodName" : "setDataStorage",
         "setterModel" : {
@@ -2319,6 +2370,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "NumRecords",
+        "sensitive" : false,
         "setterDocumentation" : "/**Number of records in this dataset.\n@param numRecords Number of records in this dataset.*/",
         "setterMethodName" : "setNumRecords",
         "setterModel" : {
@@ -2386,6 +2438,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "CreationDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**Date on which the dataset was created.\n@param creationDate Date on which the dataset was created.*/",
           "setterMethodName" : "setCreationDate",
           "setterModel" : {
@@ -2452,6 +2505,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "DataStorage",
+          "sensitive" : false,
           "setterDocumentation" : "/**Total size in bytes of the records in this dataset.\n@param dataStorage Total size in bytes of the records in this dataset.*/",
           "setterMethodName" : "setDataStorage",
           "setterModel" : {
@@ -2518,6 +2572,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -2584,6 +2639,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -2650,6 +2706,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LastModifiedBy",
+          "sensitive" : false,
           "setterDocumentation" : "/**The device that made the last change to this dataset.\n@param lastModifiedBy The device that made the last change to this dataset.*/",
           "setterMethodName" : "setLastModifiedBy",
           "setterModel" : {
@@ -2716,6 +2773,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastModifiedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**Date when the dataset was last modified.\n@param lastModifiedDate Date when the dataset was last modified.*/",
           "setterMethodName" : "setLastModifiedDate",
           "setterModel" : {
@@ -2782,6 +2840,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "NumRecords",
+          "sensitive" : false,
           "setterDocumentation" : "/**Number of records in this dataset.\n@param numRecords Number of records in this dataset.*/",
           "setterMethodName" : "setNumRecords",
           "setterModel" : {
@@ -2894,6 +2953,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -2959,6 +3019,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -3024,6 +3085,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -3091,6 +3153,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -3157,6 +3220,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -3223,6 +3287,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -3325,6 +3390,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Dataset",
+        "sensitive" : false,
         "setterDocumentation" : "/**A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.\n@param dataset A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.*/",
         "setterMethodName" : "setDataset",
         "setterModel" : {
@@ -3392,6 +3458,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Dataset",
+          "sensitive" : false,
           "setterDocumentation" : "/**A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.\n@param dataset A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.*/",
           "setterMethodName" : "setDataset",
           "setterModel" : {
@@ -3504,6 +3571,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -3569,6 +3637,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -3634,6 +3703,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -3701,6 +3771,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -3767,6 +3838,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -3833,6 +3905,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -3935,6 +4008,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Dataset",
+        "sensitive" : false,
         "setterDocumentation" : "/**Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.\n@param dataset Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.*/",
         "setterMethodName" : "setDataset",
         "setterModel" : {
@@ -4002,6 +4076,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Dataset",
+          "sensitive" : false,
           "setterDocumentation" : "/**Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.\n@param dataset Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.*/",
           "setterMethodName" : "setDataset",
           "setterModel" : {
@@ -4114,6 +4189,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -4181,6 +4257,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -4283,6 +4360,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "IdentityPoolUsage",
+        "sensitive" : false,
         "setterDocumentation" : "/**Information about the usage of the identity pool.\n@param identityPoolUsage Information about the usage of the identity pool.*/",
         "setterMethodName" : "setIdentityPoolUsage",
         "setterModel" : {
@@ -4350,6 +4428,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "IdentityPoolUsage",
+          "sensitive" : false,
           "setterDocumentation" : "/**Information about the usage of the identity pool.\n@param identityPoolUsage Information about the usage of the identity pool.*/",
           "setterMethodName" : "setIdentityPoolUsage",
           "setterModel" : {
@@ -4462,6 +4541,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -4527,6 +4607,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -4594,6 +4675,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -4660,6 +4742,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -4762,6 +4845,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "IdentityUsage",
+        "sensitive" : false,
         "setterDocumentation" : "/**Usage information for the identity.\n@param identityUsage Usage information for the identity.*/",
         "setterMethodName" : "setIdentityUsage",
         "setterModel" : {
@@ -4829,6 +4913,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "IdentityUsage",
+          "sensitive" : false,
           "setterDocumentation" : "/**Usage information for the identity.\n@param identityUsage Usage information for the identity.*/",
           "setterMethodName" : "setIdentityUsage",
           "setterModel" : {
@@ -4978,6 +5063,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -5045,6 +5131,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -5147,6 +5234,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -5212,6 +5300,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "BulkPublishStartTime",
+        "sensitive" : false,
         "setterDocumentation" : "/**The date/time at which the last bulk publish was initiated.\n@param bulkPublishStartTime The date/time at which the last bulk publish was initiated.*/",
         "setterMethodName" : "setBulkPublishStartTime",
         "setterModel" : {
@@ -5277,6 +5366,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "BulkPublishCompleteTime",
+        "sensitive" : false,
         "setterDocumentation" : "/**If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.\n@param bulkPublishCompleteTime If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.*/",
         "setterMethodName" : "setBulkPublishCompleteTime",
         "setterModel" : {
@@ -5342,6 +5432,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BulkPublishStatus",
+        "sensitive" : false,
         "setterDocumentation" : "/**Status of the last bulk publish operation, valid values are: <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p> <p>IN_PROGRESS - Data is being published to the configured stream</p> <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p> <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n@param bulkPublishStatus Status of the last bulk publish operation, valid values are: <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p> <p>IN_PROGRESS - Data is being published to the configured stream</p> <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p> <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n@see BulkPublishStatus*/",
         "setterMethodName" : "setBulkPublishStatus",
         "setterModel" : {
@@ -5407,6 +5498,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "FailureMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.\n@param failureMessage If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.*/",
         "setterMethodName" : "setFailureMessage",
         "setterModel" : {
@@ -5474,6 +5566,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "BulkPublishCompleteTime",
+          "sensitive" : false,
           "setterDocumentation" : "/**If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.\n@param bulkPublishCompleteTime If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.*/",
           "setterMethodName" : "setBulkPublishCompleteTime",
           "setterModel" : {
@@ -5540,6 +5633,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "BulkPublishStartTime",
+          "sensitive" : false,
           "setterDocumentation" : "/**The date/time at which the last bulk publish was initiated.\n@param bulkPublishStartTime The date/time at which the last bulk publish was initiated.*/",
           "setterMethodName" : "setBulkPublishStartTime",
           "setterModel" : {
@@ -5606,6 +5700,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BulkPublishStatus",
+          "sensitive" : false,
           "setterDocumentation" : "/**Status of the last bulk publish operation, valid values are: <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p> <p>IN_PROGRESS - Data is being published to the configured stream</p> <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p> <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n@param bulkPublishStatus Status of the last bulk publish operation, valid values are: <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p> <p>IN_PROGRESS - Data is being published to the configured stream</p> <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p> <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n@see BulkPublishStatus*/",
           "setterMethodName" : "setBulkPublishStatus",
           "setterModel" : {
@@ -5672,6 +5767,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "FailureMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.\n@param failureMessage If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.*/",
           "setterMethodName" : "setFailureMessage",
           "setterModel" : {
@@ -5738,6 +5834,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -5850,6 +5947,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Cognito Identity Pool ID for the request</p>\n@param identityPoolId The Cognito Identity Pool ID for the request*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -5917,6 +6015,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Cognito Identity Pool ID for the request</p>\n@param identityPoolId The Cognito Identity Pool ID for the request*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -6062,6 +6161,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Value",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param value */",
             "setterMethodName" : "setValue",
             "setterModel" : {
@@ -6099,6 +6199,7 @@
         "marshallingTargetClass" : "Map",
         "marshallingType" : "MAP",
         "name" : "Events",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Cognito Events returned from the GetCognitoEvents request</p>\n@param events The Cognito Events returned from the GetCognitoEvents request*/",
         "setterMethodName" : "setEvents",
         "setterModel" : {
@@ -6209,6 +6310,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Value",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param value */",
               "setterMethodName" : "setValue",
               "setterModel" : {
@@ -6246,6 +6348,7 @@
           "marshallingTargetClass" : "Map",
           "marshallingType" : "MAP",
           "name" : "Events",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Cognito Events returned from the GetCognitoEvents request</p>\n@param events The Cognito Events returned from the GetCognitoEvents request*/",
           "setterMethodName" : "setEvents",
           "setterModel" : {
@@ -6358,6 +6461,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -6425,6 +6529,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -6527,6 +6632,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -6592,6 +6698,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "PushSync",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Options to apply to this identity pool for push synchronization.</p>\n@param pushSync Options to apply to this identity pool for push synchronization.*/",
         "setterMethodName" : "setPushSync",
         "setterModel" : {
@@ -6657,6 +6764,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "CognitoStreams",
+        "sensitive" : false,
         "setterDocumentation" : "/**Options to apply to this identity pool for Amazon Cognito streams.\n@param cognitoStreams Options to apply to this identity pool for Amazon Cognito streams.*/",
         "setterMethodName" : "setCognitoStreams",
         "setterModel" : {
@@ -6724,6 +6832,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "CognitoStreams",
+          "sensitive" : false,
           "setterDocumentation" : "/**Options to apply to this identity pool for Amazon Cognito streams.\n@param cognitoStreams Options to apply to this identity pool for Amazon Cognito streams.*/",
           "setterMethodName" : "setCognitoStreams",
           "setterModel" : {
@@ -6790,6 +6899,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -6856,6 +6966,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "PushSync",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Options to apply to this identity pool for push synchronization.</p>\n@param pushSync Options to apply to this identity pool for push synchronization.*/",
           "setterMethodName" : "setPushSync",
           "setterModel" : {
@@ -6961,6 +7072,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -7026,6 +7138,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "SyncSessionsCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**Number of sync sessions for the identity pool.\n@param syncSessionsCount Number of sync sessions for the identity pool.*/",
         "setterMethodName" : "setSyncSessionsCount",
         "setterModel" : {
@@ -7091,6 +7204,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "DataStorage",
+        "sensitive" : false,
         "setterDocumentation" : "/**Data storage information for the identity pool.\n@param dataStorage Data storage information for the identity pool.*/",
         "setterMethodName" : "setDataStorage",
         "setterModel" : {
@@ -7156,6 +7270,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastModifiedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**Date on which the identity pool was last modified.\n@param lastModifiedDate Date on which the identity pool was last modified.*/",
         "setterMethodName" : "setLastModifiedDate",
         "setterModel" : {
@@ -7223,6 +7338,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "DataStorage",
+          "sensitive" : false,
           "setterDocumentation" : "/**Data storage information for the identity pool.\n@param dataStorage Data storage information for the identity pool.*/",
           "setterMethodName" : "setDataStorage",
           "setterModel" : {
@@ -7289,6 +7405,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -7355,6 +7472,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastModifiedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**Date on which the identity pool was last modified.\n@param lastModifiedDate Date on which the identity pool was last modified.*/",
           "setterMethodName" : "setLastModifiedDate",
           "setterModel" : {
@@ -7421,6 +7539,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "SyncSessionsCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**Number of sync sessions for the identity pool.\n@param syncSessionsCount Number of sync sessions for the identity pool.*/",
           "setterMethodName" : "setSyncSessionsCount",
           "setterModel" : {
@@ -7526,6 +7645,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -7591,6 +7711,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -7656,6 +7777,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastModifiedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**Date on which the identity was last modified.\n@param lastModifiedDate Date on which the identity was last modified.*/",
         "setterMethodName" : "setLastModifiedDate",
         "setterModel" : {
@@ -7721,6 +7843,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "DatasetCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**Number of datasets for the identity.\n@param datasetCount Number of datasets for the identity.*/",
         "setterMethodName" : "setDatasetCount",
         "setterModel" : {
@@ -7786,6 +7909,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "DataStorage",
+        "sensitive" : false,
         "setterDocumentation" : "/**Total data storage for this identity.\n@param dataStorage Total data storage for this identity.*/",
         "setterMethodName" : "setDataStorage",
         "setterModel" : {
@@ -7853,6 +7977,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "DataStorage",
+          "sensitive" : false,
           "setterDocumentation" : "/**Total data storage for this identity.\n@param dataStorage Total data storage for this identity.*/",
           "setterMethodName" : "setDataStorage",
           "setterModel" : {
@@ -7919,6 +8044,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "DatasetCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**Number of datasets for the identity.\n@param datasetCount Number of datasets for the identity.*/",
           "setterMethodName" : "setDatasetCount",
           "setterModel" : {
@@ -7985,6 +8111,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -8051,6 +8178,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -8117,6 +8245,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastModifiedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**Date on which the identity was last modified.\n@param lastModifiedDate Date on which the identity was last modified.*/",
           "setterMethodName" : "setLastModifiedDate",
           "setterModel" : {
@@ -8451,6 +8580,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -8516,6 +8646,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -8581,6 +8712,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -8646,6 +8778,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -8713,6 +8846,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -8779,6 +8913,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -8845,6 +8980,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -8911,6 +9047,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -9050,6 +9187,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9093,6 +9231,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Datasets",
+        "sensitive" : false,
         "setterDocumentation" : "/**A set of datasets.\n@param datasets A set of datasets.*/",
         "setterMethodName" : "setDatasets",
         "setterModel" : {
@@ -9158,6 +9297,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "Count",
+        "sensitive" : false,
         "setterDocumentation" : "/**Number of datasets returned.\n@param count Number of datasets returned.*/",
         "setterMethodName" : "setCount",
         "setterModel" : {
@@ -9223,6 +9363,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -9290,6 +9431,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "Count",
+          "sensitive" : false,
           "setterDocumentation" : "/**Number of datasets returned.\n@param count Number of datasets returned.*/",
           "setterMethodName" : "setCount",
           "setterModel" : {
@@ -9393,6 +9535,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -9436,6 +9579,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Datasets",
+          "sensitive" : false,
           "setterDocumentation" : "/**A set of datasets.\n@param datasets A set of datasets.*/",
           "setterMethodName" : "setDatasets",
           "setterModel" : {
@@ -9502,6 +9646,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -9614,6 +9759,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -9679,6 +9825,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -9746,6 +9893,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -9812,6 +9960,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -9951,6 +10100,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9994,6 +10144,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "IdentityPoolUsages",
+        "sensitive" : false,
         "setterDocumentation" : "/**Usage information for the identity pools.\n@param identityPoolUsages Usage information for the identity pools.*/",
         "setterMethodName" : "setIdentityPoolUsages",
         "setterModel" : {
@@ -10059,6 +10210,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -10124,6 +10276,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "Count",
+        "sensitive" : false,
         "setterDocumentation" : "/**Total number of identities for the identity pool.\n@param count Total number of identities for the identity pool.*/",
         "setterMethodName" : "setCount",
         "setterModel" : {
@@ -10189,6 +10342,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -10256,6 +10410,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "Count",
+          "sensitive" : false,
           "setterDocumentation" : "/**Total number of identities for the identity pool.\n@param count Total number of identities for the identity pool.*/",
           "setterMethodName" : "setCount",
           "setterModel" : {
@@ -10359,6 +10514,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -10402,6 +10558,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "IdentityPoolUsages",
+          "sensitive" : false,
           "setterDocumentation" : "/**Usage information for the identity pools.\n@param identityPoolUsages Usage information for the identity pools.*/",
           "setterMethodName" : "setIdentityPoolUsages",
           "setterModel" : {
@@ -10468,6 +10625,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -10534,6 +10692,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -10646,6 +10805,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -10711,6 +10871,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -10776,6 +10937,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -10841,6 +11003,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "LastSyncCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**The last server sync count for this record.\n@param lastSyncCount The last server sync count for this record.*/",
         "setterMethodName" : "setLastSyncCount",
         "setterModel" : {
@@ -10906,6 +11069,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -10971,6 +11135,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -11036,6 +11201,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SyncSessionToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A token containing a session ID, identity ID, and expiration.\n@param syncSessionToken A token containing a session ID, identity ID, and expiration.*/",
         "setterMethodName" : "setSyncSessionToken",
         "setterModel" : {
@@ -11103,6 +11269,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -11169,6 +11336,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -11235,6 +11403,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -11301,6 +11470,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "LastSyncCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**The last server sync count for this record.\n@param lastSyncCount The last server sync count for this record.*/",
           "setterMethodName" : "setLastSyncCount",
           "setterModel" : {
@@ -11367,6 +11537,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**The maximum number of results to be returned.\n@param maxResults The maximum number of results to be returned.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -11433,6 +11604,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -11499,6 +11671,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SyncSessionToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A token containing a session ID, identity ID, and expiration.\n@param syncSessionToken A token containing a session ID, identity ID, and expiration.*/",
           "setterMethodName" : "setSyncSessionToken",
           "setterModel" : {
@@ -11638,6 +11811,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -11681,6 +11855,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Records",
+        "sensitive" : false,
         "setterDocumentation" : "/**A list of all records.\n@param records A list of all records.*/",
         "setterMethodName" : "setRecords",
         "setterModel" : {
@@ -11746,6 +11921,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -11811,6 +11987,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "Count",
+        "sensitive" : false,
         "setterDocumentation" : "/**Total number of records.\n@param count Total number of records.*/",
         "setterMethodName" : "setCount",
         "setterModel" : {
@@ -11876,6 +12053,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "DatasetSyncCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**Server sync count for this dataset.\n@param datasetSyncCount Server sync count for this dataset.*/",
         "setterMethodName" : "setDatasetSyncCount",
         "setterModel" : {
@@ -11941,6 +12119,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LastModifiedBy",
+        "sensitive" : false,
         "setterDocumentation" : "/**The user/device that made the last change to this record.\n@param lastModifiedBy The user/device that made the last change to this record.*/",
         "setterMethodName" : "setLastModifiedBy",
         "setterModel" : {
@@ -12043,6 +12222,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -12086,6 +12266,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "MergedDatasetNames",
+        "sensitive" : false,
         "setterDocumentation" : "/**Names of merged datasets.\n@param mergedDatasetNames Names of merged datasets.*/",
         "setterMethodName" : "setMergedDatasetNames",
         "setterModel" : {
@@ -12151,6 +12332,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "DatasetExists",
+        "sensitive" : false,
         "setterDocumentation" : "/**Indicates whether the dataset exists.\n@param datasetExists Indicates whether the dataset exists.*/",
         "setterMethodName" : "setDatasetExists",
         "setterModel" : {
@@ -12216,6 +12398,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "DatasetDeletedAfterRequestedSyncCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**A boolean value specifying whether to delete the dataset locally.\n@param datasetDeletedAfterRequestedSyncCount A boolean value specifying whether to delete the dataset locally.*/",
         "setterMethodName" : "setDatasetDeletedAfterRequestedSyncCount",
         "setterModel" : {
@@ -12281,6 +12464,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SyncSessionToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**A token containing a session ID, identity ID, and expiration.\n@param syncSessionToken A token containing a session ID, identity ID, and expiration.*/",
         "setterMethodName" : "setSyncSessionToken",
         "setterModel" : {
@@ -12348,6 +12532,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "Count",
+          "sensitive" : false,
           "setterDocumentation" : "/**Total number of records.\n@param count Total number of records.*/",
           "setterMethodName" : "setCount",
           "setterModel" : {
@@ -12414,6 +12599,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "DatasetDeletedAfterRequestedSyncCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**A boolean value specifying whether to delete the dataset locally.\n@param datasetDeletedAfterRequestedSyncCount A boolean value specifying whether to delete the dataset locally.*/",
           "setterMethodName" : "setDatasetDeletedAfterRequestedSyncCount",
           "setterModel" : {
@@ -12480,6 +12666,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "DatasetExists",
+          "sensitive" : false,
           "setterDocumentation" : "/**Indicates whether the dataset exists.\n@param datasetExists Indicates whether the dataset exists.*/",
           "setterMethodName" : "setDatasetExists",
           "setterModel" : {
@@ -12546,6 +12733,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "DatasetSyncCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**Server sync count for this dataset.\n@param datasetSyncCount Server sync count for this dataset.*/",
           "setterMethodName" : "setDatasetSyncCount",
           "setterModel" : {
@@ -12612,6 +12800,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LastModifiedBy",
+          "sensitive" : false,
           "setterDocumentation" : "/**The user/device that made the last change to this record.\n@param lastModifiedBy The user/device that made the last change to this record.*/",
           "setterMethodName" : "setLastModifiedBy",
           "setterModel" : {
@@ -12715,6 +12904,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -12758,6 +12948,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "MergedDatasetNames",
+          "sensitive" : false,
           "setterDocumentation" : "/**Names of merged datasets.\n@param mergedDatasetNames Names of merged datasets.*/",
           "setterMethodName" : "setMergedDatasetNames",
           "setterModel" : {
@@ -12824,6 +13015,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A pagination token for obtaining the next page of results.\n@param nextToken A pagination token for obtaining the next page of results.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -12927,6 +13119,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -12970,6 +13163,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Records",
+          "sensitive" : false,
           "setterDocumentation" : "/**A list of all records.\n@param records A list of all records.*/",
           "setterMethodName" : "setRecords",
           "setterModel" : {
@@ -13036,6 +13230,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SyncSessionToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**A token containing a session ID, identity ID, and expiration.\n@param syncSessionToken A token containing a session ID, identity ID, and expiration.*/",
           "setterMethodName" : "setSyncSessionToken",
           "setterModel" : {
@@ -13313,6 +13508,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13356,6 +13552,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ApplicationArns",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>List of SNS platform application ARNs that could be used by clients.</p>\n@param applicationArns List of SNS platform application ARNs that could be used by clients.*/",
         "setterMethodName" : "setApplicationArns",
         "setterModel" : {
@@ -13421,6 +13618,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "RoleArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>\n@param roleArn A role configured to allow Cognito to call SNS on behalf of the developer.*/",
         "setterMethodName" : "setRoleArn",
         "setterModel" : {
@@ -13525,6 +13723,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -13568,6 +13767,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ApplicationArns",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>List of SNS platform application ARNs that could be used by clients.</p>\n@param applicationArns List of SNS platform application ARNs that could be used by clients.*/",
           "setterMethodName" : "setApplicationArns",
           "setterModel" : {
@@ -13634,6 +13834,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "RoleArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>\n@param roleArn A role configured to allow Cognito to call SNS on behalf of the developer.*/",
           "setterMethodName" : "setRoleArn",
           "setterModel" : {
@@ -13739,6 +13940,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Key",
+        "sensitive" : false,
         "setterDocumentation" : "/**The key for the record.\n@param key The key for the record.*/",
         "setterMethodName" : "setKey",
         "setterModel" : {
@@ -13804,6 +14006,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Value",
+        "sensitive" : false,
         "setterDocumentation" : "/**The value for the record.\n@param value The value for the record.*/",
         "setterMethodName" : "setValue",
         "setterModel" : {
@@ -13869,6 +14072,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "SyncCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**The server sync count for this record.\n@param syncCount The server sync count for this record.*/",
         "setterMethodName" : "setSyncCount",
         "setterModel" : {
@@ -13934,6 +14138,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastModifiedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**The date on which the record was last modified.\n@param lastModifiedDate The date on which the record was last modified.*/",
         "setterMethodName" : "setLastModifiedDate",
         "setterModel" : {
@@ -13999,6 +14204,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LastModifiedBy",
+        "sensitive" : false,
         "setterDocumentation" : "/**The user/device that made the last change to this record.\n@param lastModifiedBy The user/device that made the last change to this record.*/",
         "setterMethodName" : "setLastModifiedBy",
         "setterModel" : {
@@ -14064,6 +14270,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "DeviceLastModifiedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**The last modified date of the client device.\n@param deviceLastModifiedDate The last modified date of the client device.*/",
         "setterMethodName" : "setDeviceLastModifiedDate",
         "setterModel" : {
@@ -14131,6 +14338,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "DeviceLastModifiedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**The last modified date of the client device.\n@param deviceLastModifiedDate The last modified date of the client device.*/",
           "setterMethodName" : "setDeviceLastModifiedDate",
           "setterModel" : {
@@ -14197,6 +14405,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Key",
+          "sensitive" : false,
           "setterDocumentation" : "/**The key for the record.\n@param key The key for the record.*/",
           "setterMethodName" : "setKey",
           "setterModel" : {
@@ -14263,6 +14472,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LastModifiedBy",
+          "sensitive" : false,
           "setterDocumentation" : "/**The user/device that made the last change to this record.\n@param lastModifiedBy The user/device that made the last change to this record.*/",
           "setterMethodName" : "setLastModifiedBy",
           "setterModel" : {
@@ -14329,6 +14539,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastModifiedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**The date on which the record was last modified.\n@param lastModifiedDate The date on which the record was last modified.*/",
           "setterMethodName" : "setLastModifiedDate",
           "setterModel" : {
@@ -14395,6 +14606,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "SyncCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**The server sync count for this record.\n@param syncCount The server sync count for this record.*/",
           "setterMethodName" : "setSyncCount",
           "setterModel" : {
@@ -14461,6 +14673,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Value",
+          "sensitive" : false,
           "setterDocumentation" : "/**The value for the record.\n@param value The value for the record.*/",
           "setterMethodName" : "setValue",
           "setterModel" : {
@@ -14566,6 +14779,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Op",
+        "sensitive" : false,
         "setterDocumentation" : "/**An operation, either replace or remove.\n@param op An operation, either replace or remove.\n@see Operation*/",
         "setterMethodName" : "setOp",
         "setterModel" : {
@@ -14631,6 +14845,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Key",
+        "sensitive" : false,
         "setterDocumentation" : "/**The key associated with the record patch.\n@param key The key associated with the record patch.*/",
         "setterMethodName" : "setKey",
         "setterModel" : {
@@ -14696,6 +14911,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Value",
+        "sensitive" : false,
         "setterDocumentation" : "/**The value associated with the record patch.\n@param value The value associated with the record patch.*/",
         "setterMethodName" : "setValue",
         "setterModel" : {
@@ -14761,6 +14977,7 @@
         "marshallingTargetClass" : "Long",
         "marshallingType" : "LONG",
         "name" : "SyncCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**Last known server sync count for this record. Set to 0 if unknown.\n@param syncCount Last known server sync count for this record. Set to 0 if unknown.*/",
         "setterMethodName" : "setSyncCount",
         "setterModel" : {
@@ -14826,6 +15043,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "DeviceLastModifiedDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**The last modified date of the client device.\n@param deviceLastModifiedDate The last modified date of the client device.*/",
         "setterMethodName" : "setDeviceLastModifiedDate",
         "setterModel" : {
@@ -14893,6 +15111,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "DeviceLastModifiedDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**The last modified date of the client device.\n@param deviceLastModifiedDate The last modified date of the client device.*/",
           "setterMethodName" : "setDeviceLastModifiedDate",
           "setterModel" : {
@@ -14959,6 +15178,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Key",
+          "sensitive" : false,
           "setterDocumentation" : "/**The key associated with the record patch.\n@param key The key associated with the record patch.*/",
           "setterMethodName" : "setKey",
           "setterModel" : {
@@ -15025,6 +15245,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Op",
+          "sensitive" : false,
           "setterDocumentation" : "/**An operation, either replace or remove.\n@param op An operation, either replace or remove.\n@see Operation*/",
           "setterMethodName" : "setOp",
           "setterModel" : {
@@ -15091,6 +15312,7 @@
           "marshallingTargetClass" : "Long",
           "marshallingType" : "LONG",
           "name" : "SyncCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**Last known server sync count for this record. Set to 0 if unknown.\n@param syncCount Last known server sync count for this record. Set to 0 if unknown.*/",
           "setterMethodName" : "setSyncCount",
           "setterModel" : {
@@ -15157,6 +15379,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Value",
+          "sensitive" : false,
           "setterDocumentation" : "/**The value associated with the record patch.\n@param value The value associated with the record patch.*/",
           "setterMethodName" : "setValue",
           "setterModel" : {
@@ -15269,6 +15492,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -15334,6 +15558,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The unique ID for this identity.</p>\n@param identityId The unique ID for this identity.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -15399,6 +15624,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Platform",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>\n@param platform The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n@see Platform*/",
         "setterMethodName" : "setPlatform",
         "setterModel" : {
@@ -15464,6 +15690,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Token",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The push token.</p>\n@param token The push token.*/",
         "setterMethodName" : "setToken",
         "setterModel" : {
@@ -15531,6 +15758,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The unique ID for this identity.</p>\n@param identityId The unique ID for this identity.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -15597,6 +15825,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -15663,6 +15892,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Platform",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>\n@param platform The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n@see Platform*/",
           "setterMethodName" : "setPlatform",
           "setterModel" : {
@@ -15729,6 +15959,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Token",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The push token.</p>\n@param token The push token.*/",
           "setterMethodName" : "setToken",
           "setterModel" : {
@@ -15831,6 +16062,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DeviceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
         "setterMethodName" : "setDeviceId",
         "setterModel" : {
@@ -15898,6 +16130,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DeviceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
           "setterMethodName" : "setDeviceId",
           "setterModel" : {
@@ -16084,6 +16317,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Cognito Identity Pool to use when configuring Cognito Events</p>\n@param identityPoolId The Cognito Identity Pool to use when configuring Cognito Events*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -16192,6 +16426,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Value",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param value */",
             "setterMethodName" : "setValue",
             "setterModel" : {
@@ -16229,6 +16464,7 @@
         "marshallingTargetClass" : "Map",
         "marshallingType" : "MAP",
         "name" : "Events",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The events to configure</p>\n@param events The events to configure*/",
         "setterMethodName" : "setEvents",
         "setterModel" : {
@@ -16339,6 +16575,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Value",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param value */",
               "setterMethodName" : "setValue",
               "setterModel" : {
@@ -16376,6 +16613,7 @@
           "marshallingTargetClass" : "Map",
           "marshallingType" : "MAP",
           "name" : "Events",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The events to configure</p>\n@param events The events to configure*/",
           "setterMethodName" : "setEvents",
           "setterModel" : {
@@ -16442,6 +16680,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Cognito Identity Pool to use when configuring Cognito Events</p>\n@param identityPoolId The Cognito Identity Pool to use when configuring Cognito Events*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -16591,6 +16830,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -16656,6 +16896,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "PushSync",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Options to apply to this identity pool for push synchronization.</p>\n@param pushSync Options to apply to this identity pool for push synchronization.*/",
         "setterMethodName" : "setPushSync",
         "setterModel" : {
@@ -16721,6 +16962,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "CognitoStreams",
+        "sensitive" : false,
         "setterDocumentation" : "/**Options to apply to this identity pool for Amazon Cognito streams.\n@param cognitoStreams Options to apply to this identity pool for Amazon Cognito streams.*/",
         "setterMethodName" : "setCognitoStreams",
         "setterModel" : {
@@ -16788,6 +17030,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "CognitoStreams",
+          "sensitive" : false,
           "setterDocumentation" : "/**Options to apply to this identity pool for Amazon Cognito streams.\n@param cognitoStreams Options to apply to this identity pool for Amazon Cognito streams.*/",
           "setterMethodName" : "setCognitoStreams",
           "setterModel" : {
@@ -16854,6 +17097,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -16920,6 +17164,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "PushSync",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Options to apply to this identity pool for push synchronization.</p>\n@param pushSync Options to apply to this identity pool for push synchronization.*/",
           "setterMethodName" : "setPushSync",
           "setterModel" : {
@@ -17022,6 +17267,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -17087,6 +17333,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "PushSync",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Options to apply to this identity pool for push synchronization.</p>\n@param pushSync Options to apply to this identity pool for push synchronization.*/",
         "setterMethodName" : "setPushSync",
         "setterModel" : {
@@ -17152,6 +17399,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "CognitoStreams",
+        "sensitive" : false,
         "setterDocumentation" : "/**Options to apply to this identity pool for Amazon Cognito streams.\n@param cognitoStreams Options to apply to this identity pool for Amazon Cognito streams.*/",
         "setterMethodName" : "setCognitoStreams",
         "setterModel" : {
@@ -17219,6 +17467,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "CognitoStreams",
+          "sensitive" : false,
           "setterDocumentation" : "/**Options to apply to this identity pool for Amazon Cognito streams.\n@param cognitoStreams Options to apply to this identity pool for Amazon Cognito streams.*/",
           "setterMethodName" : "setCognitoStreams",
           "setterModel" : {
@@ -17285,6 +17534,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -17351,6 +17601,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "PushSync",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Options to apply to this identity pool for push synchronization.</p>\n@param pushSync Options to apply to this identity pool for push synchronization.*/",
           "setterMethodName" : "setPushSync",
           "setterModel" : {
@@ -17509,6 +17760,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -17574,6 +17826,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Unique ID for this identity.</p>\n@param identityId Unique ID for this identity.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -17639,6 +17892,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the dataset to subcribe to.</p>\n@param datasetName The name of the dataset to subcribe to.*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -17704,6 +17958,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DeviceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
         "setterMethodName" : "setDeviceId",
         "setterModel" : {
@@ -17771,6 +18026,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the dataset to subcribe to.</p>\n@param datasetName The name of the dataset to subcribe to.*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -17837,6 +18093,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DeviceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
           "setterMethodName" : "setDeviceId",
           "setterModel" : {
@@ -17903,6 +18160,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Unique ID for this identity.</p>\n@param identityId Unique ID for this identity.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -17969,6 +18227,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -18155,6 +18414,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -18220,6 +18480,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Unique ID for this identity.</p>\n@param identityId Unique ID for this identity.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -18285,6 +18546,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the dataset from which to unsubcribe.</p>\n@param datasetName The name of the dataset from which to unsubcribe.*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -18350,6 +18612,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DeviceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
         "setterMethodName" : "setDeviceId",
         "setterModel" : {
@@ -18417,6 +18680,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the dataset from which to unsubcribe.</p>\n@param datasetName The name of the dataset from which to unsubcribe.*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -18483,6 +18747,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DeviceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
           "setterMethodName" : "setDeviceId",
           "setterModel" : {
@@ -18549,6 +18814,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Unique ID for this identity.</p>\n@param identityId Unique ID for this identity.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -18615,6 +18881,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -18764,6 +19031,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityPoolId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityPoolId",
         "setterModel" : {
@@ -18829,6 +19097,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IdentityId",
+        "sensitive" : false,
         "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
         "setterMethodName" : "setIdentityId",
         "setterModel" : {
@@ -18894,6 +19163,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DatasetName",
+        "sensitive" : false,
         "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
         "setterMethodName" : "setDatasetName",
         "setterModel" : {
@@ -18959,6 +19229,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "DeviceId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
         "setterMethodName" : "setDeviceId",
         "setterModel" : {
@@ -19061,6 +19332,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -19104,6 +19376,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "RecordPatches",
+        "sensitive" : false,
         "setterDocumentation" : "/**A list of patch operations.\n@param recordPatches A list of patch operations.*/",
         "setterMethodName" : "setRecordPatches",
         "setterModel" : {
@@ -19169,6 +19442,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SyncSessionToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.\n@param syncSessionToken The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.*/",
         "setterMethodName" : "setSyncSessionToken",
         "setterModel" : {
@@ -19234,6 +19508,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientContext",
+        "sensitive" : false,
         "setterDocumentation" : "/**Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.\n@param clientContext Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.*/",
         "setterMethodName" : "setClientContext",
         "setterModel" : {
@@ -19301,6 +19576,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientContext",
+          "sensitive" : false,
           "setterDocumentation" : "/**Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.\n@param clientContext Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.*/",
           "setterMethodName" : "setClientContext",
           "setterModel" : {
@@ -19367,6 +19643,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DatasetName",
+          "sensitive" : false,
           "setterDocumentation" : "/**A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).\n@param datasetName A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).*/",
           "setterMethodName" : "setDatasetName",
           "setterModel" : {
@@ -19433,6 +19710,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "DeviceId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The unique ID generated for this device by Cognito.</p>\n@param deviceId The unique ID generated for this device by Cognito.*/",
           "setterMethodName" : "setDeviceId",
           "setterModel" : {
@@ -19499,6 +19777,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityId",
           "setterModel" : {
@@ -19565,6 +19844,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IdentityPoolId",
+          "sensitive" : false,
           "setterDocumentation" : "/**A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.\n@param identityPoolId A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.*/",
           "setterMethodName" : "setIdentityPoolId",
           "setterModel" : {
@@ -19668,6 +19948,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -19711,6 +19992,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "RecordPatches",
+          "sensitive" : false,
           "setterDocumentation" : "/**A list of patch operations.\n@param recordPatches A list of patch operations.*/",
           "setterMethodName" : "setRecordPatches",
           "setterModel" : {
@@ -19777,6 +20059,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SyncSessionToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.\n@param syncSessionToken The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.*/",
           "setterMethodName" : "setSyncSessionToken",
           "setterModel" : {
@@ -19916,6 +20199,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -19959,6 +20243,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Records",
+        "sensitive" : false,
         "setterDocumentation" : "/**A list of records that have been updated.\n@param records A list of records that have been updated.*/",
         "setterMethodName" : "setRecords",
         "setterModel" : {
@@ -20063,6 +20348,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -20106,6 +20392,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Records",
+          "sensitive" : false,
           "setterDocumentation" : "/**A list of records that have been updated.\n@param records A list of records that have been updated.*/",
           "setterMethodName" : "setRecords",
           "setterModel" : {
@@ -20156,13 +20443,12 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : { },
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AmazonCognitoSyncException",

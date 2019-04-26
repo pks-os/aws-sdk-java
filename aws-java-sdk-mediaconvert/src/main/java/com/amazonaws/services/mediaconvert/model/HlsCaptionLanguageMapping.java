@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,10 @@ public class HlsCaptionLanguageMapping implements Serializable, Cloneable, Struc
     private Integer captionChannel;
     /** Specify the language for this caption channel, using the ISO 639-2 or ISO 639-3 three-letter language code */
     private String customLanguageCode;
-
+    /**
+     * Specify the language, using the ISO 639-2 three-letter code listed at
+     * https://www.loc.gov/standards/iso639-2/php/code_list.php.
+     */
     private String languageCode;
     /** Caption language description. */
     private String languageDescription;
@@ -105,7 +108,12 @@ public class HlsCaptionLanguageMapping implements Serializable, Cloneable, Struc
     }
 
     /**
+     * Specify the language, using the ISO 639-2 three-letter code listed at
+     * https://www.loc.gov/standards/iso639-2/php/code_list.php.
+     * 
      * @param languageCode
+     *        Specify the language, using the ISO 639-2 three-letter code listed at
+     *        https://www.loc.gov/standards/iso639-2/php/code_list.php.
      * @see LanguageCode
      */
 
@@ -114,7 +122,11 @@ public class HlsCaptionLanguageMapping implements Serializable, Cloneable, Struc
     }
 
     /**
-     * @return
+     * Specify the language, using the ISO 639-2 three-letter code listed at
+     * https://www.loc.gov/standards/iso639-2/php/code_list.php.
+     * 
+     * @return Specify the language, using the ISO 639-2 three-letter code listed at
+     *         https://www.loc.gov/standards/iso639-2/php/code_list.php.
      * @see LanguageCode
      */
 
@@ -123,7 +135,12 @@ public class HlsCaptionLanguageMapping implements Serializable, Cloneable, Struc
     }
 
     /**
+     * Specify the language, using the ISO 639-2 three-letter code listed at
+     * https://www.loc.gov/standards/iso639-2/php/code_list.php.
+     * 
      * @param languageCode
+     *        Specify the language, using the ISO 639-2 three-letter code listed at
+     *        https://www.loc.gov/standards/iso639-2/php/code_list.php.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LanguageCode
      */
@@ -134,7 +151,12 @@ public class HlsCaptionLanguageMapping implements Serializable, Cloneable, Struc
     }
 
     /**
+     * Specify the language, using the ISO 639-2 three-letter code listed at
+     * https://www.loc.gov/standards/iso639-2/php/code_list.php.
+     * 
      * @param languageCode
+     *        Specify the language, using the ISO 639-2 three-letter code listed at
+     *        https://www.loc.gov/standards/iso639-2/php/code_list.php.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LanguageCode
      */
@@ -179,7 +201,8 @@ public class HlsCaptionLanguageMapping implements Serializable, Cloneable, Struc
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

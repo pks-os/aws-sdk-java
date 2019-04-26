@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * A single schedule action.
+ * Contains information on a single schedule action.
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ScheduleAction" target="_top">AWS API
  *      Documentation</a>
@@ -26,18 +26,29 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
 
-    /** The name of the action, must be unique within the schedule. */
+    /**
+     * The name of the action, must be unique within the schedule. This name provides the main reference to an action
+     * once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is
+     * automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that
+     * point a name can be reused.
+     */
     private String actionName;
     /** Settings for this schedule action. */
     private ScheduleActionSettings scheduleActionSettings;
-    /** When the action takes effect. */
+    /** The time for the action to start in the channel. */
     private ScheduleActionStartSettings scheduleActionStartSettings;
 
     /**
-     * The name of the action, must be unique within the schedule.
+     * The name of the action, must be unique within the schedule. This name provides the main reference to an action
+     * once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is
+     * automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that
+     * point a name can be reused.
      * 
      * @param actionName
-     *        The name of the action, must be unique within the schedule.
+     *        The name of the action, must be unique within the schedule. This name provides the main reference to an
+     *        action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule
+     *        is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so
+     *        at that point a name can be reused.
      */
 
     public void setActionName(String actionName) {
@@ -45,9 +56,15 @@ public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The name of the action, must be unique within the schedule.
+     * The name of the action, must be unique within the schedule. This name provides the main reference to an action
+     * once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is
+     * automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that
+     * point a name can be reused.
      * 
-     * @return The name of the action, must be unique within the schedule.
+     * @return The name of the action, must be unique within the schedule. This name provides the main reference to an
+     *         action once it is added to the schedule. A name is unique if it is no longer in the schedule. The
+     *         schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago
+     *         (approximately) so at that point a name can be reused.
      */
 
     public String getActionName() {
@@ -55,10 +72,16 @@ public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The name of the action, must be unique within the schedule.
+     * The name of the action, must be unique within the schedule. This name provides the main reference to an action
+     * once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is
+     * automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that
+     * point a name can be reused.
      * 
      * @param actionName
-     *        The name of the action, must be unique within the schedule.
+     *        The name of the action, must be unique within the schedule. This name provides the main reference to an
+     *        action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule
+     *        is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so
+     *        at that point a name can be reused.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -102,10 +125,10 @@ public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * When the action takes effect.
+     * The time for the action to start in the channel.
      * 
      * @param scheduleActionStartSettings
-     *        When the action takes effect.
+     *        The time for the action to start in the channel.
      */
 
     public void setScheduleActionStartSettings(ScheduleActionStartSettings scheduleActionStartSettings) {
@@ -113,9 +136,9 @@ public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * When the action takes effect.
+     * The time for the action to start in the channel.
      * 
-     * @return When the action takes effect.
+     * @return The time for the action to start in the channel.
      */
 
     public ScheduleActionStartSettings getScheduleActionStartSettings() {
@@ -123,10 +146,10 @@ public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * When the action takes effect.
+     * The time for the action to start in the channel.
      * 
      * @param scheduleActionStartSettings
-     *        When the action takes effect.
+     *        The time for the action to start in the channel.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -136,7 +159,8 @@ public class ScheduleAction implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

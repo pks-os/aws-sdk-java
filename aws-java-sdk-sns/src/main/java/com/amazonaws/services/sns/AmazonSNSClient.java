@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 
@@ -79,6 +80,8 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
+
+    private final AdvancedConfig advancedConfig;
 
     /**
      * List of exception unmarshallers for all modeled exceptions
@@ -168,6 +171,7 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
     public AmazonSNSClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -232,6 +236,7 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
     public AmazonSNSClient(AWSCredentialsProvider awsCredentialsProvider, ClientConfiguration clientConfiguration, RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -250,9 +255,7 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *        Object providing client parameters.
      */
     AmazonSNSClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -268,6 +271,7 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
     AmazonSNSClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -277,12 +281,19 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
         exceptionUnmarshallers.add(new InvalidParameterValueExceptionUnmarshaller());
         exceptionUnmarshallers.add(new EndpointDisabledExceptionUnmarshaller());
         exceptionUnmarshallers.add(new FilterPolicyLimitExceededExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new KMSOptInRequiredExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new KMSAccessDeniedExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new KMSInvalidStateExceptionUnmarshaller());
         exceptionUnmarshallers.add(new NotFoundExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new KMSDisabledExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new KMSNotFoundExceptionUnmarshaller());
         exceptionUnmarshallers.add(new TopicLimitExceededExceptionUnmarshaller());
         exceptionUnmarshallers.add(new ThrottledExceptionUnmarshaller());
         exceptionUnmarshallers.add(new PlatformApplicationDisabledExceptionUnmarshaller());
         exceptionUnmarshallers.add(new InternalErrorExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new KMSThrottlingExceptionUnmarshaller());
         exceptionUnmarshallers.add(new AuthorizationErrorExceptionUnmarshaller());
+        exceptionUnmarshallers.add(new InvalidSecurityExceptionUnmarshaller());
         exceptionUnmarshallers.add(new StandardErrorUnmarshaller(com.amazonaws.services.sns.model.AmazonSNSException.class));
 
         setServiceNameIntern(DEFAULT_SIGNING_NAME);
@@ -339,11 +350,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AddPermission");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<AddPermissionResult> responseHandler = new StaxResponseHandler<AddPermissionResult>(new AddPermissionResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -410,11 +420,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CheckIfPhoneNumberIsOptedOut");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CheckIfPhoneNumberIsOptedOutResult> responseHandler = new StaxResponseHandler<CheckIfPhoneNumberIsOptedOutResult>(
                     new CheckIfPhoneNumberIsOptedOutResultStaxUnmarshaller());
@@ -477,11 +486,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ConfirmSubscription");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ConfirmSubscriptionResult> responseHandler = new StaxResponseHandler<ConfirmSubscriptionResult>(
                     new ConfirmSubscriptionResultStaxUnmarshaller());
@@ -572,11 +580,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreatePlatformApplication");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreatePlatformApplicationResult> responseHandler = new StaxResponseHandler<CreatePlatformApplicationResult>(
                     new CreatePlatformApplicationResultStaxUnmarshaller());
@@ -648,11 +655,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreatePlatformEndpoint");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreatePlatformEndpointResult> responseHandler = new StaxResponseHandler<CreatePlatformEndpointResult>(
                     new CreatePlatformEndpointResultStaxUnmarshaller());
@@ -685,6 +691,9 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *         Indicates an internal service error.
      * @throws AuthorizationErrorException
      *         Indicates that the user has been denied access to the requested resource.
+     * @throws InvalidSecurityException
+     *         The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using
+     *         Signature Version 4.
      * @sample AmazonSNS.CreateTopic
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/CreateTopic" target="_top">AWS API
      *      Documentation</a>
@@ -713,11 +722,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateTopic");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateTopicResult> responseHandler = new StaxResponseHandler<CreateTopicResult>(new CreateTopicResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -783,11 +791,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteEndpoint");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteEndpointResult> responseHandler = new StaxResponseHandler<DeleteEndpointResult>(
                     new DeleteEndpointResultStaxUnmarshaller());
@@ -845,11 +852,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeletePlatformApplication");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeletePlatformApplicationResult> responseHandler = new StaxResponseHandler<DeletePlatformApplicationResult>(
                     new DeletePlatformApplicationResultStaxUnmarshaller());
@@ -908,11 +914,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteTopic");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteTopicResult> responseHandler = new StaxResponseHandler<DeleteTopicResult>(new DeleteTopicResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -976,11 +981,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetEndpointAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<GetEndpointAttributesResult> responseHandler = new StaxResponseHandler<GetEndpointAttributesResult>(
                     new GetEndpointAttributesResultStaxUnmarshaller());
@@ -1042,11 +1046,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetPlatformApplicationAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<GetPlatformApplicationAttributesResult> responseHandler = new StaxResponseHandler<GetPlatformApplicationAttributesResult>(
                     new GetPlatformApplicationAttributesResultStaxUnmarshaller());
@@ -1108,11 +1111,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetSMSAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<GetSMSAttributesResult> responseHandler = new StaxResponseHandler<GetSMSAttributesResult>(
                     new GetSMSAttributesResultStaxUnmarshaller());
@@ -1170,11 +1172,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetSubscriptionAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<GetSubscriptionAttributesResult> responseHandler = new StaxResponseHandler<GetSubscriptionAttributesResult>(
                     new GetSubscriptionAttributesResultStaxUnmarshaller());
@@ -1210,6 +1211,9 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *         Indicates that the requested resource does not exist.
      * @throws AuthorizationErrorException
      *         Indicates that the user has been denied access to the requested resource.
+     * @throws InvalidSecurityException
+     *         The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using
+     *         Signature Version 4.
      * @sample AmazonSNS.GetTopicAttributes
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/GetTopicAttributes" target="_top">AWS API
      *      Documentation</a>
@@ -1238,11 +1242,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetTopicAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<GetTopicAttributesResult> responseHandler = new StaxResponseHandler<GetTopicAttributesResult>(
                     new GetTopicAttributesResultStaxUnmarshaller());
@@ -1316,11 +1319,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListEndpointsByPlatformApplication");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListEndpointsByPlatformApplicationResult> responseHandler = new StaxResponseHandler<ListEndpointsByPlatformApplicationResult>(
                     new ListEndpointsByPlatformApplicationResultStaxUnmarshaller());
@@ -1386,11 +1388,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListPhoneNumbersOptedOut");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListPhoneNumbersOptedOutResult> responseHandler = new StaxResponseHandler<ListPhoneNumbersOptedOutResult>(
                     new ListPhoneNumbersOptedOutResultStaxUnmarshaller());
@@ -1455,11 +1456,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListPlatformApplications");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListPlatformApplicationsResult> responseHandler = new StaxResponseHandler<ListPlatformApplicationsResult>(
                     new ListPlatformApplicationsResultStaxUnmarshaller());
@@ -1525,11 +1525,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListSubscriptions");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListSubscriptionsResult> responseHandler = new StaxResponseHandler<ListSubscriptionsResult>(
                     new ListSubscriptionsResultStaxUnmarshaller());
@@ -1602,11 +1601,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListSubscriptionsByTopic");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListSubscriptionsByTopicResult> responseHandler = new StaxResponseHandler<ListSubscriptionsByTopicResult>(
                     new ListSubscriptionsByTopicResultStaxUnmarshaller());
@@ -1676,11 +1674,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTopics");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ListTopicsResult> responseHandler = new StaxResponseHandler<ListTopicsResult>(new ListTopicsResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -1752,11 +1749,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "OptInPhoneNumber");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<OptInPhoneNumberResult> responseHandler = new StaxResponseHandler<OptInPhoneNumberResult>(
                     new OptInPhoneNumberResultStaxUnmarshaller());
@@ -1810,6 +1806,26 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *         Exception error indicating platform application disabled.
      * @throws AuthorizationErrorException
      *         Indicates that the user has been denied access to the requested resource.
+     * @throws KMSDisabledException
+     *         The request was rejected because the specified customer master key (CMK) isn't enabled.
+     * @throws KMSInvalidStateException
+     *         The request was rejected because the state of the specified resource isn't valid for this request. For
+     *         more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+     *         Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer
+     *         Guide</i>.
+     * @throws KMSNotFoundException
+     *         The request was rejected because the specified entity or resource can't be found.
+     * @throws KMSOptInRequiredException
+     *         The AWS access key ID needs a subscription for the service.
+     * @throws KMSThrottlingException
+     *         The request was denied due to request throttling. For more information about throttling, see <a
+     *         href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
+     *         the <i>AWS Key Management Service Developer Guide.</i>
+     * @throws KMSAccessDeniedException
+     *         The ciphertext references a key that doesn't exist or that you don't have access to.
+     * @throws InvalidSecurityException
+     *         The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using
+     *         Signature Version 4.
      * @sample AmazonSNS.Publish
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/Publish" target="_top">AWS API
      *      Documentation</a>
@@ -1838,11 +1854,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "Publish");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<PublishResult> responseHandler = new StaxResponseHandler<PublishResult>(new PublishResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -1909,11 +1924,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemovePermission");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RemovePermissionResult> responseHandler = new StaxResponseHandler<RemovePermissionResult>(
                     new RemovePermissionResultStaxUnmarshaller());
@@ -1978,11 +1992,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetEndpointAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetEndpointAttributesResult> responseHandler = new StaxResponseHandler<SetEndpointAttributesResult>(
                     new SetEndpointAttributesResultStaxUnmarshaller());
@@ -2045,11 +2058,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetPlatformApplicationAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetPlatformApplicationAttributesResult> responseHandler = new StaxResponseHandler<SetPlatformApplicationAttributesResult>(
                     new SetPlatformApplicationAttributesResultStaxUnmarshaller());
@@ -2114,11 +2126,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetSMSAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetSMSAttributesResult> responseHandler = new StaxResponseHandler<SetSMSAttributesResult>(
                     new SetSMSAttributesResultStaxUnmarshaller());
@@ -2179,11 +2190,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetSubscriptionAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetSubscriptionAttributesResult> responseHandler = new StaxResponseHandler<SetSubscriptionAttributesResult>(
                     new SetSubscriptionAttributesResultStaxUnmarshaller());
@@ -2219,6 +2229,9 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *         Indicates that the requested resource does not exist.
      * @throws AuthorizationErrorException
      *         Indicates that the user has been denied access to the requested resource.
+     * @throws InvalidSecurityException
+     *         The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using
+     *         Signature Version 4.
      * @sample AmazonSNS.SetTopicAttributes
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetTopicAttributes" target="_top">AWS API
      *      Documentation</a>
@@ -2247,11 +2260,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetTopicAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetTopicAttributesResult> responseHandler = new StaxResponseHandler<SetTopicAttributesResult>(
                     new SetTopicAttributesResultStaxUnmarshaller());
@@ -2296,6 +2308,9 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *         Indicates that the requested resource does not exist.
      * @throws AuthorizationErrorException
      *         Indicates that the user has been denied access to the requested resource.
+     * @throws InvalidSecurityException
+     *         The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using
+     *         Signature Version 4.
      * @sample AmazonSNS.Subscribe
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/Subscribe" target="_top">AWS API
      *      Documentation</a>
@@ -2324,11 +2339,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "Subscribe");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SubscribeResult> responseHandler = new StaxResponseHandler<SubscribeResult>(new SubscribeResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -2369,6 +2383,9 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      *         Indicates that the user has been denied access to the requested resource.
      * @throws NotFoundException
      *         Indicates that the requested resource does not exist.
+     * @throws InvalidSecurityException
+     *         The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using
+     *         Signature Version 4.
      * @sample AmazonSNS.Unsubscribe
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/Unsubscribe" target="_top">AWS API
      *      Documentation</a>
@@ -2397,11 +2414,10 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "SNS");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "Unsubscribe");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<UnsubscribeResult> responseHandler = new StaxResponseHandler<UnsubscribeResult>(new UnsubscribeResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -2443,18 +2459,18 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -2464,7 +2480,7 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -2472,11 +2488,13 @@ public class AmazonSNSClient extends AmazonWebServiceClient implements AmazonSNS
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

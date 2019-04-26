@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,8 +19,7 @@ import com.amazonaws.AmazonWebServiceRequest;
 
 /**
  * <p>
- * You can use the following request parameters to query for how much of your instance usage is covered by a
- * reservation.
+ * You can use the following request parameters to query for how much of your instance usage a reservation covered.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetReservationCoverage" target="_top">AWS API
@@ -31,7 +30,7 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The start and end dates of the period for which you want to retrieve data about reservation coverage. You can
+     * The start and end dates of the period that you want to retrieve data about reservation coverage for. You can
      * retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive,
      * but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code>
      * is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
@@ -91,11 +90,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * <li>
      * <p>
-     * TAG
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * TENANCY
      * </p>
      * </li>
@@ -110,6 +104,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * <p>
      * If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set, the
      * response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
+     * </p>
+     * <p>
+     * The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+     * granularities.
      * </p>
      */
     private String granularity;
@@ -180,8 +178,8 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationCoverage</code> uses the same
-     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     * <code>GetReservationCoverage</code> uses the same <a
+     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
      * object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only
      * one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -192,6 +190,16 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
     private Expression filter;
     /**
      * <p>
+     * The measurement that you want your reservation coverage reported in.
+     * </p>
+     * <p>
+     * Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a
+     * request.
+     * </p>
+     */
+    private java.util.List<String> metrics;
+    /**
+     * <p>
      * The token to retrieve the next set of results. AWS provides the token when the response from a previous call has
      * more results than the maximum page size.
      * </p>
@@ -200,7 +208,7 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The start and end dates of the period for which you want to retrieve data about reservation coverage. You can
+     * The start and end dates of the period that you want to retrieve data about reservation coverage for. You can
      * retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive,
      * but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code>
      * is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
@@ -208,7 +216,7 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * 
      * @param timePeriod
-     *        The start and end dates of the period for which you want to retrieve data about reservation coverage. You
+     *        The start and end dates of the period that you want to retrieve data about reservation coverage for. You
      *        can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is
      *        inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
      *        and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from
@@ -222,14 +230,14 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The start and end dates of the period for which you want to retrieve data about reservation coverage. You can
+     * The start and end dates of the period that you want to retrieve data about reservation coverage for. You can
      * retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive,
      * but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code>
      * is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
      * including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
      * </p>
      * 
-     * @return The start and end dates of the period for which you want to retrieve data about reservation coverage. You
+     * @return The start and end dates of the period that you want to retrieve data about reservation coverage for. You
      *         can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is
      *         inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
      *         and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from
@@ -243,7 +251,7 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The start and end dates of the period for which you want to retrieve data about reservation coverage. You can
+     * The start and end dates of the period that you want to retrieve data about reservation coverage for. You can
      * retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive,
      * but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code>
      * is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
@@ -251,7 +259,7 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * 
      * @param timePeriod
-     *        The start and end dates of the period for which you want to retrieve data about reservation coverage. You
+     *        The start and end dates of the period that you want to retrieve data about reservation coverage for. You
      *        can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is
      *        inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
      *        and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from
@@ -317,11 +325,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * <li>
      * <p>
-     * TAG
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * TENANCY
      * </p>
      * </li>
@@ -372,11 +375,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *         <li>
      *         <p>
      *         REGION
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         TAG
      *         </p>
      *         </li>
      *         <li>
@@ -442,11 +440,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * <li>
      * <p>
-     * TAG
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * TENANCY
      * </p>
      * </li>
@@ -498,11 +491,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        <li>
      *        <p>
      *        REGION
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        TAG
      *        </p>
      *        </li>
      *        <li>
@@ -573,11 +561,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * <li>
      * <p>
-     * TAG
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * TENANCY
      * </p>
      * </li>
@@ -634,11 +617,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        <li>
      *        <p>
      *        REGION
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        TAG
      *        </p>
      *        </li>
      *        <li>
@@ -711,11 +689,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * <li>
      * <p>
-     * TAG
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * TENANCY
      * </p>
      * </li>
@@ -771,11 +744,6 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        </li>
      *        <li>
      *        <p>
-     *        TAG
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
      *        TENANCY
      *        </p>
      *        </li>
@@ -796,6 +764,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set, the
      * response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
      * </p>
+     * <p>
+     * The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+     * granularities.
+     * </p>
      * 
      * @param granularity
      *        The granularity of the AWS cost data for the reservation. Valid values are <code>MONTHLY</code> and
@@ -804,6 +776,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *        set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *        <code>DAILY</code>.
+     *        </p>
+     *        <p>
+     *        The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
+     *        <code>MONTHLY</code> granularities.
      * @see Granularity
      */
 
@@ -820,6 +796,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set, the
      * response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
      * </p>
+     * <p>
+     * The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+     * granularities.
+     * </p>
      * 
      * @return The granularity of the AWS cost data for the reservation. Valid values are <code>MONTHLY</code> and
      *         <code>DAILY</code>.</p>
@@ -827,6 +807,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *         If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *         set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *         <code>DAILY</code>.
+     *         </p>
+     *         <p>
+     *         The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
+     *         <code>MONTHLY</code> granularities.
      * @see Granularity
      */
 
@@ -843,6 +827,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set, the
      * response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
      * </p>
+     * <p>
+     * The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+     * granularities.
+     * </p>
      * 
      * @param granularity
      *        The granularity of the AWS cost data for the reservation. Valid values are <code>MONTHLY</code> and
@@ -851,6 +839,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *        set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *        <code>DAILY</code>.
+     *        </p>
+     *        <p>
+     *        The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
+     *        <code>MONTHLY</code> granularities.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Granularity
      */
@@ -869,6 +861,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set, the
      * response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
      * </p>
+     * <p>
+     * The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
+     * granularities.
+     * </p>
      * 
      * @param granularity
      *        The granularity of the AWS cost data for the reservation. Valid values are <code>MONTHLY</code> and
@@ -877,6 +873,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *        set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *        <code>DAILY</code>.
+     *        </p>
+     *        <p>
+     *        The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
+     *        <code>MONTHLY</code> granularities.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Granularity
      */
@@ -953,8 +953,8 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationCoverage</code> uses the same
-     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     * <code>GetReservationCoverage</code> uses the same <a
+     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
      * object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only
      * one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -1027,10 +1027,11 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        </li>
      *        </ul>
      *        <p>
-     *        <code>GetReservationCoverage</code> uses the same
-     *        <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
-     *        object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest
-     *        only one level deep. If there are multiple values for a dimension, they are OR'd together.
+     *        <code>GetReservationCoverage</code> uses the same <a
+     *        href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html"
+     *        >Expression</a> object as the other operations, but only <code>AND</code> is supported among each
+     *        dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd
+     *        together.
      *        </p>
      *        <p>
      *        If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.
@@ -1107,8 +1108,8 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationCoverage</code> uses the same
-     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     * <code>GetReservationCoverage</code> uses the same <a
+     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
      * object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only
      * one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -1180,10 +1181,11 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *         </li>
      *         </ul>
      *         <p>
-     *         <code>GetReservationCoverage</code> uses the same
-     *         <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
-     *         object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest
-     *         only one level deep. If there are multiple values for a dimension, they are OR'd together.
+     *         <code>GetReservationCoverage</code> uses the same <a
+     *         href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html"
+     *         >Expression</a> object as the other operations, but only <code>AND</code> is supported among each
+     *         dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd
+     *         together.
      *         </p>
      *         <p>
      *         If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.
@@ -1260,8 +1262,8 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationCoverage</code> uses the same
-     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     * <code>GetReservationCoverage</code> uses the same <a
+     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
      * object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only
      * one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -1334,10 +1336,11 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
      *        </li>
      *        </ul>
      *        <p>
-     *        <code>GetReservationCoverage</code> uses the same
-     *        <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
-     *        object as the other operations, but only <code>AND</code> is supported among each dimension. You can nest
-     *        only one level deep. If there are multiple values for a dimension, they are OR'd together.
+     *        <code>GetReservationCoverage</code> uses the same <a
+     *        href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html"
+     *        >Expression</a> object as the other operations, but only <code>AND</code> is supported among each
+     *        dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd
+     *        together.
      *        </p>
      *        <p>
      *        If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.
@@ -1346,6 +1349,104 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
 
     public GetReservationCoverageRequest withFilter(Expression filter) {
         setFilter(filter);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The measurement that you want your reservation coverage reported in.
+     * </p>
+     * <p>
+     * Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a
+     * request.
+     * </p>
+     * 
+     * @return The measurement that you want your reservation coverage reported in.</p>
+     *         <p>
+     *         Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values
+     *         in a request.
+     */
+
+    public java.util.List<String> getMetrics() {
+        return metrics;
+    }
+
+    /**
+     * <p>
+     * The measurement that you want your reservation coverage reported in.
+     * </p>
+     * <p>
+     * Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a
+     * request.
+     * </p>
+     * 
+     * @param metrics
+     *        The measurement that you want your reservation coverage reported in.</p>
+     *        <p>
+     *        Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values
+     *        in a request.
+     */
+
+    public void setMetrics(java.util.Collection<String> metrics) {
+        if (metrics == null) {
+            this.metrics = null;
+            return;
+        }
+
+        this.metrics = new java.util.ArrayList<String>(metrics);
+    }
+
+    /**
+     * <p>
+     * The measurement that you want your reservation coverage reported in.
+     * </p>
+     * <p>
+     * Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a
+     * request.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setMetrics(java.util.Collection)} or {@link #withMetrics(java.util.Collection)} if you want to override
+     * the existing values.
+     * </p>
+     * 
+     * @param metrics
+     *        The measurement that you want your reservation coverage reported in.</p>
+     *        <p>
+     *        Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values
+     *        in a request.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public GetReservationCoverageRequest withMetrics(String... metrics) {
+        if (this.metrics == null) {
+            setMetrics(new java.util.ArrayList<String>(metrics.length));
+        }
+        for (String ele : metrics) {
+            this.metrics.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * The measurement that you want your reservation coverage reported in.
+     * </p>
+     * <p>
+     * Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a
+     * request.
+     * </p>
+     * 
+     * @param metrics
+     *        The measurement that you want your reservation coverage reported in.</p>
+     *        <p>
+     *        Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values
+     *        in a request.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public GetReservationCoverageRequest withMetrics(java.util.Collection<String> metrics) {
+        setMetrics(metrics);
         return this;
     }
 
@@ -1396,7 +1497,8 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1414,6 +1516,8 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
             sb.append("Granularity: ").append(getGranularity()).append(",");
         if (getFilter() != null)
             sb.append("Filter: ").append(getFilter()).append(",");
+        if (getMetrics() != null)
+            sb.append("Metrics: ").append(getMetrics()).append(",");
         if (getNextPageToken() != null)
             sb.append("NextPageToken: ").append(getNextPageToken());
         sb.append("}");
@@ -1446,6 +1550,10 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
             return false;
         if (other.getFilter() != null && other.getFilter().equals(this.getFilter()) == false)
             return false;
+        if (other.getMetrics() == null ^ this.getMetrics() == null)
+            return false;
+        if (other.getMetrics() != null && other.getMetrics().equals(this.getMetrics()) == false)
+            return false;
         if (other.getNextPageToken() == null ^ this.getNextPageToken() == null)
             return false;
         if (other.getNextPageToken() != null && other.getNextPageToken().equals(this.getNextPageToken()) == false)
@@ -1462,6 +1570,7 @@ public class GetReservationCoverageRequest extends com.amazonaws.AmazonWebServic
         hashCode = prime * hashCode + ((getGroupBy() == null) ? 0 : getGroupBy().hashCode());
         hashCode = prime * hashCode + ((getGranularity() == null) ? 0 : getGranularity().hashCode());
         hashCode = prime * hashCode + ((getFilter() == null) ? 0 : getFilter().hashCode());
+        hashCode = prime * hashCode + ((getMetrics() == null) ? 0 : getMetrics().hashCode());
         hashCode = prime * hashCode + ((getNextPageToken() == null) ? 0 : getNextPageToken().hashCode());
         return hashCode;
     }

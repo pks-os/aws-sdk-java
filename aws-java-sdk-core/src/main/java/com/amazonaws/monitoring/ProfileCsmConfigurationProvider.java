@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import com.amazonaws.profile.path.AwsProfileFileLocationProvider;
 public final class ProfileCsmConfigurationProvider implements CsmConfigurationProvider {
     public static final String CSM_ENABLED_PROPERTY = "csm_enabled";
     public static final String CSM_PORT_PROPERTY = "csm_port";
-    public static final String CSM_CLIENT_ID_PROPERTY = "csm_clientid";
+    public static final String CSM_CLIENT_ID_PROPERTY = "csm_client_id";
 
     private final AwsProfileFileLocationProvider configFileLocationProvider;
 

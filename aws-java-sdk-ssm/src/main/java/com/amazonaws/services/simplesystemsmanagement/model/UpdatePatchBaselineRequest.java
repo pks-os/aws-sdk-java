@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
     private String name;
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      */
     private PatchFilterGroup globalFilters;
@@ -55,7 +55,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      */
@@ -79,7 +79,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      */
@@ -209,11 +209,11 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      * 
      * @param globalFilters
-     *        A set of global filters used to exclude patches from the baseline.
+     *        A set of global filters used to include patches in the baseline.
      */
 
     public void setGlobalFilters(PatchFilterGroup globalFilters) {
@@ -222,10 +222,10 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      * 
-     * @return A set of global filters used to exclude patches from the baseline.
+     * @return A set of global filters used to include patches in the baseline.
      */
 
     public PatchFilterGroup getGlobalFilters() {
@@ -234,11 +234,11 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      * 
      * @param globalFilters
-     *        A set of global filters used to exclude patches from the baseline.
+     *        A set of global filters used to include patches in the baseline.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -293,14 +293,14 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
      * @return A list of explicitly approved patches for the baseline.</p>
      *         <p>
      *         For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *         "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *         >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *         Guide</i>.
      */
@@ -318,7 +318,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -326,7 +326,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly approved patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      */
@@ -346,7 +346,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <p>
@@ -359,7 +359,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly approved patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -381,7 +381,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -389,7 +389,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly approved patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -539,14 +539,14 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
      * @return A list of explicitly rejected patches for the baseline.</p>
      *         <p>
      *         For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *         "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *         >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *         Guide</i>.
      */
@@ -564,7 +564,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -572,7 +572,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly rejected patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      */
@@ -592,7 +592,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <p>
@@ -605,7 +605,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly rejected patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -627,7 +627,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -635,7 +635,7 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly rejected patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1061,7 +1061,8 @@ public class UpdatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

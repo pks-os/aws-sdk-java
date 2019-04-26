@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,7 +33,7 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
     private String jobId;
     /**
      * <p>
-     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
      * </p>
      */
     private String status;
@@ -58,19 +58,19 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
     private String thingArn;
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was queued.
+     * The time, in seconds since the epoch, when the job execution was queued.
      * </p>
      */
     private java.util.Date queuedAt;
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution started.
+     * The time, in seconds since the epoch, when the job execution started.
      * </p>
      */
     private java.util.Date startedAt;
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was last updated.
+     * The time, in seconds since the epoch, when the job execution was last updated.
      * </p>
      */
     private java.util.Date lastUpdatedAt;
@@ -87,6 +87,15 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private Long versionNumber;
+    /**
+     * <p>
+     * The estimated number of seconds that remain before the job execution status will be changed to
+     * <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+     * The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will
+     * not be included if the job execution has reached a terminal status.
+     * </p>
+     */
+    private Long approximateSecondsBeforeTimedOut;
 
     /**
      * <p>
@@ -130,11 +139,12 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
      * </p>
      * 
      * @param status
-     *        The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     *        The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or
+     *        REJECTED).
      * @see JobExecutionStatus
      */
 
@@ -144,10 +154,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
      * </p>
      * 
-     * @return The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     * @return The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or
+     *         REJECTED).
      * @see JobExecutionStatus
      */
 
@@ -157,11 +168,12 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
      * </p>
      * 
      * @param status
-     *        The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     *        The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or
+     *        REJECTED).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see JobExecutionStatus
      */
@@ -173,11 +185,12 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     * The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
      * </p>
      * 
      * @param status
-     *        The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).
+     *        The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or
+     *        REJECTED).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see JobExecutionStatus
      */
@@ -329,11 +342,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was queued.
+     * The time, in seconds since the epoch, when the job execution was queued.
      * </p>
      * 
      * @param queuedAt
-     *        The time, in milliseconds since the epoch, when the job execution was queued.
+     *        The time, in seconds since the epoch, when the job execution was queued.
      */
 
     public void setQueuedAt(java.util.Date queuedAt) {
@@ -342,10 +355,10 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was queued.
+     * The time, in seconds since the epoch, when the job execution was queued.
      * </p>
      * 
-     * @return The time, in milliseconds since the epoch, when the job execution was queued.
+     * @return The time, in seconds since the epoch, when the job execution was queued.
      */
 
     public java.util.Date getQueuedAt() {
@@ -354,11 +367,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was queued.
+     * The time, in seconds since the epoch, when the job execution was queued.
      * </p>
      * 
      * @param queuedAt
-     *        The time, in milliseconds since the epoch, when the job execution was queued.
+     *        The time, in seconds since the epoch, when the job execution was queued.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -369,11 +382,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution started.
+     * The time, in seconds since the epoch, when the job execution started.
      * </p>
      * 
      * @param startedAt
-     *        The time, in milliseconds since the epoch, when the job execution started.
+     *        The time, in seconds since the epoch, when the job execution started.
      */
 
     public void setStartedAt(java.util.Date startedAt) {
@@ -382,10 +395,10 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution started.
+     * The time, in seconds since the epoch, when the job execution started.
      * </p>
      * 
-     * @return The time, in milliseconds since the epoch, when the job execution started.
+     * @return The time, in seconds since the epoch, when the job execution started.
      */
 
     public java.util.Date getStartedAt() {
@@ -394,11 +407,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution started.
+     * The time, in seconds since the epoch, when the job execution started.
      * </p>
      * 
      * @param startedAt
-     *        The time, in milliseconds since the epoch, when the job execution started.
+     *        The time, in seconds since the epoch, when the job execution started.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -409,11 +422,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was last updated.
+     * The time, in seconds since the epoch, when the job execution was last updated.
      * </p>
      * 
      * @param lastUpdatedAt
-     *        The time, in milliseconds since the epoch, when the job execution was last updated.
+     *        The time, in seconds since the epoch, when the job execution was last updated.
      */
 
     public void setLastUpdatedAt(java.util.Date lastUpdatedAt) {
@@ -422,10 +435,10 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was last updated.
+     * The time, in seconds since the epoch, when the job execution was last updated.
      * </p>
      * 
-     * @return The time, in milliseconds since the epoch, when the job execution was last updated.
+     * @return The time, in seconds since the epoch, when the job execution was last updated.
      */
 
     public java.util.Date getLastUpdatedAt() {
@@ -434,11 +447,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job execution was last updated.
+     * The time, in seconds since the epoch, when the job execution was last updated.
      * </p>
      * 
      * @param lastUpdatedAt
-     *        The time, in milliseconds since the epoch, when the job execution was last updated.
+     *        The time, in seconds since the epoch, when the job execution was last updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -537,7 +550,66 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The estimated number of seconds that remain before the job execution status will be changed to
+     * <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+     * The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will
+     * not be included if the job execution has reached a terminal status.
+     * </p>
+     * 
+     * @param approximateSecondsBeforeTimedOut
+     *        The estimated number of seconds that remain before the job execution status will be changed to
+     *        <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
+     *        minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
+     *        This value will not be included if the job execution has reached a terminal status.
+     */
+
+    public void setApproximateSecondsBeforeTimedOut(Long approximateSecondsBeforeTimedOut) {
+        this.approximateSecondsBeforeTimedOut = approximateSecondsBeforeTimedOut;
+    }
+
+    /**
+     * <p>
+     * The estimated number of seconds that remain before the job execution status will be changed to
+     * <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+     * The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will
+     * not be included if the job execution has reached a terminal status.
+     * </p>
+     * 
+     * @return The estimated number of seconds that remain before the job execution status will be changed to
+     *         <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
+     *         minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
+     *         This value will not be included if the job execution has reached a terminal status.
+     */
+
+    public Long getApproximateSecondsBeforeTimedOut() {
+        return this.approximateSecondsBeforeTimedOut;
+    }
+
+    /**
+     * <p>
+     * The estimated number of seconds that remain before the job execution status will be changed to
+     * <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+     * The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will
+     * not be included if the job execution has reached a terminal status.
+     * </p>
+     * 
+     * @param approximateSecondsBeforeTimedOut
+     *        The estimated number of seconds that remain before the job execution status will be changed to
+     *        <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
+     *        minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
+     *        This value will not be included if the job execution has reached a terminal status.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public JobExecution withApproximateSecondsBeforeTimedOut(Long approximateSecondsBeforeTimedOut) {
+        setApproximateSecondsBeforeTimedOut(approximateSecondsBeforeTimedOut);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -566,7 +638,9 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
         if (getExecutionNumber() != null)
             sb.append("ExecutionNumber: ").append(getExecutionNumber()).append(",");
         if (getVersionNumber() != null)
-            sb.append("VersionNumber: ").append(getVersionNumber());
+            sb.append("VersionNumber: ").append(getVersionNumber()).append(",");
+        if (getApproximateSecondsBeforeTimedOut() != null)
+            sb.append("ApproximateSecondsBeforeTimedOut: ").append(getApproximateSecondsBeforeTimedOut());
         sb.append("}");
         return sb.toString();
     }
@@ -621,6 +695,11 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getVersionNumber() != null && other.getVersionNumber().equals(this.getVersionNumber()) == false)
             return false;
+        if (other.getApproximateSecondsBeforeTimedOut() == null ^ this.getApproximateSecondsBeforeTimedOut() == null)
+            return false;
+        if (other.getApproximateSecondsBeforeTimedOut() != null
+                && other.getApproximateSecondsBeforeTimedOut().equals(this.getApproximateSecondsBeforeTimedOut()) == false)
+            return false;
         return true;
     }
 
@@ -639,6 +718,7 @@ public class JobExecution implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getLastUpdatedAt() == null) ? 0 : getLastUpdatedAt().hashCode());
         hashCode = prime * hashCode + ((getExecutionNumber() == null) ? 0 : getExecutionNumber().hashCode());
         hashCode = prime * hashCode + ((getVersionNumber() == null) ? 0 : getVersionNumber().hashCode());
+        hashCode = prime * hashCode + ((getApproximateSecondsBeforeTimedOut() == null) ? 0 : getApproximateSecondsBeforeTimedOut().hashCode());
         return hashCode;
     }
 

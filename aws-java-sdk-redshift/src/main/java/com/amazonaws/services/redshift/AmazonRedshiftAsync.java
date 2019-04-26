@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,7 +36,7 @@ import com.amazonaws.services.redshift.model.*;
  * when a command has been applied. In this reference, the parameter descriptions indicate whether a change is applied
  * immediately, on the next instance reboot, or during the next maintenance window. For a summary of the Amazon Redshift
  * cluster management interfaces, go to <a
- * href="http://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html">Using the Amazon Redshift Management
+ * href="https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html">Using the Amazon Redshift Management
  * Interfaces</a>.
  * </p>
  * <p>
@@ -46,10 +46,11 @@ import com.amazonaws.services.redshift.model.*;
  * </p>
  * <p>
  * If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the <a
- * href="http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.
+ * href="https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started
+ * Guide</a>.
  * </p>
  * <p>
- * If you are a database developer, the <a href="http://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon
+ * If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon
  * Redshift Database Developer Guide</a> explains how to design, build, query, and maintain the databases that make up
  * your data warehouse.
  * </p>
@@ -100,7 +101,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i> and
      * <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift cluster must be in the same AWS
-     * region.
+     * Region.
      * </p>
      * <p>
      * If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an overview of CIDR blocks, see
@@ -110,7 +111,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * You must also associate the security group with a cluster so that clients running on these IP addresses or the
      * EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
      * Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -134,7 +135,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i> and
      * <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift cluster must be in the same AWS
-     * region.
+     * Region.
      * </p>
      * <p>
      * If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an overview of CIDR blocks, see
@@ -144,7 +145,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * You must also associate the security group with a cluster so that clients running on these IP addresses or the
      * EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
      * Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -169,7 +170,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -187,7 +188,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -206,6 +207,103 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
 
     /**
      * <p>
+     * Deletes a set of cluster snapshots.
+     * </p>
+     * 
+     * @param batchDeleteClusterSnapshotsRequest
+     * @return A Java Future containing the result of the BatchDeleteClusterSnapshots operation returned by the service.
+     * @sample AmazonRedshiftAsync.BatchDeleteClusterSnapshots
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchDeleteClusterSnapshots"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<BatchDeleteClusterSnapshotsResult> batchDeleteClusterSnapshotsAsync(
+            BatchDeleteClusterSnapshotsRequest batchDeleteClusterSnapshotsRequest);
+
+    /**
+     * <p>
+     * Deletes a set of cluster snapshots.
+     * </p>
+     * 
+     * @param batchDeleteClusterSnapshotsRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the BatchDeleteClusterSnapshots operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.BatchDeleteClusterSnapshots
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchDeleteClusterSnapshots"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<BatchDeleteClusterSnapshotsResult> batchDeleteClusterSnapshotsAsync(
+            BatchDeleteClusterSnapshotsRequest batchDeleteClusterSnapshotsRequest,
+            com.amazonaws.handlers.AsyncHandler<BatchDeleteClusterSnapshotsRequest, BatchDeleteClusterSnapshotsResult> asyncHandler);
+
+    /**
+     * <p>
+     * Modifies the settings for a list of snapshots.
+     * </p>
+     * 
+     * @param batchModifyClusterSnapshotsRequest
+     * @return A Java Future containing the result of the BatchModifyClusterSnapshots operation returned by the service.
+     * @sample AmazonRedshiftAsync.BatchModifyClusterSnapshots
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchModifyClusterSnapshots"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<BatchModifyClusterSnapshotsResult> batchModifyClusterSnapshotsAsync(
+            BatchModifyClusterSnapshotsRequest batchModifyClusterSnapshotsRequest);
+
+    /**
+     * <p>
+     * Modifies the settings for a list of snapshots.
+     * </p>
+     * 
+     * @param batchModifyClusterSnapshotsRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the BatchModifyClusterSnapshots operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.BatchModifyClusterSnapshots
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchModifyClusterSnapshots"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<BatchModifyClusterSnapshotsResult> batchModifyClusterSnapshotsAsync(
+            BatchModifyClusterSnapshotsRequest batchModifyClusterSnapshotsRequest,
+            com.amazonaws.handlers.AsyncHandler<BatchModifyClusterSnapshotsRequest, BatchModifyClusterSnapshotsResult> asyncHandler);
+
+    /**
+     * <p>
+     * Cancels a resize operation.
+     * </p>
+     * 
+     * @param cancelResizeRequest
+     * @return A Java Future containing the result of the CancelResize operation returned by the service.
+     * @sample AmazonRedshiftAsync.CancelResize
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CancelResize" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<CancelResizeResult> cancelResizeAsync(CancelResizeRequest cancelResizeRequest);
+
+    /**
+     * <p>
+     * Cancels a resize operation.
+     * </p>
+     * 
+     * @param cancelResizeRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the CancelResize operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.CancelResize
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CancelResize" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<CancelResizeResult> cancelResizeAsync(CancelResizeRequest cancelResizeRequest,
+            com.amazonaws.handlers.AsyncHandler<CancelResizeRequest, CancelResizeResult> asyncHandler);
+
+    /**
+     * <p>
      * Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated
      * snapshot and it must be in the available state.
      * </p>
@@ -217,7 +315,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -242,7 +340,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -267,8 +365,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster
      * subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more
      * information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param createClusterRequest
@@ -287,8 +385,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster
      * subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more
      * information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param createClusterRequest
@@ -316,7 +414,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * Parameters in the parameter group define specific behavior that applies to the databases you create on the
      * cluster. For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -340,7 +438,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * Parameters in the parameter group define specific behavior that applies to the databases you create on the
      * cluster. For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -363,7 +461,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -381,7 +479,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -404,7 +502,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -422,7 +520,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -446,7 +544,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For information about subnet groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift
      * Cluster Subnet Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -465,7 +563,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For information about subnet groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift
      * Cluster Subnet Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -558,8 +656,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate,
      * you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and
      * use encryption keys in the HSM. For more information, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a> in the
-     * Amazon Redshift Cluster Management Guide.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a> in
+     * the Amazon Redshift Cluster Management Guide.
      * </p>
      * 
      * @param createHsmClientCertificateRequest
@@ -579,8 +677,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate,
      * you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and
      * use encryption keys in the HSM. For more information, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a> in the
-     * Amazon Redshift Cluster Management Guide.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a> in
+     * the Amazon Redshift Cluster Management Guide.
      * </p>
      * 
      * @param createHsmClientCertificateRequest
@@ -604,7 +702,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * In addition to creating an HSM configuration, you must also create an HSM client certificate. For more
-     * information, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
+     * information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
      * Security Modules</a> in the Amazon Redshift Cluster Management Guide.
      * </p>
      * 
@@ -624,7 +722,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * In addition to creating an HSM configuration, you must also create an HSM client certificate. For more
-     * information, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
+     * information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
      * Security Modules</a> in the Amazon Redshift Cluster Management Guide.
      * </p>
      * 
@@ -648,7 +746,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about managing snapshot copy grants, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
      * Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -668,7 +766,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about managing snapshot copy grants, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
      * Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -685,6 +783,37 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      */
     java.util.concurrent.Future<SnapshotCopyGrant> createSnapshotCopyGrantAsync(CreateSnapshotCopyGrantRequest createSnapshotCopyGrantRequest,
             com.amazonaws.handlers.AsyncHandler<CreateSnapshotCopyGrantRequest, SnapshotCopyGrant> asyncHandler);
+
+    /**
+     * <p>
+     * Creates a new snapshot schedule.
+     * </p>
+     * 
+     * @param createSnapshotScheduleRequest
+     * @return A Java Future containing the result of the CreateSnapshotSchedule operation returned by the service.
+     * @sample AmazonRedshiftAsync.CreateSnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<CreateSnapshotScheduleResult> createSnapshotScheduleAsync(CreateSnapshotScheduleRequest createSnapshotScheduleRequest);
+
+    /**
+     * <p>
+     * Creates a new snapshot schedule.
+     * </p>
+     * 
+     * @param createSnapshotScheduleRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the CreateSnapshotSchedule operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.CreateSnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<CreateSnapshotScheduleResult> createSnapshotScheduleAsync(CreateSnapshotScheduleRequest createSnapshotScheduleRequest,
+            com.amazonaws.handlers.AsyncHandler<CreateSnapshotScheduleRequest, CreateSnapshotScheduleResult> asyncHandler);
 
     /**
      * <p>
@@ -740,8 +869,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * Deletes a previously provisioned cluster. A successful response from the web service indicates that the request
      * was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete operation
      * cannot be canceled or reverted once submitted. For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
      * If you want to shut down the cluster and retain it for future use, set <i>SkipFinalClusterSnapshot</i> to
@@ -752,8 +881,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param deleteClusterRequest
@@ -769,8 +898,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * Deletes a previously provisioned cluster. A successful response from the web service indicates that the request
      * was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete operation
      * cannot be canceled or reverted once submitted. For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
      * If you want to shut down the cluster and retain it for future use, set <i>SkipFinalClusterSnapshot</i> to
@@ -781,8 +910,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param deleteClusterRequest
@@ -853,7 +982,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </note>
      * <p>
      * For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -878,7 +1007,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </note>
      * <p>
      * For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1102,6 +1231,37 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
 
     /**
      * <p>
+     * Deletes a snapshot schedule.
+     * </p>
+     * 
+     * @param deleteSnapshotScheduleRequest
+     * @return A Java Future containing the result of the DeleteSnapshotSchedule operation returned by the service.
+     * @sample AmazonRedshiftAsync.DeleteSnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteSnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DeleteSnapshotScheduleResult> deleteSnapshotScheduleAsync(DeleteSnapshotScheduleRequest deleteSnapshotScheduleRequest);
+
+    /**
+     * <p>
+     * Deletes a snapshot schedule.
+     * </p>
+     * 
+     * @param deleteSnapshotScheduleRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the DeleteSnapshotSchedule operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.DeleteSnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteSnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DeleteSnapshotScheduleResult> deleteSnapshotScheduleAsync(DeleteSnapshotScheduleRequest deleteSnapshotScheduleRequest,
+            com.amazonaws.handlers.AsyncHandler<DeleteSnapshotScheduleRequest, DeleteSnapshotScheduleResult> asyncHandler);
+
+    /**
+     * <p>
      * Deletes a tag or tags from a resource. You must provide the ARN of the resource from which you want to delete the
      * tag or tags.
      * </p>
@@ -1134,6 +1294,39 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      */
     java.util.concurrent.Future<DeleteTagsResult> deleteTagsAsync(DeleteTagsRequest deleteTagsRequest,
             com.amazonaws.handlers.AsyncHandler<DeleteTagsRequest, DeleteTagsResult> asyncHandler);
+
+    /**
+     * <p>
+     * Returns a list of attributes attached to an account
+     * </p>
+     * 
+     * @param describeAccountAttributesRequest
+     * @return A Java Future containing the result of the DescribeAccountAttributes operation returned by the service.
+     * @sample AmazonRedshiftAsync.DescribeAccountAttributes
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeAccountAttributes"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DescribeAccountAttributesResult> describeAccountAttributesAsync(
+            DescribeAccountAttributesRequest describeAccountAttributesRequest);
+
+    /**
+     * <p>
+     * Returns a list of attributes attached to an account
+     * </p>
+     * 
+     * @param describeAccountAttributesRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the DescribeAccountAttributes operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.DescribeAccountAttributes
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeAccountAttributes"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DescribeAccountAttributesResult> describeAccountAttributesAsync(
+            DescribeAccountAttributesRequest describeAccountAttributesRequest,
+            com.amazonaws.handlers.AsyncHandler<DescribeAccountAttributesRequest, DescribeAccountAttributesResult> asyncHandler);
 
     /**
      * <p>
@@ -1177,7 +1370,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
@@ -1210,7 +1403,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
@@ -1268,7 +1461,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1294,7 +1487,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1319,7 +1512,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
@@ -1350,7 +1543,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For information about managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
@@ -1572,7 +1765,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before
      * creating any clusters to learn more about the Amazon Redshift versions. For more information about managing
-     * clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+     * clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
      * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1588,7 +1781,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before
      * creating any clusters to learn more about the Amazon Redshift versions. For more information about managing
-     * clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+     * clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
      * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1625,8 +1818,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * Returns properties of provisioned clusters including general cluster properties, cluster database properties,
      * maintenance and backup properties, and security and access properties. This operation supports pagination. For
      * more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
      * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all clusters that match
@@ -1652,8 +1845,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * Returns properties of provisioned clusters including general cluster properties, cluster database properties,
      * maintenance and backup properties, and security and access properties. This operation supports pagination. For
      * more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
      * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all clusters that match
@@ -1700,7 +1893,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1720,7 +1913,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -1743,7 +1936,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * Displays a list of event categories for all event source types, or for a specified source type. For a list of the
      * event categories and source types, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift
      * Event Notifications</a>.
      * </p>
      * 
@@ -1759,7 +1952,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * <p>
      * Displays a list of event categories for all event source types, or for a specified source type. For a list of the
      * event categories and source types, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift
      * Event Notifications</a>.
      * </p>
      * 
@@ -2090,12 +2283,12 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
     /**
      * <p>
      * Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find
-     * what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS region that you can
+     * what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS Region that you can
      * specify, and the node types you can request. The node types differ by available storage, memory, CPU and price.
      * With the cost involved you might want to obtain a list of cluster options in the specific region and specify
      * values when creating a cluster. For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param describeOrderableClusterOptionsRequest
@@ -2111,12 +2304,12 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
     /**
      * <p>
      * Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find
-     * what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS region that you can
+     * what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS Region that you can
      * specify, and the node types you can request. The node types differ by available storage, memory, CPU and price.
      * With the cost involved you might want to obtain a list of cluster options in the specific region and specify
      * values when creating a cluster. For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param describeOrderableClusterOptionsRequest
@@ -2160,7 +2353,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about reserved node offerings, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
      * Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -2184,7 +2377,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about reserved node offerings, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
      * Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -2314,7 +2507,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about managing snapshot copy grants, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
      * Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -2334,7 +2527,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about managing snapshot copy grants, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database
      * Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -2367,6 +2560,70 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      */
     java.util.concurrent.Future<DescribeSnapshotCopyGrantsResult> describeSnapshotCopyGrantsAsync(
             com.amazonaws.handlers.AsyncHandler<DescribeSnapshotCopyGrantsRequest, DescribeSnapshotCopyGrantsResult> asyncHandler);
+
+    /**
+     * <p>
+     * Returns a list of snapshot schedules.
+     * </p>
+     * 
+     * @param describeSnapshotSchedulesRequest
+     * @return A Java Future containing the result of the DescribeSnapshotSchedules operation returned by the service.
+     * @sample AmazonRedshiftAsync.DescribeSnapshotSchedules
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeSnapshotSchedules"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DescribeSnapshotSchedulesResult> describeSnapshotSchedulesAsync(
+            DescribeSnapshotSchedulesRequest describeSnapshotSchedulesRequest);
+
+    /**
+     * <p>
+     * Returns a list of snapshot schedules.
+     * </p>
+     * 
+     * @param describeSnapshotSchedulesRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the DescribeSnapshotSchedules operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.DescribeSnapshotSchedules
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeSnapshotSchedules"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DescribeSnapshotSchedulesResult> describeSnapshotSchedulesAsync(
+            DescribeSnapshotSchedulesRequest describeSnapshotSchedulesRequest,
+            com.amazonaws.handlers.AsyncHandler<DescribeSnapshotSchedulesRequest, DescribeSnapshotSchedulesResult> asyncHandler);
+
+    /**
+     * <p>
+     * Returns the total amount of snapshot usage and provisioned storage for a user in megabytes.
+     * </p>
+     * 
+     * @param describeStorageRequest
+     * @return A Java Future containing the result of the DescribeStorage operation returned by the service.
+     * @sample AmazonRedshiftAsync.DescribeStorage
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeStorage" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<DescribeStorageResult> describeStorageAsync(DescribeStorageRequest describeStorageRequest);
+
+    /**
+     * <p>
+     * Returns the total amount of snapshot usage and provisioned storage for a user in megabytes.
+     * </p>
+     * 
+     * @param describeStorageRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the DescribeStorage operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.DescribeStorage
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeStorage" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<DescribeStorageResult> describeStorageAsync(DescribeStorageRequest describeStorageRequest,
+            com.amazonaws.handlers.AsyncHandler<DescribeStorageRequest, DescribeStorageResult> asyncHandler);
 
     /**
      * <p>
@@ -2673,14 +2930,14 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * specify one or more database user groups that the user will join at log on. By default, the temporary credentials
      * expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds
      * (60 minutes). For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
      * to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
      * The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials must have an IAM
      * policy attached that allows access to all necessary actions and resources. For more information about
      * permissions, see <a href=
-     * "http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources"
+     * "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources"
      * >Resource Policies for GetClusterCredentials</a> in the Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -2713,14 +2970,14 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * specify one or more database user groups that the user will join at log on. By default, the temporary credentials
      * expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds
      * (60 minutes). For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html">Using IAM Authentication
      * to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
      * The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials must have an IAM
      * policy attached that allows access to all necessary actions and resources. For more information about
      * permissions, see <a href=
-     * "http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources"
+     * "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources"
      * >Resource Policies for GetClusterCredentials</a> in the Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -2793,8 +3050,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * preferred maintenance window, or change the master user password. Resetting a cluster password or modifying the
      * security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a
      * reboot for parameters to take effect. For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
      * You can also change node type and the number of nodes to scale up or down the cluster. When resizing a cluster,
@@ -2815,8 +3072,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * preferred maintenance window, or change the master user password. Resetting a cluster password or modifying the
      * security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a
      * reboot for parameters to take effect. For more information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * <p>
      * You can also change node type and the number of nodes to scale up or down the cluster. When resizing a cluster,
@@ -2910,11 +3167,44 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
 
     /**
      * <p>
+     * Modifies the maintenance settings of a cluster. For example, you can defer a maintenance window. You can also
+     * update or cancel a deferment.
+     * </p>
+     * 
+     * @param modifyClusterMaintenanceRequest
+     * @return A Java Future containing the result of the ModifyClusterMaintenance operation returned by the service.
+     * @sample AmazonRedshiftAsync.ModifyClusterMaintenance
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterMaintenance"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<Cluster> modifyClusterMaintenanceAsync(ModifyClusterMaintenanceRequest modifyClusterMaintenanceRequest);
+
+    /**
+     * <p>
+     * Modifies the maintenance settings of a cluster. For example, you can defer a maintenance window. You can also
+     * update or cancel a deferment.
+     * </p>
+     * 
+     * @param modifyClusterMaintenanceRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ModifyClusterMaintenance operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.ModifyClusterMaintenance
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterMaintenance"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<Cluster> modifyClusterMaintenanceAsync(ModifyClusterMaintenanceRequest modifyClusterMaintenanceRequest,
+            com.amazonaws.handlers.AsyncHandler<ModifyClusterMaintenanceRequest, Cluster> asyncHandler);
+
+    /**
+     * <p>
      * Modifies the parameters of a parameter group.
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -2933,7 +3223,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift
      * Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -2950,6 +3240,72 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
     java.util.concurrent.Future<ModifyClusterParameterGroupResult> modifyClusterParameterGroupAsync(
             ModifyClusterParameterGroupRequest modifyClusterParameterGroupRequest,
             com.amazonaws.handlers.AsyncHandler<ModifyClusterParameterGroupRequest, ModifyClusterParameterGroupResult> asyncHandler);
+
+    /**
+     * <p>
+     * Modifies the settings for a snapshot.
+     * </p>
+     * 
+     * @param modifyClusterSnapshotRequest
+     * @return A Java Future containing the result of the ModifyClusterSnapshot operation returned by the service.
+     * @sample AmazonRedshiftAsync.ModifyClusterSnapshot
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshot" target="_top">AWS
+     *      API Documentation</a>
+     */
+    java.util.concurrent.Future<Snapshot> modifyClusterSnapshotAsync(ModifyClusterSnapshotRequest modifyClusterSnapshotRequest);
+
+    /**
+     * <p>
+     * Modifies the settings for a snapshot.
+     * </p>
+     * 
+     * @param modifyClusterSnapshotRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ModifyClusterSnapshot operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.ModifyClusterSnapshot
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshot" target="_top">AWS
+     *      API Documentation</a>
+     */
+    java.util.concurrent.Future<Snapshot> modifyClusterSnapshotAsync(ModifyClusterSnapshotRequest modifyClusterSnapshotRequest,
+            com.amazonaws.handlers.AsyncHandler<ModifyClusterSnapshotRequest, Snapshot> asyncHandler);
+
+    /**
+     * <p>
+     * Modifies a snapshot schedule for a cluster.
+     * </p>
+     * 
+     * @param modifyClusterSnapshotScheduleRequest
+     * @return A Java Future containing the result of the ModifyClusterSnapshotSchedule operation returned by the
+     *         service.
+     * @sample AmazonRedshiftAsync.ModifyClusterSnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ModifyClusterSnapshotScheduleResult> modifyClusterSnapshotScheduleAsync(
+            ModifyClusterSnapshotScheduleRequest modifyClusterSnapshotScheduleRequest);
+
+    /**
+     * <p>
+     * Modifies a snapshot schedule for a cluster.
+     * </p>
+     * 
+     * @param modifyClusterSnapshotScheduleRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ModifyClusterSnapshotSchedule operation returned by the
+     *         service.
+     * @sample AmazonRedshiftAsyncHandler.ModifyClusterSnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ModifyClusterSnapshotScheduleResult> modifyClusterSnapshotScheduleAsync(
+            ModifyClusterSnapshotScheduleRequest modifyClusterSnapshotScheduleRequest,
+            com.amazonaws.handlers.AsyncHandler<ModifyClusterSnapshotScheduleRequest, ModifyClusterSnapshotScheduleResult> asyncHandler);
 
     /**
      * <p>
@@ -3017,8 +3373,11 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
 
     /**
      * <p>
-     * Modifies the number of days to retain automated snapshots in the destination region after they are copied from
-     * the source region.
+     * Modifies the number of days to retain snapshots in the destination AWS Region after they are copied from the
+     * source AWS Region. By default, this operation only changes the retention period of copied automated snapshots.
+     * The retention periods for both new and existing copied automated snapshots are updated with the new retention
+     * period. You can set the manual option to change only the retention periods of copied manual snapshots. If you set
+     * this option, only newly copied manual snapshots have the new retention period.
      * </p>
      * 
      * @param modifySnapshotCopyRetentionPeriodRequest
@@ -3033,8 +3392,11 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
 
     /**
      * <p>
-     * Modifies the number of days to retain automated snapshots in the destination region after they are copied from
-     * the source region.
+     * Modifies the number of days to retain snapshots in the destination AWS Region after they are copied from the
+     * source AWS Region. By default, this operation only changes the retention period of copied automated snapshots.
+     * The retention periods for both new and existing copied automated snapshots are updated with the new retention
+     * period. You can set the manual option to change only the retention periods of copied manual snapshots. If you set
+     * this option, only newly copied manual snapshots have the new retention period.
      * </p>
      * 
      * @param modifySnapshotCopyRetentionPeriodRequest
@@ -3054,6 +3416,37 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
 
     /**
      * <p>
+     * Modifies a snapshot schedule. Any schedule associated with a cluster is modified asynchronously.
+     * </p>
+     * 
+     * @param modifySnapshotScheduleRequest
+     * @return A Java Future containing the result of the ModifySnapshotSchedule operation returned by the service.
+     * @sample AmazonRedshiftAsync.ModifySnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifySnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ModifySnapshotScheduleResult> modifySnapshotScheduleAsync(ModifySnapshotScheduleRequest modifySnapshotScheduleRequest);
+
+    /**
+     * <p>
+     * Modifies a snapshot schedule. Any schedule associated with a cluster is modified asynchronously.
+     * </p>
+     * 
+     * @param modifySnapshotScheduleRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ModifySnapshotSchedule operation returned by the service.
+     * @sample AmazonRedshiftAsyncHandler.ModifySnapshotSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifySnapshotSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ModifySnapshotScheduleResult> modifySnapshotScheduleAsync(ModifySnapshotScheduleRequest modifySnapshotScheduleRequest,
+            com.amazonaws.handlers.AsyncHandler<ModifySnapshotScheduleRequest, ModifySnapshotScheduleResult> asyncHandler);
+
+    /**
+     * <p>
      * Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You
      * can purchase one or more of the offerings. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain
      * the available reserved node offerings. You can call this API by providing a specific reserved node offering and
@@ -3061,7 +3454,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about reserved node offerings, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
      * Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3083,7 +3476,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about reserved node offerings, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved
      * Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3107,8 +3500,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * during which the cluster status is set to <code>rebooting</code>. A cluster event is created when the reboot is
      * completed. Any pending cluster modifications (see <a>ModifyCluster</a>) are applied at this reboot. For more
      * information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param rebootClusterRequest
@@ -3125,8 +3518,8 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * during which the cluster status is set to <code>rebooting</code>. A cluster event is created when the reboot is
      * completed. Any pending cluster modifications (see <a>ModifyCluster</a>) are applied at this reboot. For more
      * information about managing clusters, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a> in
-     * the <i>Amazon Redshift Cluster Management Guide</i>.
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+     * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
      * @param rebootClusterRequest
@@ -3182,7 +3575,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
     /**
      * <p>
      * Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The
-     * default behavior is to use the elastic resize method. With an elastic resize your cluster is avaialble for read
+     * default behavior is to use the elastic resize method. With an elastic resize, your cluster is available for read
      * and write operations more quickly than with the classic resize method.
      * </p>
      * <p>
@@ -3218,7 +3611,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </li>
      * <li>
      * <p>
-     * The type of nodes you add must match the node type for the cluster.
+     * The type of nodes that you add must match the node type for the cluster.
      * </p>
      * </li>
      * </ul>
@@ -3234,7 +3627,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
     /**
      * <p>
      * Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The
-     * default behavior is to use the elastic resize method. With an elastic resize your cluster is avaialble for read
+     * default behavior is to use the elastic resize method. With an elastic resize, your cluster is available for read
      * and write operations more quickly than with the classic resize method.
      * </p>
      * <p>
@@ -3270,7 +3663,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </li>
      * <li>
      * <p>
-     * The type of nodes you add must match the node type for the cluster.
+     * The type of nodes that you add must match the node type for the cluster.
      * </p>
      * </li>
      * </ul>
@@ -3302,7 +3695,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3328,7 +3721,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3405,7 +3798,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2
      * security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>. For information about
      * managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3424,7 +3817,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2
      * security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>. For information about
      * managing security groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster
      * Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3450,7 +3843,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 
@@ -3469,7 +3862,7 @@ public interface AmazonRedshiftAsync extends AmazonRedshift {
      * </p>
      * <p>
      * For more information about working with snapshots, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
      * in the <i>Amazon Redshift Cluster Management Guide</i>.
      * </p>
      * 

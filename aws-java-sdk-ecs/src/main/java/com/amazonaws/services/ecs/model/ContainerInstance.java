@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -72,7 +72,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -85,7 +85,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      * <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service tasks
      * running on the container instance are removed if possible. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
      * Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      */
@@ -126,7 +126,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     private com.amazonaws.internal.SdkInternalList<Attribute> attributes;
     /**
      * <p>
-     * The Unix time stamp for when the container instance was registered.
+     * The Unix timestamp for when the container instance was registered.
      * </p>
      */
     private java.util.Date registeredAt;
@@ -136,6 +136,14 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Attachment> attachments;
+    /**
+     * <p>
+     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
+     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
+     * characters, and tag values can have a maximum length of 256 characters.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
@@ -457,14 +465,14 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
      * </p>
      * 
      * @return For CPU and memory resource types, this parameter describes the amount of each resource that was
-     *         available on the container instance when the container agent registered it with Amazon ECS; this value
+     *         available on the container instance when the container agent registered it with Amazon ECS. This value
      *         represents the total amount of CPU and memory that can be allocated on this container instance to tasks.
      *         For port resource types, this parameter describes the ports that were reserved by the Amazon ECS
      *         container agent when it registered the container instance with Amazon ECS.
@@ -480,7 +488,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -488,7 +496,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * 
      * @param registeredResources
      *        For CPU and memory resource types, this parameter describes the amount of each resource that was available
-     *        on the container instance when the container agent registered it with Amazon ECS; this value represents
+     *        on the container instance when the container agent registered it with Amazon ECS. This value represents
      *        the total amount of CPU and memory that can be allocated on this container instance to tasks. For port
      *        resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent
      *        when it registered the container instance with Amazon ECS.
@@ -506,7 +514,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -519,7 +527,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * 
      * @param registeredResources
      *        For CPU and memory resource types, this parameter describes the amount of each resource that was available
-     *        on the container instance when the container agent registered it with Amazon ECS; this value represents
+     *        on the container instance when the container agent registered it with Amazon ECS. This value represents
      *        the total amount of CPU and memory that can be allocated on this container instance to tasks. For port
      *        resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent
      *        when it registered the container instance with Amazon ECS.
@@ -539,7 +547,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -547,7 +555,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * 
      * @param registeredResources
      *        For CPU and memory resource types, this parameter describes the amount of each resource that was available
-     *        on the container instance when the container agent registered it with Amazon ECS; this value represents
+     *        on the container instance when the container agent registered it with Amazon ECS. This value represents
      *        the total amount of CPU and memory that can be allocated on this container instance to tasks. For port
      *        resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent
      *        when it registered the container instance with Amazon ECS.
@@ -565,7 +573,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      * <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service tasks
      * running on the container instance are removed if possible. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
      * Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
@@ -574,7 +582,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      *        <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      *        <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service
      *        tasks running on the container instance are removed if possible. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html"
+     *        href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html"
      *        >Container Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      */
 
@@ -588,7 +596,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      * <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service tasks
      * running on the container instance are removed if possible. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
      * Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
@@ -596,7 +604,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      *         <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      *         <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service
      *         tasks running on the container instance are removed if possible. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html"
+     *         href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html"
      *         >Container Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      */
 
@@ -610,7 +618,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      * <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service tasks
      * running on the container instance are removed if possible. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
      * Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
@@ -619,7 +627,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      *        <code>DRAINING</code>. <code>ACTIVE</code> indicates that the container instance can accept tasks.
      *        <code>DRAINING</code> indicates that new tasks are not placed on the container instance and any service
      *        tasks running on the container instance are removed if possible. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html"
+     *        href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html"
      *        >Container Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -943,11 +951,11 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The Unix time stamp for when the container instance was registered.
+     * The Unix timestamp for when the container instance was registered.
      * </p>
      * 
      * @param registeredAt
-     *        The Unix time stamp for when the container instance was registered.
+     *        The Unix timestamp for when the container instance was registered.
      */
 
     public void setRegisteredAt(java.util.Date registeredAt) {
@@ -956,10 +964,10 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The Unix time stamp for when the container instance was registered.
+     * The Unix timestamp for when the container instance was registered.
      * </p>
      * 
-     * @return The Unix time stamp for when the container instance was registered.
+     * @return The Unix timestamp for when the container instance was registered.
      */
 
     public java.util.Date getRegisteredAt() {
@@ -968,11 +976,11 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The Unix time stamp for when the container instance was registered.
+     * The Unix timestamp for when the container instance was registered.
      * </p>
      * 
      * @param registeredAt
-     *        The Unix time stamp for when the container instance was registered.
+     *        The Unix timestamp for when the container instance was registered.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1055,7 +1063,97 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
+     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
+     * characters, and tag values can have a maximum length of 256 characters.
+     * </p>
+     * 
+     * @return The metadata that you apply to the container instance to help you categorize and organize them. Each tag
+     *         consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
+     *         length of 128 characters, and tag values can have a maximum length of 256 characters.
+     */
+
+    public java.util.List<Tag> getTags() {
+        if (tags == null) {
+            tags = new com.amazonaws.internal.SdkInternalList<Tag>();
+        }
+        return tags;
+    }
+
+    /**
+     * <p>
+     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
+     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
+     * characters, and tag values can have a maximum length of 256 characters.
+     * </p>
+     * 
+     * @param tags
+     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
+     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
+     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
+     */
+
+    public void setTags(java.util.Collection<Tag> tags) {
+        if (tags == null) {
+            this.tags = null;
+            return;
+        }
+
+        this.tags = new com.amazonaws.internal.SdkInternalList<Tag>(tags);
+    }
+
+    /**
+     * <p>
+     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
+     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
+     * characters, and tag values can have a maximum length of 256 characters.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
+     * existing values.
+     * </p>
+     * 
+     * @param tags
+     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
+     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
+     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ContainerInstance withTags(Tag... tags) {
+        if (this.tags == null) {
+            setTags(new com.amazonaws.internal.SdkInternalList<Tag>(tags.length));
+        }
+        for (Tag ele : tags) {
+            this.tags.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
+     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
+     * characters, and tag values can have a maximum length of 256 characters.
+     * </p>
+     * 
+     * @param tags
+     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
+     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
+     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ContainerInstance withTags(java.util.Collection<Tag> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1092,7 +1190,9 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
         if (getRegisteredAt() != null)
             sb.append("RegisteredAt: ").append(getRegisteredAt()).append(",");
         if (getAttachments() != null)
-            sb.append("Attachments: ").append(getAttachments());
+            sb.append("Attachments: ").append(getAttachments()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -1163,6 +1263,10 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
             return false;
         if (other.getAttachments() != null && other.getAttachments().equals(this.getAttachments()) == false)
             return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
+            return false;
         return true;
     }
 
@@ -1185,6 +1289,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
         hashCode = prime * hashCode + ((getAttributes() == null) ? 0 : getAttributes().hashCode());
         hashCode = prime * hashCode + ((getRegisteredAt() == null) ? 0 : getRegisteredAt().hashCode());
         hashCode = prime * hashCode + ((getAttachments() == null) ? 0 : getAttachments().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

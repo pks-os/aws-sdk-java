@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,6 +26,10 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ListReservationsRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
+    /**
+     * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     */
+    private String channelClass;
     /** Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO' */
     private String codec;
 
@@ -50,6 +54,40 @@ public class ListReservationsRequest extends com.amazonaws.AmazonWebServiceReque
      * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
      */
     private String videoQuality;
+
+    /**
+     * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     * 
+     * @param channelClass
+     *        Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     */
+
+    public void setChannelClass(String channelClass) {
+        this.channelClass = channelClass;
+    }
+
+    /**
+     * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     * 
+     * @return Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     */
+
+    public String getChannelClass() {
+        return this.channelClass;
+    }
+
+    /**
+     * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     * 
+     * @param channelClass
+     *        Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ListReservationsRequest withChannelClass(String channelClass) {
+        setChannelClass(channelClass);
+        return this;
+    }
 
     /**
      * Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
@@ -342,7 +380,8 @@ public class ListReservationsRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -352,6 +391,8 @@ public class ListReservationsRequest extends com.amazonaws.AmazonWebServiceReque
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getChannelClass() != null)
+            sb.append("ChannelClass: ").append(getChannelClass()).append(",");
         if (getCodec() != null)
             sb.append("Codec: ").append(getCodec()).append(",");
         if (getMaxResults() != null)
@@ -384,6 +425,10 @@ public class ListReservationsRequest extends com.amazonaws.AmazonWebServiceReque
         if (obj instanceof ListReservationsRequest == false)
             return false;
         ListReservationsRequest other = (ListReservationsRequest) obj;
+        if (other.getChannelClass() == null ^ this.getChannelClass() == null)
+            return false;
+        if (other.getChannelClass() != null && other.getChannelClass().equals(this.getChannelClass()) == false)
+            return false;
         if (other.getCodec() == null ^ this.getCodec() == null)
             return false;
         if (other.getCodec() != null && other.getCodec().equals(this.getCodec()) == false)
@@ -428,6 +473,7 @@ public class ListReservationsRequest extends com.amazonaws.AmazonWebServiceReque
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode + ((getChannelClass() == null) ? 0 : getChannelClass().hashCode());
         hashCode = prime * hashCode + ((getCodec() == null) ? 0 : getCodec().hashCode());
         hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
         hashCode = prime * hashCode + ((getMaximumBitrate() == null) ? 0 : getMaximumBitrate().hashCode());

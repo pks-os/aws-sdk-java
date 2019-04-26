@@ -15,11 +15,12 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
     "customSignerProvider" : null,
-    "deprecatedSuppressions" : [ "ClientConstructors", "EnumSetterOverload", "ClientMutationMethods" ],
+    "deprecatedSuppressions" : [ "ClientMutationMethods", "ClientConstructors", "EnumSetterOverload" ],
     "emitLegacyEnumSetterFor" : null,
     "operationModifiers" : null,
     "operationsWithResponseStreamContentLengthValidation" : null,
@@ -93,6 +94,7 @@
       "documentation" : "<p>Associates a specified AWS account with Amazon Macie as a member account.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidInputException",
         "documentation" : "<p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter. </p>",
@@ -107,6 +109,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "AssociateMemberAccountRequest",
@@ -135,6 +138,7 @@
       "documentation" : "<p>Associates specified S3 resources with Amazon Macie for monitoring and data classification. If memberAccountId isn't specified, the action associates specified S3 resources with Macie for the current master account. If memberAccountId is specified, the action associates specified S3 resources with Macie for the specified member account. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidInputException",
         "documentation" : "<p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter. </p>",
@@ -153,6 +157,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "AssociateS3ResourcesRequest",
@@ -181,6 +186,7 @@
       "documentation" : "<p>Removes the specified member account from Amazon Macie.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidInputException",
         "documentation" : "<p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter. </p>",
@@ -191,6 +197,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DisassociateMemberAccountRequest",
@@ -219,6 +226,7 @@
       "documentation" : "<p>Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId isn't specified, the action removes specified S3 resources from Macie for the current master account. If memberAccountId is specified, the action removes specified S3 resources from Macie for the specified member account.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidInputException",
         "documentation" : "<p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter. </p>",
@@ -233,6 +241,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DisassociateS3ResourcesRequest",
@@ -261,6 +270,7 @@
       "documentation" : "<p>Lists all Amazon Macie member accounts for the current Amazon Macie master account.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InternalException",
         "documentation" : "<p>Internal server error.</p>",
@@ -271,6 +281,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListMemberAccountsRequest",
@@ -299,6 +310,7 @@
       "documentation" : "<p>Lists all the S3 resources associated with Amazon Macie. If memberAccountId isn't specified, the action lists the S3 resources associated with Amazon Macie for the current master account. If memberAccountId is specified, the action lists the S3 resources associated with Amazon Macie for the specified member account. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidInputException",
         "documentation" : "<p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter. </p>",
@@ -313,6 +325,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListS3ResourcesRequest",
@@ -341,6 +354,7 @@
       "documentation" : "<p>Updates the classification types for the specified S3 resources. If memberAccountId isn't specified, the action updates the classification types of the S3 resources associated with Amazon Macie for the current master account. If memberAccountId is specified, the action updates the classification types of the S3 resources associated with Amazon Macie for the specified member account. </p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidInputException",
         "documentation" : "<p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter. </p>",
@@ -355,6 +369,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UpdateS3ResourcesRequest",
@@ -432,6 +447,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ResourceType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param resourceType */",
         "setterMethodName" : "setResourceType",
         "setterModel" : {
@@ -499,6 +515,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ResourceType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param resourceType */",
           "setterMethodName" : "setResourceType",
           "setterModel" : {
@@ -608,6 +625,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "MemberAccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the AWS account that you want to associate with Amazon Macie as a member account.</p>\n@param memberAccountId The ID of the AWS account that you want to associate with Amazon Macie as a member account.*/",
         "setterMethodName" : "setMemberAccountId",
         "setterModel" : {
@@ -675,6 +693,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "MemberAccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the AWS account that you want to associate with Amazon Macie as a member account.</p>\n@param memberAccountId The ID of the AWS account that you want to associate with Amazon Macie as a member account.*/",
           "setterMethodName" : "setMemberAccountId",
           "setterModel" : {
@@ -824,6 +843,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "MemberAccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the Amazon Macie member account whose resources you want to associate with Macie. </p>\n@param memberAccountId The ID of the Amazon Macie member account whose resources you want to associate with Macie.*/",
         "setterMethodName" : "setMemberAccountId",
         "setterModel" : {
@@ -926,6 +946,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -969,6 +990,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "S3Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The S3 resources that you want to associate with Amazon Macie for monitoring and data classification. </p>\n@param s3Resources The S3 resources that you want to associate with Amazon Macie for monitoring and data classification.*/",
         "setterMethodName" : "setS3Resources",
         "setterModel" : {
@@ -1036,6 +1058,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "MemberAccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the Amazon Macie member account whose resources you want to associate with Macie. </p>\n@param memberAccountId The ID of the Amazon Macie member account whose resources you want to associate with Macie.*/",
           "setterMethodName" : "setMemberAccountId",
           "setterModel" : {
@@ -1139,6 +1162,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -1182,6 +1206,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "S3Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The S3 resources that you want to associate with Amazon Macie for monitoring and data classification. </p>\n@param s3Resources The S3 resources that you want to associate with Amazon Macie for monitoring and data classification.*/",
           "setterMethodName" : "setS3Resources",
           "setterModel" : {
@@ -1321,6 +1346,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -1364,6 +1390,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "FailedS3Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>S3 resources that couldn't be associated with Amazon Macie. An error code and an error message are provided for each failed item. </p>\n@param failedS3Resources S3 resources that couldn't be associated with Amazon Macie. An error code and an error message are provided for each failed item.*/",
         "setterMethodName" : "setFailedS3Resources",
         "setterModel" : {
@@ -1468,6 +1495,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -1511,6 +1539,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "FailedS3Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>S3 resources that couldn't be associated with Amazon Macie. An error code and an error message are provided for each failed item. </p>\n@param failedS3Resources S3 resources that couldn't be associated with Amazon Macie. An error code and an error message are provided for each failed item.*/",
           "setterMethodName" : "setFailedS3Resources",
           "setterModel" : {
@@ -1616,6 +1645,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OneTime",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A one-time classification of all of the existing objects in a specified S3 bucket. </p>\n@param oneTime A one-time classification of all of the existing objects in a specified S3 bucket.\n@see S3OneTimeClassificationType*/",
         "setterMethodName" : "setOneTime",
         "setterModel" : {
@@ -1681,6 +1711,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Continuous",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie. </p>\n@param continuous A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie.\n@see S3ContinuousClassificationType*/",
         "setterMethodName" : "setContinuous",
         "setterModel" : {
@@ -1748,6 +1779,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Continuous",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie. </p>\n@param continuous A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie.\n@see S3ContinuousClassificationType*/",
           "setterMethodName" : "setContinuous",
           "setterModel" : {
@@ -1814,6 +1846,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OneTime",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A one-time classification of all of the existing objects in a specified S3 bucket. </p>\n@param oneTime A one-time classification of all of the existing objects in a specified S3 bucket.\n@see S3OneTimeClassificationType*/",
           "setterMethodName" : "setOneTime",
           "setterModel" : {
@@ -1919,6 +1952,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OneTime",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A one-time classification of all of the existing objects in a specified S3 bucket. </p>\n@param oneTime A one-time classification of all of the existing objects in a specified S3 bucket.\n@see S3OneTimeClassificationType*/",
         "setterMethodName" : "setOneTime",
         "setterModel" : {
@@ -1984,6 +2018,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Continuous",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie. </p>\n@param continuous A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie.\n@see S3ContinuousClassificationType*/",
         "setterMethodName" : "setContinuous",
         "setterModel" : {
@@ -2051,6 +2086,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Continuous",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie. </p>\n@param continuous A continuous classification of the objects that are added to a specified S3 bucket. Amazon Macie begins performing continuous classification after a bucket is successfully associated with Amazon Macie.\n@see S3ContinuousClassificationType*/",
           "setterMethodName" : "setContinuous",
           "setterModel" : {
@@ -2117,6 +2153,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OneTime",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A one-time classification of all of the existing objects in a specified S3 bucket. </p>\n@param oneTime A one-time classification of all of the existing objects in a specified S3 bucket.\n@see S3OneTimeClassificationType*/",
           "setterMethodName" : "setOneTime",
           "setterModel" : {
@@ -2229,6 +2266,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "MemberAccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the member account that you want to remove from Amazon Macie.</p>\n@param memberAccountId The ID of the member account that you want to remove from Amazon Macie.*/",
         "setterMethodName" : "setMemberAccountId",
         "setterModel" : {
@@ -2296,6 +2334,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "MemberAccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the member account that you want to remove from Amazon Macie.</p>\n@param memberAccountId The ID of the member account that you want to remove from Amazon Macie.*/",
           "setterMethodName" : "setMemberAccountId",
           "setterModel" : {
@@ -2445,6 +2484,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "MemberAccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the Amazon Macie member account whose resources you want to remove from being monitored by Amazon Macie. </p>\n@param memberAccountId The ID of the Amazon Macie member account whose resources you want to remove from being monitored by Amazon Macie.*/",
         "setterMethodName" : "setMemberAccountId",
         "setterModel" : {
@@ -2547,6 +2587,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -2590,6 +2631,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "AssociatedS3Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie. </p>\n@param associatedS3Resources The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie.*/",
         "setterMethodName" : "setAssociatedS3Resources",
         "setterModel" : {
@@ -2694,6 +2736,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -2737,6 +2780,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "AssociatedS3Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie. </p>\n@param associatedS3Resources The S3 resources (buckets or prefixes) that you want to remove from being monitored and classified by Amazon Macie.*/",
           "setterMethodName" : "setAssociatedS3Resources",
           "setterModel" : {
@@ -2803,6 +2847,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "MemberAccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the Amazon Macie member account whose resources you want to remove from being monitored by Amazon Macie. </p>\n@param memberAccountId The ID of the Amazon Macie member account whose resources you want to remove from being monitored by Amazon Macie.*/",
           "setterMethodName" : "setMemberAccountId",
           "setterModel" : {
@@ -2942,6 +2987,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -2985,6 +3031,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "FailedS3Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>S3 resources that couldn't be removed from being monitored and classified by Amazon Macie. An error code and an error message are provided for each failed item. </p>\n@param failedS3Resources S3 resources that couldn't be removed from being monitored and classified by Amazon Macie. An error code and an error message are provided for each failed item.*/",
         "setterMethodName" : "setFailedS3Resources",
         "setterModel" : {
@@ -3089,6 +3136,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -3132,6 +3180,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "FailedS3Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>S3 resources that couldn't be removed from being monitored and classified by Amazon Macie. An error code and an error message are provided for each failed item. </p>\n@param failedS3Resources S3 resources that couldn't be removed from being monitored and classified by Amazon Macie. An error code and an error message are provided for each failed item.*/",
           "setterMethodName" : "setFailedS3Resources",
           "setterModel" : {
@@ -3237,6 +3286,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "FailedItem",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The failed S3 resources.</p>\n@param failedItem The failed S3 resources.*/",
         "setterMethodName" : "setFailedItem",
         "setterModel" : {
@@ -3302,6 +3352,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status code of a failed item.</p>\n@param errorCode The status code of a failed item.*/",
         "setterMethodName" : "setErrorCode",
         "setterModel" : {
@@ -3367,6 +3418,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The error message of a failed item.</p>\n@param errorMessage The error message of a failed item.*/",
         "setterMethodName" : "setErrorMessage",
         "setterModel" : {
@@ -3434,6 +3486,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status code of a failed item.</p>\n@param errorCode The status code of a failed item.*/",
           "setterMethodName" : "setErrorCode",
           "setterModel" : {
@@ -3500,6 +3553,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The error message of a failed item.</p>\n@param errorMessage The error message of a failed item.*/",
           "setterMethodName" : "setErrorMessage",
           "setterModel" : {
@@ -3566,6 +3620,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "FailedItem",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The failed S3 resources.</p>\n@param failedItem The failed S3 resources.*/",
           "setterMethodName" : "setFailedItem",
           "setterModel" : {
@@ -3671,6 +3726,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param errorCode */",
         "setterMethodName" : "setErrorCode",
         "setterModel" : {
@@ -3738,6 +3794,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param errorCode */",
           "setterMethodName" : "setErrorCode",
           "setterModel" : {
@@ -3840,6 +3897,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param errorCode */",
         "setterMethodName" : "setErrorCode",
         "setterModel" : {
@@ -3905,6 +3963,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "FieldName",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param fieldName */",
         "setterMethodName" : "setFieldName",
         "setterModel" : {
@@ -3972,6 +4031,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param errorCode */",
           "setterMethodName" : "setErrorCode",
           "setterModel" : {
@@ -4038,6 +4098,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "FieldName",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param fieldName */",
           "setterMethodName" : "setFieldName",
           "setterModel" : {
@@ -4140,6 +4201,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ErrorCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param errorCode */",
         "setterMethodName" : "setErrorCode",
         "setterModel" : {
@@ -4205,6 +4267,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ResourceType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param resourceType */",
         "setterMethodName" : "setResourceType",
         "setterModel" : {
@@ -4272,6 +4335,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ErrorCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param errorCode */",
           "setterMethodName" : "setErrorCode",
           "setterModel" : {
@@ -4338,6 +4402,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ResourceType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param resourceType */",
           "setterMethodName" : "setResourceType",
           "setterModel" : {
@@ -4447,6 +4512,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListMemberAccounts action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data. </p>\n@param nextToken Use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListMemberAccounts action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -4512,6 +4578,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250. </p>\n@param maxResults Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -4579,6 +4646,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250. </p>\n@param maxResults Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -4645,6 +4713,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListMemberAccounts action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data. </p>\n@param nextToken Use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListMemberAccounts action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -4784,6 +4853,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -4827,6 +4897,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "MemberAccounts",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of the Amazon Macie member accounts returned by the action. The current master account is also included in this list. </p>\n@param memberAccounts A list of the Amazon Macie member accounts returned by the action. The current master account is also included in this list.*/",
         "setterMethodName" : "setMemberAccounts",
         "setterModel" : {
@@ -4892,6 +4963,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>\n@param nextToken When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -4996,6 +5068,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -5039,6 +5112,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "MemberAccounts",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of the Amazon Macie member accounts returned by the action. The current master account is also included in this list. </p>\n@param memberAccounts A list of the Amazon Macie member accounts returned by the action. The current master account is also included in this list.*/",
           "setterMethodName" : "setMemberAccounts",
           "setterModel" : {
@@ -5105,6 +5179,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>\n@param nextToken When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5217,6 +5292,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "MemberAccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Macie member account ID whose associated S3 resources you want to list. </p>\n@param memberAccountId The Amazon Macie member account ID whose associated S3 resources you want to list.*/",
         "setterMethodName" : "setMemberAccountId",
         "setterModel" : {
@@ -5282,6 +5358,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Use this parameter when paginating results. Set its value to null on your first call to the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data. </p>\n@param nextToken Use this parameter when paginating results. Set its value to null on your first call to the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -5347,6 +5424,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250. </p>\n@param maxResults Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
@@ -5414,6 +5492,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250. </p>\n@param maxResults Use this parameter to indicate the maximum number of items that you want in the response. The default value is 250.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
@@ -5480,6 +5559,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "MemberAccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Macie member account ID whose associated S3 resources you want to list. </p>\n@param memberAccountId The Amazon Macie member account ID whose associated S3 resources you want to list.*/",
           "setterMethodName" : "setMemberAccountId",
           "setterModel" : {
@@ -5546,6 +5626,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Use this parameter when paginating results. Set its value to null on your first call to the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data. </p>\n@param nextToken Use this parameter when paginating results. Set its value to null on your first call to the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5685,6 +5766,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5728,6 +5810,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "S3Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of the associated S3 resources returned by the action.</p>\n@param s3Resources A list of the associated S3 resources returned by the action.*/",
         "setterMethodName" : "setS3Resources",
         "setterModel" : {
@@ -5793,6 +5876,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>\n@param nextToken When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -5860,6 +5944,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null. </p>\n@param nextToken When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -5963,6 +6048,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6006,6 +6092,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "S3Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of the associated S3 resources returned by the action.</p>\n@param s3Resources A list of the associated S3 resources returned by the action.*/",
           "setterMethodName" : "setS3Resources",
           "setterModel" : {
@@ -6111,6 +6198,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "AccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The AWS account ID of the Amazon Macie member account.</p>\n@param accountId The AWS account ID of the Amazon Macie member account.*/",
         "setterMethodName" : "setAccountId",
         "setterModel" : {
@@ -6178,6 +6266,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "AccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The AWS account ID of the Amazon Macie member account.</p>\n@param accountId The AWS account ID of the Amazon Macie member account.*/",
           "setterMethodName" : "setAccountId",
           "setterModel" : {
@@ -6372,6 +6461,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BucketName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the S3 bucket.</p>\n@param bucketName The name of the S3 bucket.*/",
         "setterMethodName" : "setBucketName",
         "setterModel" : {
@@ -6437,6 +6527,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Prefix",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The prefix of the S3 bucket. </p>\n@param prefix The prefix of the S3 bucket.*/",
         "setterMethodName" : "setPrefix",
         "setterModel" : {
@@ -6504,6 +6595,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BucketName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the S3 bucket.</p>\n@param bucketName The name of the S3 bucket.*/",
           "setterMethodName" : "setBucketName",
           "setterModel" : {
@@ -6570,6 +6662,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Prefix",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The prefix of the S3 bucket. </p>\n@param prefix The prefix of the S3 bucket.*/",
           "setterMethodName" : "setPrefix",
           "setterModel" : {
@@ -6675,6 +6768,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BucketName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the S3 bucket that you want to associate with Amazon Macie.</p>\n@param bucketName The name of the S3 bucket that you want to associate with Amazon Macie.*/",
         "setterMethodName" : "setBucketName",
         "setterModel" : {
@@ -6740,6 +6834,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Prefix",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The prefix of the S3 bucket that you want to associate with Amazon Macie.</p>\n@param prefix The prefix of the S3 bucket that you want to associate with Amazon Macie.*/",
         "setterMethodName" : "setPrefix",
         "setterModel" : {
@@ -6805,6 +6900,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "ClassificationType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The classification type that you want to specify for the resource associated with Amazon Macie. </p>\n@param classificationType The classification type that you want to specify for the resource associated with Amazon Macie.*/",
         "setterMethodName" : "setClassificationType",
         "setterModel" : {
@@ -6872,6 +6968,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BucketName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the S3 bucket that you want to associate with Amazon Macie.</p>\n@param bucketName The name of the S3 bucket that you want to associate with Amazon Macie.*/",
           "setterMethodName" : "setBucketName",
           "setterModel" : {
@@ -6938,6 +7035,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "ClassificationType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The classification type that you want to specify for the resource associated with Amazon Macie. </p>\n@param classificationType The classification type that you want to specify for the resource associated with Amazon Macie.*/",
           "setterMethodName" : "setClassificationType",
           "setterModel" : {
@@ -7004,6 +7102,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Prefix",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The prefix of the S3 bucket that you want to associate with Amazon Macie.</p>\n@param prefix The prefix of the S3 bucket that you want to associate with Amazon Macie.*/",
           "setterMethodName" : "setPrefix",
           "setterModel" : {
@@ -7109,6 +7208,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "BucketName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the S3 bucket whose classification types you want to update.</p>\n@param bucketName The name of the S3 bucket whose classification types you want to update.*/",
         "setterMethodName" : "setBucketName",
         "setterModel" : {
@@ -7174,6 +7274,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Prefix",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The prefix of the S3 bucket whose classification types you want to update.</p>\n@param prefix The prefix of the S3 bucket whose classification types you want to update.*/",
         "setterMethodName" : "setPrefix",
         "setterModel" : {
@@ -7239,6 +7340,7 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "ClassificationTypeUpdate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The classification type that you want to update for the resource associated with Amazon Macie. </p>\n@param classificationTypeUpdate The classification type that you want to update for the resource associated with Amazon Macie.*/",
         "setterMethodName" : "setClassificationTypeUpdate",
         "setterModel" : {
@@ -7306,6 +7408,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "BucketName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the S3 bucket whose classification types you want to update.</p>\n@param bucketName The name of the S3 bucket whose classification types you want to update.*/",
           "setterMethodName" : "setBucketName",
           "setterModel" : {
@@ -7372,6 +7475,7 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "ClassificationTypeUpdate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The classification type that you want to update for the resource associated with Amazon Macie. </p>\n@param classificationTypeUpdate The classification type that you want to update for the resource associated with Amazon Macie.*/",
           "setterMethodName" : "setClassificationTypeUpdate",
           "setterModel" : {
@@ -7438,6 +7542,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Prefix",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The prefix of the S3 bucket whose classification types you want to update.</p>\n@param prefix The prefix of the S3 bucket whose classification types you want to update.*/",
           "setterMethodName" : "setPrefix",
           "setterModel" : {
@@ -7550,6 +7655,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "MemberAccountId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The AWS ID of the Amazon Macie member account whose S3 resources' classification types you want to update. </p>\n@param memberAccountId The AWS ID of the Amazon Macie member account whose S3 resources' classification types you want to update.*/",
         "setterMethodName" : "setMemberAccountId",
         "setterModel" : {
@@ -7652,6 +7758,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -7695,6 +7802,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "S3ResourcesUpdate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The S3 resources whose classification types you want to update.</p>\n@param s3ResourcesUpdate The S3 resources whose classification types you want to update.*/",
         "setterMethodName" : "setS3ResourcesUpdate",
         "setterModel" : {
@@ -7762,6 +7870,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "MemberAccountId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The AWS ID of the Amazon Macie member account whose S3 resources' classification types you want to update. </p>\n@param memberAccountId The AWS ID of the Amazon Macie member account whose S3 resources' classification types you want to update.*/",
           "setterMethodName" : "setMemberAccountId",
           "setterModel" : {
@@ -7865,6 +7974,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -7908,6 +8018,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "S3ResourcesUpdate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The S3 resources whose classification types you want to update.</p>\n@param s3ResourcesUpdate The S3 resources whose classification types you want to update.*/",
           "setterMethodName" : "setS3ResourcesUpdate",
           "setterModel" : {
@@ -8047,6 +8158,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -8090,6 +8202,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "FailedS3Resources",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The S3 resources whose classification types can't be updated. An error code and an error message are provided for each failed item. </p>\n@param failedS3Resources The S3 resources whose classification types can't be updated. An error code and an error message are provided for each failed item.*/",
         "setterMethodName" : "setFailedS3Resources",
         "setterModel" : {
@@ -8194,6 +8307,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -8237,6 +8351,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "FailedS3Resources",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The S3 resources whose classification types can't be updated. An error code and an error message are provided for each failed item. </p>\n@param failedS3Resources The S3 resources whose classification types can't be updated. An error code and an error message are provided for each failed item.*/",
           "setterMethodName" : "setFailedS3Resources",
           "setterModel" : {
@@ -8287,13 +8402,12 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : { },
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AmazonMacieException",

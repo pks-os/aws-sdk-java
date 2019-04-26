@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -44,7 +44,7 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
     /**
      * <p>
      * The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a
-     * status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches list.
+     * status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches list.
      * </p>
      * <note>
      * <p>
@@ -196,7 +196,7 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
     /**
      * <p>
      * The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a
-     * status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches list.
+     * status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches list.
      * </p>
      * <note>
      * <p>
@@ -207,7 +207,7 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
      * 
      * @param instancesWithInstalledRejectedPatches
      *        The number of instances with patches installed that are specified in a RejectedPatches list. Patches with
-     *        a status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches
+     *        a status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches
      *        list.</p> <note>
      *        <p>
      *        If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
@@ -222,7 +222,7 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
     /**
      * <p>
      * The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a
-     * status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches list.
+     * status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches list.
      * </p>
      * <note>
      * <p>
@@ -232,8 +232,8 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
      * </note>
      * 
      * @return The number of instances with patches installed that are specified in a RejectedPatches list. Patches with
-     *         a status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches
-     *         list.</p> <note>
+     *         a status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a
+     *         RejectedPatches list.</p> <note>
      *         <p>
      *         If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
      *         InstancesWithInstalledRejectedPatches will always be 0 (zero).
@@ -247,7 +247,7 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
     /**
      * <p>
      * The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a
-     * status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches list.
+     * status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches list.
      * </p>
      * <note>
      * <p>
@@ -258,7 +258,7 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
      * 
      * @param instancesWithInstalledRejectedPatches
      *        The number of instances with patches installed that are specified in a RejectedPatches list. Patches with
-     *        a status of <i>InstalledRejected</i> were typically installed before they were added to a RejectedPatches
+     *        a status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches
      *        list.</p> <note>
      *        <p>
      *        If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of
@@ -393,7 +393,8 @@ public class DescribePatchGroupStateResult extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

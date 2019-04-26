@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -84,12 +84,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      * <ul>
      * <li>
      * <p>
-     * <code>USER</code> - On-demand backup created by you.
+     * <code>USER</code> - You create and manage these using the on-demand backup feature.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     * <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is
+     * automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore
+     * the deleted table to the state it was in just before the point of deletion.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      * </p>
      * </li>
      * </ul>
@@ -454,12 +461,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      * <ul>
      * <li>
      * <p>
-     * <code>USER</code> - On-demand backup created by you.
+     * <code>USER</code> - You create and manage these using the on-demand backup feature.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     * <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is
+     * automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore
+     * the deleted table to the state it was in just before the point of deletion.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      * </p>
      * </li>
      * </ul>
@@ -469,12 +483,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>USER</code> - On-demand backup created by you.
+     *        <code>USER</code> - You create and manage these using the on-demand backup feature.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     *        <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code>
+     *        backup is automatically created and is retained for 35 days (at no additional cost). System backups allow
+     *        you to restore the deleted table to the state it was in just before the point of deletion.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      *        </p>
      *        </li>
      * @see BackupType
@@ -491,12 +512,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      * <ul>
      * <li>
      * <p>
-     * <code>USER</code> - On-demand backup created by you.
+     * <code>USER</code> - You create and manage these using the on-demand backup feature.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     * <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is
+     * automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore
+     * the deleted table to the state it was in just before the point of deletion.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      * </p>
      * </li>
      * </ul>
@@ -505,12 +533,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      *         <ul>
      *         <li>
      *         <p>
-     *         <code>USER</code> - On-demand backup created by you.
+     *         <code>USER</code> - You create and manage these using the on-demand backup feature.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     *         <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code>
+     *         backup is automatically created and is retained for 35 days (at no additional cost). System backups allow
+     *         you to restore the deleted table to the state it was in just before the point of deletion.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      *         </p>
      *         </li>
      * @see BackupType
@@ -527,12 +562,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      * <ul>
      * <li>
      * <p>
-     * <code>USER</code> - On-demand backup created by you.
+     * <code>USER</code> - You create and manage these using the on-demand backup feature.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     * <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is
+     * automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore
+     * the deleted table to the state it was in just before the point of deletion.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      * </p>
      * </li>
      * </ul>
@@ -542,12 +584,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>USER</code> - On-demand backup created by you.
+     *        <code>USER</code> - You create and manage these using the on-demand backup feature.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     *        <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code>
+     *        backup is automatically created and is retained for 35 days (at no additional cost). System backups allow
+     *        you to restore the deleted table to the state it was in just before the point of deletion.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -566,12 +615,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      * <ul>
      * <li>
      * <p>
-     * <code>USER</code> - On-demand backup created by you.
+     * <code>USER</code> - You create and manage these using the on-demand backup feature.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     * <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is
+     * automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore
+     * the deleted table to the state it was in just before the point of deletion.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      * </p>
      * </li>
      * </ul>
@@ -581,12 +637,19 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>USER</code> - On-demand backup created by you.
+     *        <code>USER</code> - You create and manage these using the on-demand backup feature.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.
+     *        <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code>
+     *        backup is automatically created and is retained for 35 days (at no additional cost). System backups allow
+     *        you to restore the deleted table to the state it was in just before the point of deletion.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -639,7 +702,8 @@ public class BackupSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

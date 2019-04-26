@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,7 +16,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last
+ * Performing this operation violates a minimum or maximum value limit. For example, attempting to remove the last
  * service control policy (SCP) from an OU or root, inviting or creating too many accounts to the organization, or
  * attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional
  * information about the violated limit.
@@ -28,7 +28,7 @@ import javax.annotation.Generated;
  * <li>
  * <p>
  * ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. If you
- * need more accounts, contact<a href="https://console.aws.amazon.com/support/home#/">AWS Support</a> to request an
+ * need more accounts, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a> to request an
  * increase in your limit.
  * </p>
  * <p>
@@ -108,7 +108,7 @@ import javax.annotation.Generated;
  * <li>
  * <p>
  * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master account, you first must
- * associate a payment instrument, such as a credit card, with the account. Follow the steps at <a href=
+ * associate a valid payment instrument, such as a credit card, with the account. Follow the steps at <a href=
  * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"
  * >To leave an organization when all required account information has not yet been provided</a> in the <i>AWS
  * Organizations User Guide</i>.
@@ -117,7 +117,7 @@ import javax.annotation.Generated;
  * <li>
  * <p>
  * MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with this member account, you first must
- * associate a payment instrument, such as a credit card, with the account. Follow the steps at <a href=
+ * associate a valid payment instrument, such as a credit card, with the account. Follow the steps at <a href=
  * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"
  * >To leave an organization when all required account information has not yet been provided</a> in the <i>AWS
  * Organizations User Guide</i>.
@@ -140,6 +140,14 @@ import javax.annotation.Generated;
  * <p>
  * MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide contact a valid address and
  * phone number for the master account. Then try the operation again.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account must have an associated account
+ * in the AWS GovCloud (US-West) Region. For more information, see <a
+ * href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in
+ * the <i>AWS GovCloud User Guide.</i>
  * </p>
  * </li>
  * </ul>

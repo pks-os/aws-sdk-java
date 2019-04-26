@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -35,7 +35,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * <p>
      * The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing
      * size of the volume. For information about available EBS volume sizes, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
      * </p>
      * <p>
      * Default: If no size is specified, the existing size is retained.
@@ -57,7 +57,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * </p>
      * <p>
      * This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
      * IOPS SSD (io1) Volumes</a>.
      * </p>
      * <p>
@@ -110,7 +110,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * <p>
      * The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing
      * size of the volume. For information about available EBS volume sizes, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
      * </p>
      * <p>
      * Default: If no size is specified, the existing size is retained.
@@ -119,7 +119,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * @param size
      *        The target size of the volume, in GiB. The target volume size must be greater than or equal to than the
      *        existing size of the volume. For information about available EBS volume sizes, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
      *        Types</a>.</p>
      *        <p>
      *        Default: If no size is specified, the existing size is retained.
@@ -133,7 +133,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * <p>
      * The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing
      * size of the volume. For information about available EBS volume sizes, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
      * </p>
      * <p>
      * Default: If no size is specified, the existing size is retained.
@@ -141,7 +141,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * 
      * @return The target size of the volume, in GiB. The target volume size must be greater than or equal to than the
      *         existing size of the volume. For information about available EBS volume sizes, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
      *         Types</a>.</p>
      *         <p>
      *         Default: If no size is specified, the existing size is retained.
@@ -155,7 +155,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * <p>
      * The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing
      * size of the volume. For information about available EBS volume sizes, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
      * </p>
      * <p>
      * Default: If no size is specified, the existing size is retained.
@@ -164,7 +164,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * @param size
      *        The target size of the volume, in GiB. The target volume size must be greater than or equal to than the
      *        existing size of the volume. For information about available EBS volume sizes, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
      *        Types</a>.</p>
      *        <p>
      *        Default: If no size is specified, the existing size is retained.
@@ -280,7 +280,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * </p>
      * <p>
      * This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
      * IOPS SSD (io1) Volumes</a>.
      * </p>
      * <p>
@@ -291,7 +291,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      *        The target IOPS rate of the volume.</p>
      *        <p>
      *        This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops"
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops"
      *        >Provisioned IOPS SSD (io1) Volumes</a>.
      *        </p>
      *        <p>
@@ -308,7 +308,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * </p>
      * <p>
      * This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
      * IOPS SSD (io1) Volumes</a>.
      * </p>
      * <p>
@@ -318,7 +318,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * @return The target IOPS rate of the volume.</p>
      *         <p>
      *         This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">
      *         Provisioned IOPS SSD (io1) Volumes</a>.
      *         </p>
      *         <p>
@@ -335,7 +335,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      * </p>
      * <p>
      * This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
      * IOPS SSD (io1) Volumes</a>.
      * </p>
      * <p>
@@ -346,7 +346,7 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
      *        The target IOPS rate of the volume.</p>
      *        <p>
      *        This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops"
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops"
      *        >Provisioned IOPS SSD (io1) Volumes</a>.
      *        </p>
      *        <p>
@@ -371,7 +371,8 @@ public class ModifyVolumeRequest extends AmazonWebServiceRequest implements Seri
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

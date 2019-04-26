@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,9 +28,9 @@ public class GetLinkAttributesRequest extends com.amazonaws.AmazonWebServiceRequ
     /**
      * <p>
      * The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more
-     * information, see <a>arns</a> or <a
-     * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-     * link</a>.
+     * information, see <a>arns</a> or <a href=
+     * "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     * >Typed Links</a>.
      * </p>
      */
     private String directoryArn;
@@ -56,16 +56,16 @@ public class GetLinkAttributesRequest extends com.amazonaws.AmazonWebServiceRequ
     /**
      * <p>
      * The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more
-     * information, see <a>arns</a> or <a
-     * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-     * link</a>.
+     * information, see <a>arns</a> or <a href=
+     * "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     * >Typed Links</a>.
      * </p>
      * 
      * @param directoryArn
      *        The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For
-     *        more information, see <a>arns</a> or <a
-     *        href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-     *        link</a>.
+     *        more information, see <a>arns</a> or <a href=
+     *        "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     *        >Typed Links</a>.
      */
 
     public void setDirectoryArn(String directoryArn) {
@@ -75,15 +75,15 @@ public class GetLinkAttributesRequest extends com.amazonaws.AmazonWebServiceRequ
     /**
      * <p>
      * The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more
-     * information, see <a>arns</a> or <a
-     * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-     * link</a>.
+     * information, see <a>arns</a> or <a href=
+     * "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     * >Typed Links</a>.
      * </p>
      * 
      * @return The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For
-     *         more information, see <a>arns</a> or <a
-     *         href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink"
-     *         >Typed link</a>.
+     *         more information, see <a>arns</a> or <a href=
+     *         "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     *         >Typed Links</a>.
      */
 
     public String getDirectoryArn() {
@@ -93,16 +93,16 @@ public class GetLinkAttributesRequest extends com.amazonaws.AmazonWebServiceRequ
     /**
      * <p>
      * The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more
-     * information, see <a>arns</a> or <a
-     * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-     * link</a>.
+     * information, see <a>arns</a> or <a href=
+     * "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     * >Typed Links</a>.
      * </p>
      * 
      * @param directoryArn
      *        The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For
-     *        more information, see <a>arns</a> or <a
-     *        href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-     *        link</a>.
+     *        more information, see <a>arns</a> or <a href=
+     *        "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink"
+     *        >Typed Links</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -281,7 +281,8 @@ public class GetLinkAttributesRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

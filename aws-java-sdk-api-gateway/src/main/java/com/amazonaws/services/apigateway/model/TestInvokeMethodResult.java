@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,9 +19,9 @@ import javax.annotation.Generated;
  * <p>
  * Represents the response of the test invoke request in the HTTP method.
  * </p>
- * <div class="seeAlso"> <a
- * href="[[AwsDocsUrlPrefix]]/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console">Test
- * API using the API Gateway console</a> </div>
+ * <div class="seeAlso"> <a href=
+ * "https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console"
+ * >Test API using the API Gateway console</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class TestInvokeMethodResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
@@ -346,7 +346,8 @@ public class TestInvokeMethodResult extends com.amazonaws.AmazonWebServiceResult
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

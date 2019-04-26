@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,7 +29,7 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     /** The city where the endpoint is located. */
     private String city;
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code, such as
+     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
      * "US" for the United States.
      */
     private String country;
@@ -77,11 +77,11 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code, such as
+     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
      * "US" for the United States.
      * 
      * @param country
-     *        The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code,
+     *        The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code,
      *        such as "US" for the United States.
      */
 
@@ -90,10 +90,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code, such as
+     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
      * "US" for the United States.
      * 
-     * @return The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code,
+     * @return The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code,
      *         such as "US" for the United States.
      */
 
@@ -102,11 +102,11 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code, such as
+     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
      * "US" for the United States.
      * 
      * @param country
-     *        The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 Alpha-2 code,
+     *        The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code,
      *        such as "US" for the United States.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -253,7 +253,8 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

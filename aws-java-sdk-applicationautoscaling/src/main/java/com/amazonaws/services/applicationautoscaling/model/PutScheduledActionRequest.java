@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,7 +29,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      * provided by your own application or service. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      */
@@ -41,17 +41,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     * At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     * Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Cron expressions - <code>cron(<i>fields</i>)</code>
+     * Cron expressions - "<code>cron(<i>fields</i>)</code>"
      * </p>
      * </li>
      * </ul>
@@ -64,7 +64,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * For more information about cron expressions, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
      * Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      * </p>
      */
@@ -133,7 +133,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
      * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
+     * service provider. More information is available in our <a
+     * href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      * </p>
      * </li>
      * </ul>
@@ -141,8 +142,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
     private String resourceId;
     /**
      * <p>
-     * The scalable dimension. This parameter is required if you are creating a scheduled action. This string consists
-     * of the service namespace, resource type, and scaling property.
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      * </p>
      * <ul>
      * <li>
@@ -190,7 +190,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <li>
      * <p>
      * <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for
-     * Aurora MySQL-compatible edition.
+     * Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      * </p>
      * </li>
      * <li>
@@ -233,14 +233,14 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      * provided by your own application or service. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @param serviceNamespace
      *        The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      *        provided by your own application or service. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     *        "https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *        >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @see ServiceNamespace
      */
@@ -253,13 +253,13 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      * provided by your own application or service. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @return The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a
      *         resource provided by your own application or service. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     *         "https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *         >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @see ServiceNamespace
      */
@@ -272,14 +272,14 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      * provided by your own application or service. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @param serviceNamespace
      *        The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      *        provided by your own application or service. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     *        "https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *        >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ServiceNamespace
@@ -294,14 +294,14 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      * provided by your own application or service. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @param serviceNamespace
      *        The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
      *        provided by your own application or service. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     *        "https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *        >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ServiceNamespace
@@ -319,17 +319,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     * At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     * Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Cron expressions - <code>cron(<i>fields</i>)</code>
+     * Cron expressions - "<code>cron(<i>fields</i>)</code>"
      * </p>
      * </li>
      * </ul>
@@ -342,7 +342,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * For more information about cron expressions, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
      * Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      * </p>
      * 
@@ -351,17 +351,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <ul>
      *        <li>
      *        <p>
-     *        At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     *        At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     *        Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Cron expressions - <code>cron(<i>fields</i>)</code>
+     *        Cron expressions - "<code>cron(<i>fields</i>)</code>"
      *        </p>
      *        </li>
      *        </ul>
@@ -374,8 +374,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        </p>
      *        <p>
      *        For more information about cron expressions, see <a
-     *        href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
-     *        Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
+     *        href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions"
+     *        >Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      */
 
     public void setSchedule(String schedule) {
@@ -389,17 +389,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     * At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     * Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Cron expressions - <code>cron(<i>fields</i>)</code>
+     * Cron expressions - "<code>cron(<i>fields</i>)</code>"
      * </p>
      * </li>
      * </ul>
@@ -412,7 +412,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * For more information about cron expressions, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
      * Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      * </p>
      * 
@@ -420,17 +420,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *         <ul>
      *         <li>
      *         <p>
-     *         At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     *         At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     *         Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         Cron expressions - <code>cron(<i>fields</i>)</code>
+     *         Cron expressions - "<code>cron(<i>fields</i>)</code>"
      *         </p>
      *         </li>
      *         </ul>
@@ -443,7 +443,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *         </p>
      *         <p>
      *         For more information about cron expressions, see <a
-     *         href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions"
+     *         href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions"
      *         >Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      */
 
@@ -458,17 +458,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     * At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     * Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      * </p>
      * </li>
      * <li>
      * <p>
-     * Cron expressions - <code>cron(<i>fields</i>)</code>
+     * Cron expressions - "<code>cron(<i>fields</i>)</code>"
      * </p>
      * </li>
      * </ul>
@@ -481,7 +481,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * For more information about cron expressions, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
      * Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      * </p>
      * 
@@ -490,17 +490,17 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <ul>
      *        <li>
      *        <p>
-     *        At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>
+     *        At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Rate expressions - <code>rate(<i>value</i> <i>unit</i>)</code>
+     *        Rate expressions - "<code>rate(<i>value</i> <i>unit</i>)</code>"
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Cron expressions - <code>cron(<i>fields</i>)</code>
+     *        Cron expressions - "<code>cron(<i>fields</i>)</code>"
      *        </p>
      *        </li>
      *        </ul>
@@ -513,8 +513,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        </p>
      *        <p>
      *        For more information about cron expressions, see <a
-     *        href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
-     *        Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
+     *        href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions"
+     *        >Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -621,7 +621,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
      * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
+     * service provider. More information is available in our <a
+     * href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      * </p>
      * </li>
      * </ul>
@@ -682,7 +683,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <p>
      *        Custom resources are not supported with a resource type. This parameter must specify the
      *        <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique
-     *        identifier is defined by the service provider.
+     *        identifier is defined by the service provider. More information is available in our <a
+     *        href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      *        </p>
      *        </li>
      */
@@ -749,7 +751,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
      * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
+     * service provider. More information is available in our <a
+     * href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      * </p>
      * </li>
      * </ul>
@@ -810,7 +813,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *         <p>
      *         Custom resources are not supported with a resource type. This parameter must specify the
      *         <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique
-     *         identifier is defined by the service provider.
+     *         identifier is defined by the service provider. More information is available in our <a
+     *         href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      *         </p>
      *         </li>
      */
@@ -877,7 +881,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
      * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
+     * service provider. More information is available in our <a
+     * href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      * </p>
      * </li>
      * </ul>
@@ -938,7 +943,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <p>
      *        Custom resources are not supported with a resource type. This parameter must specify the
      *        <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique
-     *        identifier is defined by the service provider.
+     *        identifier is defined by the service provider. More information is available in our <a
+     *        href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -951,8 +957,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The scalable dimension. This parameter is required if you are creating a scheduled action. This string consists
-     * of the service namespace, resource type, and scaling property.
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      * </p>
      * <ul>
      * <li>
@@ -1000,7 +1005,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <li>
      * <p>
      * <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for
-     * Aurora MySQL-compatible edition.
+     * Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      * </p>
      * </li>
      * <li>
@@ -1018,8 +1023,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param scalableDimension
-     *        The scalable dimension. This parameter is required if you are creating a scheduled action. This string
-     *        consists of the service namespace, resource type, and scaling property.</p>
+     *        The scalable dimension. This string consists of the service namespace, resource type, and scaling
+     *        property.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -1066,7 +1071,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <li>
      *        <p>
      *        <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster.
-     *        Available for Aurora MySQL-compatible edition.
+     *        Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      *        </p>
      *        </li>
      *        <li>
@@ -1090,8 +1095,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The scalable dimension. This parameter is required if you are creating a scheduled action. This string consists
-     * of the service namespace, resource type, and scaling property.
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      * </p>
      * <ul>
      * <li>
@@ -1139,7 +1143,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <li>
      * <p>
      * <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for
-     * Aurora MySQL-compatible edition.
+     * Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      * </p>
      * </li>
      * <li>
@@ -1156,8 +1160,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </li>
      * </ul>
      * 
-     * @return The scalable dimension. This parameter is required if you are creating a scheduled action. This string
-     *         consists of the service namespace, resource type, and scaling property.</p>
+     * @return The scalable dimension. This string consists of the service namespace, resource type, and scaling
+     *         property.</p>
      *         <ul>
      *         <li>
      *         <p>
@@ -1204,7 +1208,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *         <li>
      *         <p>
      *         <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster.
-     *         Available for Aurora MySQL-compatible edition.
+     *         Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      *         </p>
      *         </li>
      *         <li>
@@ -1228,8 +1232,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The scalable dimension. This parameter is required if you are creating a scheduled action. This string consists
-     * of the service namespace, resource type, and scaling property.
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      * </p>
      * <ul>
      * <li>
@@ -1277,7 +1280,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <li>
      * <p>
      * <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for
-     * Aurora MySQL-compatible edition.
+     * Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      * </p>
      * </li>
      * <li>
@@ -1295,8 +1298,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param scalableDimension
-     *        The scalable dimension. This parameter is required if you are creating a scheduled action. This string
-     *        consists of the service namespace, resource type, and scaling property.</p>
+     *        The scalable dimension. This string consists of the service namespace, resource type, and scaling
+     *        property.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -1343,7 +1346,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <li>
      *        <p>
      *        <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster.
-     *        Available for Aurora MySQL-compatible edition.
+     *        Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      *        </p>
      *        </li>
      *        <li>
@@ -1369,8 +1372,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The scalable dimension. This parameter is required if you are creating a scheduled action. This string consists
-     * of the service namespace, resource type, and scaling property.
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      * </p>
      * <ul>
      * <li>
@@ -1418,7 +1420,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * <li>
      * <p>
      * <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster. Available for
-     * Aurora MySQL-compatible edition.
+     * Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      * </p>
      * </li>
      * <li>
@@ -1436,8 +1438,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param scalableDimension
-     *        The scalable dimension. This parameter is required if you are creating a scheduled action. This string
-     *        consists of the service namespace, resource type, and scaling property.</p>
+     *        The scalable dimension. This string consists of the service namespace, resource type, and scaling
+     *        property.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -1484,7 +1486,7 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
      *        <li>
      *        <p>
      *        <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora DB cluster.
-     *        Available for Aurora MySQL-compatible edition.
+     *        Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
      *        </p>
      *        </li>
      *        <li>
@@ -1644,7 +1646,8 @@ public class PutScheduledActionRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

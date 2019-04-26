@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.elasticloadbalancing.AmazonElasticLoadBalancingClientBuilder;
 import com.amazonaws.services.elasticloadbalancing.waiters.AmazonElasticLoadBalancingWaiters;
@@ -93,6 +94,8 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
+
+    private final AdvancedConfig advancedConfig;
 
     /**
      * List of exception unmarshallers for all modeled exceptions
@@ -184,6 +187,7 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
     public AmazonElasticLoadBalancingClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -249,6 +253,7 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -267,9 +272,7 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
      *        Object providing client parameters.
      */
     AmazonElasticLoadBalancingClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -285,6 +288,7 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
     AmazonElasticLoadBalancingClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -374,11 +378,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AddTags");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<AddTagsResult> responseHandler = new StaxResponseHandler<AddTagsResult>(new AddTagsResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -441,11 +444,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ApplySecurityGroupsToLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ApplySecurityGroupsToLoadBalancerResult> responseHandler = new StaxResponseHandler<ApplySecurityGroupsToLoadBalancerResult>(
                     new ApplySecurityGroupsToLoadBalancerResultStaxUnmarshaller());
@@ -508,11 +510,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AttachLoadBalancerToSubnets");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<AttachLoadBalancerToSubnetsResult> responseHandler = new StaxResponseHandler<AttachLoadBalancerToSubnetsResult>(
                     new AttachLoadBalancerToSubnetsResultStaxUnmarshaller());
@@ -569,11 +570,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ConfigureHealthCheck");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ConfigureHealthCheckResult> responseHandler = new StaxResponseHandler<ConfigureHealthCheckResult>(
                     new ConfigureHealthCheckResultStaxUnmarshaller());
@@ -649,11 +649,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateAppCookieStickinessPolicy");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateAppCookieStickinessPolicyResult> responseHandler = new StaxResponseHandler<CreateAppCookieStickinessPolicyResult>(
                     new CreateAppCookieStickinessPolicyResultStaxUnmarshaller());
@@ -728,11 +727,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateLBCookieStickinessPolicy");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateLBCookieStickinessPolicyResult> responseHandler = new StaxResponseHandler<CreateLBCookieStickinessPolicyResult>(
                     new CreateLBCookieStickinessPolicyResultStaxUnmarshaller());
@@ -824,11 +822,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateLoadBalancerResult> responseHandler = new StaxResponseHandler<CreateLoadBalancerResult>(
                     new CreateLoadBalancerResultStaxUnmarshaller());
@@ -898,11 +895,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateLoadBalancerListeners");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateLoadBalancerListenersResult> responseHandler = new StaxResponseHandler<CreateLoadBalancerListenersResult>(
                     new CreateLoadBalancerListenersResultStaxUnmarshaller());
@@ -966,11 +962,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateLoadBalancerPolicy");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<CreateLoadBalancerPolicyResult> responseHandler = new StaxResponseHandler<CreateLoadBalancerPolicyResult>(
                     new CreateLoadBalancerPolicyResultStaxUnmarshaller());
@@ -1029,11 +1024,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteLoadBalancerResult> responseHandler = new StaxResponseHandler<DeleteLoadBalancerResult>(
                     new DeleteLoadBalancerResultStaxUnmarshaller());
@@ -1085,11 +1079,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteLoadBalancerListeners");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteLoadBalancerListenersResult> responseHandler = new StaxResponseHandler<DeleteLoadBalancerListenersResult>(
                     new DeleteLoadBalancerListenersResultStaxUnmarshaller());
@@ -1143,11 +1136,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteLoadBalancerPolicy");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeleteLoadBalancerPolicyResult> responseHandler = new StaxResponseHandler<DeleteLoadBalancerPolicyResult>(
                     new DeleteLoadBalancerPolicyResultStaxUnmarshaller());
@@ -1213,11 +1205,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterInstancesFromLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DeregisterInstancesFromLoadBalancerResult> responseHandler = new StaxResponseHandler<DeregisterInstancesFromLoadBalancerResult>(
                     new DeregisterInstancesFromLoadBalancerResultStaxUnmarshaller());
@@ -1271,11 +1262,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAccountLimits");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeAccountLimitsResult> responseHandler = new StaxResponseHandler<DescribeAccountLimitsResult>(
                     new DescribeAccountLimitsResultStaxUnmarshaller());
@@ -1332,11 +1322,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeInstanceHealth");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeInstanceHealthResult> responseHandler = new StaxResponseHandler<DescribeInstanceHealthResult>(
                     new DescribeInstanceHealthResultStaxUnmarshaller());
@@ -1391,11 +1380,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBalancerAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeLoadBalancerAttributesResult> responseHandler = new StaxResponseHandler<DescribeLoadBalancerAttributesResult>(
                     new DescribeLoadBalancerAttributesResultStaxUnmarshaller());
@@ -1457,11 +1445,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBalancerPolicies");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeLoadBalancerPoliciesResult> responseHandler = new StaxResponseHandler<DescribeLoadBalancerPoliciesResult>(
                     new DescribeLoadBalancerPoliciesResultStaxUnmarshaller());
@@ -1530,11 +1517,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBalancerPolicyTypes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeLoadBalancerPolicyTypesResult> responseHandler = new StaxResponseHandler<DescribeLoadBalancerPolicyTypesResult>(
                     new DescribeLoadBalancerPolicyTypesResultStaxUnmarshaller());
@@ -1595,11 +1581,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBalancers");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeLoadBalancersResult> responseHandler = new StaxResponseHandler<DescribeLoadBalancersResult>(
                     new DescribeLoadBalancersResultStaxUnmarshaller());
@@ -1656,11 +1641,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeTags");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DescribeTagsResult> responseHandler = new StaxResponseHandler<DescribeTagsResult>(new DescribeTagsResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -1719,11 +1703,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DetachLoadBalancerFromSubnets");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DetachLoadBalancerFromSubnetsResult> responseHandler = new StaxResponseHandler<DetachLoadBalancerFromSubnetsResult>(
                     new DetachLoadBalancerFromSubnetsResultStaxUnmarshaller());
@@ -1795,11 +1778,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DisableAvailabilityZonesForLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<DisableAvailabilityZonesForLoadBalancerResult> responseHandler = new StaxResponseHandler<DisableAvailabilityZonesForLoadBalancerResult>(
                     new DisableAvailabilityZonesForLoadBalancerResultStaxUnmarshaller());
@@ -1864,11 +1846,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "EnableAvailabilityZonesForLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<EnableAvailabilityZonesForLoadBalancerResult> responseHandler = new StaxResponseHandler<EnableAvailabilityZonesForLoadBalancerResult>(
                     new EnableAvailabilityZonesForLoadBalancerResultStaxUnmarshaller());
@@ -1960,11 +1941,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ModifyLoadBalancerAttributes");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<ModifyLoadBalancerAttributesResult> responseHandler = new StaxResponseHandler<ModifyLoadBalancerAttributesResult>(
                     new ModifyLoadBalancerAttributesResultStaxUnmarshaller());
@@ -2045,11 +2025,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterInstancesWithLoadBalancer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RegisterInstancesWithLoadBalancerResult> responseHandler = new StaxResponseHandler<RegisterInstancesWithLoadBalancerResult>(
                     new RegisterInstancesWithLoadBalancerResultStaxUnmarshaller());
@@ -2101,11 +2080,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemoveTags");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<RemoveTagsResult> responseHandler = new StaxResponseHandler<RemoveTagsResult>(new RemoveTagsResultStaxUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
@@ -2175,11 +2153,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetLoadBalancerListenerSSLCertificate");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetLoadBalancerListenerSSLCertificateResult> responseHandler = new StaxResponseHandler<SetLoadBalancerListenerSSLCertificateResult>(
                     new SetLoadBalancerListenerSSLCertificateResultStaxUnmarshaller());
@@ -2256,11 +2233,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetLoadBalancerPoliciesForBackendServer");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetLoadBalancerPoliciesForBackendServerResult> responseHandler = new StaxResponseHandler<SetLoadBalancerPoliciesForBackendServerResult>(
                     new SetLoadBalancerPoliciesForBackendServerResultStaxUnmarshaller());
@@ -2332,11 +2308,10 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Elastic Load Balancing");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetLoadBalancerPoliciesOfListener");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             StaxResponseHandler<SetLoadBalancerPoliciesOfListenerResult> responseHandler = new StaxResponseHandler<SetLoadBalancerPoliciesOfListenerResult>(
                     new SetLoadBalancerPoliciesOfListenerResultStaxUnmarshaller());
@@ -2374,18 +2349,18 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -2395,7 +2370,7 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -2403,11 +2378,13 @@ public class AmazonElasticLoadBalancingClient extends AmazonWebServiceClient imp
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

@@ -15,6 +15,7 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
@@ -154,6 +155,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Adds or overwrites one or more tags for the specified AWS CloudHSM resource.</p> <p>Each tag consists of a key and a value. Tag keys must be unique to each resource.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -168,6 +170,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "AddTagsToResourceRequest",
@@ -196,6 +199,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Creates a high-availability partition group. A high-availability partition group is a group of partitions that spans multiple physical HSMs.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -210,6 +214,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateHapgRequest",
@@ -238,6 +243,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Creates an uninitialized HSM instance.</p> <p>There is an upfront fee charged for each HSM instance that you create with the <code>CreateHsm</code> operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the <a>DeleteHsm</a> operation, go to the <a href=\"https://console.aws.amazon.com/support/home\">AWS Support Center</a>, create a new case, and select <b>Account and Billing Support</b>.</p> <important> <p>It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be initialized when the status changes to <code>RUNNING</code>.</p> </important>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -252,6 +258,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateHsmRequest",
@@ -280,6 +287,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Creates an HSM client.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -294,6 +302,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateLunaClientRequest",
@@ -322,6 +331,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Deletes a high-availability partition group.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -336,6 +346,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteHapgRequest",
@@ -364,6 +375,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Deletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -378,6 +390,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteHsmRequest",
@@ -406,6 +419,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Deletes a client.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -420,6 +434,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DeleteLunaClientRequest",
@@ -448,6 +463,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Retrieves information about a high-availability partition group.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -462,6 +478,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeHapgRequest",
@@ -490,6 +507,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -504,6 +522,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeHsmRequest",
@@ -532,6 +551,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Retrieves information about an HSM client.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -546,6 +566,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "DescribeLunaClientRequest",
@@ -574,6 +595,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Gets the configuration files necessary to connect to all high availability partition groups the client is associated with.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -588,6 +610,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetConfigRequest",
@@ -616,6 +639,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -630,6 +654,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListAvailableZonesRequest",
@@ -658,6 +683,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Lists the high-availability partition groups for the account.</p> <p>This operation supports pagination with the use of the <code>NextToken</code> member. If more results are available, the <code>NextToken</code> member of the response contains a token that you pass in the next call to <code>ListHapgs</code> to retrieve the next set of items.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -672,6 +698,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListHapgsRequest",
@@ -700,6 +727,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Retrieves the identifiers of all of the HSMs provisioned for the current customer.</p> <p>This operation supports pagination with the use of the <code>NextToken</code> member. If more results are available, the <code>NextToken</code> member of the response contains a token that you pass in the next call to <code>ListHsms</code> to retrieve the next set of items.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -714,6 +742,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListHsmsRequest",
@@ -742,6 +771,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Lists all of the clients.</p> <p>This operation supports pagination with the use of the <code>NextToken</code> member. If more results are available, the <code>NextToken</code> member of the response contains a token that you pass in the next call to <code>ListLunaClients</code> to retrieve the next set of items.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -756,6 +786,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListLunaClientsRequest",
@@ -784,6 +815,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Returns a list of all tags for the specified AWS CloudHSM resource.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -798,6 +830,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListTagsForResourceRequest",
@@ -826,6 +859,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Modifies an existing high-availability partition group.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -840,6 +874,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ModifyHapgRequest",
@@ -868,6 +903,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Modifies an HSM.</p> <important> <p>This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.</p> </important>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -882,6 +918,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ModifyHsmRequest",
@@ -910,12 +947,14 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Modifies the certificate used by the client.</p> <p>This action can potentially start a workflow to install the new certificate on the client's HSMs.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ModifyLunaClientRequest",
@@ -944,6 +983,7 @@
       "documentation" : "<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Removes one or more tags from the specified AWS CloudHSM resource.</p> <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.</p>",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "CloudHsmServiceException",
         "documentation" : "<p>Indicates that an exception occurred in the AWS CloudHSM service.</p>",
@@ -958,6 +998,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "RemoveTagsFromResourceRequest",
@@ -1042,6 +1083,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ResourceArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>\n@param resourceArn The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.*/",
         "setterMethodName" : "setResourceArn",
         "setterModel" : {
@@ -1144,6 +1186,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -1187,6 +1230,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "TagList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>One or more tags.</p>\n@param tagList One or more tags.*/",
         "setterMethodName" : "setTagList",
         "setterModel" : {
@@ -1254,6 +1298,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ResourceArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>\n@param resourceArn The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.*/",
           "setterMethodName" : "setResourceArn",
           "setterModel" : {
@@ -1357,6 +1402,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -1400,6 +1446,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "TagList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>One or more tags.</p>\n@param tagList One or more tags.*/",
           "setterMethodName" : "setTagList",
           "setterModel" : {
@@ -1502,6 +1549,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the operation.</p>\n@param status The status of the operation.*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -1569,6 +1617,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the operation.</p>\n@param status The status of the operation.*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -1850,6 +1899,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Label",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The label of the new high-availability partition group.</p>\n@param label The label of the new high-availability partition group.*/",
         "setterMethodName" : "setLabel",
         "setterModel" : {
@@ -1917,6 +1967,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Label",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The label of the new high-availability partition group.</p>\n@param label The label of the new high-availability partition group.*/",
           "setterMethodName" : "setLabel",
           "setterModel" : {
@@ -2019,6 +2070,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the high-availability partition group.</p>\n@param hapgArn The ARN of the high-availability partition group.*/",
         "setterMethodName" : "setHapgArn",
         "setterModel" : {
@@ -2086,6 +2138,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the high-availability partition group.</p>\n@param hapgArn The ARN of the high-availability partition group.*/",
           "setterMethodName" : "setHapgArn",
           "setterModel" : {
@@ -2198,6 +2251,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubnetId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifier of the subnet in your VPC in which to place the HSM.</p>\n@param subnetId The identifier of the subnet in your VPC in which to place the HSM.*/",
         "setterMethodName" : "setSubnetId",
         "setterModel" : {
@@ -2263,6 +2317,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SshKey",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The SSH public key to install on the HSM.</p>\n@param sshKey The SSH public key to install on the HSM.*/",
         "setterMethodName" : "setSshKey",
         "setterModel" : {
@@ -2328,6 +2383,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EniIp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.</p>\n@param eniIp The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.*/",
         "setterMethodName" : "setEniIp",
         "setterModel" : {
@@ -2393,6 +2449,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IamRoleArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.</p>\n@param iamRoleArn The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.*/",
         "setterMethodName" : "setIamRoleArn",
         "setterModel" : {
@@ -2458,6 +2515,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ExternalId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The external ID from <code>IamRoleArn</code>, if present.</p>\n@param externalId The external ID from <code>IamRoleArn</code>, if present.*/",
         "setterMethodName" : "setExternalId",
         "setterModel" : {
@@ -2523,6 +2581,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubscriptionType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param subscriptionType \n@see SubscriptionType*/",
         "setterMethodName" : "setSubscriptionType",
         "setterModel" : {
@@ -2588,6 +2647,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.</p>\n@param clientToken A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.*/",
         "setterMethodName" : "setClientToken",
         "setterModel" : {
@@ -2653,6 +2713,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SyslogIp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.</p>\n@param syslogIp The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.*/",
         "setterMethodName" : "setSyslogIp",
         "setterModel" : {
@@ -2720,6 +2781,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.</p>\n@param clientToken A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.*/",
           "setterMethodName" : "setClientToken",
           "setterModel" : {
@@ -2786,6 +2848,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EniIp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.</p>\n@param eniIp The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.*/",
           "setterMethodName" : "setEniIp",
           "setterModel" : {
@@ -2852,6 +2915,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ExternalId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The external ID from <code>IamRoleArn</code>, if present.</p>\n@param externalId The external ID from <code>IamRoleArn</code>, if present.*/",
           "setterMethodName" : "setExternalId",
           "setterModel" : {
@@ -2918,6 +2982,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IamRoleArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.</p>\n@param iamRoleArn The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.*/",
           "setterMethodName" : "setIamRoleArn",
           "setterModel" : {
@@ -2984,6 +3049,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SshKey",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The SSH public key to install on the HSM.</p>\n@param sshKey The SSH public key to install on the HSM.*/",
           "setterMethodName" : "setSshKey",
           "setterModel" : {
@@ -3050,6 +3116,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubnetId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifier of the subnet in your VPC in which to place the HSM.</p>\n@param subnetId The identifier of the subnet in your VPC in which to place the HSM.*/",
           "setterMethodName" : "setSubnetId",
           "setterModel" : {
@@ -3116,6 +3183,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubscriptionType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param subscriptionType \n@see SubscriptionType*/",
           "setterMethodName" : "setSubscriptionType",
           "setterModel" : {
@@ -3182,6 +3250,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SyslogIp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.</p>\n@param syslogIp The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.*/",
           "setterMethodName" : "setSyslogIp",
           "setterModel" : {
@@ -3284,6 +3353,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the HSM.</p>\n@param hsmArn The ARN of the HSM.*/",
         "setterMethodName" : "setHsmArn",
         "setterModel" : {
@@ -3351,6 +3421,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the HSM.</p>\n@param hsmArn The ARN of the HSM.*/",
           "setterMethodName" : "setHsmArn",
           "setterModel" : {
@@ -3463,6 +3534,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Label",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The label for the client.</p>\n@param label The label for the client.*/",
         "setterMethodName" : "setLabel",
         "setterModel" : {
@@ -3528,6 +3600,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Certificate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.</p>\n@param certificate The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.*/",
         "setterMethodName" : "setCertificate",
         "setterModel" : {
@@ -3595,6 +3668,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Certificate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.</p>\n@param certificate The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.*/",
           "setterMethodName" : "setCertificate",
           "setterModel" : {
@@ -3661,6 +3735,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Label",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The label for the client.</p>\n@param label The label for the client.*/",
           "setterMethodName" : "setLabel",
           "setterModel" : {
@@ -3763,6 +3838,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -3830,6 +3906,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -3942,6 +4019,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the high-availability partition group to delete.</p>\n@param hapgArn The ARN of the high-availability partition group to delete.*/",
         "setterMethodName" : "setHapgArn",
         "setterModel" : {
@@ -4009,6 +4087,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the high-availability partition group to delete.</p>\n@param hapgArn The ARN of the high-availability partition group to delete.*/",
           "setterMethodName" : "setHapgArn",
           "setterModel" : {
@@ -4111,6 +4190,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the action.</p>\n@param status The status of the action.*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -4178,6 +4258,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the action.</p>\n@param status The status of the action.*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -4290,6 +4371,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the HSM to delete.</p>\n@param hsmArn The ARN of the HSM to delete.*/",
         "setterMethodName" : "setHsmArn",
         "setterModel" : {
@@ -4357,6 +4439,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the HSM to delete.</p>\n@param hsmArn The ARN of the HSM to delete.*/",
           "setterMethodName" : "setHsmArn",
           "setterModel" : {
@@ -4459,6 +4542,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the operation.</p>\n@param status The status of the operation.*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -4526,6 +4610,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the operation.</p>\n@param status The status of the operation.*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -4638,6 +4723,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client to delete.</p>\n@param clientArn The ARN of the client to delete.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -4705,6 +4791,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client to delete.</p>\n@param clientArn The ARN of the client to delete.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -4807,6 +4894,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the action.</p>\n@param status The status of the action.*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -4874,6 +4962,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the action.</p>\n@param status The status of the action.*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -4986,6 +5075,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the high-availability partition group to describe.</p>\n@param hapgArn The ARN of the high-availability partition group to describe.*/",
         "setterMethodName" : "setHapgArn",
         "setterModel" : {
@@ -5053,6 +5143,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the high-availability partition group to describe.</p>\n@param hapgArn The ARN of the high-availability partition group to describe.*/",
           "setterMethodName" : "setHapgArn",
           "setterModel" : {
@@ -5155,6 +5246,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the high-availability partition group.</p>\n@param hapgArn The ARN of the high-availability partition group.*/",
         "setterMethodName" : "setHapgArn",
         "setterModel" : {
@@ -5220,6 +5312,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgSerial",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The serial number of the high-availability partition group.</p>\n@param hapgSerial The serial number of the high-availability partition group.*/",
         "setterMethodName" : "setHapgSerial",
         "setterModel" : {
@@ -5322,6 +5415,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5365,6 +5459,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "HsmsLastActionFailed",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p/>\n@param hsmsLastActionFailed */",
         "setterMethodName" : "setHsmsLastActionFailed",
         "setterModel" : {
@@ -5467,6 +5562,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5510,6 +5606,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "HsmsPendingDeletion",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p/>\n@param hsmsPendingDeletion */",
         "setterMethodName" : "setHsmsPendingDeletion",
         "setterModel" : {
@@ -5612,6 +5709,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5655,6 +5753,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "HsmsPendingRegistration",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p/>\n@param hsmsPendingRegistration */",
         "setterMethodName" : "setHsmsPendingRegistration",
         "setterModel" : {
@@ -5720,6 +5819,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Label",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The label for the high-availability partition group.</p>\n@param label The label for the high-availability partition group.*/",
         "setterMethodName" : "setLabel",
         "setterModel" : {
@@ -5785,6 +5885,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LastModifiedTimestamp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The date and time the high-availability partition group was last modified.</p>\n@param lastModifiedTimestamp The date and time the high-availability partition group was last modified.*/",
         "setterMethodName" : "setLastModifiedTimestamp",
         "setterModel" : {
@@ -5887,6 +5988,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -5930,6 +6032,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PartitionSerialList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of partition serial numbers that belong to the high-availability partition group.</p>\n@param partitionSerialList The list of partition serial numbers that belong to the high-availability partition group.*/",
         "setterMethodName" : "setPartitionSerialList",
         "setterModel" : {
@@ -5995,6 +6098,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "State",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The state of the high-availability partition group.</p>\n@param state The state of the high-availability partition group.\n@see CloudHsmObjectState*/",
         "setterMethodName" : "setState",
         "setterModel" : {
@@ -6062,6 +6166,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the high-availability partition group.</p>\n@param hapgArn The ARN of the high-availability partition group.*/",
           "setterMethodName" : "setHapgArn",
           "setterModel" : {
@@ -6128,6 +6233,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgSerial",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The serial number of the high-availability partition group.</p>\n@param hapgSerial The serial number of the high-availability partition group.*/",
           "setterMethodName" : "setHapgSerial",
           "setterModel" : {
@@ -6231,6 +6337,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6274,6 +6381,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "HsmsLastActionFailed",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p/>\n@param hsmsLastActionFailed */",
           "setterMethodName" : "setHsmsLastActionFailed",
           "setterModel" : {
@@ -6377,6 +6485,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6420,6 +6529,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "HsmsPendingDeletion",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p/>\n@param hsmsPendingDeletion */",
           "setterMethodName" : "setHsmsPendingDeletion",
           "setterModel" : {
@@ -6523,6 +6633,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6566,6 +6677,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "HsmsPendingRegistration",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p/>\n@param hsmsPendingRegistration */",
           "setterMethodName" : "setHsmsPendingRegistration",
           "setterModel" : {
@@ -6632,6 +6744,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Label",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The label for the high-availability partition group.</p>\n@param label The label for the high-availability partition group.*/",
           "setterMethodName" : "setLabel",
           "setterModel" : {
@@ -6698,6 +6811,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LastModifiedTimestamp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The date and time the high-availability partition group was last modified.</p>\n@param lastModifiedTimestamp The date and time the high-availability partition group was last modified.*/",
           "setterMethodName" : "setLastModifiedTimestamp",
           "setterModel" : {
@@ -6801,6 +6915,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6844,6 +6959,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PartitionSerialList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of partition serial numbers that belong to the high-availability partition group.</p>\n@param partitionSerialList The list of partition serial numbers that belong to the high-availability partition group.*/",
           "setterMethodName" : "setPartitionSerialList",
           "setterModel" : {
@@ -6910,6 +7026,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "State",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The state of the high-availability partition group.</p>\n@param state The state of the high-availability partition group.\n@see CloudHsmObjectState*/",
           "setterMethodName" : "setState",
           "setterModel" : {
@@ -7022,6 +7139,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.</p>\n@param hsmArn The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.*/",
         "setterMethodName" : "setHsmArn",
         "setterModel" : {
@@ -7087,6 +7205,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmSerialNumber",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code> parameter must be specified.</p>\n@param hsmSerialNumber The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code> parameter must be specified.*/",
         "setterMethodName" : "setHsmSerialNumber",
         "setterModel" : {
@@ -7154,6 +7273,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.</p>\n@param hsmArn The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.*/",
           "setterMethodName" : "setHsmArn",
           "setterModel" : {
@@ -7220,6 +7340,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmSerialNumber",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code> parameter must be specified.</p>\n@param hsmSerialNumber The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code> parameter must be specified.*/",
           "setterMethodName" : "setHsmSerialNumber",
           "setterModel" : {
@@ -7322,6 +7443,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the HSM.</p>\n@param hsmArn The ARN of the HSM.*/",
         "setterMethodName" : "setHsmArn",
         "setterModel" : {
@@ -7387,6 +7509,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the HSM.</p>\n@param status The status of the HSM.\n@see HsmStatus*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -7452,6 +7575,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StatusDetails",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>Contains additional information about the status of the HSM.</p>\n@param statusDetails Contains additional information about the status of the HSM.*/",
         "setterMethodName" : "setStatusDetails",
         "setterModel" : {
@@ -7517,6 +7641,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "AvailabilityZone",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Availability Zone that the HSM is in.</p>\n@param availabilityZone The Availability Zone that the HSM is in.*/",
         "setterMethodName" : "setAvailabilityZone",
         "setterModel" : {
@@ -7582,6 +7707,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EniId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>\n@param eniId The identifier of the elastic network interface (ENI) attached to the HSM.*/",
         "setterMethodName" : "setEniId",
         "setterModel" : {
@@ -7647,6 +7773,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EniIp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IP address assigned to the HSM's ENI.</p>\n@param eniIp The IP address assigned to the HSM's ENI.*/",
         "setterMethodName" : "setEniIp",
         "setterModel" : {
@@ -7712,6 +7839,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubscriptionType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param subscriptionType \n@see SubscriptionType*/",
         "setterMethodName" : "setSubscriptionType",
         "setterModel" : {
@@ -7777,6 +7905,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubscriptionStartDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The subscription start date.</p>\n@param subscriptionStartDate The subscription start date.*/",
         "setterMethodName" : "setSubscriptionStartDate",
         "setterModel" : {
@@ -7842,6 +7971,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubscriptionEndDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The subscription end date.</p>\n@param subscriptionEndDate The subscription end date.*/",
         "setterMethodName" : "setSubscriptionEndDate",
         "setterModel" : {
@@ -7907,6 +8037,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "VpcId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifier of the VPC that the HSM is in.</p>\n@param vpcId The identifier of the VPC that the HSM is in.*/",
         "setterMethodName" : "setVpcId",
         "setterModel" : {
@@ -7972,6 +8103,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubnetId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The identifier of the subnet that the HSM is in.</p>\n@param subnetId The identifier of the subnet that the HSM is in.*/",
         "setterMethodName" : "setSubnetId",
         "setterModel" : {
@@ -8037,6 +8169,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IamRoleArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the IAM role assigned to the HSM.</p>\n@param iamRoleArn The ARN of the IAM role assigned to the HSM.*/",
         "setterMethodName" : "setIamRoleArn",
         "setterModel" : {
@@ -8102,6 +8235,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SerialNumber",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The serial number of the HSM.</p>\n@param serialNumber The serial number of the HSM.*/",
         "setterMethodName" : "setSerialNumber",
         "setterModel" : {
@@ -8167,6 +8301,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "VendorName",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the HSM vendor.</p>\n@param vendorName The name of the HSM vendor.*/",
         "setterMethodName" : "setVendorName",
         "setterModel" : {
@@ -8232,6 +8367,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The HSM model type.</p>\n@param hsmType The HSM model type.*/",
         "setterMethodName" : "setHsmType",
         "setterModel" : {
@@ -8297,6 +8433,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SoftwareVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The HSM software version.</p>\n@param softwareVersion The HSM software version.*/",
         "setterMethodName" : "setSoftwareVersion",
         "setterModel" : {
@@ -8362,6 +8499,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SshPublicKey",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The public SSH key.</p>\n@param sshPublicKey The public SSH key.*/",
         "setterMethodName" : "setSshPublicKey",
         "setterModel" : {
@@ -8427,6 +8565,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SshKeyLastUpdated",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The date and time that the SSH key was last updated.</p>\n@param sshKeyLastUpdated The date and time that the SSH key was last updated.*/",
         "setterMethodName" : "setSshKeyLastUpdated",
         "setterModel" : {
@@ -8492,6 +8631,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ServerCertUri",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The URI of the certificate server.</p>\n@param serverCertUri The URI of the certificate server.*/",
         "setterMethodName" : "setServerCertUri",
         "setterModel" : {
@@ -8557,6 +8697,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ServerCertLastUpdated",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The date and time that the server certificate was last updated.</p>\n@param serverCertLastUpdated The date and time that the server certificate was last updated.*/",
         "setterMethodName" : "setServerCertLastUpdated",
         "setterModel" : {
@@ -8659,6 +8800,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -8702,6 +8844,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Partitions",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of partitions on the HSM.</p>\n@param partitions The list of partitions on the HSM.*/",
         "setterMethodName" : "setPartitions",
         "setterModel" : {
@@ -8769,6 +8912,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "AvailabilityZone",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Availability Zone that the HSM is in.</p>\n@param availabilityZone The Availability Zone that the HSM is in.*/",
           "setterMethodName" : "setAvailabilityZone",
           "setterModel" : {
@@ -8835,6 +8979,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EniId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>\n@param eniId The identifier of the elastic network interface (ENI) attached to the HSM.*/",
           "setterMethodName" : "setEniId",
           "setterModel" : {
@@ -8901,6 +9046,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EniIp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IP address assigned to the HSM's ENI.</p>\n@param eniIp The IP address assigned to the HSM's ENI.*/",
           "setterMethodName" : "setEniIp",
           "setterModel" : {
@@ -8967,6 +9113,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the HSM.</p>\n@param hsmArn The ARN of the HSM.*/",
           "setterMethodName" : "setHsmArn",
           "setterModel" : {
@@ -9033,6 +9180,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The HSM model type.</p>\n@param hsmType The HSM model type.*/",
           "setterMethodName" : "setHsmType",
           "setterModel" : {
@@ -9099,6 +9247,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IamRoleArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the IAM role assigned to the HSM.</p>\n@param iamRoleArn The ARN of the IAM role assigned to the HSM.*/",
           "setterMethodName" : "setIamRoleArn",
           "setterModel" : {
@@ -9202,6 +9351,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -9245,6 +9395,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Partitions",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of partitions on the HSM.</p>\n@param partitions The list of partitions on the HSM.*/",
           "setterMethodName" : "setPartitions",
           "setterModel" : {
@@ -9311,6 +9462,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SerialNumber",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The serial number of the HSM.</p>\n@param serialNumber The serial number of the HSM.*/",
           "setterMethodName" : "setSerialNumber",
           "setterModel" : {
@@ -9377,6 +9529,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ServerCertLastUpdated",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The date and time that the server certificate was last updated.</p>\n@param serverCertLastUpdated The date and time that the server certificate was last updated.*/",
           "setterMethodName" : "setServerCertLastUpdated",
           "setterModel" : {
@@ -9443,6 +9596,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ServerCertUri",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The URI of the certificate server.</p>\n@param serverCertUri The URI of the certificate server.*/",
           "setterMethodName" : "setServerCertUri",
           "setterModel" : {
@@ -9509,6 +9663,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SoftwareVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The HSM software version.</p>\n@param softwareVersion The HSM software version.*/",
           "setterMethodName" : "setSoftwareVersion",
           "setterModel" : {
@@ -9575,6 +9730,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SshKeyLastUpdated",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The date and time that the SSH key was last updated.</p>\n@param sshKeyLastUpdated The date and time that the SSH key was last updated.*/",
           "setterMethodName" : "setSshKeyLastUpdated",
           "setterModel" : {
@@ -9641,6 +9797,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SshPublicKey",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The public SSH key.</p>\n@param sshPublicKey The public SSH key.*/",
           "setterMethodName" : "setSshPublicKey",
           "setterModel" : {
@@ -9707,6 +9864,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the HSM.</p>\n@param status The status of the HSM.\n@see HsmStatus*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -9773,6 +9931,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StatusDetails",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>Contains additional information about the status of the HSM.</p>\n@param statusDetails Contains additional information about the status of the HSM.*/",
           "setterMethodName" : "setStatusDetails",
           "setterModel" : {
@@ -9839,6 +9998,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubnetId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifier of the subnet that the HSM is in.</p>\n@param subnetId The identifier of the subnet that the HSM is in.*/",
           "setterMethodName" : "setSubnetId",
           "setterModel" : {
@@ -9905,6 +10065,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubscriptionEndDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The subscription end date.</p>\n@param subscriptionEndDate The subscription end date.*/",
           "setterMethodName" : "setSubscriptionEndDate",
           "setterModel" : {
@@ -9971,6 +10132,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubscriptionStartDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The subscription start date.</p>\n@param subscriptionStartDate The subscription start date.*/",
           "setterMethodName" : "setSubscriptionStartDate",
           "setterModel" : {
@@ -10037,6 +10199,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubscriptionType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param subscriptionType \n@see SubscriptionType*/",
           "setterMethodName" : "setSubscriptionType",
           "setterModel" : {
@@ -10103,6 +10266,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "VendorName",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the HSM vendor.</p>\n@param vendorName The name of the HSM vendor.*/",
           "setterMethodName" : "setVendorName",
           "setterModel" : {
@@ -10169,6 +10333,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "VpcId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The identifier of the VPC that the HSM is in.</p>\n@param vpcId The identifier of the VPC that the HSM is in.*/",
           "setterMethodName" : "setVpcId",
           "setterModel" : {
@@ -10281,6 +10446,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -10346,6 +10512,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "CertificateFingerprint",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The certificate fingerprint.</p>\n@param certificateFingerprint The certificate fingerprint.*/",
         "setterMethodName" : "setCertificateFingerprint",
         "setterModel" : {
@@ -10413,6 +10580,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "CertificateFingerprint",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The certificate fingerprint.</p>\n@param certificateFingerprint The certificate fingerprint.*/",
           "setterMethodName" : "setCertificateFingerprint",
           "setterModel" : {
@@ -10479,6 +10647,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -10581,6 +10750,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -10646,6 +10816,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Certificate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The certificate installed on the HSMs used by this client.</p>\n@param certificate The certificate installed on the HSMs used by this client.*/",
         "setterMethodName" : "setCertificate",
         "setterModel" : {
@@ -10711,6 +10882,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "CertificateFingerprint",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The certificate fingerprint.</p>\n@param certificateFingerprint The certificate fingerprint.*/",
         "setterMethodName" : "setCertificateFingerprint",
         "setterModel" : {
@@ -10776,6 +10948,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LastModifiedTimestamp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The date and time the client was last modified.</p>\n@param lastModifiedTimestamp The date and time the client was last modified.*/",
         "setterMethodName" : "setLastModifiedTimestamp",
         "setterModel" : {
@@ -10841,6 +11014,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Label",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The label of the client.</p>\n@param label The label of the client.*/",
         "setterMethodName" : "setLabel",
         "setterModel" : {
@@ -10908,6 +11082,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Certificate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The certificate installed on the HSMs used by this client.</p>\n@param certificate The certificate installed on the HSMs used by this client.*/",
           "setterMethodName" : "setCertificate",
           "setterModel" : {
@@ -10974,6 +11149,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "CertificateFingerprint",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The certificate fingerprint.</p>\n@param certificateFingerprint The certificate fingerprint.*/",
           "setterMethodName" : "setCertificateFingerprint",
           "setterModel" : {
@@ -11040,6 +11216,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -11106,6 +11283,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Label",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The label of the client.</p>\n@param label The label of the client.*/",
           "setterMethodName" : "setLabel",
           "setterModel" : {
@@ -11172,6 +11350,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LastModifiedTimestamp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The date and time the client was last modified.</p>\n@param lastModifiedTimestamp The date and time the client was last modified.*/",
           "setterMethodName" : "setLastModifiedTimestamp",
           "setterModel" : {
@@ -11284,6 +11463,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -11349,6 +11529,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The client version.</p>\n@param clientVersion The client version.\n@see ClientVersion*/",
         "setterMethodName" : "setClientVersion",
         "setterModel" : {
@@ -11451,6 +11632,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -11494,6 +11676,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "HapgList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>A list of ARNs that identify the high-availability partition groups that are associated with the client.</p>\n@param hapgList A list of ARNs that identify the high-availability partition groups that are associated with the client.*/",
         "setterMethodName" : "setHapgList",
         "setterModel" : {
@@ -11561,6 +11744,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -11627,6 +11811,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The client version.</p>\n@param clientVersion The client version.\n@see ClientVersion*/",
           "setterMethodName" : "setClientVersion",
           "setterModel" : {
@@ -11730,6 +11915,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -11773,6 +11959,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "HapgList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>A list of ARNs that identify the high-availability partition groups that are associated with the client.</p>\n@param hapgList A list of ARNs that identify the high-availability partition groups that are associated with the client.*/",
           "setterMethodName" : "setHapgList",
           "setterModel" : {
@@ -11875,6 +12062,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ConfigType",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of credentials.</p>\n@param configType The type of credentials.*/",
         "setterMethodName" : "setConfigType",
         "setterModel" : {
@@ -11940,6 +12128,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ConfigFile",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The chrystoki.conf configuration file.</p>\n@param configFile The chrystoki.conf configuration file.*/",
         "setterMethodName" : "setConfigFile",
         "setterModel" : {
@@ -12005,6 +12194,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ConfigCred",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The certificate file containing the server.pem files of the HSMs.</p>\n@param configCred The certificate file containing the server.pem files of the HSMs.*/",
         "setterMethodName" : "setConfigCred",
         "setterModel" : {
@@ -12072,6 +12262,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ConfigCred",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The certificate file containing the server.pem files of the HSMs.</p>\n@param configCred The certificate file containing the server.pem files of the HSMs.*/",
           "setterMethodName" : "setConfigCred",
           "setterModel" : {
@@ -12138,6 +12329,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ConfigFile",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The chrystoki.conf configuration file.</p>\n@param configFile The chrystoki.conf configuration file.*/",
           "setterMethodName" : "setConfigFile",
           "setterModel" : {
@@ -12204,6 +12396,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ConfigType",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of credentials.</p>\n@param configType The type of credentials.*/",
           "setterMethodName" : "setConfigType",
           "setterModel" : {
@@ -12488,6 +12681,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -12531,6 +12725,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "AZList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>\n@param aZList The list of Availability Zones that have available AWS CloudHSM capacity.*/",
         "setterMethodName" : "setAZList",
         "setterModel" : {
@@ -12635,6 +12830,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -12678,6 +12874,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "AZList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>\n@param aZList The list of Availability Zones that have available AWS CloudHSM capacity.*/",
           "setterMethodName" : "setAZList",
           "setterModel" : {
@@ -12790,6 +12987,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call.</p>\n@param nextToken The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -12857,6 +13055,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call.</p>\n@param nextToken The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -12996,6 +13195,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13039,6 +13239,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "HapgList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of high-availability partition groups.</p>\n@param hapgList The list of high-availability partition groups.*/",
         "setterMethodName" : "setHapgList",
         "setterModel" : {
@@ -13104,6 +13305,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If not null, more results are available. Pass this value to <code>ListHapgs</code> to retrieve the next set of items.</p>\n@param nextToken If not null, more results are available. Pass this value to <code>ListHapgs</code> to retrieve the next set of items.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -13208,6 +13410,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -13251,6 +13454,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "HapgList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of high-availability partition groups.</p>\n@param hapgList The list of high-availability partition groups.*/",
           "setterMethodName" : "setHapgList",
           "setterModel" : {
@@ -13317,6 +13521,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If not null, more results are available. Pass this value to <code>ListHapgs</code> to retrieve the next set of items.</p>\n@param nextToken If not null, more results are available. Pass this value to <code>ListHapgs</code> to retrieve the next set of items.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -13429,6 +13634,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass null if this is the first call.</p>\n@param nextToken The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass null if this is the first call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -13496,6 +13702,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass null if this is the first call.</p>\n@param nextToken The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass null if this is the first call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -13635,6 +13842,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -13678,6 +13886,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "HsmList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of ARNs that identify the HSMs.</p>\n@param hsmList The list of ARNs that identify the HSMs.*/",
         "setterMethodName" : "setHsmList",
         "setterModel" : {
@@ -13743,6 +13952,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If not null, more results are available. Pass this value to <code>ListHsms</code> to retrieve the next set of items.</p>\n@param nextToken If not null, more results are available. Pass this value to <code>ListHsms</code> to retrieve the next set of items.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -13847,6 +14057,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -13890,6 +14101,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "HsmList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of ARNs that identify the HSMs.</p>\n@param hsmList The list of ARNs that identify the HSMs.*/",
           "setterMethodName" : "setHsmList",
           "setterModel" : {
@@ -13956,6 +14168,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If not null, more results are available. Pass this value to <code>ListHsms</code> to retrieve the next set of items.</p>\n@param nextToken If not null, more results are available. Pass this value to <code>ListHsms</code> to retrieve the next set of items.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -14068,6 +14281,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>. Pass null if this is the first call.</p>\n@param nextToken The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>. Pass null if this is the first call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -14135,6 +14349,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>. Pass null if this is the first call.</p>\n@param nextToken The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>. Pass null if this is the first call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -14274,6 +14489,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -14317,6 +14533,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ClientList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of clients.</p>\n@param clientList The list of clients.*/",
         "setterMethodName" : "setClientList",
         "setterModel" : {
@@ -14382,6 +14599,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>If not null, more results are available. Pass this to <code>ListLunaClients</code> to retrieve the next set of items.</p>\n@param nextToken If not null, more results are available. Pass this to <code>ListLunaClients</code> to retrieve the next set of items.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
@@ -14486,6 +14704,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -14529,6 +14748,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ClientList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of clients.</p>\n@param clientList The list of clients.*/",
           "setterMethodName" : "setClientList",
           "setterModel" : {
@@ -14595,6 +14815,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>If not null, more results are available. Pass this to <code>ListLunaClients</code> to retrieve the next set of items.</p>\n@param nextToken If not null, more results are available. Pass this to <code>ListLunaClients</code> to retrieve the next set of items.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
@@ -14707,6 +14928,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ResourceArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>\n@param resourceArn The Amazon Resource Name (ARN) of the AWS CloudHSM resource.*/",
         "setterMethodName" : "setResourceArn",
         "setterModel" : {
@@ -14774,6 +14996,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ResourceArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>\n@param resourceArn The Amazon Resource Name (ARN) of the AWS CloudHSM resource.*/",
           "setterMethodName" : "setResourceArn",
           "setterModel" : {
@@ -14913,6 +15136,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -14956,6 +15180,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "TagList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>One or more tags.</p>\n@param tagList One or more tags.*/",
         "setterMethodName" : "setTagList",
         "setterModel" : {
@@ -15060,6 +15285,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -15103,6 +15329,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "TagList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>One or more tags.</p>\n@param tagList One or more tags.*/",
           "setterMethodName" : "setTagList",
           "setterModel" : {
@@ -15215,6 +15442,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the high-availability partition group to modify.</p>\n@param hapgArn The ARN of the high-availability partition group to modify.*/",
         "setterMethodName" : "setHapgArn",
         "setterModel" : {
@@ -15280,6 +15508,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Label",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new label for the high-availability partition group.</p>\n@param label The new label for the high-availability partition group.*/",
         "setterMethodName" : "setLabel",
         "setterModel" : {
@@ -15382,6 +15611,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -15425,6 +15655,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "PartitionSerialList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of partition serial numbers to make members of the high-availability partition group.</p>\n@param partitionSerialList The list of partition serial numbers to make members of the high-availability partition group.*/",
         "setterMethodName" : "setPartitionSerialList",
         "setterModel" : {
@@ -15492,6 +15723,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the high-availability partition group to modify.</p>\n@param hapgArn The ARN of the high-availability partition group to modify.*/",
           "setterMethodName" : "setHapgArn",
           "setterModel" : {
@@ -15558,6 +15790,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Label",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new label for the high-availability partition group.</p>\n@param label The new label for the high-availability partition group.*/",
           "setterMethodName" : "setLabel",
           "setterModel" : {
@@ -15661,6 +15894,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -15704,6 +15938,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "PartitionSerialList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of partition serial numbers to make members of the high-availability partition group.</p>\n@param partitionSerialList The list of partition serial numbers to make members of the high-availability partition group.*/",
           "setterMethodName" : "setPartitionSerialList",
           "setterModel" : {
@@ -15806,6 +16041,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HapgArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the high-availability partition group.</p>\n@param hapgArn The ARN of the high-availability partition group.*/",
         "setterMethodName" : "setHapgArn",
         "setterModel" : {
@@ -15873,6 +16109,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HapgArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the high-availability partition group.</p>\n@param hapgArn The ARN of the high-availability partition group.*/",
           "setterMethodName" : "setHapgArn",
           "setterModel" : {
@@ -15985,6 +16222,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the HSM to modify.</p>\n@param hsmArn The ARN of the HSM to modify.*/",
         "setterMethodName" : "setHsmArn",
         "setterModel" : {
@@ -16050,6 +16288,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubnetId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.</p>\n@param subnetId The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.*/",
         "setterMethodName" : "setSubnetId",
         "setterModel" : {
@@ -16115,6 +16354,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EniIp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new IP address for the elastic network interface (ENI) attached to the HSM.</p> <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.</p>\n@param eniIp The new IP address for the elastic network interface (ENI) attached to the HSM.</p> <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.*/",
         "setterMethodName" : "setEniIp",
         "setterModel" : {
@@ -16180,6 +16420,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "IamRoleArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new IAM role ARN.</p>\n@param iamRoleArn The new IAM role ARN.*/",
         "setterMethodName" : "setIamRoleArn",
         "setterModel" : {
@@ -16245,6 +16486,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ExternalId",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new external ID.</p>\n@param externalId The new external ID.*/",
         "setterMethodName" : "setExternalId",
         "setterModel" : {
@@ -16310,6 +16552,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SyslogIp",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.</p>\n@param syslogIp The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.*/",
         "setterMethodName" : "setSyslogIp",
         "setterModel" : {
@@ -16377,6 +16620,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EniIp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new IP address for the elastic network interface (ENI) attached to the HSM.</p> <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.</p>\n@param eniIp The new IP address for the elastic network interface (ENI) attached to the HSM.</p> <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.*/",
           "setterMethodName" : "setEniIp",
           "setterModel" : {
@@ -16443,6 +16687,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ExternalId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new external ID.</p>\n@param externalId The new external ID.*/",
           "setterMethodName" : "setExternalId",
           "setterModel" : {
@@ -16509,6 +16754,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the HSM to modify.</p>\n@param hsmArn The ARN of the HSM to modify.*/",
           "setterMethodName" : "setHsmArn",
           "setterModel" : {
@@ -16575,6 +16821,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "IamRoleArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new IAM role ARN.</p>\n@param iamRoleArn The new IAM role ARN.*/",
           "setterMethodName" : "setIamRoleArn",
           "setterModel" : {
@@ -16641,6 +16888,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubnetId",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.</p>\n@param subnetId The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.*/",
           "setterMethodName" : "setSubnetId",
           "setterModel" : {
@@ -16707,6 +16955,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SyslogIp",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.</p>\n@param syslogIp The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.*/",
           "setterMethodName" : "setSyslogIp",
           "setterModel" : {
@@ -16809,6 +17058,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "HsmArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the HSM.</p>\n@param hsmArn The ARN of the HSM.*/",
         "setterMethodName" : "setHsmArn",
         "setterModel" : {
@@ -16876,6 +17126,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "HsmArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the HSM.</p>\n@param hsmArn The ARN of the HSM.*/",
           "setterMethodName" : "setHsmArn",
           "setterModel" : {
@@ -16988,6 +17239,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -17053,6 +17305,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Certificate",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The new certificate for the client.</p>\n@param certificate The new certificate for the client.*/",
         "setterMethodName" : "setCertificate",
         "setterModel" : {
@@ -17120,6 +17373,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Certificate",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The new certificate for the client.</p>\n@param certificate The new certificate for the client.*/",
           "setterMethodName" : "setCertificate",
           "setterModel" : {
@@ -17186,6 +17440,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -17288,6 +17543,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
         "setterMethodName" : "setClientArn",
         "setterModel" : {
@@ -17355,6 +17611,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ARN of the client.</p>\n@param clientArn The ARN of the client.*/",
           "setterMethodName" : "setClientArn",
           "setterModel" : {
@@ -17467,6 +17724,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ResourceArn",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>\n@param resourceArn The Amazon Resource Name (ARN) of the AWS CloudHSM resource.*/",
         "setterMethodName" : "setResourceArn",
         "setterModel" : {
@@ -17569,6 +17827,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -17612,6 +17871,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "TagKeyList",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.</p>\n@param tagKeyList The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.*/",
         "setterMethodName" : "setTagKeyList",
         "setterModel" : {
@@ -17679,6 +17939,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ResourceArn",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>\n@param resourceArn The Amazon Resource Name (ARN) of the AWS CloudHSM resource.*/",
           "setterMethodName" : "setResourceArn",
           "setterModel" : {
@@ -17782,6 +18043,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -17825,6 +18087,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "TagKeyList",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.</p>\n@param tagKeyList The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.*/",
           "setterMethodName" : "setTagKeyList",
           "setterModel" : {
@@ -17927,6 +18190,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the operation.</p>\n@param status The status of the operation.*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
@@ -17994,6 +18258,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the operation.</p>\n@param status The status of the operation.*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
@@ -18142,6 +18407,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Key",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The key of the tag.</p>\n@param key The key of the tag.*/",
         "setterMethodName" : "setKey",
         "setterModel" : {
@@ -18207,6 +18473,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Value",
+        "sensitive" : false,
         "setterDocumentation" : "/**<p>The value of the tag.</p>\n@param value The value of the tag.*/",
         "setterMethodName" : "setValue",
         "setterModel" : {
@@ -18274,6 +18541,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Key",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The key of the tag.</p>\n@param key The key of the tag.*/",
           "setterMethodName" : "setKey",
           "setterModel" : {
@@ -18340,6 +18608,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Value",
+          "sensitive" : false,
           "setterDocumentation" : "/**<p>The value of the tag.</p>\n@param value The value of the tag.*/",
           "setterMethodName" : "setValue",
           "setterModel" : {
@@ -18390,13 +18659,12 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : { },
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AWSCloudHSMException",

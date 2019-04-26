@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -839,7 +839,8 @@ public class SynthesizeSpeechRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -850,7 +851,7 @@ public class SynthesizeSpeechRequest extends com.amazonaws.AmazonWebServiceReque
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getLexiconNames() != null)
-            sb.append("LexiconNames: ").append(getLexiconNames()).append(",");
+            sb.append("LexiconNames: ").append("***Sensitive Data Redacted***").append(",");
         if (getOutputFormat() != null)
             sb.append("OutputFormat: ").append(getOutputFormat()).append(",");
         if (getSampleRate() != null)

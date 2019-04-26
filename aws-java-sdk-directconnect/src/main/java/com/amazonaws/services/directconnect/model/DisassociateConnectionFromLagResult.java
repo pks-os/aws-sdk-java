@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * A connection represents the physical network connection between the AWS Direct Connect location and the customer.
+ * Information about an AWS Direct Connect connection.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DisassociateConnectionFromLag"
@@ -29,33 +29,101 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The AWS account that will own the new connection.
+     * The ID of the AWS account that owns the connection.
      * </p>
      */
     private String ownerAccount;
-
+    /**
+     * <p>
+     * The ID of the connection.
+     * </p>
+     */
     private String connectionId;
-
+    /**
+     * <p>
+     * The name of the connection.
+     * </p>
+     */
     private String connectionName;
-
+    /**
+     * <p>
+     * The state of the connection. The following are the possible values:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection
+     * stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state
+     * until the Letter of Authorization (LOA) is sent to the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>pending</code>: The connection has been approved and is being initialized.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>available</code>: The network link is up and the connection is ready for use.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>down</code>: The network link is down.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleting</code>: The connection is being deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleted</code>: The connection has been deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code>
+     * state if it is deleted by the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>unknown</code>: The state of the connection is not available.
+     * </p>
+     * </li>
+     * </ul>
+     */
     private String connectionState;
-
+    /**
+     * <p>
+     * The AWS Region where the connection is located.
+     * </p>
+     */
     private String region;
-
+    /**
+     * <p>
+     * The location of the connection.
+     * </p>
+     */
     private String location;
     /**
      * <p>
-     * Bandwidth of the connection.
-     * </p>
-     * <p>
-     * Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     * </p>
-     * <p>
-     * Default: None
+     * The bandwidth of the connection.
      * </p>
      */
     private String bandwidth;
-
+    /**
+     * <p>
+     * The ID of the VLAN.
+     * </p>
+     */
     private Integer vlan;
     /**
      * <p>
@@ -69,31 +137,44 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
      * </p>
      */
     private java.util.Date loaIssueTime;
-
+    /**
+     * <p>
+     * The ID of the LAG.
+     * </p>
+     */
     private String lagId;
     /**
      * <p>
-     * Deprecated in favor of awsDeviceV2.
-     * </p>
-     * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      */
     private String awsDevice;
     /**
      * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * </p>
+     */
+    private Boolean jumboFrameCapable;
+    /**
+     * <p>
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      */
     private String awsDeviceV2;
+    /**
+     * <p>
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * </p>
+     */
+    private String hasLogicalRedundancy;
 
     /**
      * <p>
-     * The AWS account that will own the new connection.
+     * The ID of the AWS account that owns the connection.
      * </p>
      * 
      * @param ownerAccount
-     *        The AWS account that will own the new connection.
+     *        The ID of the AWS account that owns the connection.
      */
 
     public void setOwnerAccount(String ownerAccount) {
@@ -102,10 +183,10 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The AWS account that will own the new connection.
+     * The ID of the AWS account that owns the connection.
      * </p>
      * 
-     * @return The AWS account that will own the new connection.
+     * @return The ID of the AWS account that owns the connection.
      */
 
     public String getOwnerAccount() {
@@ -114,11 +195,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The AWS account that will own the new connection.
+     * The ID of the AWS account that owns the connection.
      * </p>
      * 
      * @param ownerAccount
-     *        The AWS account that will own the new connection.
+     *        The ID of the AWS account that owns the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -128,7 +209,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The ID of the connection.
+     * </p>
+     * 
      * @param connectionId
+     *        The ID of the connection.
      */
 
     public void setConnectionId(String connectionId) {
@@ -136,7 +222,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The ID of the connection.
+     * </p>
+     * 
+     * @return The ID of the connection.
      */
 
     public String getConnectionId() {
@@ -144,7 +234,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The ID of the connection.
+     * </p>
+     * 
      * @param connectionId
+     *        The ID of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -154,7 +249,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The name of the connection.
+     * </p>
+     * 
      * @param connectionName
+     *        The name of the connection.
      */
 
     public void setConnectionName(String connectionName) {
@@ -162,7 +262,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The name of the connection.
+     * </p>
+     * 
+     * @return The name of the connection.
      */
 
     public String getConnectionName() {
@@ -170,7 +274,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The name of the connection.
+     * </p>
+     * 
      * @param connectionName
+     *        The name of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -180,7 +289,112 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The state of the connection. The following are the possible values:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection
+     * stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state
+     * until the Letter of Authorization (LOA) is sent to the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>pending</code>: The connection has been approved and is being initialized.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>available</code>: The network link is up and the connection is ready for use.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>down</code>: The network link is down.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleting</code>: The connection is being deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleted</code>: The connection has been deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code>
+     * state if it is deleted by the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>unknown</code>: The state of the connection is not available.
+     * </p>
+     * </li>
+     * </ul>
+     * 
      * @param connectionState
+     *        The state of the connection. The following are the possible values:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The
+     *        connection stays in the ordering state until the owner of the hosted connection confirms or declines the
+     *        connection order.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>requested</code>: The initial state of a standard connection. The connection stays in the requested
+     *        state until the Letter of Authorization (LOA) is sent to the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>pending</code>: The connection has been approved and is being initialized.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>available</code>: The network link is up and the connection is ready for use.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>down</code>: The network link is down.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleting</code>: The connection is being deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleted</code>: The connection has been deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the
+     *        <code>rejected</code> state if it is deleted by the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>unknown</code>: The state of the connection is not available.
+     *        </p>
+     *        </li>
      * @see ConnectionState
      */
 
@@ -189,7 +403,111 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The state of the connection. The following are the possible values:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection
+     * stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state
+     * until the Letter of Authorization (LOA) is sent to the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>pending</code>: The connection has been approved and is being initialized.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>available</code>: The network link is up and the connection is ready for use.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>down</code>: The network link is down.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleting</code>: The connection is being deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleted</code>: The connection has been deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code>
+     * state if it is deleted by the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>unknown</code>: The state of the connection is not available.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @return The state of the connection. The following are the possible values:</p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The
+     *         connection stays in the ordering state until the owner of the hosted connection confirms or declines the
+     *         connection order.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>requested</code>: The initial state of a standard connection. The connection stays in the requested
+     *         state until the Letter of Authorization (LOA) is sent to the customer.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>pending</code>: The connection has been approved and is being initialized.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>available</code>: The network link is up and the connection is ready for use.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>down</code>: The network link is down.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>deleting</code>: The connection is being deleted.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>deleted</code>: The connection has been deleted.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the
+     *         <code>rejected</code> state if it is deleted by the customer.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>unknown</code>: The state of the connection is not available.
+     *         </p>
+     *         </li>
      * @see ConnectionState
      */
 
@@ -198,7 +516,112 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The state of the connection. The following are the possible values:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection
+     * stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state
+     * until the Letter of Authorization (LOA) is sent to the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>pending</code>: The connection has been approved and is being initialized.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>available</code>: The network link is up and the connection is ready for use.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>down</code>: The network link is down.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleting</code>: The connection is being deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleted</code>: The connection has been deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code>
+     * state if it is deleted by the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>unknown</code>: The state of the connection is not available.
+     * </p>
+     * </li>
+     * </ul>
+     * 
      * @param connectionState
+     *        The state of the connection. The following are the possible values:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The
+     *        connection stays in the ordering state until the owner of the hosted connection confirms or declines the
+     *        connection order.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>requested</code>: The initial state of a standard connection. The connection stays in the requested
+     *        state until the Letter of Authorization (LOA) is sent to the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>pending</code>: The connection has been approved and is being initialized.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>available</code>: The network link is up and the connection is ready for use.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>down</code>: The network link is down.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleting</code>: The connection is being deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleted</code>: The connection has been deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the
+     *        <code>rejected</code> state if it is deleted by the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>unknown</code>: The state of the connection is not available.
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectionState
      */
@@ -209,7 +632,112 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The state of the connection. The following are the possible values:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection
+     * stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state
+     * until the Letter of Authorization (LOA) is sent to the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>pending</code>: The connection has been approved and is being initialized.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>available</code>: The network link is up and the connection is ready for use.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>down</code>: The network link is down.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleting</code>: The connection is being deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleted</code>: The connection has been deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code>
+     * state if it is deleted by the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>unknown</code>: The state of the connection is not available.
+     * </p>
+     * </li>
+     * </ul>
+     * 
      * @param connectionState
+     *        The state of the connection. The following are the possible values:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The
+     *        connection stays in the ordering state until the owner of the hosted connection confirms or declines the
+     *        connection order.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>requested</code>: The initial state of a standard connection. The connection stays in the requested
+     *        state until the Letter of Authorization (LOA) is sent to the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>pending</code>: The connection has been approved and is being initialized.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>available</code>: The network link is up and the connection is ready for use.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>down</code>: The network link is down.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleting</code>: The connection is being deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleted</code>: The connection has been deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the
+     *        <code>rejected</code> state if it is deleted by the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>unknown</code>: The state of the connection is not available.
+     *        </p>
+     *        </li>
      * @see ConnectionState
      */
 
@@ -218,7 +746,112 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The state of the connection. The following are the possible values:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection
+     * stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state
+     * until the Letter of Authorization (LOA) is sent to the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>pending</code>: The connection has been approved and is being initialized.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>available</code>: The network link is up and the connection is ready for use.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>down</code>: The network link is down.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleting</code>: The connection is being deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>deleted</code>: The connection has been deleted.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code>
+     * state if it is deleted by the customer.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>unknown</code>: The state of the connection is not available.
+     * </p>
+     * </li>
+     * </ul>
+     * 
      * @param connectionState
+     *        The state of the connection. The following are the possible values:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The
+     *        connection stays in the ordering state until the owner of the hosted connection confirms or declines the
+     *        connection order.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>requested</code>: The initial state of a standard connection. The connection stays in the requested
+     *        state until the Letter of Authorization (LOA) is sent to the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>pending</code>: The connection has been approved and is being initialized.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>available</code>: The network link is up and the connection is ready for use.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>down</code>: The network link is down.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleting</code>: The connection is being deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>deleted</code>: The connection has been deleted.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the
+     *        <code>rejected</code> state if it is deleted by the customer.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>unknown</code>: The state of the connection is not available.
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectionState
      */
@@ -229,7 +862,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The AWS Region where the connection is located.
+     * </p>
+     * 
      * @param region
+     *        The AWS Region where the connection is located.
      */
 
     public void setRegion(String region) {
@@ -237,7 +875,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The AWS Region where the connection is located.
+     * </p>
+     * 
+     * @return The AWS Region where the connection is located.
      */
 
     public String getRegion() {
@@ -245,7 +887,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The AWS Region where the connection is located.
+     * </p>
+     * 
      * @param region
+     *        The AWS Region where the connection is located.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -255,7 +902,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The location of the connection.
+     * </p>
+     * 
      * @param location
+     *        The location of the connection.
      */
 
     public void setLocation(String location) {
@@ -263,7 +915,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The location of the connection.
+     * </p>
+     * 
+     * @return The location of the connection.
      */
 
     public String getLocation() {
@@ -271,7 +927,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The location of the connection.
+     * </p>
+     * 
      * @param location
+     *        The location of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -282,22 +943,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * Bandwidth of the connection.
-     * </p>
-     * <p>
-     * Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     * </p>
-     * <p>
-     * Default: None
+     * The bandwidth of the connection.
      * </p>
      * 
      * @param bandwidth
-     *        Bandwidth of the connection.</p>
-     *        <p>
-     *        Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     *        </p>
-     *        <p>
-     *        Default: None
+     *        The bandwidth of the connection.
      */
 
     public void setBandwidth(String bandwidth) {
@@ -306,21 +956,10 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * Bandwidth of the connection.
-     * </p>
-     * <p>
-     * Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     * </p>
-     * <p>
-     * Default: None
+     * The bandwidth of the connection.
      * </p>
      * 
-     * @return Bandwidth of the connection.</p>
-     *         <p>
-     *         Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     *         </p>
-     *         <p>
-     *         Default: None
+     * @return The bandwidth of the connection.
      */
 
     public String getBandwidth() {
@@ -329,22 +968,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * Bandwidth of the connection.
-     * </p>
-     * <p>
-     * Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     * </p>
-     * <p>
-     * Default: None
+     * The bandwidth of the connection.
      * </p>
      * 
      * @param bandwidth
-     *        Bandwidth of the connection.</p>
-     *        <p>
-     *        Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
-     *        </p>
-     *        <p>
-     *        Default: None
+     *        The bandwidth of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -354,7 +982,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The ID of the VLAN.
+     * </p>
+     * 
      * @param vlan
+     *        The ID of the VLAN.
      */
 
     public void setVlan(Integer vlan) {
@@ -362,7 +995,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The ID of the VLAN.
+     * </p>
+     * 
+     * @return The ID of the VLAN.
      */
 
     public Integer getVlan() {
@@ -370,7 +1007,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The ID of the VLAN.
+     * </p>
+     * 
      * @param vlan
+     *        The ID of the VLAN.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -460,7 +1102,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The ID of the LAG.
+     * </p>
+     * 
      * @param lagId
+     *        The ID of the LAG.
      */
 
     public void setLagId(String lagId) {
@@ -468,7 +1115,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * @return
+     * <p>
+     * The ID of the LAG.
+     * </p>
+     * 
+     * @return The ID of the LAG.
      */
 
     public String getLagId() {
@@ -476,7 +1127,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
+     * <p>
+     * The ID of the LAG.
+     * </p>
+     * 
      * @param lagId
+     *        The ID of the LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -487,16 +1143,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * Deprecated in favor of awsDeviceV2.
-     * </p>
-     * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      * 
      * @param awsDevice
-     *        Deprecated in favor of awsDeviceV2.</p>
-     *        <p>
-     *        The Direct Connection endpoint which the physical connection terminates on.
+     *        The Direct Connect endpoint on which the physical connection terminates.
      */
 
     public void setAwsDevice(String awsDevice) {
@@ -505,15 +1156,10 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * Deprecated in favor of awsDeviceV2.
-     * </p>
-     * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      * 
-     * @return Deprecated in favor of awsDeviceV2.</p>
-     *         <p>
-     *         The Direct Connection endpoint which the physical connection terminates on.
+     * @return The Direct Connect endpoint on which the physical connection terminates.
      */
 
     public String getAwsDevice() {
@@ -522,16 +1168,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * Deprecated in favor of awsDeviceV2.
-     * </p>
-     * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      * 
      * @param awsDevice
-     *        Deprecated in favor of awsDeviceV2.</p>
-     *        <p>
-     *        The Direct Connection endpoint which the physical connection terminates on.
+     *        The Direct Connect endpoint on which the physical connection terminates.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -542,11 +1183,63 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * </p>
+     * 
+     * @param jumboFrameCapable
+     *        Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+
+    public void setJumboFrameCapable(Boolean jumboFrameCapable) {
+        this.jumboFrameCapable = jumboFrameCapable;
+    }
+
+    /**
+     * <p>
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * </p>
+     * 
+     * @return Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+
+    public Boolean getJumboFrameCapable() {
+        return this.jumboFrameCapable;
+    }
+
+    /**
+     * <p>
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * </p>
+     * 
+     * @param jumboFrameCapable
+     *        Indicates whether jumbo frames (9001 MTU) are supported.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DisassociateConnectionFromLagResult withJumboFrameCapable(Boolean jumboFrameCapable) {
+        setJumboFrameCapable(jumboFrameCapable);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * </p>
+     * 
+     * @return Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+
+    public Boolean isJumboFrameCapable() {
+        return this.jumboFrameCapable;
+    }
+
+    /**
+     * <p>
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      * 
      * @param awsDeviceV2
-     *        The Direct Connection endpoint which the physical connection terminates on.
+     *        The Direct Connect endpoint on which the physical connection terminates.
      */
 
     public void setAwsDeviceV2(String awsDeviceV2) {
@@ -555,10 +1248,10 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      * 
-     * @return The Direct Connection endpoint which the physical connection terminates on.
+     * @return The Direct Connect endpoint on which the physical connection terminates.
      */
 
     public String getAwsDeviceV2() {
@@ -567,11 +1260,11 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The Direct Connection endpoint which the physical connection terminates on.
+     * The Direct Connect endpoint on which the physical connection terminates.
      * </p>
      * 
      * @param awsDeviceV2
-     *        The Direct Connection endpoint which the physical connection terminates on.
+     *        The Direct Connect endpoint on which the physical connection terminates.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -581,7 +1274,81 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * </p>
+     * 
+     * @param hasLogicalRedundancy
+     *        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * @see HasLogicalRedundancy
+     */
+
+    public void setHasLogicalRedundancy(String hasLogicalRedundancy) {
+        this.hasLogicalRedundancy = hasLogicalRedundancy;
+    }
+
+    /**
+     * <p>
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * </p>
+     * 
+     * @return Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * @see HasLogicalRedundancy
+     */
+
+    public String getHasLogicalRedundancy() {
+        return this.hasLogicalRedundancy;
+    }
+
+    /**
+     * <p>
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * </p>
+     * 
+     * @param hasLogicalRedundancy
+     *        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see HasLogicalRedundancy
+     */
+
+    public DisassociateConnectionFromLagResult withHasLogicalRedundancy(String hasLogicalRedundancy) {
+        setHasLogicalRedundancy(hasLogicalRedundancy);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * </p>
+     * 
+     * @param hasLogicalRedundancy
+     *        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * @see HasLogicalRedundancy
+     */
+
+    public void setHasLogicalRedundancy(HasLogicalRedundancy hasLogicalRedundancy) {
+        withHasLogicalRedundancy(hasLogicalRedundancy);
+    }
+
+    /**
+     * <p>
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * </p>
+     * 
+     * @param hasLogicalRedundancy
+     *        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see HasLogicalRedundancy
+     */
+
+    public DisassociateConnectionFromLagResult withHasLogicalRedundancy(HasLogicalRedundancy hasLogicalRedundancy) {
+        this.hasLogicalRedundancy = hasLogicalRedundancy.toString();
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -615,8 +1382,12 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
             sb.append("LagId: ").append(getLagId()).append(",");
         if (getAwsDevice() != null)
             sb.append("AwsDevice: ").append(getAwsDevice()).append(",");
+        if (getJumboFrameCapable() != null)
+            sb.append("JumboFrameCapable: ").append(getJumboFrameCapable()).append(",");
         if (getAwsDeviceV2() != null)
-            sb.append("AwsDeviceV2: ").append(getAwsDeviceV2());
+            sb.append("AwsDeviceV2: ").append(getAwsDeviceV2()).append(",");
+        if (getHasLogicalRedundancy() != null)
+            sb.append("HasLogicalRedundancy: ").append(getHasLogicalRedundancy());
         sb.append("}");
         return sb.toString();
     }
@@ -679,9 +1450,17 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
             return false;
         if (other.getAwsDevice() != null && other.getAwsDevice().equals(this.getAwsDevice()) == false)
             return false;
+        if (other.getJumboFrameCapable() == null ^ this.getJumboFrameCapable() == null)
+            return false;
+        if (other.getJumboFrameCapable() != null && other.getJumboFrameCapable().equals(this.getJumboFrameCapable()) == false)
+            return false;
         if (other.getAwsDeviceV2() == null ^ this.getAwsDeviceV2() == null)
             return false;
         if (other.getAwsDeviceV2() != null && other.getAwsDeviceV2().equals(this.getAwsDeviceV2()) == false)
+            return false;
+        if (other.getHasLogicalRedundancy() == null ^ this.getHasLogicalRedundancy() == null)
+            return false;
+        if (other.getHasLogicalRedundancy() != null && other.getHasLogicalRedundancy().equals(this.getHasLogicalRedundancy()) == false)
             return false;
         return true;
     }
@@ -703,7 +1482,9 @@ public class DisassociateConnectionFromLagResult extends com.amazonaws.AmazonWeb
         hashCode = prime * hashCode + ((getLoaIssueTime() == null) ? 0 : getLoaIssueTime().hashCode());
         hashCode = prime * hashCode + ((getLagId() == null) ? 0 : getLagId().hashCode());
         hashCode = prime * hashCode + ((getAwsDevice() == null) ? 0 : getAwsDevice().hashCode());
+        hashCode = prime * hashCode + ((getJumboFrameCapable() == null) ? 0 : getJumboFrameCapable().hashCode());
         hashCode = prime * hashCode + ((getAwsDeviceV2() == null) ? 0 : getAwsDeviceV2().hashCode());
+        hashCode = prime * hashCode + ((getHasLogicalRedundancy() == null) ? 0 : getHasLogicalRedundancy().hashCode());
         return hashCode;
     }
 

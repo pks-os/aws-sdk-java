@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -55,8 +55,18 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
     private String jobName;
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     * <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity recognition
+     * job.
+     * </p>
+     */
+    private String entityRecognizerArn;
+    /**
+     * <p>
+     * The language of the input documents. All documents must be in the same language. You can specify any of the
+     * languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian
+     * ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is ignored and the language
+     * used for training the model is used instead.
      * </p>
      */
     private String languageCode;
@@ -66,6 +76,27 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
      * </p>
      */
     private String clientRequestToken;
+    /**
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume
+     * attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the
+     * following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * </ul>
+     */
+    private String volumeKmsKeyId;
 
     /**
      * <p>
@@ -253,13 +284,69 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     * <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity recognition
+     * job.
+     * </p>
+     * 
+     * @param entityRecognizerArn
+     *        The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     *        <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity
+     *        recognition job.
+     */
+
+    public void setEntityRecognizerArn(String entityRecognizerArn) {
+        this.entityRecognizerArn = entityRecognizerArn;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     * <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity recognition
+     * job.
+     * </p>
+     * 
+     * @return The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     *         <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity
+     *         recognition job.
+     */
+
+    public String getEntityRecognizerArn() {
+        return this.entityRecognizerArn;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     * <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity recognition
+     * job.
+     * </p>
+     * 
+     * @param entityRecognizerArn
+     *        The Amazon Resource Name (ARN) that identifies the specific entity recognizer to be used by the
+     *        <code>StartEntitiesDetectionJob</code>. This ARN is optional and is only used for a custom entity
+     *        recognition job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StartEntitiesDetectionJobRequest withEntityRecognizerArn(String entityRecognizerArn) {
+        setEntityRecognizerArn(entityRecognizerArn);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The language of the input documents. All documents must be in the same language. You can specify any of the
+     * languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian
+     * ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is ignored and the language
+     * used for training the model is used instead.
      * </p>
      * 
      * @param languageCode
-     *        The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *        be in the same language.
+     *        The language of the input documents. All documents must be in the same language. You can specify any of
+     *        the languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German
+     *        ("de"), Italian ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is
+     *        ignored and the language used for training the model is used instead.
      * @see LanguageCode
      */
 
@@ -269,12 +356,16 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language. You can specify any of the
+     * languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian
+     * ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is ignored and the language
+     * used for training the model is used instead.
      * </p>
      * 
-     * @return The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *         be in the same language.
+     * @return The language of the input documents. All documents must be in the same language. You can specify any of
+     *         the languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German
+     *         ("de"), Italian ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is
+     *         ignored and the language used for training the model is used instead.
      * @see LanguageCode
      */
 
@@ -284,13 +375,17 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language. You can specify any of the
+     * languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian
+     * ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is ignored and the language
+     * used for training the model is used instead.
      * </p>
      * 
      * @param languageCode
-     *        The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *        be in the same language.
+     *        The language of the input documents. All documents must be in the same language. You can specify any of
+     *        the languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German
+     *        ("de"), Italian ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is
+     *        ignored and the language used for training the model is used instead.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LanguageCode
      */
@@ -302,13 +397,17 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language. You can specify any of the
+     * languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian
+     * ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is ignored and the language
+     * used for training the model is used instead.
      * </p>
      * 
      * @param languageCode
-     *        The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *        be in the same language.
+     *        The language of the input documents. All documents must be in the same language. You can specify any of
+     *        the languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German
+     *        ("de"), Italian ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is
+     *        ignored and the language used for training the model is used instead.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LanguageCode
      */
@@ -362,7 +461,135 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume
+     * attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the
+     * following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param volumeKmsKeyId
+     *        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage
+     *        volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be
+     *        either of the following formats:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        Amazon Resource Name (ARN) of a KMS Key:
+     *        <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     */
+
+    public void setVolumeKmsKeyId(String volumeKmsKeyId) {
+        this.volumeKmsKeyId = volumeKmsKeyId;
+    }
+
+    /**
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume
+     * attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the
+     * following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @return ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the
+     *         storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId
+     *         can be either of the following formats:</p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         Amazon Resource Name (ARN) of a KMS Key:
+     *         <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *         </p>
+     *         </li>
+     */
+
+    public String getVolumeKmsKeyId() {
+        return this.volumeKmsKeyId;
+    }
+
+    /**
+     * <p>
+     * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume
+     * attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the
+     * following formats:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Amazon Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param volumeKmsKeyId
+     *        ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage
+     *        volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be
+     *        either of the following formats:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        Amazon Resource Name (ARN) of a KMS Key:
+     *        <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StartEntitiesDetectionJobRequest withVolumeKmsKeyId(String volumeKmsKeyId) {
+        setVolumeKmsKeyId(volumeKmsKeyId);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -380,10 +607,14 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
             sb.append("DataAccessRoleArn: ").append(getDataAccessRoleArn()).append(",");
         if (getJobName() != null)
             sb.append("JobName: ").append(getJobName()).append(",");
+        if (getEntityRecognizerArn() != null)
+            sb.append("EntityRecognizerArn: ").append(getEntityRecognizerArn()).append(",");
         if (getLanguageCode() != null)
             sb.append("LanguageCode: ").append(getLanguageCode()).append(",");
         if (getClientRequestToken() != null)
-            sb.append("ClientRequestToken: ").append(getClientRequestToken());
+            sb.append("ClientRequestToken: ").append(getClientRequestToken()).append(",");
+        if (getVolumeKmsKeyId() != null)
+            sb.append("VolumeKmsKeyId: ").append(getVolumeKmsKeyId());
         sb.append("}");
         return sb.toString();
     }
@@ -414,6 +645,10 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
             return false;
         if (other.getJobName() != null && other.getJobName().equals(this.getJobName()) == false)
             return false;
+        if (other.getEntityRecognizerArn() == null ^ this.getEntityRecognizerArn() == null)
+            return false;
+        if (other.getEntityRecognizerArn() != null && other.getEntityRecognizerArn().equals(this.getEntityRecognizerArn()) == false)
+            return false;
         if (other.getLanguageCode() == null ^ this.getLanguageCode() == null)
             return false;
         if (other.getLanguageCode() != null && other.getLanguageCode().equals(this.getLanguageCode()) == false)
@@ -421,6 +656,10 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
         if (other.getClientRequestToken() == null ^ this.getClientRequestToken() == null)
             return false;
         if (other.getClientRequestToken() != null && other.getClientRequestToken().equals(this.getClientRequestToken()) == false)
+            return false;
+        if (other.getVolumeKmsKeyId() == null ^ this.getVolumeKmsKeyId() == null)
+            return false;
+        if (other.getVolumeKmsKeyId() != null && other.getVolumeKmsKeyId().equals(this.getVolumeKmsKeyId()) == false)
             return false;
         return true;
     }
@@ -434,8 +673,10 @@ public class StartEntitiesDetectionJobRequest extends com.amazonaws.AmazonWebSer
         hashCode = prime * hashCode + ((getOutputDataConfig() == null) ? 0 : getOutputDataConfig().hashCode());
         hashCode = prime * hashCode + ((getDataAccessRoleArn() == null) ? 0 : getDataAccessRoleArn().hashCode());
         hashCode = prime * hashCode + ((getJobName() == null) ? 0 : getJobName().hashCode());
+        hashCode = prime * hashCode + ((getEntityRecognizerArn() == null) ? 0 : getEntityRecognizerArn().hashCode());
         hashCode = prime * hashCode + ((getLanguageCode() == null) ? 0 : getLanguageCode().hashCode());
         hashCode = prime * hashCode + ((getClientRequestToken() == null) ? 0 : getClientRequestToken().hashCode());
+        hashCode = prime * hashCode + ((getVolumeKmsKeyId() == null) ? 0 : getVolumeKmsKeyId().hashCode());
         return hashCode;
     }
 

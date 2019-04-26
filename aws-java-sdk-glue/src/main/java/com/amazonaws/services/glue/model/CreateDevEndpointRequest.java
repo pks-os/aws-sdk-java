@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -100,6 +100,20 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
      * </p>
      */
     private String securityConfiguration;
+    /**
+     * <p>
+     * The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information
+     * about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
+     * Glue</a> in the developer guide.
+     * </p>
+     */
+    private java.util.Map<String, String> tags;
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     */
+    private java.util.Map<String, String> arguments;
 
     /**
      * <p>
@@ -665,7 +679,145 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information
+     * about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
+     * Glue</a> in the developer guide.
+     * </p>
+     * 
+     * @return The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more
+     *         information about tags in AWS Glue, see <a
+     *         href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the
+     *         developer guide.
+     */
+
+    public java.util.Map<String, String> getTags() {
+        return tags;
+    }
+
+    /**
+     * <p>
+     * The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information
+     * about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
+     * Glue</a> in the developer guide.
+     * </p>
+     * 
+     * @param tags
+     *        The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more
+     *        information about tags in AWS Glue, see <a
+     *        href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the
+     *        developer guide.
+     */
+
+    public void setTags(java.util.Map<String, String> tags) {
+        this.tags = tags;
+    }
+
+    /**
+     * <p>
+     * The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information
+     * about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
+     * Glue</a> in the developer guide.
+     * </p>
+     * 
+     * @param tags
+     *        The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more
+     *        information about tags in AWS Glue, see <a
+     *        href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the
+     *        developer guide.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest withTags(java.util.Map<String, String> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    public CreateDevEndpointRequest addTagsEntry(String key, String value) {
+        if (null == this.tags) {
+            this.tags = new java.util.HashMap<String, String>();
+        }
+        if (this.tags.containsKey(key))
+            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
+        this.tags.put(key, value);
+        return this;
+    }
+
+    /**
+     * Removes all the entries added into Tags.
+     *
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest clearTagsEntries() {
+        this.tags = null;
+        return this;
+    }
+
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * 
+     * @return A map of arguments used to configure the DevEndpoint.
+     */
+
+    public java.util.Map<String, String> getArguments() {
+        return arguments;
+    }
+
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * 
+     * @param arguments
+     *        A map of arguments used to configure the DevEndpoint.
+     */
+
+    public void setArguments(java.util.Map<String, String> arguments) {
+        this.arguments = arguments;
+    }
+
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * 
+     * @param arguments
+     *        A map of arguments used to configure the DevEndpoint.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest withArguments(java.util.Map<String, String> arguments) {
+        setArguments(arguments);
+        return this;
+    }
+
+    public CreateDevEndpointRequest addArgumentsEntry(String key, String value) {
+        if (null == this.arguments) {
+            this.arguments = new java.util.HashMap<String, String>();
+        }
+        if (this.arguments.containsKey(key))
+            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
+        this.arguments.put(key, value);
+        return this;
+    }
+
+    /**
+     * Removes all the entries added into Arguments.
+     *
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest clearArgumentsEntries() {
+        this.arguments = null;
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -694,7 +846,11 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
         if (getExtraJarsS3Path() != null)
             sb.append("ExtraJarsS3Path: ").append(getExtraJarsS3Path()).append(",");
         if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
+            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags()).append(",");
+        if (getArguments() != null)
+            sb.append("Arguments: ").append(getArguments());
         sb.append("}");
         return sb.toString();
     }
@@ -749,6 +905,14 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
             return false;
         if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
             return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
+            return false;
+        if (other.getArguments() == null ^ this.getArguments() == null)
+            return false;
+        if (other.getArguments() != null && other.getArguments().equals(this.getArguments()) == false)
+            return false;
         return true;
     }
 
@@ -767,6 +931,8 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
         hashCode = prime * hashCode + ((getExtraPythonLibsS3Path() == null) ? 0 : getExtraPythonLibsS3Path().hashCode());
         hashCode = prime * hashCode + ((getExtraJarsS3Path() == null) ? 0 : getExtraJarsS3Path().hashCode());
         hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
+        hashCode = prime * hashCode + ((getArguments() == null) ? 0 : getArguments().hashCode());
         return hashCode;
     }
 

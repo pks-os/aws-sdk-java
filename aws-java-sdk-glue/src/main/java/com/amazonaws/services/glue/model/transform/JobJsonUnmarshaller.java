@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -101,13 +101,25 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                     context.nextToken();
                     job.setTimeout(context.getUnmarshaller(Integer.class).unmarshall(context));
                 }
-                if (context.testExpression("NotificationProperty", targetDepth)) {
+                if (context.testExpression("MaxCapacity", targetDepth)) {
                     context.nextToken();
-                    job.setNotificationProperty(NotificationPropertyJsonUnmarshaller.getInstance().unmarshall(context));
+                    job.setMaxCapacity(context.getUnmarshaller(Double.class).unmarshall(context));
+                }
+                if (context.testExpression("WorkerType", targetDepth)) {
+                    context.nextToken();
+                    job.setWorkerType(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("NumberOfWorkers", targetDepth)) {
+                    context.nextToken();
+                    job.setNumberOfWorkers(context.getUnmarshaller(Integer.class).unmarshall(context));
                 }
                 if (context.testExpression("SecurityConfiguration", targetDepth)) {
                     context.nextToken();
                     job.setSecurityConfiguration(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("NotificationProperty", targetDepth)) {
+                    context.nextToken();
+                    job.setNotificationProperty(NotificationPropertyJsonUnmarshaller.getInstance().unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

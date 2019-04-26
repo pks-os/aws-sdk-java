@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,18 +30,37 @@ public class RepositoryCredentials implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     * The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
      * </p>
+     * <note>
+     * <p>
+     * When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as the task
+     * that you are launching then you can use either the full ARN or the name of the secret. When you are using the AWS
+     * Management Console, you must specify the full ARN of the secret.
+     * </p>
+     * </note>
      */
     private String credentialsParameter;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     * The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
      * </p>
+     * <note>
+     * <p>
+     * When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as the task
+     * that you are launching then you can use either the full ARN or the name of the secret. When you are using the AWS
+     * Management Console, you must specify the full ARN of the secret.
+     * </p>
+     * </note>
      * 
      * @param credentialsParameter
-     *        The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     *        The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
+     *        <p>
+     *        When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as the
+     *        task that you are launching then you can use either the full ARN or the name of the secret. When you are
+     *        using the AWS Management Console, you must specify the full ARN of the secret.
+     *        </p>
      */
 
     public void setCredentialsParameter(String credentialsParameter) {
@@ -50,10 +69,22 @@ public class RepositoryCredentials implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     * The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
      * </p>
+     * <note>
+     * <p>
+     * When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as the task
+     * that you are launching then you can use either the full ARN or the name of the secret. When you are using the AWS
+     * Management Console, you must specify the full ARN of the secret.
+     * </p>
+     * </note>
      * 
-     * @return The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     * @return The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
+     *         <p>
+     *         When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as
+     *         the task that you are launching then you can use either the full ARN or the name of the secret. When you
+     *         are using the AWS Management Console, you must specify the full ARN of the secret.
+     *         </p>
      */
 
     public String getCredentialsParameter() {
@@ -62,11 +93,23 @@ public class RepositoryCredentials implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     * The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
      * </p>
+     * <note>
+     * <p>
+     * When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as the task
+     * that you are launching then you can use either the full ARN or the name of the secret. When you are using the AWS
+     * Management Console, you must specify the full ARN of the secret.
+     * </p>
+     * </note>
      * 
      * @param credentialsParameter
-     *        The Amazon Resource Name (ARN) or name of the secret containing the private repository credentials.
+     *        The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p> <note>
+     *        <p>
+     *        When you are using the Amazon ECS API, AWS CLI, or AWS SDK, if the secret exists in the same Region as the
+     *        task that you are launching then you can use either the full ARN or the name of the secret. When you are
+     *        using the AWS Management Console, you must specify the full ARN of the secret.
+     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -76,7 +119,8 @@ public class RepositoryCredentials implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

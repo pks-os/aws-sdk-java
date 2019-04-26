@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -193,6 +193,29 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
+     * Stops a Maintenance Window execution that is already in progress and cancels any tasks in the window that have
+     * not already starting running. (Tasks already in progress will continue to completion.)
+     * </p>
+     * 
+     * @param cancelMaintenanceWindowExecutionRequest
+     * @return Result of the CancelMaintenanceWindowExecution operation returned by the service.
+     * @throws InternalServerErrorException
+     *         An error occurred on the server side.
+     * @throws DoesNotExistException
+     *         Error returned when the ID specified for a resource, such as a Maintenance Window or Patch baseline,
+     *         doesn't exist.</p>
+     *         <p>
+     *         For information about resource limits in Systems Manager, see <a
+     *         href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems
+     *         Manager Limits</a>.
+     * @sample AWSSimpleSystemsManagement.CancelMaintenanceWindowExecution
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelMaintenanceWindowExecution"
+     *      target="_top">AWS API Documentation</a>
+     */
+    CancelMaintenanceWindowExecutionResult cancelMaintenanceWindowExecution(CancelMaintenanceWindowExecutionRequest cancelMaintenanceWindowExecutionRequest);
+
+    /**
+     * <p>
      * Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using
      * Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed
      * instance. For more information about activations, see <a
@@ -219,7 +242,7 @@ public interface AWSSimpleSystemsManagement {
      * instance processes the document and configures the instance as specified.
      * </p>
      * <p>
-     * If you associate a document with an instance that already has an associated document, the system throws the
+     * If you associate a document with an instance that already has an associated document, the system returns the
      * AssociationAlreadyExists exception.
      * </p>
      * 
@@ -279,7 +302,7 @@ public interface AWSSimpleSystemsManagement {
      * instance processes the document and configures the instance as specified.
      * </p>
      * <p>
-     * If you associate a document with an instance that already has an associated document, the system throws the
+     * If you associate a document with an instance that already has an associated document, the system returns the
      * AssociationAlreadyExists exception.
      * </p>
      * 
@@ -424,9 +447,8 @@ public interface AWSSimpleSystemsManagement {
      * <p>
      * By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to
      * ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a
-     * restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync,
-     * see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync-create.html">Create a
+     * restrictive bucket policy. For more information, see <a
+     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
      * Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -1186,7 +1208,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Retrieves the individual task executions (one per target) for a particular task executed as part of a Maintenance
+     * Retrieves the individual task executions (one per target) for a particular task run as part of a Maintenance
      * Window execution.
      * </p>
      * 
@@ -1211,7 +1233,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * For a given Maintenance Window execution, lists the tasks that were executed.
+     * For a given Maintenance Window execution, lists the tasks that were run.
      * </p>
      * 
      * @param describeMaintenanceWindowExecutionTasksRequest
@@ -1248,6 +1270,28 @@ public interface AWSSimpleSystemsManagement {
      */
     DescribeMaintenanceWindowExecutionsResult describeMaintenanceWindowExecutions(
             DescribeMaintenanceWindowExecutionsRequest describeMaintenanceWindowExecutionsRequest);
+
+    /**
+     * <p>
+     * Retrieves information about upcoming executions of a Maintenance Window.
+     * </p>
+     * 
+     * @param describeMaintenanceWindowScheduleRequest
+     * @return Result of the DescribeMaintenanceWindowSchedule operation returned by the service.
+     * @throws InternalServerErrorException
+     *         An error occurred on the server side.
+     * @throws DoesNotExistException
+     *         Error returned when the ID specified for a resource, such as a Maintenance Window or Patch baseline,
+     *         doesn't exist.</p>
+     *         <p>
+     *         For information about resource limits in Systems Manager, see <a
+     *         href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems
+     *         Manager Limits</a>.
+     * @sample AWSSimpleSystemsManagement.DescribeMaintenanceWindowSchedule
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowSchedule"
+     *      target="_top">AWS API Documentation</a>
+     */
+    DescribeMaintenanceWindowScheduleResult describeMaintenanceWindowSchedule(DescribeMaintenanceWindowScheduleRequest describeMaintenanceWindowScheduleRequest);
 
     /**
      * <p>
@@ -1307,6 +1351,22 @@ public interface AWSSimpleSystemsManagement {
      *      API Documentation</a>
      */
     DescribeMaintenanceWindowsResult describeMaintenanceWindows(DescribeMaintenanceWindowsRequest describeMaintenanceWindowsRequest);
+
+    /**
+     * <p>
+     * Retrieves information about the Maintenance Windows targets or tasks that an instance is associated with.
+     * </p>
+     * 
+     * @param describeMaintenanceWindowsForTargetRequest
+     * @return Result of the DescribeMaintenanceWindowsForTarget operation returned by the service.
+     * @throws InternalServerErrorException
+     *         An error occurred on the server side.
+     * @sample AWSSimpleSystemsManagement.DescribeMaintenanceWindowsForTarget
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowsForTarget"
+     *      target="_top">AWS API Documentation</a>
+     */
+    DescribeMaintenanceWindowsForTargetResult describeMaintenanceWindowsForTarget(
+            DescribeMaintenanceWindowsForTargetRequest describeMaintenanceWindowsForTargetRequest);
 
     /**
      * <p>
@@ -1606,7 +1666,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Retrieves details about a specific task executed as part of a Maintenance Window execution.
+     * Retrieves details about a specific task run as part of a Maintenance Window execution.
      * </p>
      * 
      * @param getMaintenanceWindowExecutionRequest
@@ -1628,7 +1688,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Retrieves the details about a specific task executed as part of a Maintenance Window execution.
+     * Retrieves the details about a specific task run as part of a Maintenance Window execution.
      * </p>
      * 
      * @param getMaintenanceWindowExecutionTaskRequest
@@ -1650,7 +1710,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Retrieves a task invocation. A task invocation is a specific task executing on a specific target. Maintenance
+     * Retrieves a task invocation. A task invocation is a specific task running on a specific target. Maintenance
      * Windows report status for all invocations.
      * </p>
      * 
@@ -1835,6 +1895,39 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
+     * <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user
+     * interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the
+     * account based on feature or service usage, then the AWS service team might create a default setting of "false".
+     * This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for
+     * a paid feature.
+     * </p>
+     * <p>
+     * Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for
+     * a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value
+     * if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the
+     * <a>UpdateServiceSetting</a> API action to change the default setting. Or use the <a>ResetServiceSetting</a> to
+     * change the value back to the original value defined by the AWS service team.
+     * </p>
+     * <p>
+     * Query the current service setting for the account.
+     * </p>
+     * 
+     * @param getServiceSettingRequest
+     *        The request body of the GetServiceSetting API action.
+     * @return Result of the GetServiceSetting operation returned by the service.
+     * @throws InternalServerErrorException
+     *         An error occurred on the server side.
+     * @throws ServiceSettingNotFoundException
+     *         The specified service setting was not found. Either the service name or the setting has not been
+     *         provisioned by the AWS service team.
+     * @sample AWSSimpleSystemsManagement.GetServiceSetting
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetServiceSetting" target="_top">AWS API
+     *      Documentation</a>
+     */
+    GetServiceSettingResult getServiceSetting(GetServiceSettingRequest getServiceSettingRequest);
+
+    /**
+     * <p>
      * A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a
      * parameter, Systems Manager automatically saves a new version and increments the version number by one. A label
      * can help you remember the purpose of a parameter when there are multiple versions.
@@ -1947,8 +2040,8 @@ public interface AWSSimpleSystemsManagement {
     /**
      * <p>
      * An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A
-     * command invocation applies to one instance. For example, if a user executes SendCommand against three instances,
-     * then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about
+     * command invocation applies to one instance. For example, if a user runs SendCommand against three instances, then
+     * a command invocation is created for each requested instance ID. ListCommandInvocations provide status about
      * command execution.
      * </p>
      * 
@@ -2441,6 +2534,16 @@ public interface AWSSimpleSystemsManagement {
      *         The parameter name is not valid.
      * @throws UnsupportedParameterTypeException
      *         The parameter type is not supported.
+     * @throws PoliciesLimitExceededException
+     *         You specified more than the maximum number of allowed policies for the parameter. The maximum is 10.
+     * @throws InvalidPolicyTypeException
+     *         The policy type is not supported. Parameter Store supports the following policy types: Expiration,
+     *         ExpirationNotification, and NoChangeNotification.
+     * @throws InvalidPolicyAttributeException
+     *         A policy attribute or its value is invalid.
+     * @throws IncompatiblePolicyException
+     *         There is a conflict in the policies specified for this parameter. You can't, for example, specify two
+     *         Expiration policies for a parameter. Review your policies, and try again.
      * @sample AWSSimpleSystemsManagement.PutParameter
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutParameter" target="_top">AWS API
      *      Documentation</a>
@@ -2601,6 +2704,41 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
+     * <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user
+     * interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the
+     * account based on feature or service usage, then the AWS service team might create a default setting of "false".
+     * This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for
+     * a paid feature.
+     * </p>
+     * <p>
+     * Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for
+     * a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value
+     * if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the
+     * <a>GetServiceSetting</a> API action to view the current value. Use the <a>UpdateServiceSetting</a> API action to
+     * change the default setting.
+     * </p>
+     * <p>
+     * Reset the service setting for the account to the default value as provisioned by the AWS service team.
+     * </p>
+     * 
+     * @param resetServiceSettingRequest
+     *        The request body of the ResetServiceSetting API action.
+     * @return Result of the ResetServiceSetting operation returned by the service.
+     * @throws InternalServerErrorException
+     *         An error occurred on the server side.
+     * @throws ServiceSettingNotFoundException
+     *         The specified service setting was not found. Either the service name or the setting has not been
+     *         provisioned by the AWS service team.
+     * @throws TooManyUpdatesException
+     *         There are concurrent updates for a resource that supports one update at a time.
+     * @sample AWSSimpleSystemsManagement.ResetServiceSetting
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResetServiceSetting" target="_top">AWS API
+     *      Documentation</a>
+     */
+    ResetServiceSettingResult resetServiceSetting(ResetServiceSettingRequest resetServiceSettingRequest);
+
+    /**
+     * <p>
      * Reconnects a session to an instance after it has been disconnected. Connections can be resumed for disconnected
      * sessions, but not terminated sessions.
      * </p>
@@ -2651,7 +2789,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Executes commands on one or more managed instances.
+     * Runs commands on one or more managed instances.
      * </p>
      * 
      * @param sendCommandRequest
@@ -2707,7 +2845,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Use this API action to execute an association immediately and only one time. This action can be helpful when
+     * Use this API action to run an association immediately and only one time. This action can be helpful when
      * troubleshooting associations.
      * </p>
      * 
@@ -2786,7 +2924,7 @@ public interface AWSSimpleSystemsManagement {
 
     /**
      * <p>
-     * Stop an Automation that is currently executing.
+     * Stop an Automation that is currently running.
      * </p>
      * 
      * @param stopAutomationExecutionRequest
@@ -2831,6 +2969,11 @@ public interface AWSSimpleSystemsManagement {
      * Updates an association. You can update the association name and version, the document version, schedule,
      * parameters, and Amazon S3 output.
      * </p>
+     * <important>
+     * <p>
+     * When you update an association, the association immediately runs against the specified targets.
+     * </p>
+     * </important>
      * 
      * @param updateAssociationRequest
      * @return Result of the UpdateAssociation operation returned by the service.
@@ -2924,6 +3067,9 @@ public interface AWSSimpleSystemsManagement {
      * @throws DuplicateDocumentContentException
      *         The content of the association document matches another document. Change the content of the document and
      *         try again.
+     * @throws DuplicateDocumentVersionNameException
+     *         The version name has already been used in this document. Specify a different version name, and then try
+     *         again.
      * @throws InvalidDocumentContentException
      *         The content for the document is not valid.
      * @throws InvalidDocumentVersionException
@@ -2932,6 +3078,9 @@ public interface AWSSimpleSystemsManagement {
      *         The version of the document schema is not supported.
      * @throws InvalidDocumentException
      *         The specified document does not exist.
+     * @throws InvalidDocumentOperationException
+     *         You attempted to delete a document while it is still shared. You must stop sharing the document before
+     *         you can delete it.
      * @sample AWSSimpleSystemsManagement.UpdateDocument
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocument" target="_top">AWS API
      *      Documentation</a>
@@ -3144,6 +3293,41 @@ public interface AWSSimpleSystemsManagement {
      *      Documentation</a>
      */
     UpdatePatchBaselineResult updatePatchBaseline(UpdatePatchBaselineRequest updatePatchBaselineRequest);
+
+    /**
+     * <p>
+     * <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user
+     * interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the
+     * account based on feature or service usage, then the AWS service team might create a default setting of "false".
+     * This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for
+     * a paid feature.
+     * </p>
+     * <p>
+     * Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for
+     * a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value
+     * if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the
+     * <a>GetServiceSetting</a> API action to view the current value. Or, use the <a>ResetServiceSetting</a> to change
+     * the value back to the original value defined by the AWS service team.
+     * </p>
+     * <p>
+     * Update the service setting for the account.
+     * </p>
+     * 
+     * @param updateServiceSettingRequest
+     *        The request body of the UpdateServiceSetting API action.
+     * @return Result of the UpdateServiceSetting operation returned by the service.
+     * @throws InternalServerErrorException
+     *         An error occurred on the server side.
+     * @throws ServiceSettingNotFoundException
+     *         The specified service setting was not found. Either the service name or the setting has not been
+     *         provisioned by the AWS service team.
+     * @throws TooManyUpdatesException
+     *         There are concurrent updates for a resource that supports one update at a time.
+     * @sample AWSSimpleSystemsManagement.UpdateServiceSetting
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateServiceSetting" target="_top">AWS API
+     *      Documentation</a>
+     */
+    UpdateServiceSettingResult updateServiceSetting(UpdateServiceSettingRequest updateServiceSettingRequest);
 
     /**
      * Shuts down this client object, releasing any resources that might be held open. This is an optional method, and

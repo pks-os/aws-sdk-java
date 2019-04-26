@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -123,7 +123,7 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     private String stepExecutionId;
     /**
      * <p>
-     * A user-specified list of parameters to override when executing a step.
+     * A user-specified list of parameters to override when running a step.
      * </p>
      */
     private java.util.Map<String, java.util.List<String>> overriddenParameters;
@@ -148,11 +148,23 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step
-     * fails. Continue will ignore the failure of current step and allow automation to execute the next step. With
+     * fails. Continue will ignore the failure of current step and allow automation to run the next step. With
      * conditional branching, we add step:stepName to support the automation to go to another specific step.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> validNextSteps;
+    /**
+     * <p>
+     * The targets for the step execution.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<Target> targets;
+    /**
+     * <p>
+     * The combination of AWS Regions and accounts targeted by the current Automation execution.
+     * </p>
+     */
+    private TargetLocation targetLocation;
 
     /**
      * <p>
@@ -853,10 +865,10 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A user-specified list of parameters to override when executing a step.
+     * A user-specified list of parameters to override when running a step.
      * </p>
      * 
-     * @return A user-specified list of parameters to override when executing a step.
+     * @return A user-specified list of parameters to override when running a step.
      */
 
     public java.util.Map<String, java.util.List<String>> getOverriddenParameters() {
@@ -865,11 +877,11 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A user-specified list of parameters to override when executing a step.
+     * A user-specified list of parameters to override when running a step.
      * </p>
      * 
      * @param overriddenParameters
-     *        A user-specified list of parameters to override when executing a step.
+     *        A user-specified list of parameters to override when running a step.
      */
 
     public void setOverriddenParameters(java.util.Map<String, java.util.List<String>> overriddenParameters) {
@@ -878,11 +890,11 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A user-specified list of parameters to override when executing a step.
+     * A user-specified list of parameters to override when running a step.
      * </p>
      * 
      * @param overriddenParameters
-     *        A user-specified list of parameters to override when executing a step.
+     *        A user-specified list of parameters to override when running a step.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1063,14 +1075,14 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step
-     * fails. Continue will ignore the failure of current step and allow automation to execute the next step. With
+     * fails. Continue will ignore the failure of current step and allow automation to run the next step. With
      * conditional branching, we add step:stepName to support the automation to go to another specific step.
      * </p>
      * 
      * @return Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the
-     *         step fails. Continue will ignore the failure of current step and allow automation to execute the next
-     *         step. With conditional branching, we add step:stepName to support the automation to go to another
-     *         specific step.
+     *         step fails. Continue will ignore the failure of current step and allow automation to run the next step.
+     *         With conditional branching, we add step:stepName to support the automation to go to another specific
+     *         step.
      */
 
     public java.util.List<String> getValidNextSteps() {
@@ -1083,15 +1095,14 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step
-     * fails. Continue will ignore the failure of current step and allow automation to execute the next step. With
+     * fails. Continue will ignore the failure of current step and allow automation to run the next step. With
      * conditional branching, we add step:stepName to support the automation to go to another specific step.
      * </p>
      * 
      * @param validNextSteps
      *        Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the
-     *        step fails. Continue will ignore the failure of current step and allow automation to execute the next
-     *        step. With conditional branching, we add step:stepName to support the automation to go to another specific
-     *        step.
+     *        step fails. Continue will ignore the failure of current step and allow automation to run the next step.
+     *        With conditional branching, we add step:stepName to support the automation to go to another specific step.
      */
 
     public void setValidNextSteps(java.util.Collection<String> validNextSteps) {
@@ -1106,7 +1117,7 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step
-     * fails. Continue will ignore the failure of current step and allow automation to execute the next step. With
+     * fails. Continue will ignore the failure of current step and allow automation to run the next step. With
      * conditional branching, we add step:stepName to support the automation to go to another specific step.
      * </p>
      * <p>
@@ -1117,9 +1128,8 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
      * 
      * @param validNextSteps
      *        Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the
-     *        step fails. Continue will ignore the failure of current step and allow automation to execute the next
-     *        step. With conditional branching, we add step:stepName to support the automation to go to another specific
-     *        step.
+     *        step fails. Continue will ignore the failure of current step and allow automation to run the next step.
+     *        With conditional branching, we add step:stepName to support the automation to go to another specific step.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1136,15 +1146,14 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step
-     * fails. Continue will ignore the failure of current step and allow automation to execute the next step. With
+     * fails. Continue will ignore the failure of current step and allow automation to run the next step. With
      * conditional branching, we add step:stepName to support the automation to go to another specific step.
      * </p>
      * 
      * @param validNextSteps
      *        Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the
-     *        step fails. Continue will ignore the failure of current step and allow automation to execute the next
-     *        step. With conditional branching, we add step:stepName to support the automation to go to another specific
-     *        step.
+     *        step fails. Continue will ignore the failure of current step and allow automation to run the next step.
+     *        With conditional branching, we add step:stepName to support the automation to go to another specific step.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1154,7 +1163,121 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The targets for the step execution.
+     * </p>
+     * 
+     * @return The targets for the step execution.
+     */
+
+    public java.util.List<Target> getTargets() {
+        if (targets == null) {
+            targets = new com.amazonaws.internal.SdkInternalList<Target>();
+        }
+        return targets;
+    }
+
+    /**
+     * <p>
+     * The targets for the step execution.
+     * </p>
+     * 
+     * @param targets
+     *        The targets for the step execution.
+     */
+
+    public void setTargets(java.util.Collection<Target> targets) {
+        if (targets == null) {
+            this.targets = null;
+            return;
+        }
+
+        this.targets = new com.amazonaws.internal.SdkInternalList<Target>(targets);
+    }
+
+    /**
+     * <p>
+     * The targets for the step execution.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setTargets(java.util.Collection)} or {@link #withTargets(java.util.Collection)} if you want to override
+     * the existing values.
+     * </p>
+     * 
+     * @param targets
+     *        The targets for the step execution.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StepExecution withTargets(Target... targets) {
+        if (this.targets == null) {
+            setTargets(new com.amazonaws.internal.SdkInternalList<Target>(targets.length));
+        }
+        for (Target ele : targets) {
+            this.targets.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * The targets for the step execution.
+     * </p>
+     * 
+     * @param targets
+     *        The targets for the step execution.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StepExecution withTargets(java.util.Collection<Target> targets) {
+        setTargets(targets);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The combination of AWS Regions and accounts targeted by the current Automation execution.
+     * </p>
+     * 
+     * @param targetLocation
+     *        The combination of AWS Regions and accounts targeted by the current Automation execution.
+     */
+
+    public void setTargetLocation(TargetLocation targetLocation) {
+        this.targetLocation = targetLocation;
+    }
+
+    /**
+     * <p>
+     * The combination of AWS Regions and accounts targeted by the current Automation execution.
+     * </p>
+     * 
+     * @return The combination of AWS Regions and accounts targeted by the current Automation execution.
+     */
+
+    public TargetLocation getTargetLocation() {
+        return this.targetLocation;
+    }
+
+    /**
+     * <p>
+     * The combination of AWS Regions and accounts targeted by the current Automation execution.
+     * </p>
+     * 
+     * @param targetLocation
+     *        The combination of AWS Regions and accounts targeted by the current Automation execution.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public StepExecution withTargetLocation(TargetLocation targetLocation) {
+        setTargetLocation(targetLocation);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1203,7 +1326,11 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
         if (getIsCritical() != null)
             sb.append("IsCritical: ").append(getIsCritical()).append(",");
         if (getValidNextSteps() != null)
-            sb.append("ValidNextSteps: ").append(getValidNextSteps());
+            sb.append("ValidNextSteps: ").append(getValidNextSteps()).append(",");
+        if (getTargets() != null)
+            sb.append("Targets: ").append(getTargets()).append(",");
+        if (getTargetLocation() != null)
+            sb.append("TargetLocation: ").append(getTargetLocation());
         sb.append("}");
         return sb.toString();
     }
@@ -1298,6 +1425,14 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getValidNextSteps() != null && other.getValidNextSteps().equals(this.getValidNextSteps()) == false)
             return false;
+        if (other.getTargets() == null ^ this.getTargets() == null)
+            return false;
+        if (other.getTargets() != null && other.getTargets().equals(this.getTargets()) == false)
+            return false;
+        if (other.getTargetLocation() == null ^ this.getTargetLocation() == null)
+            return false;
+        if (other.getTargetLocation() != null && other.getTargetLocation().equals(this.getTargetLocation()) == false)
+            return false;
         return true;
     }
 
@@ -1326,6 +1461,8 @@ public class StepExecution implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getNextStep() == null) ? 0 : getNextStep().hashCode());
         hashCode = prime * hashCode + ((getIsCritical() == null) ? 0 : getIsCritical().hashCode());
         hashCode = prime * hashCode + ((getValidNextSteps() == null) ? 0 : getValidNextSteps().hashCode());
+        hashCode = prime * hashCode + ((getTargets() == null) ? 0 : getTargets().hashCode());
+        hashCode = prime * hashCode + ((getTargetLocation() == null) ? 0 : getTargetLocation().hashCode());
         return hashCode;
     }
 

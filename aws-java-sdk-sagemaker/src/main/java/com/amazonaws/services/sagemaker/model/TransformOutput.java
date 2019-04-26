@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Describes the results of a transform job output.
+ * Describes the results of a transform job.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/TransformOutput" target="_top">AWS API
@@ -34,11 +34,15 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * <code>s3://bucket-name/key-name-prefix</code>.
      * </p>
      * <p>
-     * For every S3 object used as input for the transform job, the transformed data is stored in a corresponding
-     * subfolder in the location under the output prefix. For example, the input data
-     * <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored at
-     * <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of .part files
-     * (.part0001, part0002, etc).
+     * For every S3 object used as input for the transform job, batch transform stores the transformed data with an .
+     * <code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For example, for the
+     * input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>, batch transform stores
+     * the transformed data at <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch
+     * transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it
+     * creates an .<code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     * multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for
+     * successfully processed objects. If any object fails in the transform job batch transform marks the job as failed
+     * to prompt investigation.
      * </p>
      */
     private String s3OutputPath;
@@ -51,22 +55,51 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
     private String accept;
     /**
      * <p>
-     * Defines how to assemble the results of the transform job as a single S3 object. You should select a format that
-     * is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
-     * newline character at the end of every transformed record, specify <code>Line</code>. To assemble the output in
-     * RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.
-     * </p>
-     * <p>
-     * For information about the <code>RecordIO</code> format, see <a
-     * href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     * Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is most
+     * convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a newline
+     * character at the end of every transformed record, specify <code>Line</code>.
      * </p>
      */
     private String assembleWith;
     /**
      * <p>
-     * The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker uses to
-     * encrypt the transformed data.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest
+     * using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following formats:
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * // KMS Key ID
+     * </p>
+     * <p>
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
      * <p>
      * If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
      * account. For more information, see <a
@@ -88,22 +121,31 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * <code>s3://bucket-name/key-name-prefix</code>.
      * </p>
      * <p>
-     * For every S3 object used as input for the transform job, the transformed data is stored in a corresponding
-     * subfolder in the location under the output prefix. For example, the input data
-     * <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored at
-     * <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of .part files
-     * (.part0001, part0002, etc).
+     * For every S3 object used as input for the transform job, batch transform stores the transformed data with an .
+     * <code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For example, for the
+     * input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>, batch transform stores
+     * the transformed data at <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch
+     * transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it
+     * creates an .<code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     * multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for
+     * successfully processed objects. If any object fails in the transform job batch transform marks the job as failed
+     * to prompt investigation.
      * </p>
      * 
      * @param s3OutputPath
      *        The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example,
      *        <code>s3://bucket-name/key-name-prefix</code>.</p>
      *        <p>
-     *        For every S3 object used as input for the transform job, the transformed data is stored in a corresponding
-     *        subfolder in the location under the output prefix. For example, the input data
-     *        <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored
-     *        at <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of
-     *        .part files (.part0001, part0002, etc).
+     *        For every S3 object used as input for the transform job, batch transform stores the transformed data with
+     *        an .<code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For
+     *        example, for the input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>,
+     *        batch transform stores the transformed data at
+     *        <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch transform doesn't
+     *        upload partially processed objects. For an input S3 object that contains multiple records, it creates an .
+     *        <code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     *        multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output
+     *        for successfully processed objects. If any object fails in the transform job batch transform marks the job
+     *        as failed to prompt investigation.
      */
 
     public void setS3OutputPath(String s3OutputPath) {
@@ -116,21 +158,30 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * <code>s3://bucket-name/key-name-prefix</code>.
      * </p>
      * <p>
-     * For every S3 object used as input for the transform job, the transformed data is stored in a corresponding
-     * subfolder in the location under the output prefix. For example, the input data
-     * <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored at
-     * <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of .part files
-     * (.part0001, part0002, etc).
+     * For every S3 object used as input for the transform job, batch transform stores the transformed data with an .
+     * <code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For example, for the
+     * input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>, batch transform stores
+     * the transformed data at <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch
+     * transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it
+     * creates an .<code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     * multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for
+     * successfully processed objects. If any object fails in the transform job batch transform marks the job as failed
+     * to prompt investigation.
      * </p>
      * 
      * @return The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For
      *         example, <code>s3://bucket-name/key-name-prefix</code>.</p>
      *         <p>
-     *         For every S3 object used as input for the transform job, the transformed data is stored in a
-     *         corresponding subfolder in the location under the output prefix. For example, the input data
-     *         <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored
-     *         at <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of
-     *         .part files (.part0001, part0002, etc).
+     *         For every S3 object used as input for the transform job, batch transform stores the transformed data with
+     *         an .<code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For
+     *         example, for the input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>,
+     *         batch transform stores the transformed data at
+     *         <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch transform doesn't
+     *         upload partially processed objects. For an input S3 object that contains multiple records, it creates an
+     *         .<code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     *         multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output
+     *         for successfully processed objects. If any object fails in the transform job batch transform marks the
+     *         job as failed to prompt investigation.
      */
 
     public String getS3OutputPath() {
@@ -143,22 +194,31 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * <code>s3://bucket-name/key-name-prefix</code>.
      * </p>
      * <p>
-     * For every S3 object used as input for the transform job, the transformed data is stored in a corresponding
-     * subfolder in the location under the output prefix. For example, the input data
-     * <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored at
-     * <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of .part files
-     * (.part0001, part0002, etc).
+     * For every S3 object used as input for the transform job, batch transform stores the transformed data with an .
+     * <code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For example, for the
+     * input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>, batch transform stores
+     * the transformed data at <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch
+     * transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it
+     * creates an .<code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     * multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for
+     * successfully processed objects. If any object fails in the transform job batch transform marks the job as failed
+     * to prompt investigation.
      * </p>
      * 
      * @param s3OutputPath
      *        The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example,
      *        <code>s3://bucket-name/key-name-prefix</code>.</p>
      *        <p>
-     *        For every S3 object used as input for the transform job, the transformed data is stored in a corresponding
-     *        subfolder in the location under the output prefix. For example, the input data
-     *        <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code> will have the transformed data stored
-     *        at <code>s3://bucket-name/key-name-prefix/dataset01/</code>, based on the original name, as a series of
-     *        .part files (.part0001, part0002, etc).
+     *        For every S3 object used as input for the transform job, batch transform stores the transformed data with
+     *        an .<code>out</code> suffix in a corresponding subfolder in the location in the output prefix. For
+     *        example, for the input data stored at <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>,
+     *        batch transform stores the transformed data at
+     *        <code>s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out</code>. Batch transform doesn't
+     *        upload partially processed objects. For an input S3 object that contains multiple records, it creates an .
+     *        <code>out</code> file only if the transform job succeeds on the entire file. When the input contains
+     *        multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output
+     *        for successfully processed objects. If any object fails in the transform job batch transform marks the job
+     *        as failed to prompt investigation.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -215,24 +275,15 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * Defines how to assemble the results of the transform job as a single S3 object. You should select a format that
-     * is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
-     * newline character at the end of every transformed record, specify <code>Line</code>. To assemble the output in
-     * RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.
-     * </p>
-     * <p>
-     * For information about the <code>RecordIO</code> format, see <a
-     * href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     * Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is most
+     * convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a newline
+     * character at the end of every transformed record, specify <code>Line</code>.
      * </p>
      * 
      * @param assembleWith
-     *        Defines how to assemble the results of the transform job as a single S3 object. You should select a format
-     *        that is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To
-     *        add a newline character at the end of every transformed record, specify <code>Line</code>. To assemble the
-     *        output in RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.</p>
-     *        <p>
-     *        For information about the <code>RecordIO</code> format, see <a
-     *        href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     *        Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is
+     *        most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
+     *        newline character at the end of every transformed record, specify <code>Line</code>.
      * @see AssemblyType
      */
 
@@ -242,24 +293,14 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * Defines how to assemble the results of the transform job as a single S3 object. You should select a format that
-     * is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
-     * newline character at the end of every transformed record, specify <code>Line</code>. To assemble the output in
-     * RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.
-     * </p>
-     * <p>
-     * For information about the <code>RecordIO</code> format, see <a
-     * href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     * Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is most
+     * convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a newline
+     * character at the end of every transformed record, specify <code>Line</code>.
      * </p>
      * 
-     * @return Defines how to assemble the results of the transform job as a single S3 object. You should select a
-     *         format that is most convenient to you. To concatenate the results in binary format, specify
-     *         <code>None</code>. To add a newline character at the end of every transformed record, specify
-     *         <code>Line</code>. To assemble the output in RecordIO format, specify <code>RecordIO</code>. The default
-     *         value is <code>None</code>.</p>
-     *         <p>
-     *         For information about the <code>RecordIO</code> format, see <a
-     *         href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     * @return Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is
+     *         most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
+     *         newline character at the end of every transformed record, specify <code>Line</code>.
      * @see AssemblyType
      */
 
@@ -269,24 +310,15 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * Defines how to assemble the results of the transform job as a single S3 object. You should select a format that
-     * is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
-     * newline character at the end of every transformed record, specify <code>Line</code>. To assemble the output in
-     * RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.
-     * </p>
-     * <p>
-     * For information about the <code>RecordIO</code> format, see <a
-     * href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     * Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is most
+     * convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a newline
+     * character at the end of every transformed record, specify <code>Line</code>.
      * </p>
      * 
      * @param assembleWith
-     *        Defines how to assemble the results of the transform job as a single S3 object. You should select a format
-     *        that is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To
-     *        add a newline character at the end of every transformed record, specify <code>Line</code>. To assemble the
-     *        output in RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.</p>
-     *        <p>
-     *        For information about the <code>RecordIO</code> format, see <a
-     *        href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     *        Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is
+     *        most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
+     *        newline character at the end of every transformed record, specify <code>Line</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AssemblyType
      */
@@ -298,24 +330,15 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * Defines how to assemble the results of the transform job as a single S3 object. You should select a format that
-     * is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
-     * newline character at the end of every transformed record, specify <code>Line</code>. To assemble the output in
-     * RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.
-     * </p>
-     * <p>
-     * For information about the <code>RecordIO</code> format, see <a
-     * href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     * Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is most
+     * convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a newline
+     * character at the end of every transformed record, specify <code>Line</code>.
      * </p>
      * 
      * @param assembleWith
-     *        Defines how to assemble the results of the transform job as a single S3 object. You should select a format
-     *        that is most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To
-     *        add a newline character at the end of every transformed record, specify <code>Line</code>. To assemble the
-     *        output in RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.</p>
-     *        <p>
-     *        For information about the <code>RecordIO</code> format, see <a
-     *        href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data Format</a>.
+     *        Defines how to assemble the results of the transform job as a single S3 object. Choose a format that is
+     *        most convenient to you. To concatenate the results in binary format, specify <code>None</code>. To add a
+     *        newline character at the end of every transformed record, specify <code>Line</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AssemblyType
      */
@@ -327,9 +350,43 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker uses to
-     * encrypt the transformed data.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest
+     * using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following formats:
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * // KMS Key ID
+     * </p>
+     * <p>
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
      * <p>
      * If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
      * account. For more information, see <a
@@ -344,8 +401,43 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * </p>
      * 
      * @param kmsKeyId
-     *        The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker
-     *        uses to encrypt the transformed data.</p>
+     *        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at
+     *        rest using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
+     *        formats: </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        // KMS Key ID
+     *        </p>
+     *        <p>
+     *        <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        // Amazon Resource Name (ARN) of a KMS Key
+     *        </p>
+     *        <p>
+     *        <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        // KMS Key Alias
+     *        </p>
+     *        <p>
+     *        <code>"alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        // Amazon Resource Name (ARN) of a KMS Key Alias
+     *        </p>
+     *        <p>
+     *        <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     *        </ul>
      *        <p>
      *        If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
      *        account. For more information, see <a
@@ -365,9 +457,43 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker uses to
-     * encrypt the transformed data.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest
+     * using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following formats:
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * // KMS Key ID
+     * </p>
+     * <p>
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
      * <p>
      * If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
      * account. For more information, see <a
@@ -381,8 +507,43 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
      * 
-     * @return The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker
-     *         uses to encrypt the transformed data.</p>
+     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at
+     *         rest using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
+     *         formats: </p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         // KMS Key ID
+     *         </p>
+     *         <p>
+     *         <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         // Amazon Resource Name (ARN) of a KMS Key
+     *         </p>
+     *         <p>
+     *         <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         // KMS Key Alias
+     *         </p>
+     *         <p>
+     *         <code>"alias/ExampleAlias"</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         // Amazon Resource Name (ARN) of a KMS Key Alias
+     *         </p>
+     *         <p>
+     *         <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     *         </p>
+     *         </li>
+     *         </ul>
      *         <p>
      *         If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your
      *         role's account. For more information, see <a
@@ -402,9 +563,43 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker uses to
-     * encrypt the transformed data.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest
+     * using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following formats:
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * // KMS Key ID
+     * </p>
+     * <p>
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * // Amazon Resource Name (ARN) of a KMS Key Alias
+     * </p>
+     * <p>
+     * <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     * </p>
+     * </li>
+     * </ul>
      * <p>
      * If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
      * account. For more information, see <a
@@ -419,8 +614,43 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
      * </p>
      * 
      * @param kmsKeyId
-     *        The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption that Amazon SageMaker
-     *        uses to encrypt the transformed data.</p>
+     *        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at
+     *        rest using Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
+     *        formats: </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        // KMS Key ID
+     *        </p>
+     *        <p>
+     *        <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        // Amazon Resource Name (ARN) of a KMS Key
+     *        </p>
+     *        <p>
+     *        <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        // KMS Key Alias
+     *        </p>
+     *        <p>
+     *        <code>"alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        // Amazon Resource Name (ARN) of a KMS Key Alias
+     *        </p>
+     *        <p>
+     *        <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+     *        </p>
+     *        </li>
+     *        </ul>
      *        <p>
      *        If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's
      *        account. For more information, see <a
@@ -441,7 +671,8 @@ public class TransformOutput implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

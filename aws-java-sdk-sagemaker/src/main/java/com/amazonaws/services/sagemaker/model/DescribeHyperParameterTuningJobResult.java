@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -94,6 +94,23 @@ public class DescribeHyperParameterTuningJobResult extends com.amazonaws.AmazonW
      * </p>
      */
     private HyperParameterTrainingJobSummary bestTrainingJob;
+    /**
+     * <p>
+     * If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     * <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job with the
+     * best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for
+     * the warm start tuning job.
+     * </p>
+     */
+    private HyperParameterTrainingJobSummary overallBestTrainingJob;
+    /**
+     * <p>
+     * The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     */
+    private HyperParameterTuningJobWarmStartConfig warmStartConfig;
     /**
      * <p>
      * If the tuning job failed, the reason it failed.
@@ -586,6 +603,116 @@ public class DescribeHyperParameterTuningJobResult extends com.amazonaws.AmazonW
 
     /**
      * <p>
+     * If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     * <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job with the
+     * best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for
+     * the warm start tuning job.
+     * </p>
+     * 
+     * @param overallBestTrainingJob
+     *        If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     *        <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job with
+     *        the best objective metric value of all training jobs launched by this tuning job and all parent jobs
+     *        specified for the warm start tuning job.
+     */
+
+    public void setOverallBestTrainingJob(HyperParameterTrainingJobSummary overallBestTrainingJob) {
+        this.overallBestTrainingJob = overallBestTrainingJob;
+    }
+
+    /**
+     * <p>
+     * If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     * <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job with the
+     * best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for
+     * the warm start tuning job.
+     * </p>
+     * 
+     * @return If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     *         <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job
+     *         with the best objective metric value of all training jobs launched by this tuning job and all parent jobs
+     *         specified for the warm start tuning job.
+     */
+
+    public HyperParameterTrainingJobSummary getOverallBestTrainingJob() {
+        return this.overallBestTrainingJob;
+    }
+
+    /**
+     * <p>
+     * If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     * <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job with the
+     * best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for
+     * the warm start tuning job.
+     * </p>
+     * 
+     * @param overallBestTrainingJob
+     *        If the hyperparameter tuning job is an warm start tuning job with a <code>WarmStartType</code> of
+     *        <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the <a>TrainingJobSummary</a> for the training job with
+     *        the best objective metric value of all training jobs launched by this tuning job and all parent jobs
+     *        specified for the warm start tuning job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeHyperParameterTuningJobResult withOverallBestTrainingJob(HyperParameterTrainingJobSummary overallBestTrainingJob) {
+        setOverallBestTrainingJob(overallBestTrainingJob);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * 
+     * @param warmStartConfig
+     *        The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning
+     *        jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of
+     *        hyperparameters to search over in the new tuning job.
+     */
+
+    public void setWarmStartConfig(HyperParameterTuningJobWarmStartConfig warmStartConfig) {
+        this.warmStartConfig = warmStartConfig;
+    }
+
+    /**
+     * <p>
+     * The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * 
+     * @return The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning
+     *         jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of
+     *         hyperparameters to search over in the new tuning job.
+     */
+
+    public HyperParameterTuningJobWarmStartConfig getWarmStartConfig() {
+        return this.warmStartConfig;
+    }
+
+    /**
+     * <p>
+     * The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as
+     * a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to
+     * search over in the new tuning job.
+     * </p>
+     * 
+     * @param warmStartConfig
+     *        The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning
+     *        jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of
+     *        hyperparameters to search over in the new tuning job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeHyperParameterTuningJobResult withWarmStartConfig(HyperParameterTuningJobWarmStartConfig warmStartConfig) {
+        setWarmStartConfig(warmStartConfig);
+        return this;
+    }
+
+    /**
+     * <p>
      * If the tuning job failed, the reason it failed.
      * </p>
      * 
@@ -625,7 +752,8 @@ public class DescribeHyperParameterTuningJobResult extends com.amazonaws.AmazonW
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -657,6 +785,10 @@ public class DescribeHyperParameterTuningJobResult extends com.amazonaws.AmazonW
             sb.append("ObjectiveStatusCounters: ").append(getObjectiveStatusCounters()).append(",");
         if (getBestTrainingJob() != null)
             sb.append("BestTrainingJob: ").append(getBestTrainingJob()).append(",");
+        if (getOverallBestTrainingJob() != null)
+            sb.append("OverallBestTrainingJob: ").append(getOverallBestTrainingJob()).append(",");
+        if (getWarmStartConfig() != null)
+            sb.append("WarmStartConfig: ").append(getWarmStartConfig()).append(",");
         if (getFailureReason() != null)
             sb.append("FailureReason: ").append(getFailureReason());
         sb.append("}");
@@ -719,6 +851,14 @@ public class DescribeHyperParameterTuningJobResult extends com.amazonaws.AmazonW
             return false;
         if (other.getBestTrainingJob() != null && other.getBestTrainingJob().equals(this.getBestTrainingJob()) == false)
             return false;
+        if (other.getOverallBestTrainingJob() == null ^ this.getOverallBestTrainingJob() == null)
+            return false;
+        if (other.getOverallBestTrainingJob() != null && other.getOverallBestTrainingJob().equals(this.getOverallBestTrainingJob()) == false)
+            return false;
+        if (other.getWarmStartConfig() == null ^ this.getWarmStartConfig() == null)
+            return false;
+        if (other.getWarmStartConfig() != null && other.getWarmStartConfig().equals(this.getWarmStartConfig()) == false)
+            return false;
         if (other.getFailureReason() == null ^ this.getFailureReason() == null)
             return false;
         if (other.getFailureReason() != null && other.getFailureReason().equals(this.getFailureReason()) == false)
@@ -742,6 +882,8 @@ public class DescribeHyperParameterTuningJobResult extends com.amazonaws.AmazonW
         hashCode = prime * hashCode + ((getTrainingJobStatusCounters() == null) ? 0 : getTrainingJobStatusCounters().hashCode());
         hashCode = prime * hashCode + ((getObjectiveStatusCounters() == null) ? 0 : getObjectiveStatusCounters().hashCode());
         hashCode = prime * hashCode + ((getBestTrainingJob() == null) ? 0 : getBestTrainingJob().hashCode());
+        hashCode = prime * hashCode + ((getOverallBestTrainingJob() == null) ? 0 : getOverallBestTrainingJob().hashCode());
+        hashCode = prime * hashCode + ((getWarmStartConfig() == null) ? 0 : getWarmStartConfig().hashCode());
         hashCode = prime * hashCode + ((getFailureReason() == null) ? 0 : getFailureReason().hashCode());
         return hashCode;
     }

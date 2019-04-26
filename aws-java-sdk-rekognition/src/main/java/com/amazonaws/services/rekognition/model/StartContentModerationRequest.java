@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,8 @@ public class StartContentModerationRequest extends com.amazonaws.AmazonWebServic
      * Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label.
      * Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is
      * the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content
-     * labels with a confidence level lower than this specified value.
+     * labels with a confidence level lower than this specified value. If you don't specify <code>MinConfidence</code>,
+     * <code>GetContentModeration</code> returns labels with confidence values greater than or equal to 50 percent.
      * </p>
      */
     private Float minConfidence;
@@ -103,14 +104,17 @@ public class StartContentModerationRequest extends com.amazonaws.AmazonWebServic
      * Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label.
      * Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is
      * the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content
-     * labels with a confidence level lower than this specified value.
+     * labels with a confidence level lower than this specified value. If you don't specify <code>MinConfidence</code>,
+     * <code>GetContentModeration</code> returns labels with confidence values greater than or equal to 50 percent.
      * </p>
      * 
      * @param minConfidence
      *        Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content
      *        label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly
      *        identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return
-     *        any moderated content labels with a confidence level lower than this specified value.
+     *        any moderated content labels with a confidence level lower than this specified value. If you don't specify
+     *        <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with confidence values
+     *        greater than or equal to 50 percent.
      */
 
     public void setMinConfidence(Float minConfidence) {
@@ -122,13 +126,16 @@ public class StartContentModerationRequest extends com.amazonaws.AmazonWebServic
      * Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label.
      * Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is
      * the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content
-     * labels with a confidence level lower than this specified value.
+     * labels with a confidence level lower than this specified value. If you don't specify <code>MinConfidence</code>,
+     * <code>GetContentModeration</code> returns labels with confidence values greater than or equal to 50 percent.
      * </p>
      * 
      * @return Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content
      *         label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly
      *         identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return
-     *         any moderated content labels with a confidence level lower than this specified value.
+     *         any moderated content labels with a confidence level lower than this specified value. If you don't
+     *         specify <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with confidence
+     *         values greater than or equal to 50 percent.
      */
 
     public Float getMinConfidence() {
@@ -140,14 +147,17 @@ public class StartContentModerationRequest extends com.amazonaws.AmazonWebServic
      * Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label.
      * Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is
      * the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content
-     * labels with a confidence level lower than this specified value.
+     * labels with a confidence level lower than this specified value. If you don't specify <code>MinConfidence</code>,
+     * <code>GetContentModeration</code> returns labels with confidence values greater than or equal to 50 percent.
      * </p>
      * 
      * @param minConfidence
      *        Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content
      *        label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly
      *        identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return
-     *        any moderated content labels with a confidence level lower than this specified value.
+     *        any moderated content labels with a confidence level lower than this specified value. If you don't specify
+     *        <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with confidence values
+     *        greater than or equal to 50 percent.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -301,7 +311,8 @@ public class StartContentModerationRequest extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

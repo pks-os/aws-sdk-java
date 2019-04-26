@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -44,6 +44,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
     /**
      * <p>
      * The DB cluster capacity.
+     * </p>
+     * <p>
+     * When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
      * </p>
      * <p>
      * Constraints:
@@ -189,6 +192,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
      * The DB cluster capacity.
      * </p>
      * <p>
+     * When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+     * </p>
+     * <p>
      * Constraints:
      * </p>
      * <ul>
@@ -202,6 +208,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
      * 
      * @param capacity
      *        The DB cluster capacity.</p>
+     *        <p>
+     *        When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+     *        </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -223,6 +232,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
      * The DB cluster capacity.
      * </p>
      * <p>
+     * When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+     * </p>
+     * <p>
      * Constraints:
      * </p>
      * <ul>
@@ -235,6 +247,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
      * </ul>
      * 
      * @return The DB cluster capacity.</p>
+     *         <p>
+     *         When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+     *         </p>
      *         <p>
      *         Constraints:
      *         </p>
@@ -256,6 +271,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
      * The DB cluster capacity.
      * </p>
      * <p>
+     * When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+     * </p>
+     * <p>
      * Constraints:
      * </p>
      * <ul>
@@ -269,6 +287,9 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
      * 
      * @param capacity
      *        The DB cluster capacity.</p>
+     *        <p>
+     *        When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+     *        </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -461,7 +482,8 @@ public class ModifyCurrentDBClusterCapacityRequest extends com.amazonaws.AmazonW
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,16 +20,14 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DescribeRegionsRequestMarshaller;
 
 /**
- * <p>
- * Contains the parameters for DescribeRegions.
- * </p>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeRegionsRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<DescribeRegionsRequest> {
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -47,14 +45,14 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
     private com.amazonaws.internal.SdkInternalList<Filter> filters;
     /**
      * <p>
-     * The names of one or more regions.
+     * The names of the regions.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> regionNames;
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -69,7 +67,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
      * </li>
      * </ul>
      * 
-     * @return One or more filters.</p>
+     * @return The filters.</p>
      *         <ul>
      *         <li>
      *         <p>
@@ -93,7 +91,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -109,7 +107,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
      * </ul>
      * 
      * @param filters
-     *        One or more filters.</p>
+     *        The filters.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -135,7 +133,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -156,7 +154,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
      * </p>
      * 
      * @param filters
-     *        One or more filters.</p>
+     *        The filters.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -184,7 +182,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * One or more filters.
+     * The filters.
      * </p>
      * <ul>
      * <li>
@@ -200,7 +198,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
      * </ul>
      * 
      * @param filters
-     *        One or more filters.</p>
+     *        The filters.</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -223,10 +221,10 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * The names of one or more regions.
+     * The names of the regions.
      * </p>
      * 
-     * @return The names of one or more regions.
+     * @return The names of the regions.
      */
 
     public java.util.List<String> getRegionNames() {
@@ -238,11 +236,11 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * The names of one or more regions.
+     * The names of the regions.
      * </p>
      * 
      * @param regionNames
-     *        The names of one or more regions.
+     *        The names of the regions.
      */
 
     public void setRegionNames(java.util.Collection<String> regionNames) {
@@ -256,7 +254,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * The names of one or more regions.
+     * The names of the regions.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -265,7 +263,7 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
      * </p>
      * 
      * @param regionNames
-     *        The names of one or more regions.
+     *        The names of the regions.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -281,11 +279,11 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
 
     /**
      * <p>
-     * The names of one or more regions.
+     * The names of the regions.
      * </p>
      * 
      * @param regionNames
-     *        The names of one or more regions.
+     *        The names of the regions.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -306,7 +304,8 @@ public class DescribeRegionsRequest extends AmazonWebServiceRequest implements S
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

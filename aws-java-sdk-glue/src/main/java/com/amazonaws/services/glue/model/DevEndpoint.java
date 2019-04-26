@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -60,7 +60,8 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     private String yarnEndpointAddress;
     /**
      * <p>
-     * A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
+     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
      * </p>
      */
     private String privateAddress;
@@ -72,7 +73,8 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     private Integer zeppelinRemoteSparkInterpreterPort;
     /**
      * <p>
-     * The public VPC address used by this DevEndpoint.
+     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
+     * (virtual private cloud) DevEndpoint.
      * </p>
      */
     private String publicAddress;
@@ -172,6 +174,15 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String securityConfiguration;
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * <p>
+     * Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     * </p>
+     */
+    private java.util.Map<String, String> arguments;
 
     /**
      * <p>
@@ -405,11 +416,14 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
+     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
      * </p>
      * 
      * @param privateAddress
-     *        A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     *        A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
+     *        PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud
+     *        (VPC).
      */
 
     public void setPrivateAddress(String privateAddress) {
@@ -418,10 +432,13 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
+     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
      * </p>
      * 
-     * @return A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     * @return A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     *         The PrivateAddress field is present only when you create the DevEndpoint within your virtual private
+     *         cloud (VPC).
      */
 
     public String getPrivateAddress() {
@@ -430,11 +447,14 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
+     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
      * </p>
      * 
      * @param privateAddress
-     *        A private DNS to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
+     *        A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
+     *        PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud
+     *        (VPC).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -485,11 +505,13 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public VPC address used by this DevEndpoint.
+     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
+     * (virtual private cloud) DevEndpoint.
      * </p>
      * 
      * @param publicAddress
-     *        The public VPC address used by this DevEndpoint.
+     *        The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a
+     *        non-VPC (virtual private cloud) DevEndpoint.
      */
 
     public void setPublicAddress(String publicAddress) {
@@ -498,10 +520,12 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public VPC address used by this DevEndpoint.
+     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
+     * (virtual private cloud) DevEndpoint.
      * </p>
      * 
-     * @return The public VPC address used by this DevEndpoint.
+     * @return The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a
+     *         non-VPC (virtual private cloud) DevEndpoint.
      */
 
     public String getPublicAddress() {
@@ -510,11 +534,13 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public VPC address used by this DevEndpoint.
+     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
+     * (virtual private cloud) DevEndpoint.
      * </p>
      * 
      * @param publicAddress
-     *        The public VPC address used by this DevEndpoint.
+     *        The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a
+     *        non-VPC (virtual private cloud) DevEndpoint.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1192,7 +1218,84 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * <p>
+     * Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     * </p>
+     * 
+     * @return A map of arguments used to configure the DevEndpoint.</p>
+     *         <p>
+     *         Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     */
+
+    public java.util.Map<String, String> getArguments() {
+        return arguments;
+    }
+
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * <p>
+     * Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     * </p>
+     * 
+     * @param arguments
+     *        A map of arguments used to configure the DevEndpoint.</p>
+     *        <p>
+     *        Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     */
+
+    public void setArguments(java.util.Map<String, String> arguments) {
+        this.arguments = arguments;
+    }
+
+    /**
+     * <p>
+     * A map of arguments used to configure the DevEndpoint.
+     * </p>
+     * <p>
+     * Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     * </p>
+     * 
+     * @param arguments
+     *        A map of arguments used to configure the DevEndpoint.</p>
+     *        <p>
+     *        Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DevEndpoint withArguments(java.util.Map<String, String> arguments) {
+        setArguments(arguments);
+        return this;
+    }
+
+    public DevEndpoint addArgumentsEntry(String key, String value) {
+        if (null == this.arguments) {
+            this.arguments = new java.util.HashMap<String, String>();
+        }
+        if (this.arguments.containsKey(key))
+            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
+        this.arguments.put(key, value);
+        return this;
+    }
+
+    /**
+     * Removes all the entries added into Arguments.
+     *
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DevEndpoint clearArgumentsEntries() {
+        this.arguments = null;
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1243,7 +1346,9 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
         if (getPublicKeys() != null)
             sb.append("PublicKeys: ").append(getPublicKeys()).append(",");
         if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
+            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration()).append(",");
+        if (getArguments() != null)
+            sb.append("Arguments: ").append(getArguments());
         sb.append("}");
         return sb.toString();
     }
@@ -1343,6 +1448,10 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
             return false;
+        if (other.getArguments() == null ^ this.getArguments() == null)
+            return false;
+        if (other.getArguments() != null && other.getArguments().equals(this.getArguments()) == false)
+            return false;
         return true;
     }
 
@@ -1372,6 +1481,7 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getPublicKey() == null) ? 0 : getPublicKey().hashCode());
         hashCode = prime * hashCode + ((getPublicKeys() == null) ? 0 : getPublicKeys().hashCode());
         hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
+        hashCode = prime * hashCode + ((getArguments() == null) ? 0 : getArguments().hashCode());
         return hashCode;
     }
 

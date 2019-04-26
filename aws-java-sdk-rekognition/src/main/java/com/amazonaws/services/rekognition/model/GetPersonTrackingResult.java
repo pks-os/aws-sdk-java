@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -46,8 +46,8 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
     private String nextToken;
     /**
      * <p>
-     * An array of the persons detected in the video and the times they are tracked throughout the video. An array
-     * element will exist for each time the person is tracked.
+     * An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An
+     * array element will exist for each time a person's path is tracked.
      * </p>
      */
     private java.util.List<PersonDetection> persons;
@@ -245,12 +245,12 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * An array of the persons detected in the video and the times they are tracked throughout the video. An array
-     * element will exist for each time the person is tracked.
+     * An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An
+     * array element will exist for each time a person's path is tracked.
      * </p>
      * 
-     * @return An array of the persons detected in the video and the times they are tracked throughout the video. An
-     *         array element will exist for each time the person is tracked.
+     * @return An array of the persons detected in the video and the time(s) their path was tracked throughout the
+     *         video. An array element will exist for each time a person's path is tracked.
      */
 
     public java.util.List<PersonDetection> getPersons() {
@@ -259,13 +259,13 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * An array of the persons detected in the video and the times they are tracked throughout the video. An array
-     * element will exist for each time the person is tracked.
+     * An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An
+     * array element will exist for each time a person's path is tracked.
      * </p>
      * 
      * @param persons
-     *        An array of the persons detected in the video and the times they are tracked throughout the video. An
-     *        array element will exist for each time the person is tracked.
+     *        An array of the persons detected in the video and the time(s) their path was tracked throughout the video.
+     *        An array element will exist for each time a person's path is tracked.
      */
 
     public void setPersons(java.util.Collection<PersonDetection> persons) {
@@ -279,8 +279,8 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * An array of the persons detected in the video and the times they are tracked throughout the video. An array
-     * element will exist for each time the person is tracked.
+     * An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An
+     * array element will exist for each time a person's path is tracked.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -289,8 +289,8 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
      * </p>
      * 
      * @param persons
-     *        An array of the persons detected in the video and the times they are tracked throughout the video. An
-     *        array element will exist for each time the person is tracked.
+     *        An array of the persons detected in the video and the time(s) their path was tracked throughout the video.
+     *        An array element will exist for each time a person's path is tracked.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -306,13 +306,13 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * An array of the persons detected in the video and the times they are tracked throughout the video. An array
-     * element will exist for each time the person is tracked.
+     * An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An
+     * array element will exist for each time a person's path is tracked.
      * </p>
      * 
      * @param persons
-     *        An array of the persons detected in the video and the times they are tracked throughout the video. An
-     *        array element will exist for each time the person is tracked.
+     *        An array of the persons detected in the video and the time(s) their path was tracked throughout the video.
+     *        An array element will exist for each time a person's path is tracked.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -322,7 +322,8 @@ public class GetPersonTrackingResult extends com.amazonaws.AmazonWebServiceResul
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

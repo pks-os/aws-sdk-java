@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -140,6 +140,11 @@ public class AuthenticateOidcActionConfigStaxUnmarshaller implements Unmarshalle
 
                 if (context.testExpression("OnUnauthenticatedRequest", targetDepth)) {
                     authenticateOidcActionConfig.setOnUnauthenticatedRequest(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("UseExistingClientSecret", targetDepth)) {
+                    authenticateOidcActionConfig.setUseExistingClientSecret(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
             } else if (xmlEvent.isEndElement()) {

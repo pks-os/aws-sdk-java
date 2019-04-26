@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -108,6 +108,23 @@ public class ContainerDefinitionJsonUnmarshaller implements Unmarshaller<Contain
                     context.nextToken();
                     containerDefinition.setLinuxParameters(LinuxParametersJsonUnmarshaller.getInstance().unmarshall(context));
                 }
+                if (context.testExpression("secrets", targetDepth)) {
+                    context.nextToken();
+                    containerDefinition.setSecrets(new ListUnmarshaller<Secret>(SecretJsonUnmarshaller.getInstance()).unmarshall(context));
+                }
+                if (context.testExpression("dependsOn", targetDepth)) {
+                    context.nextToken();
+                    containerDefinition.setDependsOn(new ListUnmarshaller<ContainerDependency>(ContainerDependencyJsonUnmarshaller.getInstance())
+                            .unmarshall(context));
+                }
+                if (context.testExpression("startTimeout", targetDepth)) {
+                    context.nextToken();
+                    containerDefinition.setStartTimeout(context.getUnmarshaller(Integer.class).unmarshall(context));
+                }
+                if (context.testExpression("stopTimeout", targetDepth)) {
+                    context.nextToken();
+                    containerDefinition.setStopTimeout(context.getUnmarshaller(Integer.class).unmarshall(context));
+                }
                 if (context.testExpression("hostname", targetDepth)) {
                     context.nextToken();
                     containerDefinition.setHostname(context.getUnmarshaller(String.class).unmarshall(context));
@@ -176,6 +193,11 @@ public class ContainerDefinitionJsonUnmarshaller implements Unmarshaller<Contain
                 if (context.testExpression("systemControls", targetDepth)) {
                     context.nextToken();
                     containerDefinition.setSystemControls(new ListUnmarshaller<SystemControl>(SystemControlJsonUnmarshaller.getInstance()).unmarshall(context));
+                }
+                if (context.testExpression("resourceRequirements", targetDepth)) {
+                    context.nextToken();
+                    containerDefinition.setResourceRequirements(new ListUnmarshaller<ResourceRequirement>(ResourceRequirementJsonUnmarshaller.getInstance())
+                            .unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -65,7 +65,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
     /**
      * <p>
      * A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     * includes a name of a metric to retrieve and the unit to use for it.
+     * includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve data
+     * for in the request.
      * </p>
      * <p>
      * The following metrics are available:
@@ -466,7 +467,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
     /**
      * <p>
      * A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     * includes a name of a metric to retrieve and the unit to use for it.
+     * includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve data
+     * for in the request.
      * </p>
      * <p>
      * The following metrics are available:
@@ -535,7 +537,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
      * </dl>
      * 
      * @return A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     *         includes a name of a metric to retrieve and the unit to use for it.</p>
+     *         includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve
+     *         data for in the request.</p>
      *         <p>
      *         The following metrics are available:
      *         </p>
@@ -609,7 +612,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
     /**
      * <p>
      * A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     * includes a name of a metric to retrieve and the unit to use for it.
+     * includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve data
+     * for in the request.
      * </p>
      * <p>
      * The following metrics are available:
@@ -679,7 +683,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
      * 
      * @param currentMetrics
      *        A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     *        includes a name of a metric to retrieve and the unit to use for it.</p>
+     *        includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve
+     *        data for in the request.</p>
      *        <p>
      *        The following metrics are available:
      *        </p>
@@ -758,7 +763,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
     /**
      * <p>
      * A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     * includes a name of a metric to retrieve and the unit to use for it.
+     * includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve data
+     * for in the request.
      * </p>
      * <p>
      * The following metrics are available:
@@ -833,7 +839,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
      * 
      * @param currentMetrics
      *        A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     *        includes a name of a metric to retrieve and the unit to use for it.</p>
+     *        includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve
+     *        data for in the request.</p>
      *        <p>
      *        The following metrics are available:
      *        </p>
@@ -914,7 +921,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
     /**
      * <p>
      * A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     * includes a name of a metric to retrieve and the unit to use for it.
+     * includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve data
+     * for in the request.
      * </p>
      * <p>
      * The following metrics are available:
@@ -984,7 +992,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
      * 
      * @param currentMetrics
      *        A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-     *        includes a name of a metric to retrieve and the unit to use for it.</p>
+     *        includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve
+     *        data for in the request.</p>
      *        <p>
      *        The following metrics are available:
      *        </p>
@@ -1171,7 +1180,8 @@ public class GetCurrentMetricDataRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

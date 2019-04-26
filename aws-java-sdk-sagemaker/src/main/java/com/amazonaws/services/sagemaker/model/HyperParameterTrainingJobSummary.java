@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,6 +42,12 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
     private String trainingJobArn;
     /**
      * <p>
+     * The HyperParameter tuning job that launched the training job.
+     * </p>
+     */
+    private String tuningJobName;
+    /**
+     * <p>
      * The date and time that the training job was created.
      * </p>
      */
@@ -54,7 +60,10 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
     private java.util.Date trainingStartTime;
     /**
      * <p>
-     * The date and time that the training job ended.
+     * Specifies the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      */
     private java.util.Date trainingEndTime;
@@ -195,6 +204,46 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
 
     /**
      * <p>
+     * The HyperParameter tuning job that launched the training job.
+     * </p>
+     * 
+     * @param tuningJobName
+     *        The HyperParameter tuning job that launched the training job.
+     */
+
+    public void setTuningJobName(String tuningJobName) {
+        this.tuningJobName = tuningJobName;
+    }
+
+    /**
+     * <p>
+     * The HyperParameter tuning job that launched the training job.
+     * </p>
+     * 
+     * @return The HyperParameter tuning job that launched the training job.
+     */
+
+    public String getTuningJobName() {
+        return this.tuningJobName;
+    }
+
+    /**
+     * <p>
+     * The HyperParameter tuning job that launched the training job.
+     * </p>
+     * 
+     * @param tuningJobName
+     *        The HyperParameter tuning job that launched the training job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public HyperParameterTrainingJobSummary withTuningJobName(String tuningJobName) {
+        setTuningJobName(tuningJobName);
+        return this;
+    }
+
+    /**
+     * <p>
      * The date and time that the training job was created.
      * </p>
      * 
@@ -275,11 +324,17 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
 
     /**
      * <p>
-     * The date and time that the training job ended.
+     * Specifies the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      * 
      * @param trainingEndTime
-     *        The date and time that the training job ended.
+     *        Specifies the time when the training job ends on training instances. You are billed for the time interval
+     *        between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs,
+     *        this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon
+     *        SageMaker detects a job failure.
      */
 
     public void setTrainingEndTime(java.util.Date trainingEndTime) {
@@ -288,10 +343,16 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
 
     /**
      * <p>
-     * The date and time that the training job ended.
+     * Specifies the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      * 
-     * @return The date and time that the training job ended.
+     * @return Specifies the time when the training job ends on training instances. You are billed for the time interval
+     *         between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs,
+     *         this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon
+     *         SageMaker detects a job failure.
      */
 
     public java.util.Date getTrainingEndTime() {
@@ -300,11 +361,17 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
 
     /**
      * <p>
-     * The date and time that the training job ended.
+     * Specifies the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      * 
      * @param trainingEndTime
-     *        The date and time that the training job ended.
+     *        Specifies the time when the training job ends on training instances. You are billed for the time interval
+     *        between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs,
+     *        this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon
+     *        SageMaker detects a job failure.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -764,7 +831,8 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -778,6 +846,8 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
             sb.append("TrainingJobName: ").append(getTrainingJobName()).append(",");
         if (getTrainingJobArn() != null)
             sb.append("TrainingJobArn: ").append(getTrainingJobArn()).append(",");
+        if (getTuningJobName() != null)
+            sb.append("TuningJobName: ").append(getTuningJobName()).append(",");
         if (getCreationTime() != null)
             sb.append("CreationTime: ").append(getCreationTime()).append(",");
         if (getTrainingStartTime() != null)
@@ -815,6 +885,10 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
         if (other.getTrainingJobArn() == null ^ this.getTrainingJobArn() == null)
             return false;
         if (other.getTrainingJobArn() != null && other.getTrainingJobArn().equals(this.getTrainingJobArn()) == false)
+            return false;
+        if (other.getTuningJobName() == null ^ this.getTuningJobName() == null)
+            return false;
+        if (other.getTuningJobName() != null && other.getTuningJobName().equals(this.getTuningJobName()) == false)
             return false;
         if (other.getCreationTime() == null ^ this.getCreationTime() == null)
             return false;
@@ -859,6 +933,7 @@ public class HyperParameterTrainingJobSummary implements Serializable, Cloneable
 
         hashCode = prime * hashCode + ((getTrainingJobName() == null) ? 0 : getTrainingJobName().hashCode());
         hashCode = prime * hashCode + ((getTrainingJobArn() == null) ? 0 : getTrainingJobArn().hashCode());
+        hashCode = prime * hashCode + ((getTuningJobName() == null) ? 0 : getTuningJobName().hashCode());
         hashCode = prime * hashCode + ((getCreationTime() == null) ? 0 : getCreationTime().hashCode());
         hashCode = prime * hashCode + ((getTrainingStartTime() == null) ? 0 : getTrainingStartTime().hashCode());
         hashCode = prime * hashCode + ((getTrainingEndTime() == null) ? 0 : getTrainingEndTime().hashCode());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,7 +48,8 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
     private String targetSelection;
     /**
      * <p>
-     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, <code>DELETION_IN_PROGRESS</code>
+     * or <code>COMPLETED</code>.
      * </p>
      */
     private String status;
@@ -59,6 +60,12 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private Boolean forceCanceled;
+    /**
+     * <p>
+     * If the job was updated, provides the reason code for the update.
+     * </p>
+     */
+    private String reasonCode;
     /**
      * <p>
      * If the job was updated, describes the reason for the update.
@@ -91,19 +98,25 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
     private JobExecutionsRolloutConfig jobExecutionsRolloutConfig;
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was created.
+     * Configuration for criteria to abort the job.
+     * </p>
+     */
+    private AbortConfig abortConfig;
+    /**
+     * <p>
+     * The time, in seconds since the epoch, when the job was created.
      * </p>
      */
     private java.util.Date createdAt;
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was last updated.
+     * The time, in seconds since the epoch, when the job was last updated.
      * </p>
      */
     private java.util.Date lastUpdatedAt;
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was completed.
+     * The time, in seconds since the epoch, when the job was completed.
      * </p>
      */
     private java.util.Date completedAt;
@@ -113,6 +126,14 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private JobProcessDetails jobProcessDetails;
+    /**
+     * <p>
+     * Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job
+     * execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal
+     * state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     * </p>
+     */
+    private TimeoutConfig timeoutConfig;
 
     /**
      * <p>
@@ -283,11 +304,13 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, <code>DELETION_IN_PROGRESS</code>
+     * or <code>COMPLETED</code>.
      * </p>
      * 
      * @param status
-     *        The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     *        The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
+     *        <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>.
      * @see JobStatus
      */
 
@@ -297,10 +320,12 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, <code>DELETION_IN_PROGRESS</code>
+     * or <code>COMPLETED</code>.
      * </p>
      * 
-     * @return The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     * @return The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
+     *         <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>.
      * @see JobStatus
      */
 
@@ -310,11 +335,13 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, <code>DELETION_IN_PROGRESS</code>
+     * or <code>COMPLETED</code>.
      * </p>
      * 
      * @param status
-     *        The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     *        The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
+     *        <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see JobStatus
      */
@@ -326,11 +353,13 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     * The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, <code>DELETION_IN_PROGRESS</code>
+     * or <code>COMPLETED</code>.
      * </p>
      * 
      * @param status
-     *        The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>.
+     *        The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
+     *        <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see JobStatus
      */
@@ -398,6 +427,46 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     public Boolean isForceCanceled() {
         return this.forceCanceled;
+    }
+
+    /**
+     * <p>
+     * If the job was updated, provides the reason code for the update.
+     * </p>
+     * 
+     * @param reasonCode
+     *        If the job was updated, provides the reason code for the update.
+     */
+
+    public void setReasonCode(String reasonCode) {
+        this.reasonCode = reasonCode;
+    }
+
+    /**
+     * <p>
+     * If the job was updated, provides the reason code for the update.
+     * </p>
+     * 
+     * @return If the job was updated, provides the reason code for the update.
+     */
+
+    public String getReasonCode() {
+        return this.reasonCode;
+    }
+
+    /**
+     * <p>
+     * If the job was updated, provides the reason code for the update.
+     * </p>
+     * 
+     * @param reasonCode
+     *        If the job was updated, provides the reason code for the update.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Job withReasonCode(String reasonCode) {
+        setReasonCode(reasonCode);
+        return this;
     }
 
     /**
@@ -632,11 +701,51 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was created.
+     * Configuration for criteria to abort the job.
+     * </p>
+     * 
+     * @param abortConfig
+     *        Configuration for criteria to abort the job.
+     */
+
+    public void setAbortConfig(AbortConfig abortConfig) {
+        this.abortConfig = abortConfig;
+    }
+
+    /**
+     * <p>
+     * Configuration for criteria to abort the job.
+     * </p>
+     * 
+     * @return Configuration for criteria to abort the job.
+     */
+
+    public AbortConfig getAbortConfig() {
+        return this.abortConfig;
+    }
+
+    /**
+     * <p>
+     * Configuration for criteria to abort the job.
+     * </p>
+     * 
+     * @param abortConfig
+     *        Configuration for criteria to abort the job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Job withAbortConfig(AbortConfig abortConfig) {
+        setAbortConfig(abortConfig);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The time, in seconds since the epoch, when the job was created.
      * </p>
      * 
      * @param createdAt
-     *        The time, in milliseconds since the epoch, when the job was created.
+     *        The time, in seconds since the epoch, when the job was created.
      */
 
     public void setCreatedAt(java.util.Date createdAt) {
@@ -645,10 +754,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was created.
+     * The time, in seconds since the epoch, when the job was created.
      * </p>
      * 
-     * @return The time, in milliseconds since the epoch, when the job was created.
+     * @return The time, in seconds since the epoch, when the job was created.
      */
 
     public java.util.Date getCreatedAt() {
@@ -657,11 +766,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was created.
+     * The time, in seconds since the epoch, when the job was created.
      * </p>
      * 
      * @param createdAt
-     *        The time, in milliseconds since the epoch, when the job was created.
+     *        The time, in seconds since the epoch, when the job was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -672,11 +781,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was last updated.
+     * The time, in seconds since the epoch, when the job was last updated.
      * </p>
      * 
      * @param lastUpdatedAt
-     *        The time, in milliseconds since the epoch, when the job was last updated.
+     *        The time, in seconds since the epoch, when the job was last updated.
      */
 
     public void setLastUpdatedAt(java.util.Date lastUpdatedAt) {
@@ -685,10 +794,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was last updated.
+     * The time, in seconds since the epoch, when the job was last updated.
      * </p>
      * 
-     * @return The time, in milliseconds since the epoch, when the job was last updated.
+     * @return The time, in seconds since the epoch, when the job was last updated.
      */
 
     public java.util.Date getLastUpdatedAt() {
@@ -697,11 +806,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was last updated.
+     * The time, in seconds since the epoch, when the job was last updated.
      * </p>
      * 
      * @param lastUpdatedAt
-     *        The time, in milliseconds since the epoch, when the job was last updated.
+     *        The time, in seconds since the epoch, when the job was last updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -712,11 +821,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was completed.
+     * The time, in seconds since the epoch, when the job was completed.
      * </p>
      * 
      * @param completedAt
-     *        The time, in milliseconds since the epoch, when the job was completed.
+     *        The time, in seconds since the epoch, when the job was completed.
      */
 
     public void setCompletedAt(java.util.Date completedAt) {
@@ -725,10 +834,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was completed.
+     * The time, in seconds since the epoch, when the job was completed.
      * </p>
      * 
-     * @return The time, in milliseconds since the epoch, when the job was completed.
+     * @return The time, in seconds since the epoch, when the job was completed.
      */
 
     public java.util.Date getCompletedAt() {
@@ -737,11 +846,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time, in milliseconds since the epoch, when the job was completed.
+     * The time, in seconds since the epoch, when the job was completed.
      * </p>
      * 
      * @param completedAt
-     *        The time, in milliseconds since the epoch, when the job was completed.
+     *        The time, in seconds since the epoch, when the job was completed.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -791,7 +900,60 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job
+     * execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal
+     * state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     * </p>
+     * 
+     * @param timeoutConfig
+     *        Specifies the amount of time each device has to finish its execution of the job. A timer is started when
+     *        the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to
+     *        another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     */
+
+    public void setTimeoutConfig(TimeoutConfig timeoutConfig) {
+        this.timeoutConfig = timeoutConfig;
+    }
+
+    /**
+     * <p>
+     * Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job
+     * execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal
+     * state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     * </p>
+     * 
+     * @return Specifies the amount of time each device has to finish its execution of the job. A timer is started when
+     *         the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to
+     *         another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     */
+
+    public TimeoutConfig getTimeoutConfig() {
+        return this.timeoutConfig;
+    }
+
+    /**
+     * <p>
+     * Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job
+     * execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal
+     * state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     * </p>
+     * 
+     * @param timeoutConfig
+     *        Specifies the amount of time each device has to finish its execution of the job. A timer is started when
+     *        the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to
+     *        another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Job withTimeoutConfig(TimeoutConfig timeoutConfig) {
+        setTimeoutConfig(timeoutConfig);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -811,6 +973,8 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
             sb.append("Status: ").append(getStatus()).append(",");
         if (getForceCanceled() != null)
             sb.append("ForceCanceled: ").append(getForceCanceled()).append(",");
+        if (getReasonCode() != null)
+            sb.append("ReasonCode: ").append(getReasonCode()).append(",");
         if (getComment() != null)
             sb.append("Comment: ").append(getComment()).append(",");
         if (getTargets() != null)
@@ -821,6 +985,8 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
             sb.append("PresignedUrlConfig: ").append(getPresignedUrlConfig()).append(",");
         if (getJobExecutionsRolloutConfig() != null)
             sb.append("JobExecutionsRolloutConfig: ").append(getJobExecutionsRolloutConfig()).append(",");
+        if (getAbortConfig() != null)
+            sb.append("AbortConfig: ").append(getAbortConfig()).append(",");
         if (getCreatedAt() != null)
             sb.append("CreatedAt: ").append(getCreatedAt()).append(",");
         if (getLastUpdatedAt() != null)
@@ -828,7 +994,9 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
         if (getCompletedAt() != null)
             sb.append("CompletedAt: ").append(getCompletedAt()).append(",");
         if (getJobProcessDetails() != null)
-            sb.append("JobProcessDetails: ").append(getJobProcessDetails());
+            sb.append("JobProcessDetails: ").append(getJobProcessDetails()).append(",");
+        if (getTimeoutConfig() != null)
+            sb.append("TimeoutConfig: ").append(getTimeoutConfig());
         sb.append("}");
         return sb.toString();
     }
@@ -863,6 +1031,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getForceCanceled() != null && other.getForceCanceled().equals(this.getForceCanceled()) == false)
             return false;
+        if (other.getReasonCode() == null ^ this.getReasonCode() == null)
+            return false;
+        if (other.getReasonCode() != null && other.getReasonCode().equals(this.getReasonCode()) == false)
+            return false;
         if (other.getComment() == null ^ this.getComment() == null)
             return false;
         if (other.getComment() != null && other.getComment().equals(this.getComment()) == false)
@@ -883,6 +1055,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getJobExecutionsRolloutConfig() != null && other.getJobExecutionsRolloutConfig().equals(this.getJobExecutionsRolloutConfig()) == false)
             return false;
+        if (other.getAbortConfig() == null ^ this.getAbortConfig() == null)
+            return false;
+        if (other.getAbortConfig() != null && other.getAbortConfig().equals(this.getAbortConfig()) == false)
+            return false;
         if (other.getCreatedAt() == null ^ this.getCreatedAt() == null)
             return false;
         if (other.getCreatedAt() != null && other.getCreatedAt().equals(this.getCreatedAt()) == false)
@@ -899,6 +1075,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getJobProcessDetails() != null && other.getJobProcessDetails().equals(this.getJobProcessDetails()) == false)
             return false;
+        if (other.getTimeoutConfig() == null ^ this.getTimeoutConfig() == null)
+            return false;
+        if (other.getTimeoutConfig() != null && other.getTimeoutConfig().equals(this.getTimeoutConfig()) == false)
+            return false;
         return true;
     }
 
@@ -912,15 +1092,18 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getTargetSelection() == null) ? 0 : getTargetSelection().hashCode());
         hashCode = prime * hashCode + ((getStatus() == null) ? 0 : getStatus().hashCode());
         hashCode = prime * hashCode + ((getForceCanceled() == null) ? 0 : getForceCanceled().hashCode());
+        hashCode = prime * hashCode + ((getReasonCode() == null) ? 0 : getReasonCode().hashCode());
         hashCode = prime * hashCode + ((getComment() == null) ? 0 : getComment().hashCode());
         hashCode = prime * hashCode + ((getTargets() == null) ? 0 : getTargets().hashCode());
         hashCode = prime * hashCode + ((getDescription() == null) ? 0 : getDescription().hashCode());
         hashCode = prime * hashCode + ((getPresignedUrlConfig() == null) ? 0 : getPresignedUrlConfig().hashCode());
         hashCode = prime * hashCode + ((getJobExecutionsRolloutConfig() == null) ? 0 : getJobExecutionsRolloutConfig().hashCode());
+        hashCode = prime * hashCode + ((getAbortConfig() == null) ? 0 : getAbortConfig().hashCode());
         hashCode = prime * hashCode + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());
         hashCode = prime * hashCode + ((getLastUpdatedAt() == null) ? 0 : getLastUpdatedAt().hashCode());
         hashCode = prime * hashCode + ((getCompletedAt() == null) ? 0 : getCompletedAt().hashCode());
         hashCode = prime * hashCode + ((getJobProcessDetails() == null) ? 0 : getJobProcessDetails().hashCode());
+        hashCode = prime * hashCode + ((getTimeoutConfig() == null) ? 0 : getTimeoutConfig().hashCode());
         return hashCode;
     }
 

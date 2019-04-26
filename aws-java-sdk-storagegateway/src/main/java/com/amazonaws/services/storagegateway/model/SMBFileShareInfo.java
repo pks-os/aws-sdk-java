@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -81,11 +81,25 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
     private Boolean guessMIMETypeEnabled;
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      */
     private Boolean requesterPays;
+    /**
+     * <p>
+     * If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share. If it
+     * is set to "false", it indicates that file and directory permissions are mapped to the POSIX permission.
+     * </p>
+     */
+    private Boolean sMBACLEnabled;
     /**
      * <p>
      * A list of users or groups in the Active Directory that are allowed to access the file share. A group must be
@@ -104,6 +118,14 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
     private com.amazonaws.internal.SdkInternalList<String> invalidUserList;
 
     private String authentication;
+    /**
+     * <p>
+     * A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     * key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     * <code>ListTagsForResource</code> API operation.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * @param fileShareARN
@@ -601,13 +623,25 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *        bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *        However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *        <p>
+     *        <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *        that the configuration on the file share is the same as the S3 bucket configuration.
+     *        </p>
      */
 
     public void setRequesterPays(Boolean requesterPays) {
@@ -616,12 +650,24 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *         bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *         However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *         <p>
+     *         <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *         that the configuration on the file share is the same as the S3 bucket configuration.
+     *         </p>
      */
 
     public Boolean getRequesterPays() {
@@ -630,13 +676,25 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *        bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *        However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *        <p>
+     *        <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *        that the configuration on the file share is the same as the S3 bucket configuration.
+     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -647,16 +705,92 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *         bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *         However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *         <p>
+     *         <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *         that the configuration on the file share is the same as the S3 bucket configuration.
+     *         </p>
      */
 
     public Boolean isRequesterPays() {
         return this.requesterPays;
+    }
+
+    /**
+     * <p>
+     * If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share. If it
+     * is set to "false", it indicates that file and directory permissions are mapped to the POSIX permission.
+     * </p>
+     * 
+     * @param sMBACLEnabled
+     *        If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share.
+     *        If it is set to "false", it indicates that file and directory permissions are mapped to the POSIX
+     *        permission.
+     */
+
+    public void setSMBACLEnabled(Boolean sMBACLEnabled) {
+        this.sMBACLEnabled = sMBACLEnabled;
+    }
+
+    /**
+     * <p>
+     * If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share. If it
+     * is set to "false", it indicates that file and directory permissions are mapped to the POSIX permission.
+     * </p>
+     * 
+     * @return If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file
+     *         share. If it is set to "false", it indicates that file and directory permissions are mapped to the POSIX
+     *         permission.
+     */
+
+    public Boolean getSMBACLEnabled() {
+        return this.sMBACLEnabled;
+    }
+
+    /**
+     * <p>
+     * If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share. If it
+     * is set to "false", it indicates that file and directory permissions are mapped to the POSIX permission.
+     * </p>
+     * 
+     * @param sMBACLEnabled
+     *        If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share.
+     *        If it is set to "false", it indicates that file and directory permissions are mapped to the POSIX
+     *        permission.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public SMBFileShareInfo withSMBACLEnabled(Boolean sMBACLEnabled) {
+        setSMBACLEnabled(sMBACLEnabled);
+        return this;
+    }
+
+    /**
+     * <p>
+     * If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share. If it
+     * is set to "false", it indicates that file and directory permissions are mapped to the POSIX permission.
+     * </p>
+     * 
+     * @return If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file
+     *         share. If it is set to "false", it indicates that file and directory permissions are mapped to the POSIX
+     *         permission.
+     */
+
+    public Boolean isSMBACLEnabled() {
+        return this.sMBACLEnabled;
     }
 
     /**
@@ -864,7 +998,97 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     * key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     * <code>ListTagsForResource</code> API operation.
+     * </p>
+     * 
+     * @return A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     *         key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     *         <code>ListTagsForResource</code> API operation.
+     */
+
+    public java.util.List<Tag> getTags() {
+        if (tags == null) {
+            tags = new com.amazonaws.internal.SdkInternalList<Tag>();
+        }
+        return tags;
+    }
+
+    /**
+     * <p>
+     * A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     * key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     * <code>ListTagsForResource</code> API operation.
+     * </p>
+     * 
+     * @param tags
+     *        A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     *        key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     *        <code>ListTagsForResource</code> API operation.
+     */
+
+    public void setTags(java.util.Collection<Tag> tags) {
+        if (tags == null) {
+            this.tags = null;
+            return;
+        }
+
+        this.tags = new com.amazonaws.internal.SdkInternalList<Tag>(tags);
+    }
+
+    /**
+     * <p>
+     * A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     * key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     * <code>ListTagsForResource</code> API operation.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
+     * existing values.
+     * </p>
+     * 
+     * @param tags
+     *        A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     *        key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     *        <code>ListTagsForResource</code> API operation.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public SMBFileShareInfo withTags(Tag... tags) {
+        if (this.tags == null) {
+            setTags(new com.amazonaws.internal.SdkInternalList<Tag>(tags.length));
+        }
+        for (Tag ele : tags) {
+            this.tags.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     * key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     * <code>ListTagsForResource</code> API operation.
+     * </p>
+     * 
+     * @param tags
+     *        A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a
+     *        key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the
+     *        <code>ListTagsForResource</code> API operation.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public SMBFileShareInfo withTags(java.util.Collection<Tag> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -902,12 +1126,16 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
             sb.append("GuessMIMETypeEnabled: ").append(getGuessMIMETypeEnabled()).append(",");
         if (getRequesterPays() != null)
             sb.append("RequesterPays: ").append(getRequesterPays()).append(",");
+        if (getSMBACLEnabled() != null)
+            sb.append("SMBACLEnabled: ").append(getSMBACLEnabled()).append(",");
         if (getValidUserList() != null)
             sb.append("ValidUserList: ").append(getValidUserList()).append(",");
         if (getInvalidUserList() != null)
             sb.append("InvalidUserList: ").append(getInvalidUserList()).append(",");
         if (getAuthentication() != null)
-            sb.append("Authentication: ").append(getAuthentication());
+            sb.append("Authentication: ").append(getAuthentication()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -978,6 +1206,10 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
             return false;
         if (other.getRequesterPays() != null && other.getRequesterPays().equals(this.getRequesterPays()) == false)
             return false;
+        if (other.getSMBACLEnabled() == null ^ this.getSMBACLEnabled() == null)
+            return false;
+        if (other.getSMBACLEnabled() != null && other.getSMBACLEnabled().equals(this.getSMBACLEnabled()) == false)
+            return false;
         if (other.getValidUserList() == null ^ this.getValidUserList() == null)
             return false;
         if (other.getValidUserList() != null && other.getValidUserList().equals(this.getValidUserList()) == false)
@@ -989,6 +1221,10 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
         if (other.getAuthentication() == null ^ this.getAuthentication() == null)
             return false;
         if (other.getAuthentication() != null && other.getAuthentication().equals(this.getAuthentication()) == false)
+            return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
             return false;
         return true;
     }
@@ -1012,9 +1248,11 @@ public class SMBFileShareInfo implements Serializable, Cloneable, StructuredPojo
         hashCode = prime * hashCode + ((getReadOnly() == null) ? 0 : getReadOnly().hashCode());
         hashCode = prime * hashCode + ((getGuessMIMETypeEnabled() == null) ? 0 : getGuessMIMETypeEnabled().hashCode());
         hashCode = prime * hashCode + ((getRequesterPays() == null) ? 0 : getRequesterPays().hashCode());
+        hashCode = prime * hashCode + ((getSMBACLEnabled() == null) ? 0 : getSMBACLEnabled().hashCode());
         hashCode = prime * hashCode + ((getValidUserList() == null) ? 0 : getValidUserList().hashCode());
         hashCode = prime * hashCode + ((getInvalidUserList() == null) ? 0 : getInvalidUserList().hashCode());
         hashCode = prime * hashCode + ((getAuthentication() == null) ? 0 : getAuthentication().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

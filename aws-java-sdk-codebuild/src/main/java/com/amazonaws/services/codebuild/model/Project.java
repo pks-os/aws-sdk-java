@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -98,11 +98,23 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
     private Integer timeoutInMinutes;
     /**
      * <p>
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     */
+    private Integer queuedTimeoutInMinutes;
+    /**
+     * <p>
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      */
@@ -130,13 +142,13 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
     private java.util.Date lastModified;
     /**
      * <p>
-     * Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+     * Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      * </p>
      */
     private Webhook webhook;
     /**
      * <p>
-     * Information about the VPC configuration that AWS CodeBuild will access.
+     * Information about the VPC configuration that AWS CodeBuild accesses.
      * </p>
      */
     private VpcConfig vpcConfig;
@@ -148,7 +160,7 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
     private ProjectBadge badge;
     /**
      * <p>
-     * Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3 bucket,
+     * Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket,
      * or both.
      * </p>
      */
@@ -668,19 +680,70 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     * 
+     * @param queuedTimeoutInMinutes
+     *        The number of minutes a build is allowed to be queued before it times out.
+     */
+
+    public void setQueuedTimeoutInMinutes(Integer queuedTimeoutInMinutes) {
+        this.queuedTimeoutInMinutes = queuedTimeoutInMinutes;
+    }
+
+    /**
+     * <p>
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     * 
+     * @return The number of minutes a build is allowed to be queued before it times out.
+     */
+
+    public Integer getQueuedTimeoutInMinutes() {
+        return this.queuedTimeoutInMinutes;
+    }
+
+    /**
+     * <p>
+     * The number of minutes a build is allowed to be queued before it times out.
+     * </p>
+     * 
+     * @param queuedTimeoutInMinutes
+     *        The number of minutes a build is allowed to be queued before it times out.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Project withQueuedTimeoutInMinutes(Integer queuedTimeoutInMinutes) {
+        setQueuedTimeoutInMinutes(queuedTimeoutInMinutes);
+        return this;
+    }
+
+    /**
+     * <p>
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      * 
      * @param encryptionKey
      *        The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build
-     *        output artifacts.</p>
+     *        output artifacts.</p> <note>
      *        <p>
-     *        This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using
+     *        You can use a cross-account KMS key to encrypt the build output artifacts if your service role has
+     *        permission to that key.
+     *        </p>
+     *        </note>
+     *        <p>
+     *        You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
      *        the format <code>alias/<i>alias-name</i> </code>).
      */
 
@@ -693,15 +756,26 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      * 
      * @return The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build
-     *         output artifacts.</p>
+     *         output artifacts.</p> <note>
      *         <p>
-     *         This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using
+     *         You can use a cross-account KMS key to encrypt the build output artifacts if your service role has
+     *         permission to that key.
+     *         </p>
+     *         </note>
+     *         <p>
+     *         You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
      *         the format <code>alias/<i>alias-name</i> </code>).
      */
 
@@ -714,16 +788,27 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
      * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
      * artifacts.
      * </p>
+     * <note>
      * <p>
-     * This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using the
+     * You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to
+     * that key.
+     * </p>
+     * </note>
+     * <p>
+     * You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the
      * format <code>alias/<i>alias-name</i> </code>).
      * </p>
      * 
      * @param encryptionKey
      *        The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build
-     *        output artifacts.</p>
+     *        output artifacts.</p> <note>
      *        <p>
-     *        This is expressed either as the CMK's Amazon Resource Name (ARN) or, if specified, the CMK's alias (using
+     *        You can use a cross-account KMS key to encrypt the build output artifacts if your service role has
+     *        permission to that key.
+     *        </p>
+     *        </note>
+     *        <p>
+     *        You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
      *        the format <code>alias/<i>alias-name</i> </code>).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -905,11 +990,11 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+     * Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      * </p>
      * 
      * @param webhook
-     *        Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+     *        Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      */
 
     public void setWebhook(Webhook webhook) {
@@ -918,11 +1003,10 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+     * Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      * </p>
      * 
-     * @return Information about a webhook in GitHub that connects repository events to a build project in AWS
-     *         CodeBuild.
+     * @return Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      */
 
     public Webhook getWebhook() {
@@ -931,11 +1015,11 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+     * Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      * </p>
      * 
      * @param webhook
-     *        Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+     *        Information about a webhook that connects repository events to a build project in AWS CodeBuild.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -946,11 +1030,11 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about the VPC configuration that AWS CodeBuild will access.
+     * Information about the VPC configuration that AWS CodeBuild accesses.
      * </p>
      * 
      * @param vpcConfig
-     *        Information about the VPC configuration that AWS CodeBuild will access.
+     *        Information about the VPC configuration that AWS CodeBuild accesses.
      */
 
     public void setVpcConfig(VpcConfig vpcConfig) {
@@ -959,10 +1043,10 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about the VPC configuration that AWS CodeBuild will access.
+     * Information about the VPC configuration that AWS CodeBuild accesses.
      * </p>
      * 
-     * @return Information about the VPC configuration that AWS CodeBuild will access.
+     * @return Information about the VPC configuration that AWS CodeBuild accesses.
      */
 
     public VpcConfig getVpcConfig() {
@@ -971,11 +1055,11 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about the VPC configuration that AWS CodeBuild will access.
+     * Information about the VPC configuration that AWS CodeBuild accesses.
      * </p>
      * 
      * @param vpcConfig
-     *        Information about the VPC configuration that AWS CodeBuild will access.
+     *        Information about the VPC configuration that AWS CodeBuild accesses.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1026,12 +1110,12 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3 bucket,
+     * Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket,
      * or both.
      * </p>
      * 
      * @param logsConfig
-     *        Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3
+     *        Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3
      *        bucket, or both.
      */
 
@@ -1041,11 +1125,11 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3 bucket,
+     * Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket,
      * or both.
      * </p>
      * 
-     * @return Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3
+     * @return Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3
      *         bucket, or both.
      */
 
@@ -1055,12 +1139,12 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3 bucket,
+     * Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket,
      * or both.
      * </p>
      * 
      * @param logsConfig
-     *        Information about logs for the build project. A project can create Amazon CloudWatch Logs, logs in an S3
+     *        Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3
      *        bucket, or both.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -1071,7 +1155,8 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1103,6 +1188,8 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
             sb.append("ServiceRole: ").append(getServiceRole()).append(",");
         if (getTimeoutInMinutes() != null)
             sb.append("TimeoutInMinutes: ").append(getTimeoutInMinutes()).append(",");
+        if (getQueuedTimeoutInMinutes() != null)
+            sb.append("QueuedTimeoutInMinutes: ").append(getQueuedTimeoutInMinutes()).append(",");
         if (getEncryptionKey() != null)
             sb.append("EncryptionKey: ").append(getEncryptionKey()).append(",");
         if (getTags() != null)
@@ -1177,6 +1264,10 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTimeoutInMinutes() != null && other.getTimeoutInMinutes().equals(this.getTimeoutInMinutes()) == false)
             return false;
+        if (other.getQueuedTimeoutInMinutes() == null ^ this.getQueuedTimeoutInMinutes() == null)
+            return false;
+        if (other.getQueuedTimeoutInMinutes() != null && other.getQueuedTimeoutInMinutes().equals(this.getQueuedTimeoutInMinutes()) == false)
+            return false;
         if (other.getEncryptionKey() == null ^ this.getEncryptionKey() == null)
             return false;
         if (other.getEncryptionKey() != null && other.getEncryptionKey().equals(this.getEncryptionKey()) == false)
@@ -1228,6 +1319,7 @@ public class Project implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getEnvironment() == null) ? 0 : getEnvironment().hashCode());
         hashCode = prime * hashCode + ((getServiceRole() == null) ? 0 : getServiceRole().hashCode());
         hashCode = prime * hashCode + ((getTimeoutInMinutes() == null) ? 0 : getTimeoutInMinutes().hashCode());
+        hashCode = prime * hashCode + ((getQueuedTimeoutInMinutes() == null) ? 0 : getQueuedTimeoutInMinutes().hashCode());
         hashCode = prime * hashCode + ((getEncryptionKey() == null) ? 0 : getEncryptionKey().hashCode());
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         hashCode = prime * hashCode + ((getCreated() == null) ? 0 : getCreated().hashCode());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -134,6 +134,11 @@ import com.amazonaws.services.codecommit.model.*;
  * Information about committed code in a repository, by calling the following:
  * </p>
  * <ul>
+ * <li>
+ * <p>
+ * <a>CreateCommit</a>, which creates a commit for changes to a repository.
+ * </p>
+ * </li>
  * <li>
  * <p>
  * <a>GetBlob</a>, which returns the base-64 encoded content of an individual Git blob object within a repository.
@@ -374,6 +379,37 @@ public interface AWSCodeCommitAsync extends AWSCodeCommit {
      */
     java.util.concurrent.Future<CreateBranchResult> createBranchAsync(CreateBranchRequest createBranchRequest,
             com.amazonaws.handlers.AsyncHandler<CreateBranchRequest, CreateBranchResult> asyncHandler);
+
+    /**
+     * <p>
+     * Creates a commit for a repository on the tip of a specified branch.
+     * </p>
+     * 
+     * @param createCommitRequest
+     * @return A Java Future containing the result of the CreateCommit operation returned by the service.
+     * @sample AWSCodeCommitAsync.CreateCommit
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateCommit" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<CreateCommitResult> createCommitAsync(CreateCommitRequest createCommitRequest);
+
+    /**
+     * <p>
+     * Creates a commit for a repository on the tip of a specified branch.
+     * </p>
+     * 
+     * @param createCommitRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the CreateCommit operation returned by the service.
+     * @sample AWSCodeCommitAsyncHandler.CreateCommit
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateCommit" target="_top">AWS API
+     *      Documentation</a>
+     */
+    java.util.concurrent.Future<CreateCommitResult> createCommitAsync(CreateCommitRequest createCommitRequest,
+            com.amazonaws.handlers.AsyncHandler<CreateCommitRequest, CreateCommitResult> asyncHandler);
 
     /**
      * <p>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -109,8 +109,8 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
     private com.amazonaws.internal.SdkInternalList<String> grantTokens;
     /**
      * <p>
-     * A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants
-     * when retrying this request.
+     * A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when
+     * retrying this request.
      * </p>
      * <p>
      * When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -736,8 +736,8 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants
-     * when retrying this request.
+     * A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when
+     * retrying this request.
      * </p>
      * <p>
      * When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -752,7 +752,7 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      * 
      * @param name
-     *        A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate
+     *        A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate
      *        grants when retrying this request.</p>
      *        <p>
      *        When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -772,8 +772,8 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants
-     * when retrying this request.
+     * A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when
+     * retrying this request.
      * </p>
      * <p>
      * When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -787,7 +787,7 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
      * <code>GrantId</code> is returned. All grant tokens obtained in this way can be used interchangeably.
      * </p>
      * 
-     * @return A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate
+     * @return A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate
      *         grants when retrying this request.</p>
      *         <p>
      *         When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -808,8 +808,8 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants
-     * when retrying this request.
+     * A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when
+     * retrying this request.
      * </p>
      * <p>
      * When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -824,7 +824,7 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      * 
      * @param name
-     *        A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate
+     *        A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate
      *        grants when retrying this request.</p>
      *        <p>
      *        When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique
@@ -845,7 +845,8 @@ public class CreateGrantRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

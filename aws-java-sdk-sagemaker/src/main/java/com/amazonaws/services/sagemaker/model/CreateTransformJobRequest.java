@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,35 +40,43 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
     private String modelName;
     /**
      * <p>
-     * The maximum number of parallel requests that can be sent to each instance in a transform job. This is good for
-     * algorithms that implement multiple workers on larger instances . The default value is <code>1</code>. To allow
-     * Amazon SageMaker to determine the appropriate number for <code>MaxConcurrentTransforms</code>, set the value to
-     * <code>0</code>.
+     * The maximum number of parallel requests that can be sent to each instance in a transform job. The default value
+     * is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     * <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      * </p>
      */
     private Integer maxConcurrentTransforms;
     /**
      * <p>
-     * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The value
-     * in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can approximate the
-     * size of a record by dividing the size of your dataset by the number of records. Then multiply this value by the
-     * number of records you want in a mini-batch. It is recommended to enter a value slightly larger than this to
-     * ensure the records fit within the maximum payload size. The default value is <code>6</code> MB. For an unlimited
-     * payload size, set the value to <code>0</code>.
+     * The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     * metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single
+     * record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To
+     * ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The
+     * default value is <code>6</code> MB.
+     * </p>
+     * <p>
+     * For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the
+     * value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker built-in
+     * algorithms do not support HTTP chunked encoding.
      * </p>
      */
     private Integer maxPayloadInMB;
     /**
      * <p>
-     * Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one record
-     * is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many records that can
-     * fit within the <code>MaxPayloadInMB</code> limit.
+     * Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is
+     * a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
      * </p>
      * <p>
-     * Batch transform will automatically split your input data into whatever payload size is specified if you set
-     * <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>. There's
-     * no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset
-     * are very large.
+     * To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or
+     * <code>TFRecord</code>.
+     * </p>
+     * <p>
+     * To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to
+     * <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     * </p>
+     * <p>
+     * To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     * <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * </p>
      */
     private String batchStrategy;
@@ -98,8 +106,8 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
     private TransformResources transformResources;
     /**
      * <p>
-     * An array of key-value pairs. Adding tags is optional. For more information, see <a
-     * href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+     * (Optional) An array of key-value pairs. For more information, see <a
+     * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
      * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * </p>
      */
@@ -193,17 +201,15 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The maximum number of parallel requests that can be sent to each instance in a transform job. This is good for
-     * algorithms that implement multiple workers on larger instances . The default value is <code>1</code>. To allow
-     * Amazon SageMaker to determine the appropriate number for <code>MaxConcurrentTransforms</code>, set the value to
-     * <code>0</code>.
+     * The maximum number of parallel requests that can be sent to each instance in a transform job. The default value
+     * is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     * <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      * </p>
      * 
      * @param maxConcurrentTransforms
-     *        The maximum number of parallel requests that can be sent to each instance in a transform job. This is good
-     *        for algorithms that implement multiple workers on larger instances . The default value is <code>1</code>.
-     *        To allow Amazon SageMaker to determine the appropriate number for <code>MaxConcurrentTransforms</code>,
-     *        set the value to <code>0</code>.
+     *        The maximum number of parallel requests that can be sent to each instance in a transform job. The default
+     *        value is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     *        <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      */
 
     public void setMaxConcurrentTransforms(Integer maxConcurrentTransforms) {
@@ -212,15 +218,13 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The maximum number of parallel requests that can be sent to each instance in a transform job. This is good for
-     * algorithms that implement multiple workers on larger instances . The default value is <code>1</code>. To allow
-     * Amazon SageMaker to determine the appropriate number for <code>MaxConcurrentTransforms</code>, set the value to
-     * <code>0</code>.
+     * The maximum number of parallel requests that can be sent to each instance in a transform job. The default value
+     * is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     * <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      * </p>
      * 
-     * @return The maximum number of parallel requests that can be sent to each instance in a transform job. This is
-     *         good for algorithms that implement multiple workers on larger instances . The default value is
-     *         <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     * @return The maximum number of parallel requests that can be sent to each instance in a transform job. The default
+     *         value is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
      *         <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      */
 
@@ -230,17 +234,15 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The maximum number of parallel requests that can be sent to each instance in a transform job. This is good for
-     * algorithms that implement multiple workers on larger instances . The default value is <code>1</code>. To allow
-     * Amazon SageMaker to determine the appropriate number for <code>MaxConcurrentTransforms</code>, set the value to
-     * <code>0</code>.
+     * The maximum number of parallel requests that can be sent to each instance in a transform job. The default value
+     * is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     * <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      * </p>
      * 
      * @param maxConcurrentTransforms
-     *        The maximum number of parallel requests that can be sent to each instance in a transform job. This is good
-     *        for algorithms that implement multiple workers on larger instances . The default value is <code>1</code>.
-     *        To allow Amazon SageMaker to determine the appropriate number for <code>MaxConcurrentTransforms</code>,
-     *        set the value to <code>0</code>.
+     *        The maximum number of parallel requests that can be sent to each instance in a transform job. The default
+     *        value is <code>1</code>. To allow Amazon SageMaker to determine the appropriate number for
+     *        <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -251,21 +253,28 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The value
-     * in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can approximate the
-     * size of a record by dividing the size of your dataset by the number of records. Then multiply this value by the
-     * number of records you want in a mini-batch. It is recommended to enter a value slightly larger than this to
-     * ensure the records fit within the maximum payload size. The default value is <code>6</code> MB. For an unlimited
-     * payload size, set the value to <code>0</code>.
+     * The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     * metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single
+     * record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To
+     * ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The
+     * default value is <code>6</code> MB.
+     * </p>
+     * <p>
+     * For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the
+     * value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker built-in
+     * algorithms do not support HTTP chunked encoding.
      * </p>
      * 
      * @param maxPayloadInMB
-     *        The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The
-     *        value in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can
-     *        approximate the size of a record by dividing the size of your dataset by the number of records. Then
-     *        multiply this value by the number of records you want in a mini-batch. It is recommended to enter a value
-     *        slightly larger than this to ensure the records fit within the maximum payload size. The default value is
-     *        <code>6</code> MB. For an unlimited payload size, set the value to <code>0</code>.
+     *        The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     *        metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a
+     *        single record. To estimate the size of a record in MB, divide the size of your dataset by the number of
+     *        records. To ensure that the records fit within the maximum payload size, we recommend using a slightly
+     *        larger value. The default value is <code>6</code> MB. </p>
+     *        <p>
+     *        For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set
+     *        the value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker
+     *        built-in algorithms do not support HTTP chunked encoding.
      */
 
     public void setMaxPayloadInMB(Integer maxPayloadInMB) {
@@ -274,20 +283,27 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The value
-     * in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can approximate the
-     * size of a record by dividing the size of your dataset by the number of records. Then multiply this value by the
-     * number of records you want in a mini-batch. It is recommended to enter a value slightly larger than this to
-     * ensure the records fit within the maximum payload size. The default value is <code>6</code> MB. For an unlimited
-     * payload size, set the value to <code>0</code>.
+     * The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     * metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single
+     * record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To
+     * ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The
+     * default value is <code>6</code> MB.
+     * </p>
+     * <p>
+     * For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the
+     * value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker built-in
+     * algorithms do not support HTTP chunked encoding.
      * </p>
      * 
-     * @return The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
-     *         The value in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can
-     *         approximate the size of a record by dividing the size of your dataset by the number of records. Then
-     *         multiply this value by the number of records you want in a mini-batch. It is recommended to enter a value
-     *         slightly larger than this to ensure the records fit within the maximum payload size. The default value is
-     *         <code>6</code> MB. For an unlimited payload size, set the value to <code>0</code>.
+     * @return The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     *         metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a
+     *         single record. To estimate the size of a record in MB, divide the size of your dataset by the number of
+     *         records. To ensure that the records fit within the maximum payload size, we recommend using a slightly
+     *         larger value. The default value is <code>6</code> MB. </p>
+     *         <p>
+     *         For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding,
+     *         set the value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon
+     *         SageMaker built-in algorithms do not support HTTP chunked encoding.
      */
 
     public Integer getMaxPayloadInMB() {
@@ -296,21 +312,28 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The value
-     * in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can approximate the
-     * size of a record by dividing the size of your dataset by the number of records. Then multiply this value by the
-     * number of records you want in a mini-batch. It is recommended to enter a value slightly larger than this to
-     * ensure the records fit within the maximum payload size. The default value is <code>6</code> MB. For an unlimited
-     * payload size, set the value to <code>0</code>.
+     * The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     * metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a single
+     * record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To
+     * ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The
+     * default value is <code>6</code> MB.
+     * </p>
+     * <p>
+     * For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the
+     * value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker built-in
+     * algorithms do not support HTTP chunked encoding.
      * </p>
      * 
      * @param maxPayloadInMB
-     *        The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The
-     *        value in <code>MaxPayloadInMB</code> must be greater or equal to the size of a single record. You can
-     *        approximate the size of a record by dividing the size of your dataset by the number of records. Then
-     *        multiply this value by the number of records you want in a mini-batch. It is recommended to enter a value
-     *        slightly larger than this to ensure the records fit within the maximum payload size. The default value is
-     *        <code>6</code> MB. For an unlimited payload size, set the value to <code>0</code>.
+     *        The maximum allowed size of the payload, in MB. A <i>payload</i> is the data portion of a record (without
+     *        metadata). The value in <code>MaxPayloadInMB</code> must be greater than, or equal to, the size of a
+     *        single record. To estimate the size of a record in MB, divide the size of your dataset by the number of
+     *        records. To ensure that the records fit within the maximum payload size, we recommend using a slightly
+     *        larger value. The default value is <code>6</code> MB. </p>
+     *        <p>
+     *        For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set
+     *        the value to <code>0</code>. This feature works only in supported algorithms. Currently, Amazon SageMaker
+     *        built-in algorithms do not support HTTP chunked encoding.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -321,26 +344,37 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one record
-     * is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many records that can
-     * fit within the <code>MaxPayloadInMB</code> limit.
+     * Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is
+     * a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
      * </p>
      * <p>
-     * Batch transform will automatically split your input data into whatever payload size is specified if you set
-     * <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>. There's
-     * no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset
-     * are very large.
+     * To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or
+     * <code>TFRecord</code>.
+     * </p>
+     * <p>
+     * To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to
+     * <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     * </p>
+     * <p>
+     * To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     * <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * </p>
      * 
      * @param batchStrategy
-     *        Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one
-     *        record is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many
-     *        records that can fit within the <code>MaxPayloadInMB</code> limit.</p>
+     *        Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i>
+     *        <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV
+     *        file is a record. </p>
      *        <p>
-     *        Batch transform will automatically split your input data into whatever payload size is specified if you
-     *        set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>
-     *        . There's no need to split the dataset into smaller files or to use larger payload sizes unless the
-     *        records in your dataset are very large.
+     *        To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>,
+     *        <code>RecordIO</code>, or <code>TFRecord</code>.
+     *        </p>
+     *        <p>
+     *        To use only one record when making an HTTP invocation request to a container, set
+     *        <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     *        </p>
+     *        <p>
+     *        To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     *        <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * @see BatchStrategy
      */
 
@@ -350,25 +384,36 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one record
-     * is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many records that can
-     * fit within the <code>MaxPayloadInMB</code> limit.
+     * Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is
+     * a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
      * </p>
      * <p>
-     * Batch transform will automatically split your input data into whatever payload size is specified if you set
-     * <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>. There's
-     * no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset
-     * are very large.
+     * To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or
+     * <code>TFRecord</code>.
+     * </p>
+     * <p>
+     * To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to
+     * <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     * </p>
+     * <p>
+     * To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     * <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * </p>
      * 
-     * @return Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only
-     *         one record is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many
-     *         records that can fit within the <code>MaxPayloadInMB</code> limit.</p>
+     * @return Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i>
+     *         <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV
+     *         file is a record. </p>
      *         <p>
-     *         Batch transform will automatically split your input data into whatever payload size is specified if you
-     *         set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to
-     *         <code>MultiRecord</code>. There's no need to split the dataset into smaller files or to use larger
-     *         payload sizes unless the records in your dataset are very large.
+     *         To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>,
+     *         <code>RecordIO</code>, or <code>TFRecord</code>.
+     *         </p>
+     *         <p>
+     *         To use only one record when making an HTTP invocation request to a container, set
+     *         <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     *         </p>
+     *         <p>
+     *         To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     *         <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * @see BatchStrategy
      */
 
@@ -378,26 +423,37 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one record
-     * is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many records that can
-     * fit within the <code>MaxPayloadInMB</code> limit.
+     * Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is
+     * a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
      * </p>
      * <p>
-     * Batch transform will automatically split your input data into whatever payload size is specified if you set
-     * <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>. There's
-     * no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset
-     * are very large.
+     * To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or
+     * <code>TFRecord</code>.
+     * </p>
+     * <p>
+     * To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to
+     * <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     * </p>
+     * <p>
+     * To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     * <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * </p>
      * 
      * @param batchStrategy
-     *        Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one
-     *        record is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many
-     *        records that can fit within the <code>MaxPayloadInMB</code> limit.</p>
+     *        Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i>
+     *        <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV
+     *        file is a record. </p>
      *        <p>
-     *        Batch transform will automatically split your input data into whatever payload size is specified if you
-     *        set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>
-     *        . There's no need to split the dataset into smaller files or to use larger payload sizes unless the
-     *        records in your dataset are very large.
+     *        To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>,
+     *        <code>RecordIO</code>, or <code>TFRecord</code>.
+     *        </p>
+     *        <p>
+     *        To use only one record when making an HTTP invocation request to a container, set
+     *        <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     *        </p>
+     *        <p>
+     *        To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     *        <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see BatchStrategy
      */
@@ -409,26 +465,37 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one record
-     * is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many records that can
-     * fit within the <code>MaxPayloadInMB</code> limit.
+     * Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i> <i/> is
+     * a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
      * </p>
      * <p>
-     * Batch transform will automatically split your input data into whatever payload size is specified if you set
-     * <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>. There's
-     * no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset
-     * are very large.
+     * To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>, <code>RecordIO</code>, or
+     * <code>TFRecord</code>.
+     * </p>
+     * <p>
+     * To use only one record when making an HTTP invocation request to a container, set <code>BatchStrategy</code> to
+     * <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     * </p>
+     * <p>
+     * To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     * <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * </p>
      * 
      * @param batchStrategy
-     *        Determines the number of records included in a single mini-batch. <code>SingleRecord</code> means only one
-     *        record is used per mini-batch. <code>MultiRecord</code> means a mini-batch is set to contain as many
-     *        records that can fit within the <code>MaxPayloadInMB</code> limit.</p>
+     *        Specifies the number of records to include in a mini-batch for an HTTP inference request. A <i>record</i>
+     *        <i/> is a single unit of input data that inference can be made on. For example, a single line in a CSV
+     *        file is a record. </p>
      *        <p>
-     *        Batch transform will automatically split your input data into whatever payload size is specified if you
-     *        set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code> to <code>MultiRecord</code>
-     *        . There's no need to split the dataset into smaller files or to use larger payload sizes unless the
-     *        records in your dataset are very large.
+     *        To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>,
+     *        <code>RecordIO</code>, or <code>TFRecord</code>.
+     *        </p>
+     *        <p>
+     *        To use only one record when making an HTTP invocation request to a container, set
+     *        <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code> to <code>Line</code>.
+     *        </p>
+     *        <p>
+     *        To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
+     *        <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see BatchStrategy
      */
@@ -624,13 +691,13 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * An array of key-value pairs. Adding tags is optional. For more information, see <a
-     * href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+     * (Optional) An array of key-value pairs. For more information, see <a
+     * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
      * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * </p>
      * 
-     * @return An array of key-value pairs. Adding tags is optional. For more information, see <a
-     *         href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
+     * @return (Optional) An array of key-value pairs. For more information, see <a
+     *         href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
      *         >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      */
 
@@ -640,14 +707,14 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * An array of key-value pairs. Adding tags is optional. For more information, see <a
-     * href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+     * (Optional) An array of key-value pairs. For more information, see <a
+     * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
      * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * </p>
      * 
      * @param tags
-     *        An array of key-value pairs. Adding tags is optional. For more information, see <a
-     *        href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
+     *        (Optional) An array of key-value pairs. For more information, see <a
+     *        href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
      *        >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      */
 
@@ -662,8 +729,8 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * An array of key-value pairs. Adding tags is optional. For more information, see <a
-     * href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+     * (Optional) An array of key-value pairs. For more information, see <a
+     * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
      * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * </p>
      * <p>
@@ -673,8 +740,8 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * 
      * @param tags
-     *        An array of key-value pairs. Adding tags is optional. For more information, see <a
-     *        href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
+     *        (Optional) An array of key-value pairs. For more information, see <a
+     *        href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
      *        >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -691,14 +758,14 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * An array of key-value pairs. Adding tags is optional. For more information, see <a
-     * href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+     * (Optional) An array of key-value pairs. For more information, see <a
+     * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
      * Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * </p>
      * 
      * @param tags
-     *        An array of key-value pairs. Adding tags is optional. For more information, see <a
-     *        href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
+     *        (Optional) An array of key-value pairs. For more information, see <a
+     *        href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what"
      *        >Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -709,7 +776,8 @@ public class CreateTransformJobRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

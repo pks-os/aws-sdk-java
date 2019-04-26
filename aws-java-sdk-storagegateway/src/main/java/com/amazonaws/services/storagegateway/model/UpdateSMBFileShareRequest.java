@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -79,11 +79,25 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     private Boolean guessMIMETypeEnabled;
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      */
     private Boolean requesterPays;
+    /**
+     * <p>
+     * Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to map file
+     * and directory permissions to the POSIX permissions.
+     * </p>
+     */
+    private Boolean sMBACLEnabled;
     /**
      * <p>
      * A list of users or groups in the Active Directory that are allowed to access the file share. A group must be
@@ -488,13 +502,25 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *        bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *        However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *        <p>
+     *        <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *        that the configuration on the file share is the same as the S3 bucket configuration.
+     *        </p>
      */
 
     public void setRequesterPays(Boolean requesterPays) {
@@ -503,12 +529,24 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *         bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *         However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *         <p>
+     *         <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *         that the configuration on the file share is the same as the S3 bucket configuration.
+     *         </p>
      */
 
     public Boolean getRequesterPays() {
@@ -517,13 +555,25 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *        bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *        However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *        <p>
+     *        <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *        that the configuration on the file share is the same as the S3 bucket configuration.
+     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -534,16 +584,88 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *         bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *         However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *         <p>
+     *         <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *         that the configuration on the file share is the same as the S3 bucket configuration.
+     *         </p>
      */
 
     public Boolean isRequesterPays() {
         return this.requesterPays;
+    }
+
+    /**
+     * <p>
+     * Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to map file
+     * and directory permissions to the POSIX permissions.
+     * </p>
+     * 
+     * @param sMBACLEnabled
+     *        Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to
+     *        map file and directory permissions to the POSIX permissions.
+     */
+
+    public void setSMBACLEnabled(Boolean sMBACLEnabled) {
+        this.sMBACLEnabled = sMBACLEnabled;
+    }
+
+    /**
+     * <p>
+     * Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to map file
+     * and directory permissions to the POSIX permissions.
+     * </p>
+     * 
+     * @return Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to
+     *         map file and directory permissions to the POSIX permissions.
+     */
+
+    public Boolean getSMBACLEnabled() {
+        return this.sMBACLEnabled;
+    }
+
+    /**
+     * <p>
+     * Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to map file
+     * and directory permissions to the POSIX permissions.
+     * </p>
+     * 
+     * @param sMBACLEnabled
+     *        Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to
+     *        map file and directory permissions to the POSIX permissions.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public UpdateSMBFileShareRequest withSMBACLEnabled(Boolean sMBACLEnabled) {
+        setSMBACLEnabled(sMBACLEnabled);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to map file
+     * and directory permissions to the POSIX permissions.
+     * </p>
+     * 
+     * @return Set this value to "true to enable ACL (access control list) on the SMB file share. Set it to "false" to
+     *         map file and directory permissions to the POSIX permissions.
+     */
+
+    public Boolean isSMBACLEnabled() {
+        return this.sMBACLEnabled;
     }
 
     /**
@@ -725,7 +847,8 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -751,6 +874,8 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
             sb.append("GuessMIMETypeEnabled: ").append(getGuessMIMETypeEnabled()).append(",");
         if (getRequesterPays() != null)
             sb.append("RequesterPays: ").append(getRequesterPays()).append(",");
+        if (getSMBACLEnabled() != null)
+            sb.append("SMBACLEnabled: ").append(getSMBACLEnabled()).append(",");
         if (getValidUserList() != null)
             sb.append("ValidUserList: ").append(getValidUserList()).append(",");
         if (getInvalidUserList() != null)
@@ -801,6 +926,10 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
             return false;
         if (other.getRequesterPays() != null && other.getRequesterPays().equals(this.getRequesterPays()) == false)
             return false;
+        if (other.getSMBACLEnabled() == null ^ this.getSMBACLEnabled() == null)
+            return false;
+        if (other.getSMBACLEnabled() != null && other.getSMBACLEnabled().equals(this.getSMBACLEnabled()) == false)
+            return false;
         if (other.getValidUserList() == null ^ this.getValidUserList() == null)
             return false;
         if (other.getValidUserList() != null && other.getValidUserList().equals(this.getValidUserList()) == false)
@@ -825,6 +954,7 @@ public class UpdateSMBFileShareRequest extends com.amazonaws.AmazonWebServiceReq
         hashCode = prime * hashCode + ((getReadOnly() == null) ? 0 : getReadOnly().hashCode());
         hashCode = prime * hashCode + ((getGuessMIMETypeEnabled() == null) ? 0 : getGuessMIMETypeEnabled().hashCode());
         hashCode = prime * hashCode + ((getRequesterPays() == null) ? 0 : getRequesterPays().hashCode());
+        hashCode = prime * hashCode + ((getSMBACLEnabled() == null) ? 0 : getSMBACLEnabled().hashCode());
         hashCode = prime * hashCode + ((getValidUserList() == null) ? 0 : getValidUserList().hashCode());
         hashCode = prime * hashCode + ((getInvalidUserList() == null) ? 0 : getInvalidUserList().hashCode());
         return hashCode;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Details about the ES instances that AWS recommends that you purchase.
+ * Details about the Amazon ES instances that AWS recommends that you purchase.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ESInstanceDetails" target="_top">AWS API
@@ -48,7 +48,7 @@ public class ESInstanceDetails implements Serializable, Cloneable, StructuredPoj
     private String region;
     /**
      * <p>
-     * Whether the recommendation is for a current generation instance.
+     * Whether the recommendation is for a current-generation instance.
      * </p>
      */
     private Boolean currentGeneration;
@@ -181,11 +181,11 @@ public class ESInstanceDetails implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * Whether the recommendation is for a current generation instance.
+     * Whether the recommendation is for a current-generation instance.
      * </p>
      * 
      * @param currentGeneration
-     *        Whether the recommendation is for a current generation instance.
+     *        Whether the recommendation is for a current-generation instance.
      */
 
     public void setCurrentGeneration(Boolean currentGeneration) {
@@ -194,10 +194,10 @@ public class ESInstanceDetails implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * Whether the recommendation is for a current generation instance.
+     * Whether the recommendation is for a current-generation instance.
      * </p>
      * 
-     * @return Whether the recommendation is for a current generation instance.
+     * @return Whether the recommendation is for a current-generation instance.
      */
 
     public Boolean getCurrentGeneration() {
@@ -206,11 +206,11 @@ public class ESInstanceDetails implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * Whether the recommendation is for a current generation instance.
+     * Whether the recommendation is for a current-generation instance.
      * </p>
      * 
      * @param currentGeneration
-     *        Whether the recommendation is for a current generation instance.
+     *        Whether the recommendation is for a current-generation instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -221,10 +221,10 @@ public class ESInstanceDetails implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * Whether the recommendation is for a current generation instance.
+     * Whether the recommendation is for a current-generation instance.
      * </p>
      * 
-     * @return Whether the recommendation is for a current generation instance.
+     * @return Whether the recommendation is for a current-generation instance.
      */
 
     public Boolean isCurrentGeneration() {
@@ -284,7 +284,8 @@ public class ESInstanceDetails implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

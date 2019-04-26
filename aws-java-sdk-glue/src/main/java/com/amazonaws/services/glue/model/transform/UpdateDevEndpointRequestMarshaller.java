@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -12,6 +12,7 @@
  */
 package com.amazonaws.services.glue.model.transform;
 
+import java.util.Map;
 import java.util.List;
 import javax.annotation.Generated;
 
@@ -40,6 +41,10 @@ public class UpdateDevEndpointRequestMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CustomLibraries").build();
     private static final MarshallingInfo<Boolean> UPDATEETLLIBRARIES_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("UpdateEtlLibraries").build();
+    private static final MarshallingInfo<List> DELETEARGUMENTS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("DeleteArguments").build();
+    private static final MarshallingInfo<Map> ADDARGUMENTS_BINDING = MarshallingInfo.builder(MarshallingType.MAP).marshallLocation(MarshallLocation.PAYLOAD)
+            .marshallLocationName("AddArguments").build();
 
     private static final UpdateDevEndpointRequestMarshaller instance = new UpdateDevEndpointRequestMarshaller();
 
@@ -63,6 +68,8 @@ public class UpdateDevEndpointRequestMarshaller {
             protocolMarshaller.marshall(updateDevEndpointRequest.getDeletePublicKeys(), DELETEPUBLICKEYS_BINDING);
             protocolMarshaller.marshall(updateDevEndpointRequest.getCustomLibraries(), CUSTOMLIBRARIES_BINDING);
             protocolMarshaller.marshall(updateDevEndpointRequest.getUpdateEtlLibraries(), UPDATEETLLIBRARIES_BINDING);
+            protocolMarshaller.marshall(updateDevEndpointRequest.getDeleteArguments(), DELETEARGUMENTS_BINDING);
+            protocolMarshaller.marshall(updateDevEndpointRequest.getAddArguments(), ADDARGUMENTS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,6 +29,8 @@ public class EmailChannelResponseMarshaller {
 
     private static final MarshallingInfo<String> APPLICATIONID_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ApplicationId").build();
+    private static final MarshallingInfo<String> CONFIGURATIONSET_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ConfigurationSet").build();
     private static final MarshallingInfo<String> CREATIONDATE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreationDate").build();
     private static final MarshallingInfo<Boolean> ENABLED_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN).marshallLocation(MarshallLocation.PAYLOAD)
@@ -73,6 +75,7 @@ public class EmailChannelResponseMarshaller {
 
         try {
             protocolMarshaller.marshall(emailChannelResponse.getApplicationId(), APPLICATIONID_BINDING);
+            protocolMarshaller.marshall(emailChannelResponse.getConfigurationSet(), CONFIGURATIONSET_BINDING);
             protocolMarshaller.marshall(emailChannelResponse.getCreationDate(), CREATIONDATE_BINDING);
             protocolMarshaller.marshall(emailChannelResponse.getEnabled(), ENABLED_BINDING);
             protocolMarshaller.marshall(emailChannelResponse.getFromAddress(), FROMADDRESS_BINDING);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,20 +33,20 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
     private String name;
     /**
      * <p>
-     * The maximum size of each results page.
+     * The maximum size of each page of results.
      * </p>
      */
     private Integer maxResults;
     /**
      * <p>
-     * The 12-digit ID of one or more AWS accounts with which the image is shared.
+     * The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * </p>
      */
     private java.util.List<String> sharedAwsAccountIds;
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      */
     private String nextToken;
@@ -93,11 +93,11 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The maximum size of each results page.
+     * The maximum size of each page of results.
      * </p>
      * 
      * @param maxResults
-     *        The maximum size of each results page.
+     *        The maximum size of each page of results.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -106,10 +106,10 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The maximum size of each results page.
+     * The maximum size of each page of results.
      * </p>
      * 
-     * @return The maximum size of each results page.
+     * @return The maximum size of each page of results.
      */
 
     public Integer getMaxResults() {
@@ -118,11 +118,11 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The maximum size of each results page.
+     * The maximum size of each page of results.
      * </p>
      * 
      * @param maxResults
-     *        The maximum size of each results page.
+     *        The maximum size of each page of results.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -133,10 +133,10 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The 12-digit ID of one or more AWS accounts with which the image is shared.
+     * The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * </p>
      * 
-     * @return The 12-digit ID of one or more AWS accounts with which the image is shared.
+     * @return The 12-digit identifier of one or more AWS accounts with which the image is shared.
      */
 
     public java.util.List<String> getSharedAwsAccountIds() {
@@ -145,11 +145,11 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The 12-digit ID of one or more AWS accounts with which the image is shared.
+     * The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * </p>
      * 
      * @param sharedAwsAccountIds
-     *        The 12-digit ID of one or more AWS accounts with which the image is shared.
+     *        The 12-digit identifier of one or more AWS accounts with which the image is shared.
      */
 
     public void setSharedAwsAccountIds(java.util.Collection<String> sharedAwsAccountIds) {
@@ -163,7 +163,7 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The 12-digit ID of one or more AWS accounts with which the image is shared.
+     * The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -172,7 +172,7 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
      * </p>
      * 
      * @param sharedAwsAccountIds
-     *        The 12-digit ID of one or more AWS accounts with which the image is shared.
+     *        The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -188,11 +188,11 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The 12-digit ID of one or more AWS accounts with which the image is shared.
+     * The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * </p>
      * 
      * @param sharedAwsAccountIds
-     *        The 12-digit ID of one or more AWS accounts with which the image is shared.
+     *        The 12-digit identifier of one or more AWS accounts with which the image is shared.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -203,13 +203,13 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      * 
      * @param nextToken
-     *        The pagination token to use to retrieve the next page of results. If this value is empty, only the first
-     *        page is retrieved.
+     *        The pagination token to use to retrieve the next page of results for this operation. If this value is
+     *        null, it retrieves the first page.
      */
 
     public void setNextToken(String nextToken) {
@@ -218,12 +218,12 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      * 
-     * @return The pagination token to use to retrieve the next page of results. If this value is empty, only the first
-     *         page is retrieved.
+     * @return The pagination token to use to retrieve the next page of results for this operation. If this value is
+     *         null, it retrieves the first page.
      */
 
     public String getNextToken() {
@@ -232,13 +232,13 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The pagination token to use to retrieve the next page of results. If this value is empty, only the first page is
-     * retrieved.
+     * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it
+     * retrieves the first page.
      * </p>
      * 
      * @param nextToken
-     *        The pagination token to use to retrieve the next page of results. If this value is empty, only the first
-     *        page is retrieved.
+     *        The pagination token to use to retrieve the next page of results for this operation. If this value is
+     *        null, it retrieves the first page.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -248,7 +248,8 @@ public class DescribeImagePermissionsRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

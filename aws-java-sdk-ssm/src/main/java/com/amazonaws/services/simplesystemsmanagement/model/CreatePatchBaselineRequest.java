@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
     private String name;
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      */
     private PatchFilterGroup globalFilters;
@@ -55,7 +55,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      */
@@ -80,7 +80,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      */
@@ -126,6 +126,32 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      */
     private String clientToken;
+    /**
+     * <p>
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such
+     * as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the
+     * severity level of patches it specifies and the operating system family it applies to. In this case, you could
+     * specify the following key name/value pairs:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Key=PatchSeverity,Value=Critical</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Key=OS,Value=Windows</code>
+     * </p>
+     * </li>
+     * </ul>
+     * <note>
+     * <p>
+     * To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     * </p>
+     * </note>
+     */
+    private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
@@ -242,11 +268,11 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      * 
      * @param globalFilters
-     *        A set of global filters used to exclude patches from the baseline.
+     *        A set of global filters used to include patches in the baseline.
      */
 
     public void setGlobalFilters(PatchFilterGroup globalFilters) {
@@ -255,10 +281,10 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      * 
-     * @return A set of global filters used to exclude patches from the baseline.
+     * @return A set of global filters used to include patches in the baseline.
      */
 
     public PatchFilterGroup getGlobalFilters() {
@@ -267,11 +293,11 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * A set of global filters used to exclude patches from the baseline.
+     * A set of global filters used to include patches in the baseline.
      * </p>
      * 
      * @param globalFilters
-     *        A set of global filters used to exclude patches from the baseline.
+     *        A set of global filters used to include patches in the baseline.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -326,14 +352,14 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
      * @return A list of explicitly approved patches for the baseline.</p>
      *         <p>
      *         For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *         "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *         >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *         Guide</i>.
      */
@@ -351,7 +377,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -359,7 +385,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly approved patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      */
@@ -379,7 +405,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <p>
@@ -392,7 +418,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly approved patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -414,7 +440,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -422,7 +448,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly approved patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -582,14 +608,14 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
      * @return A list of explicitly rejected patches for the baseline.</p>
      *         <p>
      *         For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *         "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *         >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *         Guide</i>.
      */
@@ -607,7 +633,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -615,7 +641,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly rejected patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      */
@@ -635,7 +661,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <p>
@@ -648,7 +674,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly rejected patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -670,7 +696,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      * </p>
      * <p>
      * For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     * "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      * >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * 
@@ -678,7 +704,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
      *        A list of explicitly rejected patches for the baseline.</p>
      *        <p>
      *        For information about accepted formats for lists of approved patches and rejected patches, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
+     *        "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html"
      *        >Package Name Formats for Approved and Rejected Patch Lists</a> in the <i>AWS Systems Manager User
      *        Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1084,7 +1110,237 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such
+     * as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the
+     * severity level of patches it specifies and the operating system family it applies to. In this case, you could
+     * specify the following key name/value pairs:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Key=PatchSeverity,Value=Critical</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Key=OS,Value=Windows</code>
+     * </p>
+     * </li>
+     * </ul>
+     * <note>
+     * <p>
+     * To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     * </p>
+     * </note>
+     * 
+     * @return Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different
+     *         ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to
+     *         identify the severity level of patches it specifies and the operating system family it applies to. In
+     *         this case, you could specify the following key name/value pairs:</p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>Key=PatchSeverity,Value=Critical</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>Key=OS,Value=Windows</code>
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         <note>
+     *         <p>
+     *         To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     *         </p>
+     */
+
+    public java.util.List<Tag> getTags() {
+        if (tags == null) {
+            tags = new com.amazonaws.internal.SdkInternalList<Tag>();
+        }
+        return tags;
+    }
+
+    /**
+     * <p>
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such
+     * as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the
+     * severity level of patches it specifies and the operating system family it applies to. In this case, you could
+     * specify the following key name/value pairs:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Key=PatchSeverity,Value=Critical</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Key=OS,Value=Windows</code>
+     * </p>
+     * </li>
+     * </ul>
+     * <note>
+     * <p>
+     * To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     * </p>
+     * </note>
+     * 
+     * @param tags
+     *        Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different
+     *        ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to
+     *        identify the severity level of patches it specifies and the operating system family it applies to. In this
+     *        case, you could specify the following key name/value pairs:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Key=PatchSeverity,Value=Critical</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Key=OS,Value=Windows</code>
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        <note>
+     *        <p>
+     *        To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     *        </p>
+     */
+
+    public void setTags(java.util.Collection<Tag> tags) {
+        if (tags == null) {
+            this.tags = null;
+            return;
+        }
+
+        this.tags = new com.amazonaws.internal.SdkInternalList<Tag>(tags);
+    }
+
+    /**
+     * <p>
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such
+     * as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the
+     * severity level of patches it specifies and the operating system family it applies to. In this case, you could
+     * specify the following key name/value pairs:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Key=PatchSeverity,Value=Critical</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Key=OS,Value=Windows</code>
+     * </p>
+     * </li>
+     * </ul>
+     * <note>
+     * <p>
+     * To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     * </p>
+     * </note>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
+     * existing values.
+     * </p>
+     * 
+     * @param tags
+     *        Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different
+     *        ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to
+     *        identify the severity level of patches it specifies and the operating system family it applies to. In this
+     *        case, you could specify the following key name/value pairs:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Key=PatchSeverity,Value=Critical</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Key=OS,Value=Windows</code>
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        <note>
+     *        <p>
+     *        To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreatePatchBaselineRequest withTags(Tag... tags) {
+        if (this.tags == null) {
+            setTags(new com.amazonaws.internal.SdkInternalList<Tag>(tags.length));
+        }
+        for (Tag ele : tags) {
+            this.tags.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such
+     * as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the
+     * severity level of patches it specifies and the operating system family it applies to. In this case, you could
+     * specify the following key name/value pairs:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Key=PatchSeverity,Value=Critical</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Key=OS,Value=Windows</code>
+     * </p>
+     * </li>
+     * </ul>
+     * <note>
+     * <p>
+     * To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     * </p>
+     * </note>
+     * 
+     * @param tags
+     *        Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different
+     *        ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to
+     *        identify the severity level of patches it specifies and the operating system family it applies to. In this
+     *        case, you could specify the following key name/value pairs:</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Key=PatchSeverity,Value=Critical</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Key=OS,Value=Windows</code>
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        <note>
+     *        <p>
+     *        To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreatePatchBaselineRequest withTags(java.util.Collection<Tag> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1117,7 +1373,9 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
         if (getSources() != null)
             sb.append("Sources: ").append(getSources()).append(",");
         if (getClientToken() != null)
-            sb.append("ClientToken: ").append(getClientToken());
+            sb.append("ClientToken: ").append(getClientToken()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -1182,6 +1440,10 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
             return false;
         if (other.getClientToken() != null && other.getClientToken().equals(this.getClientToken()) == false)
             return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
+            return false;
         return true;
     }
 
@@ -1202,6 +1464,7 @@ public class CreatePatchBaselineRequest extends com.amazonaws.AmazonWebServiceRe
         hashCode = prime * hashCode + ((getDescription() == null) ? 0 : getDescription().hashCode());
         hashCode = prime * hashCode + ((getSources() == null) ? 0 : getSources().hashCode());
         hashCode = prime * hashCode + ((getClientToken() == null) ? 0 : getClientToken().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

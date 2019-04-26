@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -24,13 +24,27 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a
  * href="https://docs.docker.com/engine/reference/run/">docker run</a>.
  * </p>
- * <note>
  * <p>
  * It is not recommended that you specify network-related <code>systemControls</code> parameters for multiple containers
- * in a single task that also uses either the <code>awsvpc</code> or <code>host</code> network modes. When you do, the
- * container that is started last will determine which <code>systemControls</code> parameters take effect.
+ * in a single task that also uses either the <code>awsvpc</code> or <code>host</code> network mode for the following
+ * reasons:
  * </p>
- * </note>
+ * <ul>
+ * <li>
+ * <p>
+ * For tasks that use the <code>awsvpc</code> network mode, if you set <code>systemControls</code> for any container, it
+ * applies to all containers in the task. If you set different <code>systemControls</code> for multiple containers in a
+ * single task, the container that is started last determines which <code>systemControls</code> take effect.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * For tasks that use the <code>host</code> network mode, the <code>systemControls</code> parameter applies to the
+ * container instance's kernel parameter as well as that of all containers of any tasks running on that container
+ * instance.
+ * </p>
+ * </li>
+ * </ul>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/SystemControl" target="_top">AWS API
  *      Documentation</a>
@@ -40,24 +54,24 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The namespaced kernel parameter to set a <code>value</code> for.
+     * The namespaced kernel parameter for which to set a <code>value</code>.
      * </p>
      */
     private String namespace;
     /**
      * <p>
-     * The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     * The value for the namespaced kernel parameter specified in <code>namespace</code>.
      * </p>
      */
     private String value;
 
     /**
      * <p>
-     * The namespaced kernel parameter to set a <code>value</code> for.
+     * The namespaced kernel parameter for which to set a <code>value</code>.
      * </p>
      * 
      * @param namespace
-     *        The namespaced kernel parameter to set a <code>value</code> for.
+     *        The namespaced kernel parameter for which to set a <code>value</code>.
      */
 
     public void setNamespace(String namespace) {
@@ -66,10 +80,10 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The namespaced kernel parameter to set a <code>value</code> for.
+     * The namespaced kernel parameter for which to set a <code>value</code>.
      * </p>
      * 
-     * @return The namespaced kernel parameter to set a <code>value</code> for.
+     * @return The namespaced kernel parameter for which to set a <code>value</code>.
      */
 
     public String getNamespace() {
@@ -78,11 +92,11 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The namespaced kernel parameter to set a <code>value</code> for.
+     * The namespaced kernel parameter for which to set a <code>value</code>.
      * </p>
      * 
      * @param namespace
-     *        The namespaced kernel parameter to set a <code>value</code> for.
+     *        The namespaced kernel parameter for which to set a <code>value</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -93,11 +107,11 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     * The value for the namespaced kernel parameter specified in <code>namespace</code>.
      * </p>
      * 
      * @param value
-     *        The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     *        The value for the namespaced kernel parameter specified in <code>namespace</code>.
      */
 
     public void setValue(String value) {
@@ -106,10 +120,10 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     * The value for the namespaced kernel parameter specified in <code>namespace</code>.
      * </p>
      * 
-     * @return The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     * @return The value for the namespaced kernel parameter specified in <code>namespace</code>.
      */
 
     public String getValue() {
@@ -118,11 +132,11 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     * The value for the namespaced kernel parameter specified in <code>namespace</code>.
      * </p>
      * 
      * @param value
-     *        The value for the namespaced kernel parameter specifed in <code>namespace</code>.
+     *        The value for the namespaced kernel parameter specified in <code>namespace</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -132,7 +146,8 @@ public class SystemControl implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -141,6 +141,21 @@ public class RestoreDBInstanceToPointInTimeRequestMarshaller implements
             request.addParameter("TdeCredentialPassword", StringUtils.fromString(restoreDBInstanceToPointInTimeRequest.getTdeCredentialPassword()));
         }
 
+        if (!restoreDBInstanceToPointInTimeRequest.getVpcSecurityGroupIds().isEmpty()
+                || !((com.amazonaws.internal.SdkInternalList<String>) restoreDBInstanceToPointInTimeRequest.getVpcSecurityGroupIds()).isAutoConstruct()) {
+            com.amazonaws.internal.SdkInternalList<String> vpcSecurityGroupIdsList = (com.amazonaws.internal.SdkInternalList<String>) restoreDBInstanceToPointInTimeRequest
+                    .getVpcSecurityGroupIds();
+            int vpcSecurityGroupIdsListIndex = 1;
+
+            for (String vpcSecurityGroupIdsListValue : vpcSecurityGroupIdsList) {
+                if (vpcSecurityGroupIdsListValue != null) {
+                    request.addParameter("VpcSecurityGroupIds.VpcSecurityGroupId." + vpcSecurityGroupIdsListIndex,
+                            StringUtils.fromString(vpcSecurityGroupIdsListValue));
+                }
+                vpcSecurityGroupIdsListIndex++;
+            }
+        }
+
         if (restoreDBInstanceToPointInTimeRequest.getDomain() != null) {
             request.addParameter("Domain", StringUtils.fromString(restoreDBInstanceToPointInTimeRequest.getDomain()));
         }
@@ -194,8 +209,16 @@ public class RestoreDBInstanceToPointInTimeRequestMarshaller implements
             request.addParameter("UseDefaultProcessorFeatures", StringUtils.fromBoolean(restoreDBInstanceToPointInTimeRequest.getUseDefaultProcessorFeatures()));
         }
 
+        if (restoreDBInstanceToPointInTimeRequest.getDBParameterGroupName() != null) {
+            request.addParameter("DBParameterGroupName", StringUtils.fromString(restoreDBInstanceToPointInTimeRequest.getDBParameterGroupName()));
+        }
+
         if (restoreDBInstanceToPointInTimeRequest.getDeletionProtection() != null) {
             request.addParameter("DeletionProtection", StringUtils.fromBoolean(restoreDBInstanceToPointInTimeRequest.getDeletionProtection()));
+        }
+
+        if (restoreDBInstanceToPointInTimeRequest.getSourceDbiResourceId() != null) {
+            request.addParameter("SourceDbiResourceId", StringUtils.fromString(restoreDBInstanceToPointInTimeRequest.getSourceDbiResourceId()));
         }
 
         return request;

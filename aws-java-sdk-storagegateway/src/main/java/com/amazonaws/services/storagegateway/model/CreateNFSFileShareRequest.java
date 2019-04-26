@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -97,7 +97,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     private com.amazonaws.internal.SdkInternalList<String> clientList;
     /**
      * <p>
-     * Maps a user to anonymous user. Valid options are the following:
+     * A value that maps a user to anonymous user. Valid options are the following:
      * </p>
      * <ul>
      * <li>
@@ -134,11 +134,31 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     private Boolean guessMIMETypeEnabled;
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      */
     private Boolean requesterPays;
+    /**
+     * <p>
+     * A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+     * </p>
+     * <note>
+     * <p>
+     * Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     * following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the
+     * maximum length for a tag's value is 256.
+     * </p>
+     * </note>
+     */
+    private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
@@ -657,7 +677,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Maps a user to anonymous user. Valid options are the following:
+     * A value that maps a user to anonymous user. Valid options are the following:
      * </p>
      * <ul>
      * <li>
@@ -678,7 +698,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param squash
-     *        Maps a user to anonymous user. Valid options are the following: </p>
+     *        A value that maps a user to anonymous user. Valid options are the following: </p>
      *        <ul>
      *        <li>
      *        <p>
@@ -703,7 +723,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Maps a user to anonymous user. Valid options are the following:
+     * A value that maps a user to anonymous user. Valid options are the following:
      * </p>
      * <ul>
      * <li>
@@ -723,7 +743,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * </li>
      * </ul>
      * 
-     * @return Maps a user to anonymous user. Valid options are the following: </p>
+     * @return A value that maps a user to anonymous user. Valid options are the following: </p>
      *         <ul>
      *         <li>
      *         <p>
@@ -748,7 +768,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Maps a user to anonymous user. Valid options are the following:
+     * A value that maps a user to anonymous user. Valid options are the following:
      * </p>
      * <ul>
      * <li>
@@ -769,7 +789,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param squash
-     *        Maps a user to anonymous user. Valid options are the following: </p>
+     *        A value that maps a user to anonymous user. Valid options are the following: </p>
      *        <ul>
      *        <li>
      *        <p>
@@ -916,13 +936,25 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *        bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *        However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *        <p>
+     *        <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *        that the configuration on the file share is the same as the S3 bucket configuration.
+     *        </p>
      */
 
     public void setRequesterPays(Boolean requesterPays) {
@@ -931,12 +963,24 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *         bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *         However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *         <p>
+     *         <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *         that the configuration on the file share is the same as the S3 bucket configuration.
+     *         </p>
      */
 
     public Boolean getRequesterPays() {
@@ -945,13 +989,25 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *        bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *        However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *        <p>
+     *        <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *        that the configuration on the file share is the same as the S3 bucket configuration.
+     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -962,12 +1018,24 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket.
+     * If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3
+     * bucket owner always pays the cost of storing data.
      * </p>
+     * <note>
+     * <p>
+     * <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure that the
+     * configuration on the file share is the same as the S3 bucket configuration.
+     * </p>
+     * </note>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return A value that sets who pays the cost of the request and the cost associated with data download from the S3
+     *         bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays.
+     *         However, the S3 bucket owner always pays the cost of storing data.</p> <note>
+     *         <p>
+     *         <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file share, so make sure
+     *         that the configuration on the file share is the same as the S3 bucket configuration.
+     *         </p>
      */
 
     public Boolean isRequesterPays() {
@@ -975,7 +1043,133 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+     * </p>
+     * <note>
+     * <p>
+     * Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     * following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the
+     * maximum length for a tag's value is 256.
+     * </p>
+     * </note>
+     * 
+     * @return A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.</p>
+     *         <note>
+     *         <p>
+     *         Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and
+     *         the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters,
+     *         and the maximum length for a tag's value is 256.
+     *         </p>
+     */
+
+    public java.util.List<Tag> getTags() {
+        if (tags == null) {
+            tags = new com.amazonaws.internal.SdkInternalList<Tag>();
+        }
+        return tags;
+    }
+
+    /**
+     * <p>
+     * A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+     * </p>
+     * <note>
+     * <p>
+     * Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     * following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the
+     * maximum length for a tag's value is 256.
+     * </p>
+     * </note>
+     * 
+     * @param tags
+     *        A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.</p>
+     *        <note>
+     *        <p>
+     *        Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     *        following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and
+     *        the maximum length for a tag's value is 256.
+     *        </p>
+     */
+
+    public void setTags(java.util.Collection<Tag> tags) {
+        if (tags == null) {
+            this.tags = null;
+            return;
+        }
+
+        this.tags = new com.amazonaws.internal.SdkInternalList<Tag>(tags);
+    }
+
+    /**
+     * <p>
+     * A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+     * </p>
+     * <note>
+     * <p>
+     * Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     * following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the
+     * maximum length for a tag's value is 256.
+     * </p>
+     * </note>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
+     * existing values.
+     * </p>
+     * 
+     * @param tags
+     *        A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.</p>
+     *        <note>
+     *        <p>
+     *        Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     *        following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and
+     *        the maximum length for a tag's value is 256.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateNFSFileShareRequest withTags(Tag... tags) {
+        if (this.tags == null) {
+            setTags(new com.amazonaws.internal.SdkInternalList<Tag>(tags.length));
+        }
+        for (Tag ele : tags) {
+            this.tags.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+     * </p>
+     * <note>
+     * <p>
+     * Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     * following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the
+     * maximum length for a tag's value is 256.
+     * </p>
+     * </note>
+     * 
+     * @param tags
+     *        A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.</p>
+     *        <note>
+     *        <p>
+     *        Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the
+     *        following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and
+     *        the maximum length for a tag's value is 256.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateNFSFileShareRequest withTags(java.util.Collection<Tag> tags) {
+        setTags(tags);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1012,7 +1206,9 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
         if (getGuessMIMETypeEnabled() != null)
             sb.append("GuessMIMETypeEnabled: ").append(getGuessMIMETypeEnabled()).append(",");
         if (getRequesterPays() != null)
-            sb.append("RequesterPays: ").append(getRequesterPays());
+            sb.append("RequesterPays: ").append(getRequesterPays()).append(",");
+        if (getTags() != null)
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -1083,6 +1279,10 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
             return false;
         if (other.getRequesterPays() != null && other.getRequesterPays().equals(this.getRequesterPays()) == false)
             return false;
+        if (other.getTags() == null ^ this.getTags() == null)
+            return false;
+        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
+            return false;
         return true;
     }
 
@@ -1105,6 +1305,7 @@ public class CreateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
         hashCode = prime * hashCode + ((getReadOnly() == null) ? 0 : getReadOnly().hashCode());
         hashCode = prime * hashCode + ((getGuessMIMETypeEnabled() == null) ? 0 : getGuessMIMETypeEnabled().hashCode());
         hashCode = prime * hashCode + ((getRequesterPays() == null) ? 0 : getRequesterPays().hashCode());
+        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

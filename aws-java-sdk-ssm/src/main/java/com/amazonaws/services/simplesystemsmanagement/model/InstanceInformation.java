@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -129,7 +129,7 @@ public class InstanceInformation implements Serializable, Cloneable, StructuredP
     private String associationStatus;
     /**
      * <p>
-     * The date the association was last executed.
+     * The date the association was last run.
      * </p>
      */
     private java.util.Date lastAssociationExecutionDate;
@@ -921,11 +921,11 @@ public class InstanceInformation implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The date the association was last executed.
+     * The date the association was last run.
      * </p>
      * 
      * @param lastAssociationExecutionDate
-     *        The date the association was last executed.
+     *        The date the association was last run.
      */
 
     public void setLastAssociationExecutionDate(java.util.Date lastAssociationExecutionDate) {
@@ -934,10 +934,10 @@ public class InstanceInformation implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The date the association was last executed.
+     * The date the association was last run.
      * </p>
      * 
-     * @return The date the association was last executed.
+     * @return The date the association was last run.
      */
 
     public java.util.Date getLastAssociationExecutionDate() {
@@ -946,11 +946,11 @@ public class InstanceInformation implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The date the association was last executed.
+     * The date the association was last run.
      * </p>
      * 
      * @param lastAssociationExecutionDate
-     *        The date the association was last executed.
+     *        The date the association was last run.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1040,7 +1040,8 @@ public class InstanceInformation implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

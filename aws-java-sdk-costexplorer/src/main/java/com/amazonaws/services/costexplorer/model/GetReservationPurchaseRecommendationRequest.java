@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -69,7 +69,7 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible EC2 instances.
+     * convertible Amazon EC2 instances.
      * </p>
      */
     private ServiceSpecification serviceSpecification;
@@ -441,12 +441,12 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible EC2 instances.
+     * convertible Amazon EC2 instances.
      * </p>
      * 
      * @param serviceSpecification
      *        The hardware specifications for the service instances that you want recommendations for, such as standard
-     *        or convertible EC2 instances.
+     *        or convertible Amazon EC2 instances.
      */
 
     public void setServiceSpecification(ServiceSpecification serviceSpecification) {
@@ -456,11 +456,11 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible EC2 instances.
+     * convertible Amazon EC2 instances.
      * </p>
      * 
      * @return The hardware specifications for the service instances that you want recommendations for, such as standard
-     *         or convertible EC2 instances.
+     *         or convertible Amazon EC2 instances.
      */
 
     public ServiceSpecification getServiceSpecification() {
@@ -470,12 +470,12 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible EC2 instances.
+     * convertible Amazon EC2 instances.
      * </p>
      * 
      * @param serviceSpecification
      *        The hardware specifications for the service instances that you want recommendations for, such as standard
-     *        or convertible EC2 instances.
+     *        or convertible Amazon EC2 instances.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -565,7 +565,8 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

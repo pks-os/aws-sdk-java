@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,6 +47,22 @@ public class VpcConfigResponse implements Serializable, Cloneable, StructuredPoj
      * </p>
      */
     private String vpcId;
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS public
+     * API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests that originate
+     * from within the cluster VPC.
+     * </p>
+     */
+    private Boolean endpointPublicAccess;
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private
+     * API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC will use
+     * the private VPC endpoint instead of traversing the internet.
+     * </p>
+     */
+    private Boolean endpointPrivateAccess;
 
     /**
      * <p>
@@ -237,7 +253,144 @@ public class VpcConfigResponse implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS public
+     * API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests that originate
+     * from within the cluster VPC.
+     * </p>
+     * 
+     * @param endpointPublicAccess
+     *        This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS
+     *        public API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests
+     *        that originate from within the cluster VPC.
+     */
+
+    public void setEndpointPublicAccess(Boolean endpointPublicAccess) {
+        this.endpointPublicAccess = endpointPublicAccess;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS public
+     * API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests that originate
+     * from within the cluster VPC.
+     * </p>
+     * 
+     * @return This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS
+     *         public API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests
+     *         that originate from within the cluster VPC.
+     */
+
+    public Boolean getEndpointPublicAccess() {
+        return this.endpointPublicAccess;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS public
+     * API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests that originate
+     * from within the cluster VPC.
+     * </p>
+     * 
+     * @param endpointPublicAccess
+     *        This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS
+     *        public API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests
+     *        that originate from within the cluster VPC.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public VpcConfigResponse withEndpointPublicAccess(Boolean endpointPublicAccess) {
+        setEndpointPublicAccess(endpointPublicAccess);
+        return this;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS public
+     * API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests that originate
+     * from within the cluster VPC.
+     * </p>
+     * 
+     * @return This parameter indicates whether the Amazon EKS public API server endpoint is enabled. If the Amazon EKS
+     *         public API server endpoint is disabled, your cluster's Kubernetes API server can only receive requests
+     *         that originate from within the cluster VPC.
+     */
+
+    public Boolean isEndpointPublicAccess() {
+        return this.endpointPublicAccess;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private
+     * API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC will use
+     * the private VPC endpoint instead of traversing the internet.
+     * </p>
+     * 
+     * @param endpointPrivateAccess
+     *        This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS
+     *        private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's
+     *        VPC will use the private VPC endpoint instead of traversing the internet.
+     */
+
+    public void setEndpointPrivateAccess(Boolean endpointPrivateAccess) {
+        this.endpointPrivateAccess = endpointPrivateAccess;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private
+     * API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC will use
+     * the private VPC endpoint instead of traversing the internet.
+     * </p>
+     * 
+     * @return This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS
+     *         private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's
+     *         VPC will use the private VPC endpoint instead of traversing the internet.
+     */
+
+    public Boolean getEndpointPrivateAccess() {
+        return this.endpointPrivateAccess;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private
+     * API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC will use
+     * the private VPC endpoint instead of traversing the internet.
+     * </p>
+     * 
+     * @param endpointPrivateAccess
+     *        This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS
+     *        private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's
+     *        VPC will use the private VPC endpoint instead of traversing the internet.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public VpcConfigResponse withEndpointPrivateAccess(Boolean endpointPrivateAccess) {
+        setEndpointPrivateAccess(endpointPrivateAccess);
+        return this;
+    }
+
+    /**
+     * <p>
+     * This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private
+     * API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC will use
+     * the private VPC endpoint instead of traversing the internet.
+     * </p>
+     * 
+     * @return This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS
+     *         private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's
+     *         VPC will use the private VPC endpoint instead of traversing the internet.
+     */
+
+    public Boolean isEndpointPrivateAccess() {
+        return this.endpointPrivateAccess;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -252,7 +405,11 @@ public class VpcConfigResponse implements Serializable, Cloneable, StructuredPoj
         if (getSecurityGroupIds() != null)
             sb.append("SecurityGroupIds: ").append(getSecurityGroupIds()).append(",");
         if (getVpcId() != null)
-            sb.append("VpcId: ").append(getVpcId());
+            sb.append("VpcId: ").append(getVpcId()).append(",");
+        if (getEndpointPublicAccess() != null)
+            sb.append("EndpointPublicAccess: ").append(getEndpointPublicAccess()).append(",");
+        if (getEndpointPrivateAccess() != null)
+            sb.append("EndpointPrivateAccess: ").append(getEndpointPrivateAccess());
         sb.append("}");
         return sb.toString();
     }
@@ -279,6 +436,14 @@ public class VpcConfigResponse implements Serializable, Cloneable, StructuredPoj
             return false;
         if (other.getVpcId() != null && other.getVpcId().equals(this.getVpcId()) == false)
             return false;
+        if (other.getEndpointPublicAccess() == null ^ this.getEndpointPublicAccess() == null)
+            return false;
+        if (other.getEndpointPublicAccess() != null && other.getEndpointPublicAccess().equals(this.getEndpointPublicAccess()) == false)
+            return false;
+        if (other.getEndpointPrivateAccess() == null ^ this.getEndpointPrivateAccess() == null)
+            return false;
+        if (other.getEndpointPrivateAccess() != null && other.getEndpointPrivateAccess().equals(this.getEndpointPrivateAccess()) == false)
+            return false;
         return true;
     }
 
@@ -290,6 +455,8 @@ public class VpcConfigResponse implements Serializable, Cloneable, StructuredPoj
         hashCode = prime * hashCode + ((getSubnetIds() == null) ? 0 : getSubnetIds().hashCode());
         hashCode = prime * hashCode + ((getSecurityGroupIds() == null) ? 0 : getSecurityGroupIds().hashCode());
         hashCode = prime * hashCode + ((getVpcId() == null) ? 0 : getVpcId().hashCode());
+        hashCode = prime * hashCode + ((getEndpointPublicAccess() == null) ? 0 : getEndpointPublicAccess().hashCode());
+        hashCode = prime * hashCode + ((getEndpointPrivateAccess() == null) ? 0 : getEndpointPrivateAccess().hashCode());
         return hashCode;
     }
 

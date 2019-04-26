@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * When the schedule action starts.
+ * Settings to specify the start time for an action.
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ScheduleActionStartSettings"
  *      target="_top">AWS API Documentation</a>
@@ -26,14 +26,16 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ScheduleActionStartSettings implements Serializable, Cloneable, StructuredPojo {
 
-    /** Fixed timestamp action start. Conforms to ISO-8601. */
+    /** Holds the start time for the action. */
     private FixedModeScheduleActionStartSettings fixedModeScheduleActionStartSettings;
+    /** Specifies an action to follow for scheduling this action. */
+    private FollowModeScheduleActionStartSettings followModeScheduleActionStartSettings;
 
     /**
-     * Fixed timestamp action start. Conforms to ISO-8601.
+     * Holds the start time for the action.
      * 
      * @param fixedModeScheduleActionStartSettings
-     *        Fixed timestamp action start. Conforms to ISO-8601.
+     *        Holds the start time for the action.
      */
 
     public void setFixedModeScheduleActionStartSettings(FixedModeScheduleActionStartSettings fixedModeScheduleActionStartSettings) {
@@ -41,9 +43,9 @@ public class ScheduleActionStartSettings implements Serializable, Cloneable, Str
     }
 
     /**
-     * Fixed timestamp action start. Conforms to ISO-8601.
+     * Holds the start time for the action.
      * 
-     * @return Fixed timestamp action start. Conforms to ISO-8601.
+     * @return Holds the start time for the action.
      */
 
     public FixedModeScheduleActionStartSettings getFixedModeScheduleActionStartSettings() {
@@ -51,10 +53,10 @@ public class ScheduleActionStartSettings implements Serializable, Cloneable, Str
     }
 
     /**
-     * Fixed timestamp action start. Conforms to ISO-8601.
+     * Holds the start time for the action.
      * 
      * @param fixedModeScheduleActionStartSettings
-     *        Fixed timestamp action start. Conforms to ISO-8601.
+     *        Holds the start time for the action.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -64,7 +66,42 @@ public class ScheduleActionStartSettings implements Serializable, Cloneable, Str
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Specifies an action to follow for scheduling this action.
+     * 
+     * @param followModeScheduleActionStartSettings
+     *        Specifies an action to follow for scheduling this action.
+     */
+
+    public void setFollowModeScheduleActionStartSettings(FollowModeScheduleActionStartSettings followModeScheduleActionStartSettings) {
+        this.followModeScheduleActionStartSettings = followModeScheduleActionStartSettings;
+    }
+
+    /**
+     * Specifies an action to follow for scheduling this action.
+     * 
+     * @return Specifies an action to follow for scheduling this action.
+     */
+
+    public FollowModeScheduleActionStartSettings getFollowModeScheduleActionStartSettings() {
+        return this.followModeScheduleActionStartSettings;
+    }
+
+    /**
+     * Specifies an action to follow for scheduling this action.
+     * 
+     * @param followModeScheduleActionStartSettings
+     *        Specifies an action to follow for scheduling this action.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ScheduleActionStartSettings withFollowModeScheduleActionStartSettings(FollowModeScheduleActionStartSettings followModeScheduleActionStartSettings) {
+        setFollowModeScheduleActionStartSettings(followModeScheduleActionStartSettings);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -75,7 +112,9 @@ public class ScheduleActionStartSettings implements Serializable, Cloneable, Str
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getFixedModeScheduleActionStartSettings() != null)
-            sb.append("FixedModeScheduleActionStartSettings: ").append(getFixedModeScheduleActionStartSettings());
+            sb.append("FixedModeScheduleActionStartSettings: ").append(getFixedModeScheduleActionStartSettings()).append(",");
+        if (getFollowModeScheduleActionStartSettings() != null)
+            sb.append("FollowModeScheduleActionStartSettings: ").append(getFollowModeScheduleActionStartSettings());
         sb.append("}");
         return sb.toString();
     }
@@ -95,6 +134,11 @@ public class ScheduleActionStartSettings implements Serializable, Cloneable, Str
         if (other.getFixedModeScheduleActionStartSettings() != null
                 && other.getFixedModeScheduleActionStartSettings().equals(this.getFixedModeScheduleActionStartSettings()) == false)
             return false;
+        if (other.getFollowModeScheduleActionStartSettings() == null ^ this.getFollowModeScheduleActionStartSettings() == null)
+            return false;
+        if (other.getFollowModeScheduleActionStartSettings() != null
+                && other.getFollowModeScheduleActionStartSettings().equals(this.getFollowModeScheduleActionStartSettings()) == false)
+            return false;
         return true;
     }
 
@@ -104,6 +148,7 @@ public class ScheduleActionStartSettings implements Serializable, Cloneable, Str
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getFixedModeScheduleActionStartSettings() == null) ? 0 : getFixedModeScheduleActionStartSettings().hashCode());
+        hashCode = prime * hashCode + ((getFollowModeScheduleActionStartSettings() == null) ? 0 : getFollowModeScheduleActionStartSettings().hashCode());
         return hashCode;
     }
 

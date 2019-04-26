@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * The responses that are returned after you create or update an endpoint and record an event.
+ * A complex object that holds the status code and message as a result of processing an endpoint.
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/EndpointItemResponse" target="_top">AWS API
  *      Documentation</a>
@@ -28,7 +28,7 @@ public class EndpointItemResponse implements Serializable, Cloneable, Structured
 
     /** A custom message associated with the registration of an endpoint when issuing a response. */
     private String message;
-    /** The status code to respond with for a particular endpoint id after endpoint registration */
+    /** The status code associated with the merging of an endpoint when issuing a response. */
     private Integer statusCode;
 
     /**
@@ -66,10 +66,10 @@ public class EndpointItemResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * The status code to respond with for a particular endpoint id after endpoint registration
+     * The status code associated with the merging of an endpoint when issuing a response.
      * 
      * @param statusCode
-     *        The status code to respond with for a particular endpoint id after endpoint registration
+     *        The status code associated with the merging of an endpoint when issuing a response.
      */
 
     public void setStatusCode(Integer statusCode) {
@@ -77,9 +77,9 @@ public class EndpointItemResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * The status code to respond with for a particular endpoint id after endpoint registration
+     * The status code associated with the merging of an endpoint when issuing a response.
      * 
-     * @return The status code to respond with for a particular endpoint id after endpoint registration
+     * @return The status code associated with the merging of an endpoint when issuing a response.
      */
 
     public Integer getStatusCode() {
@@ -87,10 +87,10 @@ public class EndpointItemResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * The status code to respond with for a particular endpoint id after endpoint registration
+     * The status code associated with the merging of an endpoint when issuing a response.
      * 
      * @param statusCode
-     *        The status code to respond with for a particular endpoint id after endpoint registration
+     *        The status code associated with the merging of an endpoint when issuing a response.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -100,7 +100,8 @@ public class EndpointItemResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

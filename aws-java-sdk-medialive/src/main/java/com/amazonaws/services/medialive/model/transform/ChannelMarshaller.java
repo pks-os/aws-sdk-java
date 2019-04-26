@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -12,6 +12,7 @@
  */
 package com.amazonaws.services.medialive.model.transform;
 
+import java.util.Map;
 import java.util.List;
 import javax.annotation.Generated;
 
@@ -30,6 +31,8 @@ public class ChannelMarshaller {
 
     private static final MarshallingInfo<String> ARN_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("arn").build();
+    private static final MarshallingInfo<String> CHANNELCLASS_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("channelClass").build();
     private static final MarshallingInfo<List> DESTINATIONS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("destinations").build();
     private static final MarshallingInfo<List> EGRESSENDPOINTS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
@@ -52,6 +55,8 @@ public class ChannelMarshaller {
             .marshallLocationName("roleArn").build();
     private static final MarshallingInfo<String> STATE_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("state").build();
+    private static final MarshallingInfo<Map> TAGS_BINDING = MarshallingInfo.builder(MarshallingType.MAP).marshallLocation(MarshallLocation.PAYLOAD)
+            .marshallLocationName("tags").build();
 
     private static final ChannelMarshaller instance = new ChannelMarshaller();
 
@@ -70,6 +75,7 @@ public class ChannelMarshaller {
 
         try {
             protocolMarshaller.marshall(channel.getArn(), ARN_BINDING);
+            protocolMarshaller.marshall(channel.getChannelClass(), CHANNELCLASS_BINDING);
             protocolMarshaller.marshall(channel.getDestinations(), DESTINATIONS_BINDING);
             protocolMarshaller.marshall(channel.getEgressEndpoints(), EGRESSENDPOINTS_BINDING);
             protocolMarshaller.marshall(channel.getEncoderSettings(), ENCODERSETTINGS_BINDING);
@@ -81,6 +87,7 @@ public class ChannelMarshaller {
             protocolMarshaller.marshall(channel.getPipelinesRunningCount(), PIPELINESRUNNINGCOUNT_BINDING);
             protocolMarshaller.marshall(channel.getRoleArn(), ROLEARN_BINDING);
             protocolMarshaller.marshall(channel.getState(), STATE_BINDING);
+            protocolMarshaller.marshall(channel.getTags(), TAGS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

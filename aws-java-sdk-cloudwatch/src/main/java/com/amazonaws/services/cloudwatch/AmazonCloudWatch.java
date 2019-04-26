@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -262,7 +262,7 @@ public interface AmazonCloudWatch {
      * the returned statistics, to create new time series that represent new insights into your data. For example, using
      * Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series.
      * For more information about metric math expressions, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax"
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax"
      * >Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.
      * </p>
      * <p>
@@ -387,7 +387,7 @@ public interface AmazonCloudWatch {
      * </p>
      * <p>
      * For information about metrics and dimensions supported by AWS services, see the <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon CloudWatch
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon CloudWatch
      * Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User Guide</i>.
      * </p>
      * 
@@ -501,6 +501,25 @@ public interface AmazonCloudWatch {
 
     /**
      * <p>
+     * Displays the tags associated with a CloudWatch resource. Alarms support tagging.
+     * </p>
+     * 
+     * @param listTagsForResourceRequest
+     * @return Result of the ListTagsForResource operation returned by the service.
+     * @throws InvalidParameterValueException
+     *         The value of an input parameter is bad or out-of-range.
+     * @throws ResourceNotFoundException
+     *         The named resource does not exist.
+     * @throws InternalServiceException
+     *         Request processing has failed due to some unknown error, exception, or failure.
+     * @sample AmazonCloudWatch.ListTagsForResource
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/ListTagsForResource" target="_top">AWS
+     *      API Documentation</a>
+     */
+    ListTagsForResourceResult listTagsForResource(ListTagsForResourceRequest listTagsForResourceRequest);
+
+    /**
+     * <p>
      * Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
      * the entire contents are replaced with what you specify here.
      * </p>
@@ -536,19 +555,19 @@ public interface AmazonCloudWatch {
 
     /**
      * <p>
-     * Creates or updates an alarm and associates it with the specified metric. Optionally, this operation can associate
-     * one or more Amazon SNS resources with the alarm.
+     * Creates or updates an alarm and associates it with the specified metric or metric math expression.
      * </p>
      * <p>
      * When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The
-     * alarm is evaluated and its state is set appropriately. Any actions associated with the state are then executed.
+     * alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then
+     * executed.
      * </p>
      * <p>
      * When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous
      * configuration of the alarm.
      * </p>
      * <p>
-     * If you are an IAM user, you must have Amazon EC2 permissions for some operations:
+     * If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
      * </p>
      * <ul>
      * <li>
@@ -574,8 +593,7 @@ public interface AmazonCloudWatch {
      * </li>
      * <li>
      * <p>
-     * <code>ec2:DescribeInstanceRecoveryAttribute</code> and <code>ec2:RecoverInstances</code> for alarms with recover
-     * actions
+     * No specific permissions are needed for alarms with recover actions
      * </p>
      * </li>
      * </ul>
@@ -596,8 +614,8 @@ public interface AmazonCloudWatch {
      * <p>
      * The first time you create an alarm in the AWS Management Console, the CLI, or by using the PutMetricAlarm API,
      * CloudWatch creates the necessary service-linked role for you. The service-linked role is called
-     * <code>AWSServiceRoleForCloudWatchEvents</code>. For more information about service-linked roles, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role"
+     * <code>AWSServiceRoleForCloudWatchEvents</code>. For more information, see <a href=
+     * "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role"
      * >AWS service-linked role</a>.
      * </p>
      * 
@@ -613,9 +631,9 @@ public interface AmazonCloudWatch {
 
     /**
      * <p>
-     * Publishes metric data to Amazon CloudWatch. CloudWatch associates the data with the specified metric. If the
-     * specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up
-     * to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.
+     * Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified
+     * metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric,
+     * it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.
      * </p>
      * <p>
      * You can publish either individual data points in the <code>Value</code> field, or arrays of values and the number
@@ -635,9 +653,9 @@ public interface AmazonCloudWatch {
      * supported.
      * </p>
      * <p>
-     * You can use up to 10 dimensions per metric to further clarify what data the metric collects. For more information
-     * about specifying dimensions, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
+     * You can use up to 10 dimensions per metric to further clarify what data the metric collects. Each dimension
+     * consists of a Name and Value pair. For more information about specifying dimensions, see <a
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
      * Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.
      * </p>
      * <p>
@@ -645,10 +663,8 @@ public interface AmazonCloudWatch {
      * <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they are submitted.
      * </p>
      * <p>
-     * CloudWatch needs raw data points to calculate percentile statistics. These raw data points could be published
-     * individually or as part of <code>Values</code> and <code>Counts</code> arrays. If you publish data using
-     * statistic sets in the <code>StatisticValues</code> field instead, you can only retrieve percentile statistics for
-     * this data if one of the following conditions is true:
+     * CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set
+     * instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:
      * </p>
      * <ul>
      * <li>
@@ -702,6 +718,62 @@ public interface AmazonCloudWatch {
      *      Documentation</a>
      */
     SetAlarmStateResult setAlarmState(SetAlarmStateRequest setAlarmStateRequest);
+
+    /**
+     * <p>
+     * Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Tags can help you organize and
+     * categorize your resources. You can also use them to scope user permissions, by granting a user permission to
+     * access or change only resources with certain tag values. In CloudWatch, alarms can be tagged.
+     * </p>
+     * <p>
+     * Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+     * </p>
+     * <p>
+     * You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag
+     * key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag
+     * key that is already associated with the resource, the new tag value that you specify replaces the previous value
+     * for that tag.
+     * </p>
+     * <p>
+     * You can associate as many as 50 tags with a resource.
+     * </p>
+     * 
+     * @param tagResourceRequest
+     * @return Result of the TagResource operation returned by the service.
+     * @throws InvalidParameterValueException
+     *         The value of an input parameter is bad or out-of-range.
+     * @throws ResourceNotFoundException
+     *         The named resource does not exist.
+     * @throws ConcurrentModificationException
+     *         More than one process tried to modify a resource at the same time.
+     * @throws InternalServiceException
+     *         Request processing has failed due to some unknown error, exception, or failure.
+     * @sample AmazonCloudWatch.TagResource
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/TagResource" target="_top">AWS API
+     *      Documentation</a>
+     */
+    TagResourceResult tagResource(TagResourceRequest tagResourceRequest);
+
+    /**
+     * <p>
+     * Removes one or more tags from the specified resource.
+     * </p>
+     * 
+     * @param untagResourceRequest
+     * @return Result of the UntagResource operation returned by the service.
+     * @throws InvalidParameterValueException
+     *         The value of an input parameter is bad or out-of-range.
+     * @throws ResourceNotFoundException
+     *         The named resource does not exist.
+     * @throws ConcurrentModificationException
+     *         More than one process tried to modify a resource at the same time.
+     * @throws InternalServiceException
+     *         Request processing has failed due to some unknown error, exception, or failure.
+     * @sample AmazonCloudWatch.UntagResource
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/UntagResource" target="_top">AWS API
+     *      Documentation</a>
+     */
+    UntagResourceResult untagResource(UntagResourceRequest untagResourceRequest);
 
     /**
      * Shuts down this client object, releasing any resources that might be held open. This is an optional method, and

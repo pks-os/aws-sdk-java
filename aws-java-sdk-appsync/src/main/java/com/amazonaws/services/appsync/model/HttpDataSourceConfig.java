@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Describes a Http data source configuration.
+ * Describes an HTTP data source configuration.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/HttpDataSourceConfig" target="_top">AWS API
@@ -30,24 +30,30 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The Http url endpoint. You can either specify the domain name or ip and port combination and the url scheme must
-     * be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http endpoint and port 443
-     * for https endpoints.
+     * The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme
+     * must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint
+     * and port 443 for HTTPS endpoints.
      * </p>
      */
     private String endpoint;
+    /**
+     * <p>
+     * The authorization config in case the HTTP endpoint requires authorization.
+     * </p>
+     */
+    private AuthorizationConfig authorizationConfig;
 
     /**
      * <p>
-     * The Http url endpoint. You can either specify the domain name or ip and port combination and the url scheme must
-     * be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http endpoint and port 443
-     * for https endpoints.
+     * The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme
+     * must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint
+     * and port 443 for HTTPS endpoints.
      * </p>
      * 
      * @param endpoint
-     *        The Http url endpoint. You can either specify the domain name or ip and port combination and the url
-     *        scheme must be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http
-     *        endpoint and port 443 for https endpoints.
+     *        The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL
+     *        scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the
+     *        HTTP endpoint and port 443 for HTTPS endpoints.
      */
 
     public void setEndpoint(String endpoint) {
@@ -56,14 +62,14 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The Http url endpoint. You can either specify the domain name or ip and port combination and the url scheme must
-     * be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http endpoint and port 443
-     * for https endpoints.
+     * The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme
+     * must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint
+     * and port 443 for HTTPS endpoints.
      * </p>
      * 
-     * @return The Http url endpoint. You can either specify the domain name or ip and port combination and the url
-     *         scheme must be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http
-     *         endpoint and port 443 for https endpoints.
+     * @return The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL
+     *         scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the
+     *         HTTP endpoint and port 443 for HTTPS endpoints.
      */
 
     public String getEndpoint() {
@@ -72,15 +78,15 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The Http url endpoint. You can either specify the domain name or ip and port combination and the url scheme must
-     * be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http endpoint and port 443
-     * for https endpoints.
+     * The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme
+     * must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint
+     * and port 443 for HTTPS endpoints.
      * </p>
      * 
      * @param endpoint
-     *        The Http url endpoint. You can either specify the domain name or ip and port combination and the url
-     *        scheme must be http(s). If the port is not specified, AWS AppSync will use the default port 80 for http
-     *        endpoint and port 443 for https endpoints.
+     *        The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL
+     *        scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the
+     *        HTTP endpoint and port 443 for HTTPS endpoints.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -90,7 +96,48 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The authorization config in case the HTTP endpoint requires authorization.
+     * </p>
+     * 
+     * @param authorizationConfig
+     *        The authorization config in case the HTTP endpoint requires authorization.
+     */
+
+    public void setAuthorizationConfig(AuthorizationConfig authorizationConfig) {
+        this.authorizationConfig = authorizationConfig;
+    }
+
+    /**
+     * <p>
+     * The authorization config in case the HTTP endpoint requires authorization.
+     * </p>
+     * 
+     * @return The authorization config in case the HTTP endpoint requires authorization.
+     */
+
+    public AuthorizationConfig getAuthorizationConfig() {
+        return this.authorizationConfig;
+    }
+
+    /**
+     * <p>
+     * The authorization config in case the HTTP endpoint requires authorization.
+     * </p>
+     * 
+     * @param authorizationConfig
+     *        The authorization config in case the HTTP endpoint requires authorization.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public HttpDataSourceConfig withAuthorizationConfig(AuthorizationConfig authorizationConfig) {
+        setAuthorizationConfig(authorizationConfig);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -101,7 +148,9 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getEndpoint() != null)
-            sb.append("Endpoint: ").append(getEndpoint());
+            sb.append("Endpoint: ").append(getEndpoint()).append(",");
+        if (getAuthorizationConfig() != null)
+            sb.append("AuthorizationConfig: ").append(getAuthorizationConfig());
         sb.append("}");
         return sb.toString();
     }
@@ -120,6 +169,10 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
             return false;
         if (other.getEndpoint() != null && other.getEndpoint().equals(this.getEndpoint()) == false)
             return false;
+        if (other.getAuthorizationConfig() == null ^ this.getAuthorizationConfig() == null)
+            return false;
+        if (other.getAuthorizationConfig() != null && other.getAuthorizationConfig().equals(this.getAuthorizationConfig()) == false)
+            return false;
         return true;
     }
 
@@ -129,6 +182,7 @@ public class HttpDataSourceConfig implements Serializable, Cloneable, Structured
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getEndpoint() == null) ? 0 : getEndpoint().hashCode());
+        hashCode = prime * hashCode + ((getAuthorizationConfig() == null) ? 0 : getAuthorizationConfig().hashCode());
         return hashCode;
     }
 

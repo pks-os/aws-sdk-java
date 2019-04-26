@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ public final class EC2CredentialsUtils {
 
     private final ConnectionUtils connectionUtils;
 
-    private static final String USER_AGENT = String.format("aws-sdk-java/%s", VersionInfoUtils.getVersion());
+    private static final String USER_AGENT = VersionInfoUtils.getUserAgent();
 
     private EC2CredentialsUtils() {
         this(ConnectionUtils.getInstance());

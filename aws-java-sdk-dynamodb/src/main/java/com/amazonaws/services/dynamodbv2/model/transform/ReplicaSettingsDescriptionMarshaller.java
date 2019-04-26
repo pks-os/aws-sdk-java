@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -32,6 +32,8 @@ public class ReplicaSettingsDescriptionMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("RegionName").build();
     private static final MarshallingInfo<String> REPLICASTATUS_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ReplicaStatus").build();
+    private static final MarshallingInfo<StructuredPojo> REPLICABILLINGMODESUMMARY_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ReplicaBillingModeSummary").build();
     private static final MarshallingInfo<Long> REPLICAPROVISIONEDREADCAPACITYUNITS_BINDING = MarshallingInfo.builder(MarshallingType.LONG)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ReplicaProvisionedReadCapacityUnits").build();
     private static final MarshallingInfo<StructuredPojo> REPLICAPROVISIONEDREADCAPACITYAUTOSCALINGSETTINGS_BINDING = MarshallingInfo
@@ -63,6 +65,7 @@ public class ReplicaSettingsDescriptionMarshaller {
         try {
             protocolMarshaller.marshall(replicaSettingsDescription.getRegionName(), REGIONNAME_BINDING);
             protocolMarshaller.marshall(replicaSettingsDescription.getReplicaStatus(), REPLICASTATUS_BINDING);
+            protocolMarshaller.marshall(replicaSettingsDescription.getReplicaBillingModeSummary(), REPLICABILLINGMODESUMMARY_BINDING);
             protocolMarshaller.marshall(replicaSettingsDescription.getReplicaProvisionedReadCapacityUnits(), REPLICAPROVISIONEDREADCAPACITYUNITS_BINDING);
             protocolMarshaller.marshall(replicaSettingsDescription.getReplicaProvisionedReadCapacityAutoScalingSettings(),
                     REPLICAPROVISIONEDREADCAPACITYAUTOSCALINGSETTINGS_BINDING);

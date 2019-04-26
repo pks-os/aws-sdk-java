@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,6 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.kinesisfirehose.AmazonKinesisFirehoseClientBuilder;
 
@@ -69,6 +70,8 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
+
+    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -178,6 +181,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
     public AmazonKinesisFirehoseClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -243,6 +247,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
+        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -261,9 +266,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      *        Object providing client parameters.
      */
     AmazonKinesisFirehoseClient(AwsSyncClientParams clientParams) {
-        super(clientParams);
-        this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        init();
+        this(clientParams, false);
     }
 
     /**
@@ -279,6 +282,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
     AmazonKinesisFirehoseClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
+        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -316,15 +320,15 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * <p>
      * A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon Redshift, or Splunk. You
      * must specify only one of the following destination configuration parameters:
-     * <b>ExtendedS3DestinationConfiguration</b>, <b>S3DestinationConfiguration</b>,
-     * <b>ElasticsearchDestinationConfiguration</b>, <b>RedshiftDestinationConfiguration</b>, or
-     * <b>SplunkDestinationConfiguration</b>.
+     * <code>ExtendedS3DestinationConfiguration</code>, <code>S3DestinationConfiguration</code>,
+     * <code>ElasticsearchDestinationConfiguration</code>, <code>RedshiftDestinationConfiguration</code>, or
+     * <code>SplunkDestinationConfiguration</code>.
      * </p>
      * <p>
-     * When you specify <b>S3DestinationConfiguration</b>, you can also provide the following optional values:
-     * <b>BufferingHints</b>, <b>EncryptionConfiguration</b>, and <b>CompressionFormat</b>. By default, if no
-     * <b>BufferingHints</b> value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes,
-     * whichever condition is satisfied first. <b>BufferingHints</b> is a hint, so there are some cases where the
+     * When you specify <code>S3DestinationConfiguration</code>, you can also provide the following optional values:
+     * BufferingHints, <code>EncryptionConfiguration</code>, and <code>CompressionFormat</code>. By default, if no
+     * <code>BufferingHints</code> value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes,
+     * whichever condition is satisfied first. <code>BufferingHints</code> is a hint, so there are some cases where the
      * service cannot adhere to these conditions strictly. For example, record boundaries might be such that the size is
      * a little over or under the configured buffering size. By default, no encryption is performed. We strongly
      * recommend that you enable encryption to ensure secure data storage in Amazon S3.
@@ -337,7 +341,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * <p>
      * An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first
      * delivers data to Amazon S3 and then uses <code>COPY</code> syntax to load data into an Amazon Redshift table.
-     * This is specified in the <b>RedshiftDestinationConfiguration.S3Configuration</b> parameter.
+     * This is specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code> parameter.
      * </p>
      * </li>
      * <li>
@@ -398,11 +402,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateDeliveryStream");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<CreateDeliveryStreamResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new CreateDeliveryStreamResultJsonUnmarshaller());
@@ -468,11 +471,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteDeliveryStream");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DeleteDeliveryStreamResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteDeliveryStreamResultJsonUnmarshaller());
@@ -525,11 +527,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeDeliveryStream");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<DescribeDeliveryStreamResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -546,15 +547,15 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
 
     /**
      * <p>
-     * Lists your delivery streams.
+     * Lists your delivery streams in alphabetical order of their names.
      * </p>
      * <p>
      * The number of delivery streams might be too large to return using a single call to
-     * <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned, using the <b>Limit</b>
-     * parameter. To determine whether there are more delivery streams to list, check the value of
+     * <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned, using the
+     * <code>Limit</code> parameter. To determine whether there are more delivery streams to list, check the value of
      * <code>HasMoreDeliveryStreams</code> in the output. If there are more delivery streams to list, you can request
-     * them by specifying the name of the last delivery stream returned in the call in the
-     * <code>ExclusiveStartDeliveryStreamName</code> parameter of a subsequent call.
+     * them by calling this operation again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to
+     * the name of the last delivery stream returned in the last call.
      * </p>
      * 
      * @param listDeliveryStreamsRequest
@@ -587,11 +588,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDeliveryStreams");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListDeliveryStreamsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListDeliveryStreamsResultJsonUnmarshaller());
@@ -648,11 +648,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTagsForDeliveryStream");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<ListTagsForDeliveryStreamResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
@@ -703,6 +702,12 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * stream as it tries to send the records to the destination. If the destination is unreachable for more than 24
      * hours, the data is no longer available.
      * </p>
+     * <important>
+     * <p>
+     * Don't concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the
+     * raw data, then perform base64 encoding.
+     * </p>
+     * </important>
      * 
      * @param putRecordRequest
      * @return Result of the PutRecord operation returned by the service.
@@ -744,11 +749,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutRecord");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<PutRecordResult>> responseHandler = protocolFactory.createResponseHandler(new JsonOperationMetadata()
                     .withPayloadJson(true).withHasStreamingSuccessResponse(false), new PutRecordResultJsonUnmarshaller());
@@ -790,28 +794,31 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * when reading the data from the destination.
      * </p>
      * <p>
-     * The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>, and an array of
-     * responses, <b>RequestResponses</b>. Each entry in the <b>RequestResponses</b> array provides additional
-     * information about the processed record. It directly correlates with a record in the request array using the same
-     * ordering, from the top to the bottom. The response array always includes the same number of records as the
-     * request array. <b>RequestResponses</b> includes both successfully and unsuccessfully processed records. Kinesis
-     * Data Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does
-     * not stop the processing of subsequent records.
+     * The <a>PutRecordBatch</a> response includes a count of failed records, <code>FailedPutCount</code>, and an array
+     * of responses, <code>RequestResponses</code>. Even if the <a>PutRecordBatch</a> call succeeds, the value of
+     * <code>FailedPutCount</code> may be greater than 0, indicating that there are records for which the operation
+     * didn't succeed. Each entry in the <code>RequestResponses</code> array provides additional information about the
+     * processed record. It directly correlates with a record in the request array using the same ordering, from the top
+     * to the bottom. The response array always includes the same number of records as the request array.
+     * <code>RequestResponses</code> includes both successfully and unsuccessfully processed records. Kinesis Data
+     * Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not
+     * stop the processing of subsequent records.
      * </p>
      * <p>
-     * A successfully processed record includes a <b>RecordId</b> value, which is unique for the record. An
-     * unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b> values. <b>ErrorCode</b>
-     * reflects the type of error, and is one of the following values: <code>ServiceUnavailable</code> or
-     * <code>InternalFailure</code>. <b>ErrorMessage</b> provides more detailed information about the error.
+     * A successfully processed record includes a <code>RecordId</code> value, which is unique for the record. An
+     * unsuccessfully processed record includes <code>ErrorCode</code> and <code>ErrorMessage</code> values.
+     * <code>ErrorCode</code> reflects the type of error, and is one of the following values:
+     * <code>ServiceUnavailableException</code> or <code>InternalFailure</code>. <code>ErrorMessage</code> provides more
+     * detailed information about the error.
      * </p>
      * <p>
      * If there is an internal server error or a timeout, the write might have completed or it might have failed. If
-     * <b>FailedPutCount</b> is greater than 0, retry the request, resending only those records that might have failed
-     * processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and
+     * <code>FailedPutCount</code> is greater than 0, retry the request, resending only those records that might have
+     * failed processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and
      * corresponding charges). We recommend that you handle any duplicates at the destination.
      * </p>
      * <p>
-     * If <a>PutRecordBatch</a> throws <b>ServiceUnavailableException</b>, back off and retry. If the exception
+     * If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>, back off and retry. If the exception
      * persists, it is possible that the throughput limits have been exceeded for the delivery stream.
      * </p>
      * <p>
@@ -819,6 +826,12 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24
      * hours, the data is no longer available.
      * </p>
+     * <important>
+     * <p>
+     * Don't concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the
+     * raw data, then perform base64 encoding.
+     * </p>
+     * </important>
      * 
      * @param putRecordBatchRequest
      * @return Result of the PutRecordBatch operation returned by the service.
@@ -860,11 +873,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutRecordBatch");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<PutRecordBatchResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new PutRecordBatchResultJsonUnmarshaller());
@@ -880,11 +892,171 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
 
     /**
      * <p>
-     * Adds or updates tags for the specified delivery stream. A tag is a key-value pair (the value is optional) that
-     * you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced
-     * with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and
-     * descriptions or other types of information that can help you distinguish the delivery stream. For more
-     * information about tags, see <a
+     * Enables server-side encryption (SSE) for the delivery stream.
+     * </p>
+     * <p>
+     * This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data Firehose first sets the
+     * status of the stream to <code>ENABLING</code>, and then to <code>ENABLED</code>. You can continue to read and
+     * write data to your stream while its status is <code>ENABLING</code>, but the data is not encrypted. It can take
+     * up to 5 seconds after the encryption status changes to <code>ENABLED</code> before all records written to the
+     * delivery stream are encrypted. To find out whether a record or a batch of records was encrypted, check the
+     * response elements <a>PutRecordOutput$Encrypted</a> and <a>PutRecordBatchOutput$Encrypted</a>, respectively.
+     * </p>
+     * <p>
+     * To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+     * </p>
+     * <p>
+     * You can only enable SSE for a delivery stream that uses <code>DirectPut</code> as its source.
+     * </p>
+     * <p>
+     * The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code> operations have a
+     * combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call
+     * <code>StartDeliveryStreamEncryption</code> 13 times and <code>StopDeliveryStreamEncryption</code> 12 times for
+     * the same delivery stream in a 24-hour period.
+     * </p>
+     * 
+     * @param startDeliveryStreamEncryptionRequest
+     * @return Result of the StartDeliveryStreamEncryption operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource could not be found.
+     * @throws ResourceInUseException
+     *         The resource is already in use and not available for this operation.
+     * @throws InvalidArgumentException
+     *         The specified input parameter has a value that is not valid.
+     * @throws LimitExceededException
+     *         You have already reached the limit for a requested resource.
+     * @sample AmazonKinesisFirehose.StartDeliveryStreamEncryption
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/StartDeliveryStreamEncryption"
+     *      target="_top">AWS API Documentation</a>
+     */
+    @Override
+    public StartDeliveryStreamEncryptionResult startDeliveryStreamEncryption(StartDeliveryStreamEncryptionRequest request) {
+        request = beforeClientExecution(request);
+        return executeStartDeliveryStreamEncryption(request);
+    }
+
+    @SdkInternalApi
+    final StartDeliveryStreamEncryptionResult executeStartDeliveryStreamEncryption(StartDeliveryStreamEncryptionRequest startDeliveryStreamEncryptionRequest) {
+
+        ExecutionContext executionContext = createExecutionContext(startDeliveryStreamEncryptionRequest);
+        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
+        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
+        Request<StartDeliveryStreamEncryptionRequest> request = null;
+        Response<StartDeliveryStreamEncryptionResult> response = null;
+
+        try {
+            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
+            try {
+                request = new StartDeliveryStreamEncryptionRequestProtocolMarshaller(protocolFactory).marshall(super
+                        .beforeMarshalling(startDeliveryStreamEncryptionRequest));
+                // Binds the request metrics to the current request.
+                request.setAWSRequestMetrics(awsRequestMetrics);
+                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
+                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
+                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StartDeliveryStreamEncryption");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
+            } finally {
+                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
+            }
+
+            HttpResponseHandler<AmazonWebServiceResponse<StartDeliveryStreamEncryptionResult>> responseHandler = protocolFactory.createResponseHandler(
+                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
+                    new StartDeliveryStreamEncryptionResultJsonUnmarshaller());
+            response = invoke(request, responseHandler, executionContext);
+
+            return response.getAwsResponse();
+
+        } finally {
+
+            endClientExecution(awsRequestMetrics, request, response);
+        }
+    }
+
+    /**
+     * <p>
+     * Disables server-side encryption (SSE) for the delivery stream.
+     * </p>
+     * <p>
+     * This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data Firehose first sets the
+     * status of the stream to <code>DISABLING</code>, and then to <code>DISABLED</code>. You can continue to read and
+     * write data to your stream while its status is <code>DISABLING</code>. It can take up to 5 seconds after the
+     * encryption status changes to <code>DISABLED</code> before all records written to the delivery stream are no
+     * longer subject to encryption. To find out whether a record or a batch of records was encrypted, check the
+     * response elements <a>PutRecordOutput$Encrypted</a> and <a>PutRecordBatchOutput$Encrypted</a>, respectively.
+     * </p>
+     * <p>
+     * To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+     * </p>
+     * <p>
+     * The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code> operations have a
+     * combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call
+     * <code>StartDeliveryStreamEncryption</code> 13 times and <code>StopDeliveryStreamEncryption</code> 12 times for
+     * the same delivery stream in a 24-hour period.
+     * </p>
+     * 
+     * @param stopDeliveryStreamEncryptionRequest
+     * @return Result of the StopDeliveryStreamEncryption operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource could not be found.
+     * @throws ResourceInUseException
+     *         The resource is already in use and not available for this operation.
+     * @throws InvalidArgumentException
+     *         The specified input parameter has a value that is not valid.
+     * @throws LimitExceededException
+     *         You have already reached the limit for a requested resource.
+     * @sample AmazonKinesisFirehose.StopDeliveryStreamEncryption
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/StopDeliveryStreamEncryption"
+     *      target="_top">AWS API Documentation</a>
+     */
+    @Override
+    public StopDeliveryStreamEncryptionResult stopDeliveryStreamEncryption(StopDeliveryStreamEncryptionRequest request) {
+        request = beforeClientExecution(request);
+        return executeStopDeliveryStreamEncryption(request);
+    }
+
+    @SdkInternalApi
+    final StopDeliveryStreamEncryptionResult executeStopDeliveryStreamEncryption(StopDeliveryStreamEncryptionRequest stopDeliveryStreamEncryptionRequest) {
+
+        ExecutionContext executionContext = createExecutionContext(stopDeliveryStreamEncryptionRequest);
+        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
+        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
+        Request<StopDeliveryStreamEncryptionRequest> request = null;
+        Response<StopDeliveryStreamEncryptionResult> response = null;
+
+        try {
+            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
+            try {
+                request = new StopDeliveryStreamEncryptionRequestProtocolMarshaller(protocolFactory).marshall(super
+                        .beforeMarshalling(stopDeliveryStreamEncryptionRequest));
+                // Binds the request metrics to the current request.
+                request.setAWSRequestMetrics(awsRequestMetrics);
+                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
+                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
+                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StopDeliveryStreamEncryption");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
+            } finally {
+                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
+            }
+
+            HttpResponseHandler<AmazonWebServiceResponse<StopDeliveryStreamEncryptionResult>> responseHandler = protocolFactory.createResponseHandler(
+                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
+                    new StopDeliveryStreamEncryptionResultJsonUnmarshaller());
+            response = invoke(request, responseHandler, executionContext);
+
+            return response.getAwsResponse();
+
+        } finally {
+
+            endClientExecution(awsRequestMetrics, request, response);
+        }
+    }
+
+    /**
+     * <p>
+     * Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define and assign
+     * to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you
+     * specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other
+     * types of information that can help you distinguish the delivery stream. For more information about tags, see <a
      * href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
      * Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
      * </p>
@@ -933,11 +1105,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "TagDeliveryStream");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<TagDeliveryStreamResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new TagDeliveryStreamResultJsonUnmarshaller());
@@ -1001,11 +1172,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UntagDeliveryStream");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<UntagDeliveryStreamResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new UntagDeliveryStreamResultJsonUnmarshaller());
@@ -1046,11 +1216,11 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * Kinesis Data Firehose does not merge any parameters. In this case, all parameters must be specified.
      * </p>
      * <p>
-     * Kinesis Data Firehose uses <b>CurrentDeliveryStreamVersionId</b> to avoid race conditions and conflicting merges.
-     * This is a required field, and the service updates the configuration only if the existing configuration has a
-     * version ID that matches. After the update is applied successfully, the version ID is updated, and can be
+     * Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race conditions and conflicting
+     * merges. This is a required field, and the service updates the configuration only if the existing configuration
+     * has a version ID that matches. After the update is applied successfully, the version ID is updated, and can be
      * retrieved using <a>DescribeDeliveryStream</a>. Use the new version ID to set
-     * <b>CurrentDeliveryStreamVersionId</b> in the next call.
+     * <code>CurrentDeliveryStreamVersionId</code> in the next call.
      * </p>
      * 
      * @param updateDestinationRequest
@@ -1062,7 +1232,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * @throws ResourceNotFoundException
      *         The specified resource could not be found.
      * @throws ConcurrentModificationException
-     *         Another modification has already happened. Fetch <b>VersionId</b> again and use it to update the
+     *         Another modification has already happened. Fetch <code>VersionId</code> again and use it to update the
      *         destination.
      * @sample AmazonKinesisFirehose.UpdateDestination
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/UpdateDestination" target="_top">AWS API
@@ -1092,11 +1262,10 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
                 request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Firehose");
                 request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateDestination");
+                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
-
-            URI cachedEndpoint = null;
 
             HttpResponseHandler<AmazonWebServiceResponse<UpdateDestinationResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new UpdateDestinationResultJsonUnmarshaller());
@@ -1134,18 +1303,18 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null);
+        return invoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
      * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint) {
+            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
 
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint);
+        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
     }
 
     /**
@@ -1155,7 +1324,7 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null);
+        return doInvoke(request, responseHandler, executionContext, null, null);
     }
 
     /**
@@ -1163,11 +1332,13 @@ public class AmazonKinesisFirehoseClient extends AmazonWebServiceClient implemen
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint) {
+            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
 
         if (discoveredEndpoint != null) {
             request.setEndpoint(discoveredEndpoint);
             request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
+        } else if (uriFromEndpointTrait != null) {
+            request.setEndpoint(uriFromEndpointTrait);
         } else {
             request.setEndpoint(endpoint);
         }

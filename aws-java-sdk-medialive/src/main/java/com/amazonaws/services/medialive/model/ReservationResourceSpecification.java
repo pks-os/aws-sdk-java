@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,6 +26,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ReservationResourceSpecification implements Serializable, Cloneable, StructuredPojo {
 
+    /** Channel class, e.g. 'STANDARD' */
+    private String channelClass;
     /** Codec, e.g. 'AVC' */
     private String codec;
     /** Maximum bitrate, e.g. 'MAX_20_MBPS' */
@@ -40,6 +42,57 @@ public class ReservationResourceSpecification implements Serializable, Cloneable
     private String specialFeature;
     /** Video quality, e.g. 'STANDARD' (Outputs only) */
     private String videoQuality;
+
+    /**
+     * Channel class, e.g. 'STANDARD'
+     * 
+     * @param channelClass
+     *        Channel class, e.g. 'STANDARD'
+     * @see ChannelClass
+     */
+
+    public void setChannelClass(String channelClass) {
+        this.channelClass = channelClass;
+    }
+
+    /**
+     * Channel class, e.g. 'STANDARD'
+     * 
+     * @return Channel class, e.g. 'STANDARD'
+     * @see ChannelClass
+     */
+
+    public String getChannelClass() {
+        return this.channelClass;
+    }
+
+    /**
+     * Channel class, e.g. 'STANDARD'
+     * 
+     * @param channelClass
+     *        Channel class, e.g. 'STANDARD'
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see ChannelClass
+     */
+
+    public ReservationResourceSpecification withChannelClass(String channelClass) {
+        setChannelClass(channelClass);
+        return this;
+    }
+
+    /**
+     * Channel class, e.g. 'STANDARD'
+     * 
+     * @param channelClass
+     *        Channel class, e.g. 'STANDARD'
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see ChannelClass
+     */
+
+    public ReservationResourceSpecification withChannelClass(ChannelClass channelClass) {
+        this.channelClass = channelClass.toString();
+        return this;
+    }
 
     /**
      * Codec, e.g. 'AVC'
@@ -399,7 +452,8 @@ public class ReservationResourceSpecification implements Serializable, Cloneable
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -409,6 +463,8 @@ public class ReservationResourceSpecification implements Serializable, Cloneable
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getChannelClass() != null)
+            sb.append("ChannelClass: ").append(getChannelClass()).append(",");
         if (getCodec() != null)
             sb.append("Codec: ").append(getCodec()).append(",");
         if (getMaximumBitrate() != null)
@@ -437,6 +493,10 @@ public class ReservationResourceSpecification implements Serializable, Cloneable
         if (obj instanceof ReservationResourceSpecification == false)
             return false;
         ReservationResourceSpecification other = (ReservationResourceSpecification) obj;
+        if (other.getChannelClass() == null ^ this.getChannelClass() == null)
+            return false;
+        if (other.getChannelClass() != null && other.getChannelClass().equals(this.getChannelClass()) == false)
+            return false;
         if (other.getCodec() == null ^ this.getCodec() == null)
             return false;
         if (other.getCodec() != null && other.getCodec().equals(this.getCodec()) == false)
@@ -473,6 +533,7 @@ public class ReservationResourceSpecification implements Serializable, Cloneable
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode + ((getChannelClass() == null) ? 0 : getChannelClass().hashCode());
         hashCode = prime * hashCode + ((getCodec() == null) ? 0 : getCodec().hashCode());
         hashCode = prime * hashCode + ((getMaximumBitrate() == null) ? 0 : getMaximumBitrate().hashCode());
         hashCode = prime * hashCode + ((getMaximumFramerate() == null) ? 0 : getMaximumFramerate().hashCode());

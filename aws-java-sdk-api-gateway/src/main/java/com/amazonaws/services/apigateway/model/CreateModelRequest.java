@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,8 +45,8 @@ public class CreateModelRequest extends com.amazonaws.AmazonWebServiceRequest im
     private String description;
     /**
      * <p>
-     * The schema for the model. For <code>application/json</code> models, this should be <a href="[[JsonSchemaUrl]]"
-     * target="_blank">JSON schema draft 4</a> model.
+     * The schema for the model. For <code>application/json</code> models, this should be <a
+     * href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a> model.
      * </p>
      */
     private String schema;
@@ -179,13 +179,13 @@ public class CreateModelRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The schema for the model. For <code>application/json</code> models, this should be <a href="[[JsonSchemaUrl]]"
-     * target="_blank">JSON schema draft 4</a> model.
+     * The schema for the model. For <code>application/json</code> models, this should be <a
+     * href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a> model.
      * </p>
      * 
      * @param schema
      *        The schema for the model. For <code>application/json</code> models, this should be <a
-     *        href="[[JsonSchemaUrl]]" target="_blank">JSON schema draft 4</a> model.
+     *        href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a> model.
      */
 
     public void setSchema(String schema) {
@@ -194,12 +194,13 @@ public class CreateModelRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The schema for the model. For <code>application/json</code> models, this should be <a href="[[JsonSchemaUrl]]"
-     * target="_blank">JSON schema draft 4</a> model.
+     * The schema for the model. For <code>application/json</code> models, this should be <a
+     * href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a> model.
      * </p>
      * 
      * @return The schema for the model. For <code>application/json</code> models, this should be <a
-     *         href="[[JsonSchemaUrl]]" target="_blank">JSON schema draft 4</a> model.
+     *         href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a>
+     *         model.
      */
 
     public String getSchema() {
@@ -208,13 +209,13 @@ public class CreateModelRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The schema for the model. For <code>application/json</code> models, this should be <a href="[[JsonSchemaUrl]]"
-     * target="_blank">JSON schema draft 4</a> model.
+     * The schema for the model. For <code>application/json</code> models, this should be <a
+     * href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a> model.
      * </p>
      * 
      * @param schema
      *        The schema for the model. For <code>application/json</code> models, this should be <a
-     *        href="[[JsonSchemaUrl]]" target="_blank">JSON schema draft 4</a> model.
+     *        href="https://tools.ietf.org/html/draft-zyp-json-schema-04" target="_blank">JSON schema draft 4</a> model.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -264,7 +265,8 @@ public class CreateModelRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -76,17 +76,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     * APPIUM_NODE: The Appium Node.js type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     * APPIUM_RUBY: The Appium Ruby type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      * </p>
      * </li>
      * <li>
@@ -398,6 +418,12 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String testSpecArn;
+    /**
+     * <p>
+     * The results of a device filter used to select the devices for a test run.
+     * </p>
+     */
+    private DeviceSelectionResult deviceSelectionResult;
 
     /**
      * <p>
@@ -515,17 +541,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     * APPIUM_NODE: The Appium Node.js type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     * APPIUM_RUBY: The Appium Ruby type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      * </p>
      * </li>
      * <li>
@@ -594,17 +640,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     *        APPIUM_NODE: The Appium Node.js type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     *        APPIUM_RUBY: The Appium Ruby type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -680,17 +746,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     * APPIUM_NODE: The Appium Node.js type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     * APPIUM_RUBY: The Appium Ruby type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      * </p>
      * </li>
      * <li>
@@ -758,17 +844,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     *         APPIUM_NODE: The Appium Node.js type.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     *         APPIUM_RUBY: The Appium Ruby type.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     *         APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      *         </p>
      *         </li>
      *         <li>
@@ -844,17 +950,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     * APPIUM_NODE: The Appium Node.js type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     * APPIUM_RUBY: The Appium Ruby type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      * </p>
      * </li>
      * <li>
@@ -923,17 +1049,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     *        APPIUM_NODE: The Appium Node.js type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     *        APPIUM_RUBY: The Appium Ruby type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -1011,17 +1157,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     * APPIUM_NODE: The Appium Node.js type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     * APPIUM_RUBY: The Appium Ruby type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      * </p>
      * </li>
      * <li>
@@ -1090,17 +1256,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     *        APPIUM_NODE: The Appium Node.js type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     *        APPIUM_RUBY: The Appium Ruby type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -1176,17 +1362,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     * APPIUM_NODE: The Appium Node.js type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     * APPIUM_RUBY: The Appium Ruby type.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      * </p>
      * </li>
      * <li>
@@ -1255,17 +1461,37 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+     *        APPIUM_NODE: The Appium Node.js type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+     *        APPIUM_RUBY: The Appium Ruby type.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -3673,7 +3899,48 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The results of a device filter used to select the devices for a test run.
+     * </p>
+     * 
+     * @param deviceSelectionResult
+     *        The results of a device filter used to select the devices for a test run.
+     */
+
+    public void setDeviceSelectionResult(DeviceSelectionResult deviceSelectionResult) {
+        this.deviceSelectionResult = deviceSelectionResult;
+    }
+
+    /**
+     * <p>
+     * The results of a device filter used to select the devices for a test run.
+     * </p>
+     * 
+     * @return The results of a device filter used to select the devices for a test run.
+     */
+
+    public DeviceSelectionResult getDeviceSelectionResult() {
+        return this.deviceSelectionResult;
+    }
+
+    /**
+     * <p>
+     * The results of a device filter used to select the devices for a test run.
+     * </p>
+     * 
+     * @param deviceSelectionResult
+     *        The results of a device filter used to select the devices for a test run.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Run withDeviceSelectionResult(DeviceSelectionResult deviceSelectionResult) {
+        setDeviceSelectionResult(deviceSelectionResult);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -3742,7 +4009,9 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
         if (getSkipAppResign() != null)
             sb.append("SkipAppResign: ").append(getSkipAppResign()).append(",");
         if (getTestSpecArn() != null)
-            sb.append("TestSpecArn: ").append(getTestSpecArn());
+            sb.append("TestSpecArn: ").append(getTestSpecArn()).append(",");
+        if (getDeviceSelectionResult() != null)
+            sb.append("DeviceSelectionResult: ").append(getDeviceSelectionResult());
         sb.append("}");
         return sb.toString();
     }
@@ -3877,6 +4146,10 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTestSpecArn() != null && other.getTestSpecArn().equals(this.getTestSpecArn()) == false)
             return false;
+        if (other.getDeviceSelectionResult() == null ^ this.getDeviceSelectionResult() == null)
+            return false;
+        if (other.getDeviceSelectionResult() != null && other.getDeviceSelectionResult().equals(this.getDeviceSelectionResult()) == false)
+            return false;
         return true;
     }
 
@@ -3915,6 +4188,7 @@ public class Run implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getWebUrl() == null) ? 0 : getWebUrl().hashCode());
         hashCode = prime * hashCode + ((getSkipAppResign() == null) ? 0 : getSkipAppResign().hashCode());
         hashCode = prime * hashCode + ((getTestSpecArn() == null) ? 0 : getTestSpecArn().hashCode());
+        hashCode = prime * hashCode + ((getDeviceSelectionResult() == null) ? 0 : getDeviceSelectionResult().hashCode());
         return hashCode;
     }
 

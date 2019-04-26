@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,6 +20,7 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum LanguageCode {
 
+    Arb("arb"),
     CmnCN("cmn-CN"),
     CyGB("cy-GB"),
     DaDK("da-DK"),
@@ -30,6 +31,7 @@ public enum LanguageCode {
     EnIN("en-IN"),
     EnUS("en-US"),
     EsES("es-ES"),
+    EsMX("es-MX"),
     EsUS("es-US"),
     FrCA("fr-CA"),
     FrFR("fr-FR"),

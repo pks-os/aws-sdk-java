@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The user name in Amazon Connect for the account to create.
+     * The user name in Amazon Connect for the account to create. If you are using SAML for identity management in your
+     * Amazon Connect, the value for <code>Username</code> can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
      * </p>
      */
     private String username;
@@ -47,8 +48,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
     private UserIdentityInfo identityInfo;
     /**
      * <p>
-     * Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept, DeskPhoneNumber, and
-     * PhoneType.
+     * Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     * <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      * </p>
      */
     private UserPhoneConfig phoneConfig;
@@ -57,8 +58,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The unique identifier for the user account in the directory service directory used for identity management. If
      * Amazon Connect is unable to access the existing directory, you can use the <code>DirectoryUserId</code> to
      * authenticate users. If you include the parameter, it is assumed that Amazon Connect cannot access the directory.
-     * If the parameter is not included, the UserIdentityInfo is used to authenticate users from your existing
-     * directory.
+     * If the parameter is not included, the <code>UserIdentityInfo</code> is used to authenticate users from your
+     * existing directory.
      * </p>
      * <p>
      * This parameter is required if you are using an existing directory for identity management in Amazon Connect when
@@ -97,11 +98,14 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The user name in Amazon Connect for the account to create.
+     * The user name in Amazon Connect for the account to create. If you are using SAML for identity management in your
+     * Amazon Connect, the value for <code>Username</code> can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
      * </p>
      * 
      * @param username
-     *        The user name in Amazon Connect for the account to create.
+     *        The user name in Amazon Connect for the account to create. If you are using SAML for identity management
+     *        in your Amazon Connect, the value for <code>Username</code> can include up to 64 characters from
+     *        [a-zA-Z0-9_-.\@]+.
      */
 
     public void setUsername(String username) {
@@ -110,10 +114,13 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The user name in Amazon Connect for the account to create.
+     * The user name in Amazon Connect for the account to create. If you are using SAML for identity management in your
+     * Amazon Connect, the value for <code>Username</code> can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
      * </p>
      * 
-     * @return The user name in Amazon Connect for the account to create.
+     * @return The user name in Amazon Connect for the account to create. If you are using SAML for identity management
+     *         in your Amazon Connect, the value for <code>Username</code> can include up to 64 characters from
+     *         [a-zA-Z0-9_-.\@]+.
      */
 
     public String getUsername() {
@@ -122,11 +129,14 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The user name in Amazon Connect for the account to create.
+     * The user name in Amazon Connect for the account to create. If you are using SAML for identity management in your
+     * Amazon Connect, the value for <code>Username</code> can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
      * </p>
      * 
      * @param username
-     *        The user name in Amazon Connect for the account to create.
+     *        The user name in Amazon Connect for the account to create. If you are using SAML for identity management
+     *        in your Amazon Connect, the value for <code>Username</code> can include up to 64 characters from
+     *        [a-zA-Z0-9_-.\@]+.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -229,13 +239,13 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept, DeskPhoneNumber, and
-     * PhoneType.
+     * Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     * <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      * </p>
      * 
      * @param phoneConfig
-     *        Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept,
-     *        DeskPhoneNumber, and PhoneType.
+     *        Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     *        <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      */
 
     public void setPhoneConfig(UserPhoneConfig phoneConfig) {
@@ -244,12 +254,12 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept, DeskPhoneNumber, and
-     * PhoneType.
+     * Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     * <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      * </p>
      * 
-     * @return Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept,
-     *         DeskPhoneNumber, and PhoneType.
+     * @return Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     *         <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      */
 
     public UserPhoneConfig getPhoneConfig() {
@@ -258,13 +268,13 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept, DeskPhoneNumber, and
-     * PhoneType.
+     * Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     * <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      * </p>
      * 
      * @param phoneConfig
-     *        Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept,
-     *        DeskPhoneNumber, and PhoneType.
+     *        Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+     *        <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -278,8 +288,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The unique identifier for the user account in the directory service directory used for identity management. If
      * Amazon Connect is unable to access the existing directory, you can use the <code>DirectoryUserId</code> to
      * authenticate users. If you include the parameter, it is assumed that Amazon Connect cannot access the directory.
-     * If the parameter is not included, the UserIdentityInfo is used to authenticate users from your existing
-     * directory.
+     * If the parameter is not included, the <code>UserIdentityInfo</code> is used to authenticate users from your
+     * existing directory.
      * </p>
      * <p>
      * This parameter is required if you are using an existing directory for identity management in Amazon Connect when
@@ -291,8 +301,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      *        The unique identifier for the user account in the directory service directory used for identity
      *        management. If Amazon Connect is unable to access the existing directory, you can use the
      *        <code>DirectoryUserId</code> to authenticate users. If you include the parameter, it is assumed that
-     *        Amazon Connect cannot access the directory. If the parameter is not included, the UserIdentityInfo is used
-     *        to authenticate users from your existing directory.</p>
+     *        Amazon Connect cannot access the directory. If the parameter is not included, the
+     *        <code>UserIdentityInfo</code> is used to authenticate users from your existing directory.</p>
      *        <p>
      *        This parameter is required if you are using an existing directory for identity management in Amazon
      *        Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for
@@ -308,8 +318,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The unique identifier for the user account in the directory service directory used for identity management. If
      * Amazon Connect is unable to access the existing directory, you can use the <code>DirectoryUserId</code> to
      * authenticate users. If you include the parameter, it is assumed that Amazon Connect cannot access the directory.
-     * If the parameter is not included, the UserIdentityInfo is used to authenticate users from your existing
-     * directory.
+     * If the parameter is not included, the <code>UserIdentityInfo</code> is used to authenticate users from your
+     * existing directory.
      * </p>
      * <p>
      * This parameter is required if you are using an existing directory for identity management in Amazon Connect when
@@ -320,8 +330,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * @return The unique identifier for the user account in the directory service directory used for identity
      *         management. If Amazon Connect is unable to access the existing directory, you can use the
      *         <code>DirectoryUserId</code> to authenticate users. If you include the parameter, it is assumed that
-     *         Amazon Connect cannot access the directory. If the parameter is not included, the UserIdentityInfo is
-     *         used to authenticate users from your existing directory.</p>
+     *         Amazon Connect cannot access the directory. If the parameter is not included, the
+     *         <code>UserIdentityInfo</code> is used to authenticate users from your existing directory.</p>
      *         <p>
      *         This parameter is required if you are using an existing directory for identity management in Amazon
      *         Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for
@@ -337,8 +347,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * The unique identifier for the user account in the directory service directory used for identity management. If
      * Amazon Connect is unable to access the existing directory, you can use the <code>DirectoryUserId</code> to
      * authenticate users. If you include the parameter, it is assumed that Amazon Connect cannot access the directory.
-     * If the parameter is not included, the UserIdentityInfo is used to authenticate users from your existing
-     * directory.
+     * If the parameter is not included, the <code>UserIdentityInfo</code> is used to authenticate users from your
+     * existing directory.
      * </p>
      * <p>
      * This parameter is required if you are using an existing directory for identity management in Amazon Connect when
@@ -350,8 +360,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
      *        The unique identifier for the user account in the directory service directory used for identity
      *        management. If Amazon Connect is unable to access the existing directory, you can use the
      *        <code>DirectoryUserId</code> to authenticate users. If you include the parameter, it is assumed that
-     *        Amazon Connect cannot access the directory. If the parameter is not included, the UserIdentityInfo is used
-     *        to authenticate users from your existing directory.</p>
+     *        Amazon Connect cannot access the directory. If the parameter is not included, the
+     *        <code>UserIdentityInfo</code> is used to authenticate users from your existing directory.</p>
      *        <p>
      *        This parameter is required if you are using an existing directory for identity management in Amazon
      *        Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for
@@ -574,7 +584,8 @@ public class CreateUserRequest extends com.amazonaws.AmazonWebServiceRequest imp
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

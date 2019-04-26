@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,14 +40,14 @@ public class Snapshot implements Serializable, Cloneable {
     private String clusterIdentifier;
     /**
      * <p>
-     * The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this
-     * exact time.
+     * The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data
+     * as of this exact time.
      * </p>
      */
     private java.util.Date snapshotCreateTime;
     /**
      * <p>
-     * The snapshot status. The value of the status depends on the API operation used.
+     * The snapshot status. The value of the status depends on the API operation used:
      * </p>
      * <ul>
      * <li>
@@ -100,7 +100,7 @@ public class Snapshot implements Serializable, Cloneable {
     private String clusterVersion;
     /**
      * <p>
-     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> will be of
+     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of
      * type "manual".
      * </p>
      */
@@ -225,7 +225,7 @@ public class Snapshot implements Serializable, Cloneable {
      * <p>
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster
      * that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
      * Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -242,6 +242,28 @@ public class Snapshot implements Serializable, Cloneable {
      * </p>
      */
     private String maintenanceTrackName;
+    /**
+     * <p>
+     * The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained
+     * indefinitely.
+     * </p>
+     * <p>
+     * The value must be either -1 or an integer between 1 and 3,653.
+     * </p>
+     */
+    private Integer manualSnapshotRetentionPeriod;
+    /**
+     * <p>
+     * The number of days until a manual snapshot will pass its retention period.
+     * </p>
+     */
+    private Integer manualSnapshotRemainingDays;
+    /**
+     * <p>
+     * A timestamp representing the start of the retention period for the snapshot.
+     * </p>
+     */
+    private java.util.Date snapshotRetentionStartTime;
 
     /**
      * <p>
@@ -325,13 +347,13 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this
-     * exact time.
+     * The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data
+     * as of this exact time.
      * </p>
      * 
      * @param snapshotCreateTime
-     *        The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as
-     *        of this exact time.
+     *        The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the
+     *        cluster data as of this exact time.
      */
 
     public void setSnapshotCreateTime(java.util.Date snapshotCreateTime) {
@@ -340,12 +362,12 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this
-     * exact time.
+     * The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data
+     * as of this exact time.
      * </p>
      * 
-     * @return The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as
-     *         of this exact time.
+     * @return The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the
+     *         cluster data as of this exact time.
      */
 
     public java.util.Date getSnapshotCreateTime() {
@@ -354,13 +376,13 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this
-     * exact time.
+     * The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data
+     * as of this exact time.
      * </p>
      * 
      * @param snapshotCreateTime
-     *        The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as
-     *        of this exact time.
+     *        The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the
+     *        cluster data as of this exact time.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -371,7 +393,7 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The snapshot status. The value of the status depends on the API operation used.
+     * The snapshot status. The value of the status depends on the API operation used:
      * </p>
      * <ul>
      * <li>
@@ -392,7 +414,7 @@ public class Snapshot implements Serializable, Cloneable {
      * </ul>
      * 
      * @param status
-     *        The snapshot status. The value of the status depends on the API operation used. </p>
+     *        The snapshot status. The value of the status depends on the API operation used: </p>
      *        <ul>
      *        <li>
      *        <p>
@@ -417,7 +439,7 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The snapshot status. The value of the status depends on the API operation used.
+     * The snapshot status. The value of the status depends on the API operation used:
      * </p>
      * <ul>
      * <li>
@@ -437,7 +459,7 @@ public class Snapshot implements Serializable, Cloneable {
      * </li>
      * </ul>
      * 
-     * @return The snapshot status. The value of the status depends on the API operation used. </p>
+     * @return The snapshot status. The value of the status depends on the API operation used: </p>
      *         <ul>
      *         <li>
      *         <p>
@@ -462,7 +484,7 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The snapshot status. The value of the status depends on the API operation used.
+     * The snapshot status. The value of the status depends on the API operation used:
      * </p>
      * <ul>
      * <li>
@@ -483,7 +505,7 @@ public class Snapshot implements Serializable, Cloneable {
      * </ul>
      * 
      * @param status
-     *        The snapshot status. The value of the status depends on the API operation used. </p>
+     *        The snapshot status. The value of the status depends on the API operation used: </p>
      *        <ul>
      *        <li>
      *        <p>
@@ -710,13 +732,13 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> will be of
+     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of
      * type "manual".
      * </p>
      * 
      * @param snapshotType
-     *        The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a>
-     *        will be of type "manual".
+     *        The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are
+     *        of type "manual".
      */
 
     public void setSnapshotType(String snapshotType) {
@@ -725,12 +747,12 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> will be of
+     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of
      * type "manual".
      * </p>
      * 
      * @return The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a>
-     *         will be of type "manual".
+     *         are of type "manual".
      */
 
     public String getSnapshotType() {
@@ -739,13 +761,13 @@ public class Snapshot implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> will be of
+     * The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of
      * type "manual".
      * </p>
      * 
      * @param snapshotType
-     *        The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a>
-     *        will be of type "manual".
+     *        The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are
+     *        of type "manual".
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1656,7 +1678,7 @@ public class Snapshot implements Serializable, Cloneable {
      * <p>
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster
      * that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
      * Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -1669,7 +1691,7 @@ public class Snapshot implements Serializable, Cloneable {
      * @param enhancedVpcRouting
      *        An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a
      *        cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     *        href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a>
+     *        href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a>
      *        in the Amazon Redshift Cluster Management Guide.</p>
      *        <p>
      *        If this option is <code>true</code>, enhanced VPC routing is enabled.
@@ -1686,7 +1708,7 @@ public class Snapshot implements Serializable, Cloneable {
      * <p>
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster
      * that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
      * Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -1698,8 +1720,8 @@ public class Snapshot implements Serializable, Cloneable {
      * 
      * @return An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a
      *         cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     *         href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a>
-     *         in the Amazon Redshift Cluster Management Guide.</p>
+     *         href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC
+     *         Routing</a> in the Amazon Redshift Cluster Management Guide.</p>
      *         <p>
      *         If this option is <code>true</code>, enhanced VPC routing is enabled.
      *         </p>
@@ -1715,7 +1737,7 @@ public class Snapshot implements Serializable, Cloneable {
      * <p>
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster
      * that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
      * Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -1728,7 +1750,7 @@ public class Snapshot implements Serializable, Cloneable {
      * @param enhancedVpcRouting
      *        An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a
      *        cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     *        href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a>
+     *        href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a>
      *        in the Amazon Redshift Cluster Management Guide.</p>
      *        <p>
      *        If this option is <code>true</code>, enhanced VPC routing is enabled.
@@ -1747,7 +1769,7 @@ public class Snapshot implements Serializable, Cloneable {
      * <p>
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster
      * that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in the
      * Amazon Redshift Cluster Management Guide.
      * </p>
      * <p>
@@ -1759,8 +1781,8 @@ public class Snapshot implements Serializable, Cloneable {
      * 
      * @return An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a
      *         cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a
-     *         href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a>
-     *         in the Amazon Redshift Cluster Management Guide.</p>
+     *         href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC
+     *         Routing</a> in the Amazon Redshift Cluster Management Guide.</p>
      *         <p>
      *         If this option is <code>true</code>, enhanced VPC routing is enabled.
      *         </p>
@@ -1813,7 +1835,149 @@ public class Snapshot implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained
+     * indefinitely.
+     * </p>
+     * <p>
+     * The value must be either -1 or an integer between 1 and 3,653.
+     * </p>
+     * 
+     * @param manualSnapshotRetentionPeriod
+     *        The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained
+     *        indefinitely. </p>
+     *        <p>
+     *        The value must be either -1 or an integer between 1 and 3,653.
+     */
+
+    public void setManualSnapshotRetentionPeriod(Integer manualSnapshotRetentionPeriod) {
+        this.manualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
+    }
+
+    /**
+     * <p>
+     * The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained
+     * indefinitely.
+     * </p>
+     * <p>
+     * The value must be either -1 or an integer between 1 and 3,653.
+     * </p>
+     * 
+     * @return The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is
+     *         retained indefinitely. </p>
+     *         <p>
+     *         The value must be either -1 or an integer between 1 and 3,653.
+     */
+
+    public Integer getManualSnapshotRetentionPeriod() {
+        return this.manualSnapshotRetentionPeriod;
+    }
+
+    /**
+     * <p>
+     * The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained
+     * indefinitely.
+     * </p>
+     * <p>
+     * The value must be either -1 or an integer between 1 and 3,653.
+     * </p>
+     * 
+     * @param manualSnapshotRetentionPeriod
+     *        The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained
+     *        indefinitely. </p>
+     *        <p>
+     *        The value must be either -1 or an integer between 1 and 3,653.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Snapshot withManualSnapshotRetentionPeriod(Integer manualSnapshotRetentionPeriod) {
+        setManualSnapshotRetentionPeriod(manualSnapshotRetentionPeriod);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The number of days until a manual snapshot will pass its retention period.
+     * </p>
+     * 
+     * @param manualSnapshotRemainingDays
+     *        The number of days until a manual snapshot will pass its retention period.
+     */
+
+    public void setManualSnapshotRemainingDays(Integer manualSnapshotRemainingDays) {
+        this.manualSnapshotRemainingDays = manualSnapshotRemainingDays;
+    }
+
+    /**
+     * <p>
+     * The number of days until a manual snapshot will pass its retention period.
+     * </p>
+     * 
+     * @return The number of days until a manual snapshot will pass its retention period.
+     */
+
+    public Integer getManualSnapshotRemainingDays() {
+        return this.manualSnapshotRemainingDays;
+    }
+
+    /**
+     * <p>
+     * The number of days until a manual snapshot will pass its retention period.
+     * </p>
+     * 
+     * @param manualSnapshotRemainingDays
+     *        The number of days until a manual snapshot will pass its retention period.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Snapshot withManualSnapshotRemainingDays(Integer manualSnapshotRemainingDays) {
+        setManualSnapshotRemainingDays(manualSnapshotRemainingDays);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A timestamp representing the start of the retention period for the snapshot.
+     * </p>
+     * 
+     * @param snapshotRetentionStartTime
+     *        A timestamp representing the start of the retention period for the snapshot.
+     */
+
+    public void setSnapshotRetentionStartTime(java.util.Date snapshotRetentionStartTime) {
+        this.snapshotRetentionStartTime = snapshotRetentionStartTime;
+    }
+
+    /**
+     * <p>
+     * A timestamp representing the start of the retention period for the snapshot.
+     * </p>
+     * 
+     * @return A timestamp representing the start of the retention period for the snapshot.
+     */
+
+    public java.util.Date getSnapshotRetentionStartTime() {
+        return this.snapshotRetentionStartTime;
+    }
+
+    /**
+     * <p>
+     * A timestamp representing the start of the retention period for the snapshot.
+     * </p>
+     * 
+     * @param snapshotRetentionStartTime
+     *        A timestamp representing the start of the retention period for the snapshot.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Snapshot withSnapshotRetentionStartTime(java.util.Date snapshotRetentionStartTime) {
+        setSnapshotRetentionStartTime(snapshotRetentionStartTime);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1882,7 +2046,13 @@ public class Snapshot implements Serializable, Cloneable {
         if (getEnhancedVpcRouting() != null)
             sb.append("EnhancedVpcRouting: ").append(getEnhancedVpcRouting()).append(",");
         if (getMaintenanceTrackName() != null)
-            sb.append("MaintenanceTrackName: ").append(getMaintenanceTrackName());
+            sb.append("MaintenanceTrackName: ").append(getMaintenanceTrackName()).append(",");
+        if (getManualSnapshotRetentionPeriod() != null)
+            sb.append("ManualSnapshotRetentionPeriod: ").append(getManualSnapshotRetentionPeriod()).append(",");
+        if (getManualSnapshotRemainingDays() != null)
+            sb.append("ManualSnapshotRemainingDays: ").append(getManualSnapshotRemainingDays()).append(",");
+        if (getSnapshotRetentionStartTime() != null)
+            sb.append("SnapshotRetentionStartTime: ").append(getSnapshotRetentionStartTime());
         sb.append("}");
         return sb.toString();
     }
@@ -2019,6 +2189,19 @@ public class Snapshot implements Serializable, Cloneable {
             return false;
         if (other.getMaintenanceTrackName() != null && other.getMaintenanceTrackName().equals(this.getMaintenanceTrackName()) == false)
             return false;
+        if (other.getManualSnapshotRetentionPeriod() == null ^ this.getManualSnapshotRetentionPeriod() == null)
+            return false;
+        if (other.getManualSnapshotRetentionPeriod() != null
+                && other.getManualSnapshotRetentionPeriod().equals(this.getManualSnapshotRetentionPeriod()) == false)
+            return false;
+        if (other.getManualSnapshotRemainingDays() == null ^ this.getManualSnapshotRemainingDays() == null)
+            return false;
+        if (other.getManualSnapshotRemainingDays() != null && other.getManualSnapshotRemainingDays().equals(this.getManualSnapshotRemainingDays()) == false)
+            return false;
+        if (other.getSnapshotRetentionStartTime() == null ^ this.getSnapshotRetentionStartTime() == null)
+            return false;
+        if (other.getSnapshotRetentionStartTime() != null && other.getSnapshotRetentionStartTime().equals(this.getSnapshotRetentionStartTime()) == false)
+            return false;
         return true;
     }
 
@@ -2057,6 +2240,9 @@ public class Snapshot implements Serializable, Cloneable {
         hashCode = prime * hashCode + ((getRestorableNodeTypes() == null) ? 0 : getRestorableNodeTypes().hashCode());
         hashCode = prime * hashCode + ((getEnhancedVpcRouting() == null) ? 0 : getEnhancedVpcRouting().hashCode());
         hashCode = prime * hashCode + ((getMaintenanceTrackName() == null) ? 0 : getMaintenanceTrackName().hashCode());
+        hashCode = prime * hashCode + ((getManualSnapshotRetentionPeriod() == null) ? 0 : getManualSnapshotRetentionPeriod().hashCode());
+        hashCode = prime * hashCode + ((getManualSnapshotRemainingDays() == null) ? 0 : getManualSnapshotRemainingDays().hashCode());
+        hashCode = prime * hashCode + ((getSnapshotRetentionStartTime() == null) ? 0 : getSnapshotRetentionStartTime().hashCode());
         return hashCode;
     }
 

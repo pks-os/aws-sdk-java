@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,8 +16,9 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * The operation that you attempted requires you to have the <code>iam:CreateServiceLinkedRole</code> so that AWS
- * Organizations can create the required service-linked role. You don't have that permission.
+ * The operation that you attempted requires you to have the <code>iam:CreateServiceLinkedRole</code> for
+ * <code>organizations.amazonaws.com</code> permission so that AWS Organizations can create the required service-linked
+ * role. You don't have that permission.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -88,6 +88,10 @@ public class FleetAttributesJsonUnmarshaller implements Unmarshaller<FleetAttrib
                     context.nextToken();
                     fleetAttributes.setBuildId(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("ScriptId", targetDepth)) {
+                    context.nextToken();
+                    fleetAttributes.setScriptId(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("ServerLaunchPath", targetDepth)) {
                     context.nextToken();
                     fleetAttributes.setServerLaunchPath(context.getUnmarshaller(String.class).unmarshall(context));
@@ -119,6 +123,10 @@ public class FleetAttributesJsonUnmarshaller implements Unmarshaller<FleetAttrib
                 if (context.testExpression("StoppedActions", targetDepth)) {
                     context.nextToken();
                     fleetAttributes.setStoppedActions(new ListUnmarshaller<String>(context.getUnmarshaller(String.class)).unmarshall(context));
+                }
+                if (context.testExpression("InstanceRoleArn", targetDepth)) {
+                    context.nextToken();
+                    fleetAttributes.setInstanceRoleArn(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

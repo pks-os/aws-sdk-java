@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,10 +30,10 @@ public class CreateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     /** The name of the queue that you are creating. */
     private String name;
     /**
-     * Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved. The
-     * pricing plan for the queue determines whether you pay on-demand or reserved pricing for the transcoding jobs you
-     * run through the queue. For reserved queue pricing, you must set up a contract. You can create a reserved queue
-     * contract through the AWS Elemental MediaConvert console.
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute,
+     * billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue,
+     * regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the
+     * API to create a queue, the default is on-demand.
      */
     private String pricingPlan;
     /**
@@ -113,16 +113,16 @@ public class CreateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved. The
-     * pricing plan for the queue determines whether you pay on-demand or reserved pricing for the transcoding jobs you
-     * run through the queue. For reserved queue pricing, you must set up a contract. You can create a reserved queue
-     * contract through the AWS Elemental MediaConvert console.
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute,
+     * billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue,
+     * regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the
+     * API to create a queue, the default is on-demand.
      * 
      * @param pricingPlan
-     *        Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved.
-     *        The pricing plan for the queue determines whether you pay on-demand or reserved pricing for the
-     *        transcoding jobs you run through the queue. For reserved queue pricing, you must set up a contract. You
-     *        can create a reserved queue contract through the AWS Elemental MediaConvert console.
+     *        Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per
+     *        minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the
+     *        entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month
+     *        commitment. When you use the API to create a queue, the default is on-demand.
      * @see PricingPlan
      */
 
@@ -131,15 +131,15 @@ public class CreateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved. The
-     * pricing plan for the queue determines whether you pay on-demand or reserved pricing for the transcoding jobs you
-     * run through the queue. For reserved queue pricing, you must set up a contract. You can create a reserved queue
-     * contract through the AWS Elemental MediaConvert console.
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute,
+     * billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue,
+     * regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the
+     * API to create a queue, the default is on-demand.
      * 
-     * @return Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or
-     *         reserved. The pricing plan for the queue determines whether you pay on-demand or reserved pricing for the
-     *         transcoding jobs you run through the queue. For reserved queue pricing, you must set up a contract. You
-     *         can create a reserved queue contract through the AWS Elemental MediaConvert console.
+     * @return Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per
+     *         minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the
+     *         entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month
+     *         commitment. When you use the API to create a queue, the default is on-demand.
      * @see PricingPlan
      */
 
@@ -148,16 +148,16 @@ public class CreateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved. The
-     * pricing plan for the queue determines whether you pay on-demand or reserved pricing for the transcoding jobs you
-     * run through the queue. For reserved queue pricing, you must set up a contract. You can create a reserved queue
-     * contract through the AWS Elemental MediaConvert console.
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute,
+     * billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue,
+     * regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the
+     * API to create a queue, the default is on-demand.
      * 
      * @param pricingPlan
-     *        Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved.
-     *        The pricing plan for the queue determines whether you pay on-demand or reserved pricing for the
-     *        transcoding jobs you run through the queue. For reserved queue pricing, you must set up a contract. You
-     *        can create a reserved queue contract through the AWS Elemental MediaConvert console.
+     *        Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per
+     *        minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the
+     *        entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month
+     *        commitment. When you use the API to create a queue, the default is on-demand.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see PricingPlan
      */
@@ -168,16 +168,16 @@ public class CreateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved. The
-     * pricing plan for the queue determines whether you pay on-demand or reserved pricing for the transcoding jobs you
-     * run through the queue. For reserved queue pricing, you must set up a contract. You can create a reserved queue
-     * contract through the AWS Elemental MediaConvert console.
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute,
+     * billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue,
+     * regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the
+     * API to create a queue, the default is on-demand.
      * 
      * @param pricingPlan
-     *        Optional; default is on-demand. Specifies whether the pricing plan for the queue is on-demand or reserved.
-     *        The pricing plan for the queue determines whether you pay on-demand or reserved pricing for the
-     *        transcoding jobs you run through the queue. For reserved queue pricing, you must set up a contract. You
-     *        can create a reserved queue contract through the AWS Elemental MediaConvert console.
+     *        Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per
+     *        minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the
+     *        entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month
+     *        commitment. When you use the API to create a queue, the default is on-demand.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see PricingPlan
      */
@@ -286,7 +286,8 @@ public class CreateQueueRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

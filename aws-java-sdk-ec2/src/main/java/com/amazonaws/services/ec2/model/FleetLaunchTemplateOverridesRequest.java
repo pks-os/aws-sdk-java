@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -66,6 +66,12 @@ public class FleetLaunchTemplateOverridesRequest implements Serializable, Clonea
      * </p>
      */
     private Double priority;
+    /**
+     * <p>
+     * The location where the instance launched, if applicable.
+     * </p>
+     */
+    private Placement placement;
 
     /**
      * <p>
@@ -351,7 +357,48 @@ public class FleetLaunchTemplateOverridesRequest implements Serializable, Clonea
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The location where the instance launched, if applicable.
+     * </p>
+     * 
+     * @param placement
+     *        The location where the instance launched, if applicable.
+     */
+
+    public void setPlacement(Placement placement) {
+        this.placement = placement;
+    }
+
+    /**
+     * <p>
+     * The location where the instance launched, if applicable.
+     * </p>
+     * 
+     * @return The location where the instance launched, if applicable.
+     */
+
+    public Placement getPlacement() {
+        return this.placement;
+    }
+
+    /**
+     * <p>
+     * The location where the instance launched, if applicable.
+     * </p>
+     * 
+     * @param placement
+     *        The location where the instance launched, if applicable.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public FleetLaunchTemplateOverridesRequest withPlacement(Placement placement) {
+        setPlacement(placement);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -372,7 +419,9 @@ public class FleetLaunchTemplateOverridesRequest implements Serializable, Clonea
         if (getWeightedCapacity() != null)
             sb.append("WeightedCapacity: ").append(getWeightedCapacity()).append(",");
         if (getPriority() != null)
-            sb.append("Priority: ").append(getPriority());
+            sb.append("Priority: ").append(getPriority()).append(",");
+        if (getPlacement() != null)
+            sb.append("Placement: ").append(getPlacement());
         sb.append("}");
         return sb.toString();
     }
@@ -411,6 +460,10 @@ public class FleetLaunchTemplateOverridesRequest implements Serializable, Clonea
             return false;
         if (other.getPriority() != null && other.getPriority().equals(this.getPriority()) == false)
             return false;
+        if (other.getPlacement() == null ^ this.getPlacement() == null)
+            return false;
+        if (other.getPlacement() != null && other.getPlacement().equals(this.getPlacement()) == false)
+            return false;
         return true;
     }
 
@@ -425,6 +478,7 @@ public class FleetLaunchTemplateOverridesRequest implements Serializable, Clonea
         hashCode = prime * hashCode + ((getAvailabilityZone() == null) ? 0 : getAvailabilityZone().hashCode());
         hashCode = prime * hashCode + ((getWeightedCapacity() == null) ? 0 : getWeightedCapacity().hashCode());
         hashCode = prime * hashCode + ((getPriority() == null) ? 0 : getPriority().hashCode());
+        hashCode = prime * hashCode + ((getPlacement() == null) ? 0 : getPlacement().hashCode());
         return hashCode;
     }
 

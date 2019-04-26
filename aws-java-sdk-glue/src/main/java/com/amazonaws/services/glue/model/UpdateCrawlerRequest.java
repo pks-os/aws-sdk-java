@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -86,17 +86,9 @@ public class UpdateCrawlerRequest extends com.amazonaws.AmazonWebServiceRequest 
     private SchemaChangePolicy schemaChangePolicy;
     /**
      * <p>
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a Crawler's
-     * behavior.
-     * </p>
-     * <p>
-     * You can use this field to force partitions to inherit metadata such as classification, input format, output
-     * format, serde information, and schema from their parent table, rather than detect this information separately for
-     * each partition. Use the following JSON string to specify that behavior:
-     * </p>
-     * <p>
-     * Example:
-     * <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's
+     * behavior. For more information, see <a
+     * href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      * </p>
      */
     private String configuration;
@@ -535,30 +527,15 @@ public class UpdateCrawlerRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a Crawler's
-     * behavior.
-     * </p>
-     * <p>
-     * You can use this field to force partitions to inherit metadata such as classification, input format, output
-     * format, serde information, and schema from their parent table, rather than detect this information separately for
-     * each partition. Use the following JSON string to specify that behavior:
-     * </p>
-     * <p>
-     * Example:
-     * <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's
+     * behavior. For more information, see <a
+     * href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      * </p>
      * 
      * @param configuration
      *        Crawler configuration information. This versioned JSON string allows users to specify aspects of a
-     *        Crawler's behavior.</p>
-     *        <p>
-     *        You can use this field to force partitions to inherit metadata such as classification, input format,
-     *        output format, serde information, and schema from their parent table, rather than detect this information
-     *        separately for each partition. Use the following JSON string to specify that behavior:
-     *        </p>
-     *        <p>
-     *        Example:
-     *        <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     *        crawler's behavior. For more information, see <a
+     *        href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      */
 
     public void setConfiguration(String configuration) {
@@ -567,29 +544,14 @@ public class UpdateCrawlerRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a Crawler's
-     * behavior.
-     * </p>
-     * <p>
-     * You can use this field to force partitions to inherit metadata such as classification, input format, output
-     * format, serde information, and schema from their parent table, rather than detect this information separately for
-     * each partition. Use the following JSON string to specify that behavior:
-     * </p>
-     * <p>
-     * Example:
-     * <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's
+     * behavior. For more information, see <a
+     * href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      * </p>
      * 
      * @return Crawler configuration information. This versioned JSON string allows users to specify aspects of a
-     *         Crawler's behavior.</p>
-     *         <p>
-     *         You can use this field to force partitions to inherit metadata such as classification, input format,
-     *         output format, serde information, and schema from their parent table, rather than detect this information
-     *         separately for each partition. Use the following JSON string to specify that behavior:
-     *         </p>
-     *         <p>
-     *         Example:
-     *         <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     *         crawler's behavior. For more information, see <a
+     *         href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      */
 
     public String getConfiguration() {
@@ -598,30 +560,15 @@ public class UpdateCrawlerRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a Crawler's
-     * behavior.
-     * </p>
-     * <p>
-     * You can use this field to force partitions to inherit metadata such as classification, input format, output
-     * format, serde information, and schema from their parent table, rather than detect this information separately for
-     * each partition. Use the following JSON string to specify that behavior:
-     * </p>
-     * <p>
-     * Example:
-     * <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's
+     * behavior. For more information, see <a
+     * href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      * </p>
      * 
      * @param configuration
      *        Crawler configuration information. This versioned JSON string allows users to specify aspects of a
-     *        Crawler's behavior.</p>
-     *        <p>
-     *        You can use this field to force partitions to inherit metadata such as classification, input format,
-     *        output format, serde information, and schema from their parent table, rather than detect this information
-     *        separately for each partition. Use the following JSON string to specify that behavior:
-     *        </p>
-     *        <p>
-     *        Example:
-     *        <code>'{ "Version": 1.0, "CrawlerOutput": { "Partitions": { "AddOrUpdateBehavior": "InheritFromTable" } } }'</code>
+     *        crawler's behavior. For more information, see <a
+     *        href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -671,7 +618,8 @@ public class UpdateCrawlerRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

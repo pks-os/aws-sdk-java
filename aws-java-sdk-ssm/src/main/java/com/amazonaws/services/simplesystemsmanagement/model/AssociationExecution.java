@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,8 +42,7 @@ public class AssociationExecution implements Serializable, Cloneable, Structured
     private String associationVersion;
     /**
      * <p>
-     * The execution ID for the association. If the association does not run at intervals or according to a schedule,
-     * then the ExecutionID is the same as the AssociationID.
+     * The execution ID for the association.
      * </p>
      */
     private String executionId;
@@ -160,13 +159,11 @@ public class AssociationExecution implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The execution ID for the association. If the association does not run at intervals or according to a schedule,
-     * then the ExecutionID is the same as the AssociationID.
+     * The execution ID for the association.
      * </p>
      * 
      * @param executionId
-     *        The execution ID for the association. If the association does not run at intervals or according to a
-     *        schedule, then the ExecutionID is the same as the AssociationID.
+     *        The execution ID for the association.
      */
 
     public void setExecutionId(String executionId) {
@@ -175,12 +172,10 @@ public class AssociationExecution implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The execution ID for the association. If the association does not run at intervals or according to a schedule,
-     * then the ExecutionID is the same as the AssociationID.
+     * The execution ID for the association.
      * </p>
      * 
-     * @return The execution ID for the association. If the association does not run at intervals or according to a
-     *         schedule, then the ExecutionID is the same as the AssociationID.
+     * @return The execution ID for the association.
      */
 
     public String getExecutionId() {
@@ -189,13 +184,11 @@ public class AssociationExecution implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The execution ID for the association. If the association does not run at intervals or according to a schedule,
-     * then the ExecutionID is the same as the AssociationID.
+     * The execution ID for the association.
      * </p>
      * 
      * @param executionId
-     *        The execution ID for the association. If the association does not run at intervals or according to a
-     *        schedule, then the ExecutionID is the same as the AssociationID.
+     *        The execution ID for the association.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -405,7 +398,8 @@ public class AssociationExecution implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

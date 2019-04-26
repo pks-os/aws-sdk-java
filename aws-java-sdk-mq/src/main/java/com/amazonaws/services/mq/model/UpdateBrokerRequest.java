@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,10 @@ public class UpdateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     private String brokerId;
     /** A list of information about the configuration. */
     private ConfigurationId configuration;
-    /** The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0. */
+    /**
+     * The version of the broker engine. For a list of supported engine versions, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     */
     private String engineVersion;
     /** Enables Amazon CloudWatch logging for brokers. */
     private Logs logs;
@@ -177,10 +180,12 @@ public class UpdateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+     * The version of the broker engine. For a list of supported engine versions, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      * 
      * @param engineVersion
-     *        The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+     *        The version of the broker engine. For a list of supported engine versions, see
+     *        https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      */
 
     public void setEngineVersion(String engineVersion) {
@@ -188,9 +193,11 @@ public class UpdateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+     * The version of the broker engine. For a list of supported engine versions, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      * 
-     * @return The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+     * @return The version of the broker engine. For a list of supported engine versions, see
+     *         https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      */
 
     public String getEngineVersion() {
@@ -198,10 +205,12 @@ public class UpdateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+     * The version of the broker engine. For a list of supported engine versions, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      * 
      * @param engineVersion
-     *        The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+     *        The version of the broker engine. For a list of supported engine versions, see
+     *        https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -245,7 +254,8 @@ public class UpdateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

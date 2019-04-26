@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,8 +52,8 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
      * parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a single page along
      * with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by
      * sending another <code>ListServices</code> request with the returned <code>nextToken</code> value. This value can
-     * be between 1 and 10. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and a
-     * <code>nextToken</code> value if applicable.
+     * be between 1 and 100. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and
+     * a <code>nextToken</code> value if applicable.
      * </p>
      */
     private Integer maxResults;
@@ -204,8 +204,8 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
      * parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a single page along
      * with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by
      * sending another <code>ListServices</code> request with the returned <code>nextToken</code> value. This value can
-     * be between 1 and 10. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and a
-     * <code>nextToken</code> value if applicable.
+     * be between 1 and 100. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and
+     * a <code>nextToken</code> value if applicable.
      * </p>
      * 
      * @param maxResults
@@ -213,7 +213,7 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a single page
      *        along with a <code>nextToken</code> response element. The remaining results of the initial request can be
      *        seen by sending another <code>ListServices</code> request with the returned <code>nextToken</code> value.
-     *        This value can be between 1 and 10. If this parameter is not used, then <code>ListServices</code> returns
+     *        This value can be between 1 and 100. If this parameter is not used, then <code>ListServices</code> returns
      *        up to 10 results and a <code>nextToken</code> value if applicable.
      */
 
@@ -227,15 +227,15 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
      * parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a single page along
      * with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by
      * sending another <code>ListServices</code> request with the returned <code>nextToken</code> value. This value can
-     * be between 1 and 10. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and a
-     * <code>nextToken</code> value if applicable.
+     * be between 1 and 100. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and
+     * a <code>nextToken</code> value if applicable.
      * </p>
      * 
      * @return The maximum number of service results returned by <code>ListServices</code> in paginated output. When
      *         this parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a
      *         single page along with a <code>nextToken</code> response element. The remaining results of the initial
      *         request can be seen by sending another <code>ListServices</code> request with the returned
-     *         <code>nextToken</code> value. This value can be between 1 and 10. If this parameter is not used, then
+     *         <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then
      *         <code>ListServices</code> returns up to 10 results and a <code>nextToken</code> value if applicable.
      */
 
@@ -249,8 +249,8 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
      * parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a single page along
      * with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by
      * sending another <code>ListServices</code> request with the returned <code>nextToken</code> value. This value can
-     * be between 1 and 10. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and a
-     * <code>nextToken</code> value if applicable.
+     * be between 1 and 100. If this parameter is not used, then <code>ListServices</code> returns up to 10 results and
+     * a <code>nextToken</code> value if applicable.
      * </p>
      * 
      * @param maxResults
@@ -258,7 +258,7 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        parameter is used, <code>ListServices</code> only returns <code>maxResults</code> results in a single page
      *        along with a <code>nextToken</code> response element. The remaining results of the initial request can be
      *        seen by sending another <code>ListServices</code> request with the returned <code>nextToken</code> value.
-     *        This value can be between 1 and 10. If this parameter is not used, then <code>ListServices</code> returns
+     *        This value can be between 1 and 100. If this parameter is not used, then <code>ListServices</code> returns
      *        up to 10 results and a <code>nextToken</code> value if applicable.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -387,7 +387,8 @@ public class ListServicesRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -15,6 +15,7 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
+    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
@@ -104,6 +105,7 @@
       "documentation" : "This operation cancels a specified job. Only the job owner can cancel it. The operation fails if the job has already started or is complete.",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidJobIdException",
         "documentation" : "The JOBID was missing, not found, or not associated with the AWS account.",
@@ -130,6 +132,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CancelJobRequest",
@@ -158,6 +161,7 @@
       "documentation" : "This operation initiates the process of scheduling an upload or download of your data. You include in the request a manifest that describes the data transfer specifics. The response to the request includes a job ID, which you can use in other operations, a signature that you use to identify your storage device, and the address where you should ship your storage device.",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "MissingParameterException",
         "documentation" : "One or more required parameters was missing from the request.",
@@ -224,6 +228,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "CreateJobRequest",
@@ -252,6 +257,7 @@
       "documentation" : "This operation generates a pre-paid UPS shipping label that you will use to ship your device to AWS for processing.",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidJobIdException",
         "documentation" : "The JOBID was missing, not found, or not associated with the AWS account.",
@@ -282,6 +288,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetShippingLabelRequest",
@@ -310,6 +317,7 @@
       "documentation" : "This operation returns information about a job, including where the job is in the processing pipeline, the status of the results, and the signature value associated with the job. You can only return information about jobs you own.",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidJobIdException",
         "documentation" : "The JOBID was missing, not found, or not associated with the AWS account.",
@@ -332,6 +340,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "GetStatusRequest",
@@ -360,6 +369,7 @@
       "documentation" : "This operation returns the jobs associated with the requester. AWS Import/Export lists the jobs in reverse chronological order based on the date of creation. For example if Job Test1 was created 2009Dec30 and Test2 was created 2010Feb05, the ListJobs operation would return Test2 followed by Test1.",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "InvalidParameterException",
         "documentation" : "One or more parameters had an invalid value.",
@@ -374,6 +384,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "ListJobsRequest",
@@ -402,6 +413,7 @@
       "documentation" : "You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.",
       "endpointDiscovery" : null,
       "endpointOperation" : false,
+      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "MissingParameterException",
         "documentation" : "One or more required parameters was missing from the request.",
@@ -476,6 +488,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
+      "hostPrefixProcessor" : null,
       "input" : {
         "timestampFormat" : null,
         "variableDeclarationType" : "UpdateJobRequest",
@@ -553,6 +566,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param description */",
         "setterMethodName" : "setDescription",
         "setterModel" : {
@@ -618,6 +632,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "URL",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param uRL */",
         "setterMethodName" : "setURL",
         "setterModel" : {
@@ -685,6 +700,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param description */",
           "setterMethodName" : "setDescription",
           "setterModel" : {
@@ -751,6 +767,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "URL",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param uRL */",
           "setterMethodName" : "setURL",
           "setterModel" : {
@@ -900,6 +917,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobId */",
         "setterMethodName" : "setJobId",
         "setterModel" : {
@@ -965,6 +983,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "APIVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param aPIVersion */",
         "setterMethodName" : "setAPIVersion",
         "setterModel" : {
@@ -1032,6 +1051,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "APIVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param aPIVersion */",
           "setterMethodName" : "setAPIVersion",
           "setterModel" : {
@@ -1098,6 +1118,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobId */",
           "setterMethodName" : "setJobId",
           "setterModel" : {
@@ -1200,6 +1221,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "Success",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param success */",
         "setterMethodName" : "setSuccess",
         "setterModel" : {
@@ -1267,6 +1289,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "Success",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param success */",
           "setterMethodName" : "setSuccess",
           "setterModel" : {
@@ -1453,6 +1476,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
         "setterMethodName" : "setJobType",
         "setterModel" : {
@@ -1518,6 +1542,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Manifest",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param manifest */",
         "setterMethodName" : "setManifest",
         "setterModel" : {
@@ -1583,6 +1608,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ManifestAddendum",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param manifestAddendum */",
         "setterMethodName" : "setManifestAddendum",
         "setterModel" : {
@@ -1648,6 +1674,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "ValidateOnly",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param validateOnly */",
         "setterMethodName" : "setValidateOnly",
         "setterModel" : {
@@ -1713,6 +1740,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "APIVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param aPIVersion */",
         "setterMethodName" : "setAPIVersion",
         "setterModel" : {
@@ -1780,6 +1808,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "APIVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param aPIVersion */",
           "setterMethodName" : "setAPIVersion",
           "setterModel" : {
@@ -1846,6 +1875,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
           "setterMethodName" : "setJobType",
           "setterModel" : {
@@ -1912,6 +1942,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Manifest",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param manifest */",
           "setterMethodName" : "setManifest",
           "setterModel" : {
@@ -1978,6 +2009,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ManifestAddendum",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param manifestAddendum */",
           "setterMethodName" : "setManifestAddendum",
           "setterModel" : {
@@ -2044,6 +2076,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "ValidateOnly",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param validateOnly */",
           "setterMethodName" : "setValidateOnly",
           "setterModel" : {
@@ -2146,6 +2179,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobId */",
         "setterMethodName" : "setJobId",
         "setterModel" : {
@@ -2211,6 +2245,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
         "setterMethodName" : "setJobType",
         "setterModel" : {
@@ -2276,6 +2311,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Signature",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param signature */",
         "setterMethodName" : "setSignature",
         "setterModel" : {
@@ -2341,6 +2377,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SignatureFileContents",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param signatureFileContents */",
         "setterMethodName" : "setSignatureFileContents",
         "setterModel" : {
@@ -2406,6 +2443,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "WarningMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param warningMessage */",
         "setterMethodName" : "setWarningMessage",
         "setterModel" : {
@@ -2508,6 +2546,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -2551,6 +2590,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ArtifactList",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param artifactList */",
         "setterMethodName" : "setArtifactList",
         "setterModel" : {
@@ -2655,6 +2695,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -2698,6 +2739,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ArtifactList",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param artifactList */",
           "setterMethodName" : "setArtifactList",
           "setterModel" : {
@@ -2764,6 +2806,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobId */",
           "setterMethodName" : "setJobId",
           "setterModel" : {
@@ -2830,6 +2873,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
           "setterMethodName" : "setJobType",
           "setterModel" : {
@@ -2896,6 +2940,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Signature",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param signature */",
           "setterMethodName" : "setSignature",
           "setterModel" : {
@@ -2962,6 +3007,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SignatureFileContents",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param signatureFileContents */",
           "setterMethodName" : "setSignatureFileContents",
           "setterModel" : {
@@ -3028,6 +3074,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "WarningMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param warningMessage */",
           "setterMethodName" : "setWarningMessage",
           "setterModel" : {
@@ -3214,6 +3261,7 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -3257,6 +3305,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "JobIds",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobIds */",
         "setterMethodName" : "setJobIds",
         "setterModel" : {
@@ -3322,6 +3371,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param name */",
         "setterMethodName" : "setName",
         "setterModel" : {
@@ -3387,6 +3437,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Company",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param company */",
         "setterMethodName" : "setCompany",
         "setterModel" : {
@@ -3452,6 +3503,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PhoneNumber",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param phoneNumber */",
         "setterMethodName" : "setPhoneNumber",
         "setterModel" : {
@@ -3517,6 +3569,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Country",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param country */",
         "setterMethodName" : "setCountry",
         "setterModel" : {
@@ -3582,6 +3635,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "StateOrProvince",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param stateOrProvince */",
         "setterMethodName" : "setStateOrProvince",
         "setterModel" : {
@@ -3647,6 +3701,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "City",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param city */",
         "setterMethodName" : "setCity",
         "setterModel" : {
@@ -3712,6 +3767,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "PostalCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param postalCode */",
         "setterMethodName" : "setPostalCode",
         "setterModel" : {
@@ -3777,6 +3833,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Street1",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param street1 */",
         "setterMethodName" : "setStreet1",
         "setterModel" : {
@@ -3842,6 +3899,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Street2",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param street2 */",
         "setterMethodName" : "setStreet2",
         "setterModel" : {
@@ -3907,6 +3965,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Street3",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param street3 */",
         "setterMethodName" : "setStreet3",
         "setterModel" : {
@@ -3972,6 +4031,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "APIVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param aPIVersion */",
         "setterMethodName" : "setAPIVersion",
         "setterModel" : {
@@ -4039,6 +4099,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "APIVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param aPIVersion */",
           "setterMethodName" : "setAPIVersion",
           "setterModel" : {
@@ -4105,6 +4166,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "City",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param city */",
           "setterMethodName" : "setCity",
           "setterModel" : {
@@ -4171,6 +4233,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Company",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param company */",
           "setterMethodName" : "setCompany",
           "setterModel" : {
@@ -4237,6 +4300,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Country",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param country */",
           "setterMethodName" : "setCountry",
           "setterModel" : {
@@ -4340,6 +4404,7 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -4383,6 +4448,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "JobIds",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobIds */",
           "setterMethodName" : "setJobIds",
           "setterModel" : {
@@ -4449,6 +4515,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param name */",
           "setterMethodName" : "setName",
           "setterModel" : {
@@ -4515,6 +4582,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PhoneNumber",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param phoneNumber */",
           "setterMethodName" : "setPhoneNumber",
           "setterModel" : {
@@ -4581,6 +4649,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "PostalCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param postalCode */",
           "setterMethodName" : "setPostalCode",
           "setterModel" : {
@@ -4647,6 +4716,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "StateOrProvince",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param stateOrProvince */",
           "setterMethodName" : "setStateOrProvince",
           "setterModel" : {
@@ -4713,6 +4783,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Street1",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param street1 */",
           "setterMethodName" : "setStreet1",
           "setterModel" : {
@@ -4779,6 +4850,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Street2",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param street2 */",
           "setterMethodName" : "setStreet2",
           "setterModel" : {
@@ -4845,6 +4917,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Street3",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param street3 */",
           "setterMethodName" : "setStreet3",
           "setterModel" : {
@@ -4947,6 +5020,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ShippingLabelURL",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param shippingLabelURL */",
         "setterMethodName" : "setShippingLabelURL",
         "setterModel" : {
@@ -5012,6 +5086,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Warning",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param warning */",
         "setterMethodName" : "setWarning",
         "setterModel" : {
@@ -5079,6 +5154,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ShippingLabelURL",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param shippingLabelURL */",
           "setterMethodName" : "setShippingLabelURL",
           "setterModel" : {
@@ -5145,6 +5221,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Warning",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param warning */",
           "setterMethodName" : "setWarning",
           "setterModel" : {
@@ -5257,6 +5334,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobId */",
         "setterMethodName" : "setJobId",
         "setterModel" : {
@@ -5322,6 +5400,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "APIVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param aPIVersion */",
         "setterMethodName" : "setAPIVersion",
         "setterModel" : {
@@ -5389,6 +5468,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "APIVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param aPIVersion */",
           "setterMethodName" : "setAPIVersion",
           "setterModel" : {
@@ -5455,6 +5535,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobId */",
           "setterMethodName" : "setJobId",
           "setterModel" : {
@@ -5557,6 +5638,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobId */",
         "setterMethodName" : "setJobId",
         "setterModel" : {
@@ -5622,6 +5704,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
         "setterMethodName" : "setJobType",
         "setterModel" : {
@@ -5687,6 +5770,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LocationCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param locationCode */",
         "setterMethodName" : "setLocationCode",
         "setterModel" : {
@@ -5752,6 +5836,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LocationMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param locationMessage */",
         "setterMethodName" : "setLocationMessage",
         "setterModel" : {
@@ -5817,6 +5902,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProgressCode",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param progressCode */",
         "setterMethodName" : "setProgressCode",
         "setterModel" : {
@@ -5882,6 +5968,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ProgressMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param progressMessage */",
         "setterMethodName" : "setProgressMessage",
         "setterModel" : {
@@ -5947,6 +6034,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Carrier",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param carrier */",
         "setterMethodName" : "setCarrier",
         "setterModel" : {
@@ -6012,6 +6100,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "TrackingNumber",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param trackingNumber */",
         "setterMethodName" : "setTrackingNumber",
         "setterModel" : {
@@ -6077,6 +6166,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LogBucket",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param logBucket */",
         "setterMethodName" : "setLogBucket",
         "setterModel" : {
@@ -6142,6 +6232,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "LogKey",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param logKey */",
         "setterMethodName" : "setLogKey",
         "setterModel" : {
@@ -6207,6 +6298,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "ErrorCount",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param errorCount */",
         "setterMethodName" : "setErrorCount",
         "setterModel" : {
@@ -6272,6 +6364,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Signature",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param signature */",
         "setterMethodName" : "setSignature",
         "setterModel" : {
@@ -6337,6 +6430,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SignatureFileContents",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param signatureFileContents */",
         "setterMethodName" : "setSignatureFileContents",
         "setterModel" : {
@@ -6402,6 +6496,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "CurrentManifest",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param currentManifest */",
         "setterMethodName" : "setCurrentManifest",
         "setterModel" : {
@@ -6467,6 +6562,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "CreationDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param creationDate */",
         "setterMethodName" : "setCreationDate",
         "setterModel" : {
@@ -6569,6 +6665,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -6612,6 +6709,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ArtifactList",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param artifactList */",
         "setterMethodName" : "setArtifactList",
         "setterModel" : {
@@ -6716,6 +6814,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -6759,6 +6858,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ArtifactList",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param artifactList */",
           "setterMethodName" : "setArtifactList",
           "setterModel" : {
@@ -6825,6 +6925,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Carrier",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param carrier */",
           "setterMethodName" : "setCarrier",
           "setterModel" : {
@@ -6891,6 +6992,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "CreationDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param creationDate */",
           "setterMethodName" : "setCreationDate",
           "setterModel" : {
@@ -6957,6 +7059,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "CurrentManifest",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param currentManifest */",
           "setterMethodName" : "setCurrentManifest",
           "setterModel" : {
@@ -7023,6 +7126,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "ErrorCount",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param errorCount */",
           "setterMethodName" : "setErrorCount",
           "setterModel" : {
@@ -7089,6 +7193,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobId */",
           "setterMethodName" : "setJobId",
           "setterModel" : {
@@ -7155,6 +7260,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
           "setterMethodName" : "setJobType",
           "setterModel" : {
@@ -7221,6 +7327,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LocationCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param locationCode */",
           "setterMethodName" : "setLocationCode",
           "setterModel" : {
@@ -7287,6 +7394,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LocationMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param locationMessage */",
           "setterMethodName" : "setLocationMessage",
           "setterModel" : {
@@ -7353,6 +7461,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LogBucket",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param logBucket */",
           "setterMethodName" : "setLogBucket",
           "setterModel" : {
@@ -7419,6 +7528,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "LogKey",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param logKey */",
           "setterMethodName" : "setLogKey",
           "setterModel" : {
@@ -7485,6 +7595,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProgressCode",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param progressCode */",
           "setterMethodName" : "setProgressCode",
           "setterModel" : {
@@ -7551,6 +7662,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ProgressMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param progressMessage */",
           "setterMethodName" : "setProgressMessage",
           "setterModel" : {
@@ -7617,6 +7729,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Signature",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param signature */",
           "setterMethodName" : "setSignature",
           "setterModel" : {
@@ -7683,6 +7796,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SignatureFileContents",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param signatureFileContents */",
           "setterMethodName" : "setSignatureFileContents",
           "setterModel" : {
@@ -7749,6 +7863,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "TrackingNumber",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param trackingNumber */",
           "setterMethodName" : "setTrackingNumber",
           "setterModel" : {
@@ -8150,6 +8265,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobId */",
         "setterMethodName" : "setJobId",
         "setterModel" : {
@@ -8215,6 +8331,7 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "CreationDate",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param creationDate */",
         "setterMethodName" : "setCreationDate",
         "setterModel" : {
@@ -8280,6 +8397,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "IsCanceled",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param isCanceled */",
         "setterMethodName" : "setIsCanceled",
         "setterModel" : {
@@ -8345,6 +8463,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
         "setterMethodName" : "setJobType",
         "setterModel" : {
@@ -8412,6 +8531,7 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "CreationDate",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param creationDate */",
           "setterMethodName" : "setCreationDate",
           "setterModel" : {
@@ -8478,6 +8598,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "IsCanceled",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param isCanceled */",
           "setterMethodName" : "setIsCanceled",
           "setterModel" : {
@@ -8544,6 +8665,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobId */",
           "setterMethodName" : "setJobId",
           "setterModel" : {
@@ -8610,6 +8732,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
           "setterMethodName" : "setJobType",
           "setterModel" : {
@@ -8768,6 +8891,7 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxJobs",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param maxJobs */",
         "setterMethodName" : "setMaxJobs",
         "setterModel" : {
@@ -8833,6 +8957,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Marker",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param marker */",
         "setterMethodName" : "setMarker",
         "setterModel" : {
@@ -8898,6 +9023,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "APIVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param aPIVersion */",
         "setterMethodName" : "setAPIVersion",
         "setterModel" : {
@@ -8965,6 +9091,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "APIVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param aPIVersion */",
           "setterMethodName" : "setAPIVersion",
           "setterModel" : {
@@ -9031,6 +9158,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Marker",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param marker */",
           "setterMethodName" : "setMarker",
           "setterModel" : {
@@ -9097,6 +9225,7 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxJobs",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param maxJobs */",
           "setterMethodName" : "setMaxJobs",
           "setterModel" : {
@@ -9236,6 +9365,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -9279,6 +9409,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Jobs",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobs */",
         "setterMethodName" : "setJobs",
         "setterModel" : {
@@ -9344,6 +9475,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "IsTruncated",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param isTruncated */",
         "setterMethodName" : "setIsTruncated",
         "setterModel" : {
@@ -9411,6 +9543,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "IsTruncated",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param isTruncated */",
           "setterMethodName" : "setIsTruncated",
           "setterModel" : {
@@ -9514,6 +9647,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -9557,6 +9691,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Jobs",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobs */",
           "setterMethodName" : "setJobs",
           "setterModel" : {
@@ -9965,6 +10100,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobId",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobId */",
         "setterMethodName" : "setJobId",
         "setterModel" : {
@@ -10030,6 +10166,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Manifest",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param manifest */",
         "setterMethodName" : "setManifest",
         "setterModel" : {
@@ -10095,6 +10232,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "JobType",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
         "setterMethodName" : "setJobType",
         "setterModel" : {
@@ -10160,6 +10298,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "ValidateOnly",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param validateOnly */",
         "setterMethodName" : "setValidateOnly",
         "setterModel" : {
@@ -10225,6 +10364,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "APIVersion",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param aPIVersion */",
         "setterMethodName" : "setAPIVersion",
         "setterModel" : {
@@ -10292,6 +10432,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "APIVersion",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param aPIVersion */",
           "setterMethodName" : "setAPIVersion",
           "setterModel" : {
@@ -10358,6 +10499,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobId",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobId */",
           "setterMethodName" : "setJobId",
           "setterModel" : {
@@ -10424,6 +10566,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "JobType",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param jobType \n@see JobType*/",
           "setterMethodName" : "setJobType",
           "setterModel" : {
@@ -10490,6 +10633,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Manifest",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param manifest */",
           "setterMethodName" : "setManifest",
           "setterModel" : {
@@ -10556,6 +10700,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "ValidateOnly",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param validateOnly */",
           "setterMethodName" : "setValidateOnly",
           "setterModel" : {
@@ -10658,6 +10803,7 @@
         "marshallingTargetClass" : "Boolean",
         "marshallingType" : "BOOLEAN",
         "name" : "Success",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param success */",
         "setterMethodName" : "setSuccess",
         "setterModel" : {
@@ -10723,6 +10869,7 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "WarningMessage",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param warningMessage */",
         "setterMethodName" : "setWarningMessage",
         "setterModel" : {
@@ -10825,6 +10972,7 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
+            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
@@ -10868,6 +11016,7 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "ArtifactList",
+        "sensitive" : false,
         "setterDocumentation" : "/**\n@param artifactList */",
         "setterMethodName" : "setArtifactList",
         "setterModel" : {
@@ -10972,6 +11121,7 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
+              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
@@ -11015,6 +11165,7 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "ArtifactList",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param artifactList */",
           "setterMethodName" : "setArtifactList",
           "setterModel" : {
@@ -11081,6 +11232,7 @@
           "marshallingTargetClass" : "Boolean",
           "marshallingType" : "BOOLEAN",
           "name" : "Success",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param success */",
           "setterMethodName" : "setSuccess",
           "setterModel" : {
@@ -11147,6 +11299,7 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "WarningMessage",
+          "sensitive" : false,
           "setterDocumentation" : "/**\n@param warningMessage */",
           "setterMethodName" : "setWarningMessage",
           "setterModel" : {
@@ -11197,13 +11350,12 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
-  "customAuthorizers" : { },
   "examples" : {
     "examples" : { },
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : "StandardErrorUnmarshaller",
-  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AmazonImportExportException",

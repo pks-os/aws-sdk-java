@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -56,7 +56,7 @@ public class FleetData implements Serializable, Cloneable {
     /**
      * <p>
      * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
-     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.
      * </p>
      * <p>
@@ -154,6 +154,20 @@ public class FleetData implements Serializable, Cloneable {
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Tag> tags;
+    /**
+     * <p>
+     * Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<DescribeFleetError> errors;
+    /**
+     * <p>
+     * Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<DescribeFleetsInstances> instances;
 
     /**
      * <p>
@@ -380,7 +394,7 @@ public class FleetData implements Serializable, Cloneable {
     /**
      * <p>
      * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
-     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.
      * </p>
      * <p>
@@ -390,7 +404,7 @@ public class FleetData implements Serializable, Cloneable {
      * @param clientToken
      *        Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more
      *        information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      *        Idempotency</a>.</p>
      *        <p>
      *        Constraints: Maximum 64 ASCII characters
@@ -403,7 +417,7 @@ public class FleetData implements Serializable, Cloneable {
     /**
      * <p>
      * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
-     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.
      * </p>
      * <p>
@@ -412,7 +426,7 @@ public class FleetData implements Serializable, Cloneable {
      * 
      * @return Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more
      *         information, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     *         href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      *         Idempotency</a>.</p>
      *         <p>
      *         Constraints: Maximum 64 ASCII characters
@@ -425,7 +439,7 @@ public class FleetData implements Serializable, Cloneable {
     /**
      * <p>
      * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
-     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.
      * </p>
      * <p>
@@ -435,7 +449,7 @@ public class FleetData implements Serializable, Cloneable {
      * @param clientToken
      *        Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more
      *        information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     *        href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      *        Idempotency</a>.</p>
      *        <p>
      *        Constraints: Maximum 64 ASCII characters
@@ -1183,7 +1197,170 @@ public class FleetData implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * 
+     * @return Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is
+     *         set to <code>instant</code>.
+     */
+
+    public java.util.List<DescribeFleetError> getErrors() {
+        if (errors == null) {
+            errors = new com.amazonaws.internal.SdkInternalList<DescribeFleetError>();
+        }
+        return errors;
+    }
+
+    /**
+     * <p>
+     * Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * 
+     * @param errors
+     *        Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is
+     *        set to <code>instant</code>.
+     */
+
+    public void setErrors(java.util.Collection<DescribeFleetError> errors) {
+        if (errors == null) {
+            this.errors = null;
+            return;
+        }
+
+        this.errors = new com.amazonaws.internal.SdkInternalList<DescribeFleetError>(errors);
+    }
+
+    /**
+     * <p>
+     * Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setErrors(java.util.Collection)} or {@link #withErrors(java.util.Collection)} if you want to override the
+     * existing values.
+     * </p>
+     * 
+     * @param errors
+     *        Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is
+     *        set to <code>instant</code>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public FleetData withErrors(DescribeFleetError... errors) {
+        if (this.errors == null) {
+            setErrors(new com.amazonaws.internal.SdkInternalList<DescribeFleetError>(errors.length));
+        }
+        for (DescribeFleetError ele : errors) {
+            this.errors.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * 
+     * @param errors
+     *        Information about the instances that could not be launched by the fleet. Valid only when <b>Type</b> is
+     *        set to <code>instant</code>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public FleetData withErrors(java.util.Collection<DescribeFleetError> errors) {
+        setErrors(errors);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * 
+     * @return Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     *         <code>instant</code>.
+     */
+
+    public java.util.List<DescribeFleetsInstances> getInstances() {
+        if (instances == null) {
+            instances = new com.amazonaws.internal.SdkInternalList<DescribeFleetsInstances>();
+        }
+        return instances;
+    }
+
+    /**
+     * <p>
+     * Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * 
+     * @param instances
+     *        Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     *        <code>instant</code>.
+     */
+
+    public void setInstances(java.util.Collection<DescribeFleetsInstances> instances) {
+        if (instances == null) {
+            this.instances = null;
+            return;
+        }
+
+        this.instances = new com.amazonaws.internal.SdkInternalList<DescribeFleetsInstances>(instances);
+    }
+
+    /**
+     * <p>
+     * Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setInstances(java.util.Collection)} or {@link #withInstances(java.util.Collection)} if you want to
+     * override the existing values.
+     * </p>
+     * 
+     * @param instances
+     *        Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     *        <code>instant</code>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public FleetData withInstances(DescribeFleetsInstances... instances) {
+        if (this.instances == null) {
+            setInstances(new com.amazonaws.internal.SdkInternalList<DescribeFleetsInstances>(instances.length));
+        }
+        for (DescribeFleetsInstances ele : instances) {
+            this.instances.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     * <code>instant</code>.
+     * </p>
+     * 
+     * @param instances
+     *        Information about the instances that were launched by the fleet. Valid only when <b>Type</b> is set to
+     *        <code>instant</code>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public FleetData withInstances(java.util.Collection<DescribeFleetsInstances> instances) {
+        setInstances(instances);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1228,7 +1405,11 @@ public class FleetData implements Serializable, Cloneable {
         if (getOnDemandOptions() != null)
             sb.append("OnDemandOptions: ").append(getOnDemandOptions()).append(",");
         if (getTags() != null)
-            sb.append("Tags: ").append(getTags());
+            sb.append("Tags: ").append(getTags()).append(",");
+        if (getErrors() != null)
+            sb.append("Errors: ").append(getErrors()).append(",");
+        if (getInstances() != null)
+            sb.append("Instances: ").append(getInstances());
         sb.append("}");
         return sb.toString();
     }
@@ -1317,6 +1498,14 @@ public class FleetData implements Serializable, Cloneable {
             return false;
         if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
             return false;
+        if (other.getErrors() == null ^ this.getErrors() == null)
+            return false;
+        if (other.getErrors() != null && other.getErrors().equals(this.getErrors()) == false)
+            return false;
+        if (other.getInstances() == null ^ this.getInstances() == null)
+            return false;
+        if (other.getInstances() != null && other.getInstances().equals(this.getInstances()) == false)
+            return false;
         return true;
     }
 
@@ -1343,6 +1532,8 @@ public class FleetData implements Serializable, Cloneable {
         hashCode = prime * hashCode + ((getSpotOptions() == null) ? 0 : getSpotOptions().hashCode());
         hashCode = prime * hashCode + ((getOnDemandOptions() == null) ? 0 : getOnDemandOptions().hashCode());
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
+        hashCode = prime * hashCode + ((getErrors() == null) ? 0 : getErrors().hashCode());
+        hashCode = prime * hashCode + ((getInstances() == null) ? 0 : getInstances().hashCode());
         return hashCode;
     }
 

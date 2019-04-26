@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -55,8 +55,8 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
     private String keyId;
     /**
      * <p>
-     * The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more
-     * information, see <a
+     * The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
+     * more information, see <a
      * href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
      * Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
@@ -240,15 +240,15 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more
-     * information, see <a
+     * The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
+     * more information, see <a
      * href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
      * Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
      * 
      * @param wrappingAlgorithm
-     *        The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
-     *        more information, see <a
+     *        The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
+     *        For more information, see <a
      *        href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html"
      *        >Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * @see AlgorithmSpec
@@ -260,14 +260,14 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more
-     * information, see <a
+     * The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
+     * more information, see <a
      * href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
      * Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
      * 
-     * @return The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
-     *         more information, see <a
+     * @return The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
+     *         For more information, see <a
      *         href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html"
      *         >Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * @see AlgorithmSpec
@@ -279,15 +279,15 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more
-     * information, see <a
+     * The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
+     * more information, see <a
      * href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
      * Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
      * 
      * @param wrappingAlgorithm
-     *        The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
-     *        more information, see <a
+     *        The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
+     *        For more information, see <a
      *        href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html"
      *        >Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -301,15 +301,15 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more
-     * information, see <a
+     * The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
+     * more information, see <a
      * href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
      * Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
      * 
      * @param wrappingAlgorithm
-     *        The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
-     *        more information, see <a
+     *        The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
+     *        For more information, see <a
      *        href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html"
      *        >Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * @see AlgorithmSpec
@@ -321,15 +321,15 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more
-     * information, see <a
+     * The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
+     * more information, see <a
      * href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the
      * Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * </p>
      * 
      * @param wrappingAlgorithm
-     *        The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For
-     *        more information, see <a
+     *        The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
+     *        For more information, see <a
      *        href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html"
      *        >Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -420,7 +420,8 @@ public class GetParametersForImportRequest extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

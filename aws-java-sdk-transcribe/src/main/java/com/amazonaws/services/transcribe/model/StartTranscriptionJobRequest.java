@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,8 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within an AWS
-     * account.
+     * The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must
+     * also be unique within an AWS account.
      * </p>
      */
     private String transcriptionJobName;
@@ -69,6 +69,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      * >Permissions Required for IAM User Roles</a>.
      * </p>
      * <p>
+     * Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in
+     * your S3 bucket. You can't specify your own encryption key.
+     * </p>
+     * <p>
      * If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL
      * that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field.
      * Use this URL to download the transcription.
@@ -84,13 +88,13 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within an AWS
-     * account.
+     * The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must
+     * also be unique within an AWS account.
      * </p>
      * 
      * @param transcriptionJobName
-     *        The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within
-     *        an AWS account.
+     *        The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The
+     *        name must also be unique within an AWS account.
      */
 
     public void setTranscriptionJobName(String transcriptionJobName) {
@@ -99,12 +103,12 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within an AWS
-     * account.
+     * The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must
+     * also be unique within an AWS account.
      * </p>
      * 
-     * @return The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique
-     *         within an AWS account.
+     * @return The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The
+     *         name must also be unique within an AWS account.
      */
 
     public String getTranscriptionJobName() {
@@ -113,13 +117,13 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within an AWS
-     * account.
+     * The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must
+     * also be unique within an AWS account.
      * </p>
      * 
      * @param transcriptionJobName
-     *        The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within
-     *        an AWS account.
+     *        The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The
+     *        name must also be unique within an AWS account.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -339,6 +343,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      * >Permissions Required for IAM User Roles</a>.
      * </p>
      * <p>
+     * Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in
+     * your S3 bucket. You can't specify your own encryption key.
+     * </p>
+     * <p>
      * If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL
      * that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field.
      * Use this URL to download the transcription.
@@ -353,6 +361,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      *        put files in the bucket. For more information, see <a href=
      *        "https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user"
      *        >Permissions Required for IAM User Roles</a>.
+     *        </p>
+     *        <p>
+     *        Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed
+     *        in your S3 bucket. You can't specify your own encryption key.
      *        </p>
      *        <p>
      *        If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a
@@ -377,6 +389,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      * >Permissions Required for IAM User Roles</a>.
      * </p>
      * <p>
+     * Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in
+     * your S3 bucket. You can't specify your own encryption key.
+     * </p>
+     * <p>
      * If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL
      * that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field.
      * Use this URL to download the transcription.
@@ -390,6 +406,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      *         Transcribe to put files in the bucket. For more information, see <a href=
      *         "https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user"
      *         >Permissions Required for IAM User Roles</a>.
+     *         </p>
+     *         <p>
+     *         Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are
+     *         placed in your S3 bucket. You can't specify your own encryption key.
      *         </p>
      *         <p>
      *         If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a
@@ -414,6 +434,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      * >Permissions Required for IAM User Roles</a>.
      * </p>
      * <p>
+     * Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in
+     * your S3 bucket. You can't specify your own encryption key.
+     * </p>
+     * <p>
      * If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL
      * that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field.
      * Use this URL to download the transcription.
@@ -428,6 +452,10 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
      *        put files in the bucket. For more information, see <a href=
      *        "https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user"
      *        >Permissions Required for IAM User Roles</a>.
+     *        </p>
+     *        <p>
+     *        Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed
+     *        in your S3 bucket. You can't specify your own encryption key.
      *        </p>
      *        <p>
      *        If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a
@@ -482,7 +510,8 @@ public class StartTranscriptionJobRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
